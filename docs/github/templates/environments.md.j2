@@ -1,0 +1,128 @@
+# Environment Infrastructure Setup Guide
+
+## Environment Configuration
+
+### Prerequisites
+- GitHub repository with appropriate permissions
+- GitHub Actions enabled
+- Required secrets configured
+
+### Step 1: Configure Environments
+1. Go to repository Settings > Environments
+2. Create environments:
+   - Development
+   - Staging
+   - Production
+
+![Environment Setup]({{ config.images.environments }})
+
+### Step 2: Set Up Deployment Rules
+1. Configure environment protection rules:
+   - Required reviewers
+   - Wait timer
+   - Branch restrictions
+
+2. Set up deployment workflow:
+```yaml
+# .github/workflows/deploy.yml
+name: Deploy
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref == 'refs/heads/main' && 'production' || 'staging' }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Deploy
+      run: |
+        echo "Deploying to ${{ env.ENVIRONMENT }}"
+```
+
+![Deployment Rules]({{ config.images.deployment_rules }})
+
+### Step 3: Configure Environment Protection
+1. Set up environment secrets:
+   - `DEPLOY_KEY`
+   - `ENVIRONMENT_URLS`
+   - `API_KEYS`
+
+2. Configure environment variables:
+```yaml
+# .github/workflows/environment-vars.yml
+name: Set Environment Variables
+on:
+  workflow_dispatch:
+
+jobs:
+  set-vars:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set variables
+      run: |
+        echo "ENVIRONMENT=${{ github.event.inputs.environment }}" >> $GITHUB_ENV
+```
+
+![Environment Protection]({{ config.images.environment_protection }})
+
+## Verification Steps
+
+### Environment Setup Verification
+1. Create test environment
+2. Verify protection rules
+3. Check deployment workflow
+4. Confirm environment variables
+
+### Deployment Verification
+1. Test deployment to each environment
+2. Verify environment variables
+3. Check deployment logs
+4. Validate deployment artifacts
+
+### Protection Verification
+1. Test branch restrictions
+2. Verify reviewer requirements
+3. Check wait timer
+4. Confirm secret access
+
+## Troubleshooting
+
+### Common Issues
+1. **Deployment Failures**
+   - Check deployment logs
+   - Verify environment setup
+   - Confirm secret configuration
+
+2. **Environment Issues**
+   - Review environment settings
+   - Check protection rules
+   - Verify variable access
+
+3. **Workflow Issues**
+   - Check workflow logs
+   - Verify environment selection
+   - Confirm job configuration
+
+## Maintenance
+
+### Regular Tasks
+1. Update environment configurations
+2. Review protection rules
+3. Rotate environment secrets
+4. Audit environment access
+
+### Environment Updates
+1. Review environment settings
+2. Update deployment workflows
+3. Rotate environment variables
+4. Audit environment logs
+
+## Additional Resources
+- [GitHub Environments Documentation](https://docs.github.com/en/actions/deployment/targeting-different-environments)
+- [Deployment Guide]({{ config.links.deployment_guide }})
+- [Environment Protection Guide]({{ config.links.environments_guide }})
+
+Last Updated: {{ last_updated }}

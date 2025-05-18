@@ -43,7 +43,13 @@ jobs:
       run: |
         python scripts/generate_html_guides.py
 
-    - name: Capture screenshots
+    - name: Capture environment screenshots
+      run: |
+        python scripts/capture_environment_screenshots.py --token ${{ secrets.GITHUB_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Capture other screenshots
       run: |
         python scripts/capture_screenshots.py
       env:
