@@ -1,0 +1,104 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Legal Education Project Navigation
+
+This project follows a structured approach to self-directed legal education. The main components are organized as follows:
+
+## Research and Documentation
+The [.research/README.md](mdc:.research/README.md) serves as the master index for all study domains. Key areas include:
+- Core legal knowledge
+- Legal skills development
+- Practice areas
+- Study methodology
+
+## Job Management
+The [.jobs/README.md](mdc:.jobs/README.md) contains all task checklists and requirements. Jobs are tracked through:
+- Active jobs
+- Completed tasks
+- Progress metrics
+- Quality standards
+
+## Quality Assurance
+Quality standards are defined in [.qa/rubrics/README.md](mdc:.qa/rubrics/README.md) and include:
+- Assessment rubrics
+- Progress tracking
+- Performance metrics
+- Documentation standards
+
+## Experimentation
+Learning experiments are documented in [.experiments/README.md](mdc:.experiments/README.md) with:
+- Learning methods
+- Job completion
+- Skill development
+- Progress tracking
+
+## Prompts System
+Prompt templates are managed in [.prompts/README.md](mdc:.prompts/README.md) covering:
+- Research development
+- Job creation
+- Learning materials
+- Assessment tools
+
+## Testing Framework
+Tests are organized in [.tests/README.md](mdc:.tests/README.md) including:
+- Knowledge assessment
+- Skill evaluation
+- Progress tracking
+- Performance metrics
+
+## Error Tracking
+Errors and improvements are logged in [.errors/error_tracking.md](mdc:.errors/error_tracking.md) with:
+- Error categories
+- Analysis process
+- Learning integration
+- Quality improvement
+
+## File Organization
+```
+.research/           # Research and study materials
+  core_knowledge/    # Core legal subjects
+  legal_skills/     # Legal practice skills
+  practice_areas/   # Legal practice areas
+  study_methodology/# Study approaches
+
+.jobs/              # Task checklists
+  active/           # Current jobs
+  history/          # Completed jobs
+  templates/        # Job templates
+
+.qa/                # Quality assurance
+  rubrics/          # Assessment rubrics
+  checklists/       # Quality checklists
+  standards/        # Quality standards
+
+.experiments/       # Learning experiments
+  tracking/         # Progress tracking
+  methods/          # Study methods
+  results/          # Experiment results
+
+.prompts/           # Prompt templates
+  research/         # Research prompts
+  jobs/             # Job prompts
+  assessment/       # Assessment prompts
+
+.tests/             # Testing materials
+  knowledge/        # Knowledge tests
+  skills/           # Skill assessments
+  progress/         # Progress tracking
+
+.errors/            # Error tracking
+  logs/             # Error logs
+  analysis/         # Error analysis
+  improvements/     # Improvement plans
+```
+
+## Navigation Guidelines
+1. Start with research domain in [.research/README.md](mdc:.research/README.md)
+2. Check job requirements in [.jobs/README.md](mdc:.jobs/README.md)
+3. Follow quality standards in [.qa/rubrics/README.md](mdc:.qa/rubrics/README.md)
+4. Document progress in [.experiments/README.md](mdc:.experiments/README.md)
+5. Use prompts from [.prompts/README.md](mdc:.prompts/README.md)
+6. Track errors in [.errors/error_tracking.md](mdc:.errors/error_tracking.md)

@@ -1,0 +1,132 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Laravel Test Environment Configuration
+
+## Environment Setup
+- Use `.env.testing` for test environment
+- Configure test database
+- Set up test services
+- Configure test mail
+- Configure test queue
+
+## Test Database
+```php
+// config/database.php
+'testing' => [
+    'driver' => 'sqlite',
+    'database' => ':memory:',
+    'prefix' => '',
+],
+```
+
+## Service Configuration
+```php
+// config/services.php
+'testing' => [
+    'mail' => [
+        'driver' => 'array',
+    ],
+    'queue' => [
+        'default' => 'sync',
+    ],
+    'cache' => [
+        'driver' => 'array',
+    ],
+],
+```
+
+## Test Data Management
+```php
+// Example test data setup
+protected function setUp(): void
+{
+    parent::setUp();
+
+    // Create test data
+    $this->user = User::factory()->create();
+    $this->token = $this->user->createToken('test-token');
+
+    // Configure test environment
+    Config::set('app.env', 'testing');
+    Event::fake();
+    Mail::fake();
+    Queue::fake();
+}
+```
+
+## Performance Monitoring
+```php
+// Example performance test
+public function test_route_performance()
+{
+    $start = microtime(true);
+
+    $response = $this->getJson('/api/endpoint');
+
+    $duration = microtime(true) - $start;
+
+    $this->assertLessThan(0.5, $duration);
+    $response->assertStatus(200);
+}
+```
+
+## Medical-Grade Requirements
+1. **Environment Isolation**
+   - Test database is separate
+   - Test services are isolated
+   - Test data is isolated
+   - Test cache is isolated
+   - Test queue is isolated
+
+2. **Data Management**
+   - Test data is created fresh
+   - Test data is cleaned up
+   - Test data is isolated
+   - Test data is consistent
+   - Test data is documented
+
+3. **Service Configuration**
+   - Mail is faked
+   - Queue is faked
+   - Cache is faked
+   - Events are faked
+   - Notifications are faked
+
+4. **Performance Requirements**
+   - Response time < 500ms
+   - Memory usage < 128MB
+   - Database queries < 10
+   - Cache hits > 80%
+   - Queue jobs < 5
+
+## Best Practices
+1. **Environment Setup**
+   - Use separate test environment
+   - Configure test services
+   - Set up test database
+   - Configure test mail
+   - Configure test queue
+
+2. **Data Management**
+   - Create fresh test data
+   - Clean up test data
+   - Isolate test data
+   - Document test data
+   - Version test data
+
+3. **Service Configuration**
+   - Fake external services
+   - Mock internal services
+   - Configure test services
+   - Document service config
+   - Version service config
+
+4. **Performance Testing**
+   - Test response time
+   - Test memory usage
+   - Test database queries
+   - Test cache usage
+   - Test queue usage

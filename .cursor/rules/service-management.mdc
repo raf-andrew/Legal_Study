@@ -1,0 +1,14 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Codespaces Service Management
+
+- Service management is handled by classes in `app/Services/`.
+- Service providers are registered in `config/app.php` under the `providers` array.
+- Each service (e.g., MySQL, Redis) has a config file in `.codespaces/services/` (e.g., `mysql.json`, `redis.json`).
+- The [CodespacesServiceManager](mdc:app/Services/CodespacesServiceManager.php) manages enabling/disabling and config overrides.
+- The [CodespacesHealthCheck](mdc:app/Services/CodespacesHealthCheck.php) handles health checks and status.
+- The [CodespacesLifecycleManager](mdc:app/Services/CodespacesLifecycleManager.php) manages service creation, teardown, and healing.
+- The [ManageCodespaces](mdc:app/Console/Commands/ManageCodespaces.php) command provides CLI access to all service management features.

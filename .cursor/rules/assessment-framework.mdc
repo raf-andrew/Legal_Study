@@ -1,0 +1,86 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Assessment and Testing Framework
+
+## Test Structure
+All test materials should follow the structure demonstrated in [.tests/criminal_law/homicide_test.md](mdc:.tests/criminal_law/homicide_test.md):
+
+## Question Types
+```yaml
+Multiple Choice:
+  - Clear stem
+  - 4-5 options
+  - Single correct answer
+  - Detailed explanation
+  - Reference materials
+
+Essay:
+  - Complex fact pattern
+  - Multiple issues
+  - Detailed rubric
+  - Sample answer
+  - Reference cases
+
+Short Answer:
+  - Focused concept
+  - Clear parameters
+  - Point allocation
+  - Grading criteria
+```
+
+## Grading Standards
+```yaml
+Rubric Components:
+  - Issue Identification
+  - Rule Statement
+  - Analysis
+  - Organization
+  - Citations
+
+Point Distribution:
+  Multiple Choice: 30%
+  Essays: 40%
+  Short Answer: 30%
+
+Passing Requirements:
+  - Overall: 70%
+  - Per Section: 60%
+  - All Elements Required
+```
+
+## Assessment Tools
+1. Knowledge Testing:
+   - Subject matter comprehension
+   - Legal principles application
+   - Case law understanding
+   - Statutory interpretation
+
+2. Skills Assessment:
+   - Legal analysis
+   - Issue spotting
+   - Rule application
+   - Policy analysis
+
+## Implementation Guidelines
+1. Test Administration:
+   - Clear instructions
+   - Time management
+   - Resource access
+   - Break schedule
+
+2. Grading Process:
+   - Objective scoring
+   - Rubric application
+   - Quality control
+   - Feedback generation
+
+## Documentation Requirements
+Every test document must include:
+1. Test overview
+2. Learning objectives
+3. Grading criteria
+4. Implementation notes
+5. Reference materials

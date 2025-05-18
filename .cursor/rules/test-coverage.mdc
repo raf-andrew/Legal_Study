@@ -1,0 +1,88 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Test Coverage Requirements
+
+## Overview
+
+The checklist automation system requires 100% test coverage for checklist items to be marked as completed. This is managed by the test tracking system in [scripts/test_tracker.py](mdc:scripts/test_tracker.py).
+
+## Coverage Requirements
+
+1. **Minimum Coverage**
+   - 100% coverage required for completion
+   - Tracked per checklist item
+   - Updated automatically by test results
+
+2. **Test Results**
+   - Must include coverage percentage
+   - Must be associated with checklist items
+   - Stored in test tracking system
+
+3. **Completion Criteria**
+   - All tests must pass
+   - Coverage must reach 100%
+   - No failing tests allowed
+
+## Test Structure
+
+Tests should be organized to match checklist items:
+
+```python
+def test_checklist_item():
+    # Test implementation
+    result = TestResult(
+        test_name="test_name",
+        status="passed",
+        coverage=100.0,
+        timestamp=datetime.now().isoformat(),
+        details={"duration": 1.5, "assertions": 10},
+        checklist_items=["CHECKLIST-ITEM-ID"]
+    )
+    tracker.record_test_result(result)
+```
+
+## Coverage Tracking
+
+The system tracks coverage through:
+
+1. **Test Results**
+   - Recorded in [scripts/test_tracker.py](mdc:scripts/test_tracker.py)
+   - Stored in JSON format
+   - Updated automatically
+
+2. **Checklist Updates**
+   - Managed by [scripts/update_checklist_files.py](mdc:scripts/update_checklist_files.py)
+   - Updates checkboxes based on coverage
+   - Preserves checklist structure
+
+3. **GitHub Integration**
+   - Automated by [.github/workflows/checklist-automation.yml](mdc:.github/workflows/checklist-automation.yml)
+   - Runs tests on changes
+   - Updates checklists automatically
+
+## Best Practices
+
+1. **Test Organization**
+   - Group tests by checklist item
+   - Use clear test names
+   - Include coverage information
+
+2. **Coverage Goals**
+   - Aim for 100% coverage
+   - Test edge cases
+   - Verify all requirements
+
+3. **Maintenance**
+   - Update tests as requirements change
+   - Remove obsolete tests
+   - Add new tests as needed
+
+## Integration
+
+The coverage system integrates with:
+- [scripts/test_tracker.py](mdc:scripts/test_tracker.py) for tracking
+- [scripts/update_checklist_files.py](mdc:scripts/update_checklist_files.py) for updates
+- [.github/workflows/checklist-automation.yml](mdc:.github/workflows/checklist-automation.yml) for automation

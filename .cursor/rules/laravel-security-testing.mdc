@@ -1,0 +1,159 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Laravel Security Testing Standards
+
+## Authentication Testing
+1. Sanctum Token Validation
+   ```php
+   /** @test */
+   public function test_invalid_token_returns_401()
+   {
+       $response = $this->withHeaders([
+           'Authorization' => 'Bearer invalid-token'
+       ])->getJson('/api/user');
+
+       $response->assertStatus(401)
+           ->assertJson([
+               'message' => 'Unauthenticated'
+           ]);
+   }
+   ```
+
+2. Token Expiration
+   ```php
+   /** @test */
+   public function test_expired_token_returns_401()
+   {
+       $token = $this->createExpiredToken();
+
+       $response = $this->withHeaders([
+           'Authorization' => 'Bearer ' . $token
+       ])->getJson('/api/user');
+
+       $response->assertStatus(401);
+   }
+   ```
+
+## Rate Limiting
+1. Request Limits
+   ```php
+   /** @test */
+   public function test_rate_limit_enforced()
+   {
+       for ($i = 0; $i < 61; $i++) {
+           $response = $this->getJson('/api/endpoint');
+       }
+
+       $response->assertStatus(429)
+           ->assertHeader('X-RateLimit-Limit', 60);
+   }
+   ```
+
+2. Rate Limit Headers
+   ```php
+   /** @test */
+   public function test_rate_limit_headers_present()
+   {
+       $response = $this->getJson('/api/endpoint');
+
+       $response->assertHeader('X-RateLimit-Limit')
+           ->assertHeader('X-RateLimit-Remaining')
+           ->assertHeader('X-RateLimit-Reset');
+   }
+   ```
+
+## Input Validation
+1. Required Fields
+   ```php
+   /** @test */
+   public function test_required_fields_validation()
+   {
+       $response = $this->postJson('/api/endpoint', []);
+
+       $response->assertStatus(422)
+           ->assertJsonValidationErrors(['field']);
+   }
+   ```
+
+2. Field Format
+   ```php
+   /** @test */
+   public function test_field_format_validation()
+   {
+       $response = $this->postJson('/api/endpoint', [
+           'email' => 'invalid-email'
+       ]);
+
+       $response->assertStatus(422)
+           ->assertJsonValidationErrors(['email']);
+   }
+   ```
+
+## Data Protection
+1. Sensitive Data
+   ```php
+   /** @test */
+   public function test_sensitive_data_not_exposed()
+   {
+       $response = $this->getJson('/api/user');
+
+       $response->assertJsonMissing([
+           'password',
+           'remember_token',
+           'api_token'
+       ]);
+   }
+   ```
+
+2. Data Access
+   ```php
+   /** @test */
+   public function test_unauthorized_data_access()
+   {
+       $otherUser = User::factory()->create();
+
+       $response = $this->getJson("/api/users/{$otherUser->id}");
+
+       $response->assertStatus(403);
+   }
+   ```
+
+## Medical-Grade Security Requirements
+1. Authentication
+   - Token validation
+   - Token expiration
+   - Token refresh
+   - Session management
+
+2. Authorization
+   - Role-based access
+   - Permission checks
+   - Resource ownership
+   - Data privacy
+
+3. Rate Limiting
+   - Request limits
+   - Time windows
+   - IP-based limits
+   - User-based limits
+
+4. Input Validation
+   - Required fields
+   - Field formats
+   - Data types
+   - Business rules
+
+5. Data Protection
+   - Sensitive data
+   - Data access
+   - Data encryption
+   - Data retention
+
+6. Error Handling
+   - Secure error messages
+   - No information leakage
+   - Proper logging
+   - Audit trails

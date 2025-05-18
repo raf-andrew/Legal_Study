@@ -1,0 +1,141 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Error Handling Guidelines
+
+## Overview
+
+The MCP server implements comprehensive error handling defined in [sniffing/mcp/server/routes.py](mdc:sniffing/mcp/server/routes.py). This guide outlines error handling requirements and patterns.
+
+## Error Models
+
+### ErrorLog Model
+```python
+class ErrorLog:
+    level: str
+    message: str
+    context: Optional[Dict]
+```
+
+### NotificationSettings Model
+```python
+class NotificationSettings:
+    level: str
+    channels: List[str]
+    recipients: List[str]
+```
+
+## Error Categories
+
+### 1. System Errors
+- Resource exhaustion
+- Service unavailability
+- Configuration issues
+- Network problems
+
+### 2. Application Errors
+- Invalid input
+- Processing failures
+- State inconsistencies
+- Timeout errors
+
+### 3. Business Logic Errors
+- Validation failures
+- Rule violations
+- Constraint breaches
+- Workflow errors
+
+## Error Handling Routes
+
+### Logging
+- `/error-handling/log` - Log errors
+- `/error-handling/patterns` - Get error patterns
+- `/error-handling/aggregate` - Get aggregated errors
+
+### Resolution
+- `/error-handling/resolve` - Resolve errors
+- `/error-handling/recover` - Recover from errors
+- `/error-handling/errors/{error_id}` - Get error details
+
+### Monitoring
+- `/error-handling/health` - Check error service health
+- `/error-handling/metrics` - Get error metrics
+- `/error-handling/notifications/settings` - Set notification settings
+
+## Error Patterns
+
+### 1. Logging Pattern
+```python
+try:
+    # Operation
+except Exception as e:
+    error = ErrorLog(
+        level="error",
+        message=str(e),
+        context={"operation": "name", "details": {}}
+    )
+    await log_error(error)
+```
+
+### 2. Recovery Pattern
+```python
+async def recover_error(recovery: Dict):
+    # Recovery logic
+    return {
+        "status": "recovery_started",
+        "recovery_id": "id"
+    }
+```
+
+### 3. Notification Pattern
+```python
+async def set_error_notifications(settings: NotificationSettings):
+    # Notification configuration
+    return {
+        "status": "updated",
+        "settings": settings.dict()
+    }
+```
+
+## Best Practices
+
+1. **Error Logging**
+   - Use appropriate error levels
+   - Include relevant context
+   - Follow consistent format
+
+2. **Error Recovery**
+   - Implement retry logic
+   - Handle partial failures
+   - Maintain state consistency
+
+3. **Error Monitoring**
+   - Track error patterns
+   - Monitor error rates
+   - Set up alerts
+
+## Testing Requirements
+
+1. **Error Scenarios**
+   - Test all error types
+   - Verify error logging
+   - Check error recovery
+
+2. **Notification System**
+   - Test notification delivery
+   - Verify recipient lists
+   - Check channel configuration
+
+3. **Error Metrics**
+   - Test metric collection
+   - Verify aggregation
+   - Check reporting
+
+## Integration
+
+The error handling system integrates with:
+- [scripts/test_tracker.py](mdc:scripts/test_tracker.py) for tracking
+- [scripts/update_checklist_files.py](mdc:scripts/update_checklist_files.py) for updates
+- [.github/workflows/checklist-automation.yml](mdc:.github/workflows/checklist-automation.yml) for automation

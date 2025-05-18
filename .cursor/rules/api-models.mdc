@@ -1,0 +1,159 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# API Models and Data Structures
+
+## Overview
+
+The MCP server defines several data models in [sniffing/mcp/server/routes.py](mdc:sniffing/mcp/server/routes.py). This guide outlines the model structures and their usage.
+
+## Core Models
+
+### AI Models
+```python
+class AIModel:
+    id: str
+    name: str
+    description: str
+
+class AIPrompt:
+    text: str
+    model: str = "default"
+
+class AIResponse:
+    response: str
+    model: str
+    processing_time: float
+```
+
+### Error Models
+```python
+class ErrorLog:
+    level: str
+    message: str
+    context: Optional[Dict] = None
+
+class NotificationSettings:
+    level: str
+    channels: List[str]
+    recipients: List[str]
+```
+
+### Monitoring Models
+```python
+class AlertConfig:
+    metric: str
+    threshold: float
+    condition: str
+    duration: str
+    severity: str
+    channels: List[str]
+```
+
+## Model Usage
+
+### 1. AI Processing
+```python
+# Create prompt
+prompt = AIPrompt(
+    text="Process this text",
+    model="gpt-4"
+)
+
+# Get response
+response = AIResponse(
+    response="Processed text",
+    model="gpt-4",
+    processing_time=0.5
+)
+```
+
+### 2. Error Handling
+```python
+# Log error
+error = ErrorLog(
+    level="error",
+    message="Processing failed",
+    context={"operation": "text_processing"}
+)
+
+# Configure notifications
+settings = NotificationSettings(
+    level="error",
+    channels=["email", "slack"],
+    recipients=["admin@example.com"]
+)
+```
+
+### 3. Monitoring
+```python
+# Configure alert
+alert = AlertConfig(
+    metric="error_rate",
+    threshold=0.01,
+    condition="greater_than",
+    duration="5m",
+    severity="critical",
+    channels=["email", "slack"]
+)
+```
+
+## Best Practices
+
+1. **Model Validation**
+   - Validate required fields
+   - Check field types
+   - Handle optional fields
+
+2. **Data Consistency**
+   - Maintain model structure
+   - Update related models
+   - Handle model changes
+
+3. **Error Handling**
+   - Validate model data
+   - Handle missing fields
+   - Provide clear errors
+
+## Testing Requirements
+
+1. **Model Testing**
+   - Test field validation
+   - Verify model creation
+   - Check error handling
+
+2. **Integration Testing**
+   - Test model interactions
+   - Verify data flow
+   - Check consistency
+
+3. **Edge Cases**
+   - Test optional fields
+   - Verify type handling
+   - Check boundary values
+
+## Integration
+
+The model system integrates with:
+- [scripts/test_tracker.py](mdc:scripts/test_tracker.py) for tracking
+- [scripts/update_checklist_files.py](mdc:scripts/update_checklist_files.py) for updates
+- [.github/workflows/checklist-automation.yml](mdc:.github/workflows/checklist-automation.yml) for automation
+
+## Documentation
+
+1. **Model Documentation**
+   - Document field types
+   - Explain relationships
+   - Provide examples
+
+2. **Usage Examples**
+   - Show common patterns
+   - Demonstrate validation
+   - Illustrate error handling
+
+3. **Best Practices**
+   - Document guidelines
+   - Show patterns
+   - Explain trade-offs

@@ -1,0 +1,82 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Testing and Integration Guide
+
+The sniffing infrastructure includes comprehensive testing and integration capabilities to ensure reliability and extensibility.
+
+## Test Structure
+
+### Core Tests
+- Sniffing Loop: [mcp/tests/sniffing/test_sniffing_loop.py](mdc:mcp/tests/sniffing/test_sniffing_loop.py)
+- Result Manager: [mcp/tests/sniffing/test_result_manager.py](mdc:mcp/tests/sniffing/test_result_manager.py)
+- Git Workflow: [mcp/tests/sniffing/test_git_workflow.py](mdc:mcp/tests/sniffing/test_git_workflow.py)
+
+### Domain Tests
+- Security Sniffer: [mcp/tests/sniffing/test_security_sniffer.py](mdc:mcp/tests/sniffing/test_security_sniffer.py)
+- Browser Sniffer: [mcp/tests/sniffing/test_browser_sniffer.py](mdc:mcp/tests/sniffing/test_browser_sniffer.py)
+
+### Integration Tests
+- API Integration: [mcp/tests/sniffing/test_api_integration.py](mdc:mcp/tests/sniffing/test_api_integration.py)
+- CI/CD Integration: [mcp/tests/sniffing/test_ci_cd_integration.py](mdc:mcp/tests/sniffing/test_ci_cd_integration.py)
+
+## Testing Best Practices
+
+1. Test Coverage Requirements:
+- Core components: 100% coverage
+- Domain sniffers: 90% coverage
+- Integration points: 80% coverage
+
+2. Test Categories:
+- Unit tests for individual components
+- Integration tests for workflows
+- Performance tests for critical paths
+- Simulation tests for domain logic
+
+3. Test Fixtures:
+```python
+@pytest.fixture
+def config() -> MCPConfig:
+    """Create test configuration."""
+    return MCPConfig({
+        "domains": {...},
+        "logging": {...}
+    })
+
+@pytest.fixture
+async def sniffer(config: MCPConfig):
+    """Create test sniffer."""
+    sniffer = DomainSniffer(config)
+    await sniffer.start()
+    yield sniffer
+    await sniffer.stop()
+```
+
+4. Test Patterns:
+- Use async/await for asynchronous tests
+- Implement proper cleanup in fixtures
+- Use temporary files/directories
+- Mock external dependencies
+- Test error conditions
+
+## Integration Guidelines
+
+1. API Integration:
+- Implement authentication
+- Handle rate limiting
+- Validate request/response
+- Test error scenarios
+
+2. CI/CD Integration:
+- Support multiple providers
+- Handle async operations
+- Provide status updates
+- Generate reports
+
+3. Git Integration:
+- Implement hooks properly
+- Handle large changesets
+- Provide meaningful feedback
+- Support configuration

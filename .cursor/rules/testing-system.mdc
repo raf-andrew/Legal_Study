@@ -1,0 +1,71 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Testing System
+
+- All feature tests are in `tests/Feature/`.
+- The main test base class is `Tests\TestCase` (should bootstrap the Laravel app).
+- Service management, health, and lifecycle are tested in:
+  - [CodespacesServiceTest.php](mdc:tests/Feature/CodespacesServiceTest.php)
+  - [CodespacesHealthTest.php](mdc:tests/Feature/CodespacesHealthTest.php)
+  - [CodespacesLifecycleTest.php](mdc:tests/Feature/CodespacesLifecycleTest.php)
+- Run tests with `php artisan test` for proper Laravel context.
+- Test results and logs are typically stored in `.codespaces/verification/`, `.codespaces/complete/`, and `.codespaces/logs/`.
+
+## Test Types
+
+### Service Management Tests
+[CodespacesServiceTest](mdc:tests/Feature/CodespacesServiceTest.php) verifies:
+- Service configuration management
+- Service enabling/disabling
+- Configuration overrides
+- Service state persistence
+
+### Health Check Tests
+[CodespacesHealthTest](mdc:tests/Feature/CodespacesHealthTest.php) verifies:
+- Service health monitoring
+- Health check logging
+- Service verification
+- Automatic rebuilding
+
+### Lifecycle Tests
+[CodespacesLifecycleTest](mdc:tests/Feature/CodespacesLifecycleTest.php) verifies:
+- Service creation and teardown
+- State persistence
+- Service healing
+- Configuration loading
+
+## Test Cycle Runner
+The [run_test_cycles.py](mdc:.codespaces/scripts/run_test_cycles.py) script:
+- Runs multiple test cycles
+- Performs health checks
+- Saves test results
+- Updates checklists
+
+## Test Results
+Test results are organized in:
+- `.codespaces/verification/` - Current test results
+- `.codespaces/complete/` - Completed test results
+- `.codespaces/logs/` - Test execution logs
+
+## Test Checklist
+The [feature_tests.md](mdc:.codespaces/checklist/feature_tests.md) tracks:
+- Completed test cycles
+- Test results
+- Health check status
+- Service status
+
+## Running Tests
+Tests can be run using:
+1. Individual test files: `php artisan test tests/Feature/CodespacesServiceTest.php`
+2. All feature tests: `php artisan test tests/Feature`
+3. Test cycles: `python .codespaces/scripts/run_test_cycles.py`
+
+## Test Environment
+The test environment:
+- Uses Docker containers for services
+- Maintains isolated test databases
+- Provides clean state for each test
+- Logs all test activities

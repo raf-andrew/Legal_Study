@@ -1,0 +1,158 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Wireframe Versioning Process
+
+## Overview
+The wireframe versioning process manages the creation, tracking, and relationships between wireframe versions. The process is implemented in the `VersionTracker` class in [wireframe_refinement.py](mdc:.wireframe/testing/wireframe_refinement.py).
+
+## Version Structure
+
+### Directory Structure
+```
+.wireframe/
+  versions/
+    v1/
+      wireframe.html
+      metadata.json
+      screenshots/
+    v2/
+      wireframe.html
+      metadata.json
+      screenshots/
+```
+
+### Metadata Structure
+```json
+{
+  "id": "v1",
+  "timestamp": "2024-03-14T12:00:00Z",
+  "wireframe_path": "versions/v1/wireframe.html",
+  "screenshots": [
+    {
+      "path": "screenshots/v1_desktop.png",
+      "viewport": {
+        "name": "desktop",
+        "width": 1920,
+        "height": 1080
+      }
+    }
+  ],
+  "analysis": {
+    "content_density": 0.7,
+    "line_length": 80,
+    "color_count": 3
+  },
+  "parent_version": null,
+  "steps": [
+    {
+      "type": "version_creation",
+      "timestamp": "2024-03-14T12:00:00Z",
+      "details": {
+        "iteration": 0
+      }
+    }
+  ],
+  "improvements": [],
+  "rejected_improvements": []
+}
+```
+
+## Version Management
+
+### Creating Versions
+```python
+def create_version(self, wireframe_path: str, version_id: Optional[str] = None) -> str:
+    """Create a new version of the wireframe."""
+    if version_id is None:
+        version_id = f"v{len(self.versions) + 1}"
+
+    version_dir = self.versions_dir / version_id
+    version_dir.mkdir(exist_ok=True)
+
+    # Copy wireframe file
+    dest_path = version_dir / "wireframe.html"
+    shutil.copy2(wireframe_path, dest_path)
+
+    # Create metadata
+    version_meta = {
+        "id": version_id,
+        "timestamp": datetime.now().isoformat(),
+        "wireframe_path": str(dest_path),
+        "screenshots": [],
+        "analysis": {},
+        "parent_version": self.current_version,
+        "steps": [],
+        "improvements": [],
+        "rejected_improvements": []
+    }
+
+    # Store metadata
+    with open(version_dir / "metadata.json", "w") as f:
+        json.dump(version_meta, f, indent=2)
+
+    self.versions[version_id] = version_meta
+    self.current_version = version_id
+
+    return version_id
+```
+
+### Tracking Improvements
+```python
+def add_improvement(self, version_id: str, improvement: Dict[str, Any]) -> None:
+    """Add an improvement to a version."""
+    if version_id not in self.versions:
+        raise ValueError(f"Version {version_id} not found")
+
+    # Ensure improvement has required fields
+    if not all(k in improvement for k in ["type", "suggestion", "priority"]):
+        raise ValueError("Improvement must have type, suggestion, and priority")
+
+    # Add improvement to version
+    self.versions[version_id]["improvements"].append(improvement)
+```
+
+### Tracking Screenshots
+```python
+def add_screenshot(self, version_id: str, screenshot_path: str, viewport: dict) -> None:
+    """Add a screenshot to a version."""
+    version = self.get_version_metadata(version_id)
+    if "screenshots" not in version:
+        version["screenshots"] = []
+
+    screenshot_meta = {
+        "path": screenshot_path,
+        "viewport": viewport,
+        "timestamp": datetime.now().isoformat()
+    }
+    version["screenshots"].append(screenshot_meta)
+```
+
+## Version Relationships
+
+### Parent-Child Tracking
+- Each version knows its parent version
+- Parent version is null for initial version
+- Child versions reference parent in metadata
+- Version history can be reconstructed
+
+### Version History
+```python
+def get_version_history(self) -> List[Dict[str, Any]]:
+    """Get complete version history."""
+    return self.versions
+```
+
+## Best Practices
+1. Create unique version IDs
+2. Maintain parent-child relationships
+3. Store all assets with versions
+4. Track all changes in metadata
+5. Include timestamps
+6. Document improvement history
+7. Track rejected improvements
+8. Maintain screenshot history
+9. Record analysis results
+10. Clean up old versions

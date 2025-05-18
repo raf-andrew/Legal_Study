@@ -1,0 +1,135 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Wireframe Testing Process
+
+## Overview
+The wireframe testing process ensures quality and consistency through systematic testing of wireframes. The process is implemented in [test_feature_tests.py](mdc:.wireframe/testing/tests/test_feature_tests.py).
+
+## Test Categories
+
+### Feature Tests
+- Wireframe loading validation
+- HTML structure validation
+- Responsive design testing
+- Screenshot capture verification
+- Report generation testing
+- Option picker interface validation
+
+### Browser Tests
+- Viewport testing at multiple sizes
+- Screenshot comparison
+- Responsive design verification
+- Element detection
+- Layout validation
+
+### Analysis Tests
+- Content density analysis
+- Line length validation
+- Color count optimization
+- Accessibility checks
+- Usability assessment
+
+## Test Implementation
+
+### Feature Test Structure
+```python
+def test_feature_tests(self, mock_run):
+    """Test feature test execution."""
+    wireframe_path = self.create_test_wireframe()
+    version_id = self.loop.version_tracker.create_version(wireframe_path)
+
+    # Run feature tests
+    tests = self.loop._run_feature_tests(version_id)
+
+    # Verify test results
+    self.assertGreater(len(tests), 0)
+    self.assertTrue(any(test["name"] == "Wireframe Load" for test in tests))
+    self.assertTrue(any(test["name"] == "HTML Validation" for test in tests))
+```
+
+### Browser Test Structure
+```python
+def test_browser_tests(self, mock_run):
+    """Test browser testing execution."""
+    wireframe_path = self.create_test_wireframe()
+    version_id = self.loop.version_tracker.create_version(wireframe_path)
+
+    # Run browser tests
+    screenshots = self.loop.capture_screenshots(wireframe_path, version_id)
+
+    # Verify screenshots
+    self.assertEqual(len(screenshots), len(self.loop.config["viewport_sizes"]))
+```
+
+## Test Coverage
+
+### Required Tests
+1. Wireframe Loading
+   - File existence
+   - Content loading
+   - HTML structure
+
+2. HTML Validation
+   - Syntax validation
+   - Structure validation
+   - Accessibility checks
+
+3. Responsive Design
+   - Desktop viewport
+   - Tablet viewport
+   - Mobile viewport
+
+4. Screenshot Capture
+   - Image generation
+   - File storage
+   - Metadata tracking
+
+5. Report Generation
+   - HTML structure
+   - Content inclusion
+   - Interactive elements
+
+6. Option Picker
+   - Interface loading
+   - Option display
+   - Selection handling
+
+## Test Execution
+
+### Manual Testing
+1. Run individual tests:
+```bash
+python -m unittest .wireframe/testing/tests/test_feature_tests.py
+```
+
+2. Run all tests:
+```bash
+python -m unittest discover .wireframe/testing/tests
+```
+
+### Automated Testing
+1. Run with coverage:
+```bash
+coverage run -m unittest discover .wireframe/testing/tests
+coverage report
+```
+
+2. Run with specific test:
+```bash
+python -m unittest .wireframe/testing/tests/test_feature_tests.py -k test_feature_tests
+```
+
+## Best Practices
+1. Write isolated tests
+2. Mock external dependencies
+3. Clean up test resources
+4. Document test cases
+5. Maintain test coverage
+6. Run tests in CI/CD
+7. Review test results
+8. Update tests with changes
+9. Validate test data
+10. Monitor test performance

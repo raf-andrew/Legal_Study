@@ -1,0 +1,126 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# AI Service Integration
+
+## Overview
+
+The MCP server provides AI service integration through endpoints defined in [sniffing/mcp/server/routes.py](mdc:sniffing/mcp/server/routes.py). This guide outlines AI service requirements and integration patterns.
+
+## AI Models
+
+### Model Definition
+```python
+class AIModel:
+    id: str
+    name: str
+    description: str
+```
+
+### Available Models
+- GPT-4
+- GPT-3.5 Turbo
+- Default model
+
+## AI Endpoints
+
+### 1. Model Management
+- `/ai/models` - List available models
+- `/ai/health` - Check AI service health
+- `/ai/metrics` - Get model metrics
+
+### 2. Processing
+- `/ai/process` - Process AI prompts
+- Input validation
+- Response formatting
+- Error handling
+
+## Prompt Processing
+
+### Prompt Model
+```python
+class AIPrompt:
+    text: str
+    model: str = "default"
+```
+
+### Response Model
+```python
+class AIResponse:
+    response: str
+    model: str
+    processing_time: float
+```
+
+## Integration Patterns
+
+### 1. Model Selection
+```python
+async def get_models():
+    return {
+        "models": [
+            {
+                "id": "gpt-4",
+                "name": "GPT-4",
+                "description": "OpenAI's GPT-4 model"
+            }
+        ]
+    }
+```
+
+### 2. Prompt Processing
+```python
+async def process_prompt(prompt: AIPrompt):
+    if not prompt.text:
+        raise HTTPException(status_code=400, detail={"error": "Empty prompt"})
+    if len(prompt.text) > 1000:
+        raise HTTPException(status_code=400, detail={"error": "Prompt too long"})
+    return {
+        "response": "Response text",
+        "model": prompt.model,
+        "processing_time": 0.5
+    }
+```
+
+## Best Practices
+
+1. **Model Selection**
+   - Choose appropriate model
+   - Consider cost and performance
+   - Handle model availability
+
+2. **Prompt Processing**
+   - Validate input length
+   - Check model compatibility
+   - Handle processing errors
+
+3. **Response Handling**
+   - Format responses consistently
+   - Track processing time
+   - Monitor model performance
+
+## Testing Requirements
+
+1. **Model Testing**
+   - Test model availability
+   - Verify model responses
+   - Check error handling
+
+2. **Prompt Testing**
+   - Test input validation
+   - Verify response format
+   - Check processing time
+
+3. **Integration Testing**
+   - Test end-to-end flow
+   - Verify error recovery
+   - Check performance
+
+## Integration
+
+The AI service integrates with:
+- [scripts/test_tracker.py](mdc:scripts/test_tracker.py) for tracking
+- [scripts/update_checklist_files.py](mdc:scripts/update_checklist_files.py) for updates
+- [.github/workflows/checklist-automation.yml](mdc:.github/workflows/checklist-automation.yml) for automation

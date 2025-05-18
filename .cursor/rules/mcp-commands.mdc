@@ -1,0 +1,22 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# MCP Command Structure
+
+The MCP server provides a set of artisan commands for managing and monitoring the platform. The main command implementations are located in the `src/Mcp/Console/Commands/` directory. Each command is paired with a corresponding test in `tests/Mcp/Console/Commands/` to ensure 100% coverage and reliability.
+
+## Key Command Files
+- [McpConfig.php](mdc:src/Mcp/Console/Commands/McpConfig.php): Configuration management (get, set, list, enable, disable, validate)
+- [McpDatabase.php](mdc:src/Mcp/Console/Commands/McpDatabase.php): Database management and monitoring
+- [McpGenerate.php](mdc:src/Mcp/Console/Commands/McpGenerate.php): Code generation
+- [McpShell.php](mdc:src/Mcp/Console/Shell/McpShell.php): Interactive shell interface
+
+## Test Coverage
+- [McpConfigTest.php](mdc:tests/Mcp/Console/Commands/McpConfigTest.php)
+- [McpDatabaseTest.php](mdc:tests/Mcp/Console/Commands/McpDatabaseTest.php)
+- [McpGenerateTest.php](mdc:tests/Mcp/Console/Commands/McpGenerateTest.php)
+- [McpShellTest.php](mdc:tests/Mcp/Console/Shell/McpShellTest.php)
+
+All commands are registered in the [McpServiceProvider.php](mdc:src/Providers/McpServiceProvider.php) and are available when the application is running in console mode.

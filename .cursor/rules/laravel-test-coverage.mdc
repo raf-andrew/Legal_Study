@@ -1,0 +1,117 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Laravel Test Coverage Standards
+
+## Coverage Requirements
+- Minimum 100% line, branch, function, and statement coverage
+- Coverage reports must be generated for all test runs
+- Coverage data must be stored in reports directory
+- Coverage thresholds must be enforced in CI/CD
+
+## Coverage Analysis
+```php
+// Example of line coverage test
+public function test_route_has_full_coverage()
+{
+    $this->assertRouteExists();
+    $this->assertRouteRequiresAuth();
+    $this->assertRouteMethod();
+    $this->assertRouteResponse();
+}
+
+// Example of branch coverage test
+public function test_route_handles_all_conditions()
+{
+    // Test success path
+    $this->assertRouteResponse(200);
+
+    // Test error path
+    $this->assertRouteResponse(401);
+
+    // Test validation path
+    $this->assertRouteValidation();
+}
+```
+
+## Coverage Monitoring
+```yaml
+# Example CI configuration
+coverage:
+  enabled: true
+  thresholds:
+    lines: 100
+    branches: 100
+    functions: 100
+  reports:
+    - html
+    - clover
+    - text
+```
+
+## Medical-Grade Coverage Requirements
+1. **Code Coverage**
+   - 100% line coverage required
+   - 100% branch coverage required
+   - 100% function coverage required
+   - All edge cases must be tested
+   - All error conditions must be tested
+
+2. **Test Quality**
+   - Tests must be deterministic
+   - Tests must be independent
+   - Tests must be maintainable
+   - Tests must be readable
+   - Tests must be documented
+
+3. **Coverage Reports**
+   - HTML reports for visual inspection
+   - Clover XML for CI integration
+   - Text reports for quick review
+   - Coverage trends over time
+   - Coverage by component
+
+4. **Coverage Enforcement**
+   - Pre-commit hooks check coverage
+   - CI/CD pipeline enforces coverage
+   - Coverage reports are archived
+   - Coverage trends are monitored
+   - Coverage regressions are blocked
+
+## Coverage Tools
+- PHPUnit for test execution
+- Xdebug for coverage collection
+- PHP_CodeCoverage for analysis
+- Clover for CI integration
+- HTML reports for inspection
+
+## Coverage Best Practices
+1. **Test Organization**
+   - Group tests by feature
+   - Use descriptive test names
+   - Follow AAA pattern (Arrange, Act, Assert)
+   - Keep tests focused and small
+   - Use data providers for variations
+
+2. **Coverage Analysis**
+   - Review coverage reports regularly
+   - Address coverage gaps immediately
+   - Monitor coverage trends
+   - Document coverage decisions
+   - Maintain coverage documentation
+
+3. **Coverage Maintenance**
+   - Update tests with code changes
+   - Remove obsolete tests
+   - Refactor tests for clarity
+   - Add tests for new features
+   - Review coverage regularly
+
+4. **Coverage Documentation**
+   - Document coverage requirements
+   - Document coverage tools
+   - Document coverage process
+   - Document coverage decisions
+   - Document coverage exceptions

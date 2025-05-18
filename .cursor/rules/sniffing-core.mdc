@@ -1,0 +1,47 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Sniffing Infrastructure Core Components
+
+The MCP (Master Control Program) sniffing infrastructure consists of several key components that work together to provide comprehensive code analysis and testing capabilities.
+
+## Core Components
+
+### Sniffing Loop
+The main sniffing orchestrator is implemented in [mcp/server/sniffing/loop.py](mdc:mcp/server/sniffing/loop.py). This component:
+- Manages continuous and file-specific sniffing
+- Handles file queues and domain-specific queues
+- Provides file-level isolation
+- Implements caching and locking mechanisms
+
+### Result Manager
+Result handling and reporting is managed by [mcp/server/sniffing/manager.py](mdc:mcp/server/sniffing/manager.py), which:
+- Stores and analyzes sniffing results
+- Generates comprehensive reports
+- Handles result caching
+- Provides metrics collection
+
+### Git Workflow
+Git integration is implemented in [mcp/server/sniffing/workflow.py](mdc:mcp/server/sniffing/workflow.py), providing:
+- Pre-commit and pre-push hooks
+- Branch-specific analysis
+- Issue fixing automation
+- Status reporting
+
+## Base Infrastructure
+The foundational sniffing capabilities are defined in [mcp/server/sniffing/base.py](mdc:mcp/server/sniffing/base.py), which provides:
+- Abstract base sniffer class
+- Common sniffing utilities
+- Standardized result formats
+- Metric collection interfaces
+
+## Best Practices
+When working with the sniffing infrastructure:
+1. Always use the base sniffer class for new domain implementations
+2. Follow the established result format for consistency
+3. Implement proper error handling and logging
+4. Use the provided metric collection interfaces
+5. Maintain file-level isolation for analysis
+6. Leverage the caching mechanisms for performance

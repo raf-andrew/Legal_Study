@@ -1,0 +1,61 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Legal Study Project Structure
+
+This project is organized into a structured self-study framework for legal education. The main components are:
+
+## Research Framework
+The [.research/README.md](mdc:.research/README.md) serves as the master index for all research domains, including:
+- Core Legal Knowledge
+- Legal Skills
+- Practice Areas
+- Study Methodology
+- Resource Evaluation
+
+### Core Knowledge
+Core legal subjects are documented in [.research/core_knowledge/criminal_law/homicide/README.md](mdc:.research/core_knowledge/criminal_law/homicide/README.md) which provides a template for organizing legal doctrine study.
+
+## Testing Framework
+The testing framework in [.tests/criminal_law/homicide_test.md](mdc:.tests/criminal_law/homicide_test.md) demonstrates the structure for:
+- Multiple choice questions
+- Essay questions
+- Short answer questions
+- Assessment criteria
+- Grading rubrics
+
+## Directory Structure
+```
+.research/           # Research and study materials
+  README.md         # Master research index
+  core_knowledge/   # Core legal subjects
+  legal_skills/     # Legal practice skills
+  practice_areas/   # Legal practice areas
+  study_methodology/# Study approaches
+  resource_evaluation/ # Resource assessment
+
+.tests/             # Test materials and assessments
+  README.md         # Testing framework overview
+  criminal_law/     # Subject-specific tests
+  practice_tests/   # Practice exercises
+
+.jobs/              # Task checklists and progress tracking
+  README.md         # Master job index
+
+.qa/                # Quality assurance guidelines
+  README.md         # QA standards
+
+.errors/            # Error tracking and lessons learned
+.experiments/       # Study experiments and trials
+.completed/         # Completed tasks and assessments
+.prompts/           # Study prompts and exercises
+```
+
+## Navigation Guidelines
+1. Start with the master research index for domain overview
+2. Follow subject-specific directories for detailed content
+3. Reference test frameworks for assessment structure
+4. Use job checklists for progress tracking
+5. Consult QA guidelines for quality standards

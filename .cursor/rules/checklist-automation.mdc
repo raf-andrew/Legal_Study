@@ -1,0 +1,73 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Checklist Automation System
+
+## Core Components
+
+The checklist automation system consists of several key components that work together to track and update checklist items based on test coverage:
+
+### Test Tracking
+The test tracking system is implemented in [scripts/test_tracker.py](mdc:scripts/test_tracker.py) and provides:
+- Test result recording and management
+- Checklist item status tracking
+- Test coverage monitoring
+- Completion status verification
+
+### Checklist Initialization
+The checklist initialization system in [scripts/init_checklist_items.py](mdc:scripts/init_checklist_items.py) handles:
+- Parsing existing checklist files
+- Generating unique IDs for checklist items
+- Creating structured checklist item records
+- Saving items to the test tracking system
+
+### Checklist Updates
+The checklist update system in [scripts/update_checklist_files.py](mdc:scripts/update_checklist_files.py) manages:
+- Reading test results from the tracker
+- Updating checklist files based on test coverage
+- Marking items as completed when coverage reaches 100%
+- Preserving checklist file structure
+
+### GitHub Integration
+The GitHub Actions workflow in [.github/workflows/checklist-automation.yml](mdc:.github/workflows/checklist-automation.yml) automates:
+- Running tests and generating coverage reports
+- Initializing checklist items
+- Updating checklist files
+- Committing and pushing changes
+
+## Testing
+The system includes comprehensive test coverage:
+
+- [tests/test_tracker_test.py](mdc:tests/test_tracker_test.py) - Tests for the test tracking system
+- [tests/test_checklist_initializer.py](mdc:tests/test_checklist_initializer.py) - Tests for checklist initialization
+- [tests/test_checklist_updater.py](mdc:tests/test_checklist_updater.py) - Tests for checklist updates
+
+## Usage
+
+1. Place checklist files in the `checklists/` directory
+2. Write tests for checklist items
+3. The system will automatically:
+   - Track test coverage
+   - Update checklists when tests pass
+   - Mark items as completed at 100% coverage
+
+## File Structure
+
+```
+.
+├── .github/
+│   └── workflows/
+│       └── checklist-automation.yml
+├── checklists/
+│   └── *.md
+├── scripts/
+│   ├── test_tracker.py
+│   ├── init_checklist_items.py
+│   └── update_checklist_files.py
+└── tests/
+    ├── test_tracker_test.py
+    ├── test_checklist_initializer.py
+    └── test_checklist_updater.py
+```

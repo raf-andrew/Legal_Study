@@ -1,0 +1,51 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Project Structure
+
+- Main application code is in the `app` directory.
+- Service providers are in `app/Providers/`.
+- Service management logic is in `app/Services/`.
+- Configuration is in the `config` directory.
+- Feature and integration tests are in the `tests/Feature/` directory.
+- Codespaces-specific service configs are in `.codespaces/services/`.
+- Docker Compose and related infra are in `.codespaces/`.
+- Routes are defined in `routes/web.php` and `routes/api.php`.
+
+## Core Application Files
+- Main application code is in the `app` directory
+- Configuration files are in the `config` directory
+- Tests are in the `tests` directory
+
+## Codespaces Management
+The `.codespaces` directory contains all Codespaces-specific files:
+
+### Services
+- Service configurations are stored in `.codespaces/services/`
+- Each service has its own JSON configuration file (e.g., `mysql.json`, `redis.json`)
+- Service states are tracked in `.codespaces/state/`
+
+### Scripts
+- Health check scripts in `.codespaces/scripts/health_check.py`
+- Test cycle runner in `.codespaces/scripts/run_test_cycles.py`
+- Environment setup scripts in `.codespaces/scripts/setup_environment.py`
+
+### Documentation
+- Service documentation in `.codespaces/docs/services/`
+- Test documentation in `.codespaces/docs/tests/`
+
+### Logs and Verification
+- Service logs in `.codespaces/logs/`
+- Test verification results in `.codespaces/verification/`
+- Completed test results in `.codespaces/complete/`
+
+## Key Files
+- [app/Services/CodespacesServiceManager.php](mdc:app/Services/CodespacesServiceManager.php) - Manages service configurations
+- [app/Services/CodespacesHealthCheck.php](mdc:app/Services/CodespacesHealthCheck.php) - Handles service health checks
+- [app/Services/CodespacesLifecycleManager.php](mdc:app/Services/CodespacesLifecycleManager.php) - Manages service lifecycle
+- [app/Console/Commands/ManageCodespaces.php](mdc:app/Console/Commands/ManageCodespaces.php) - CLI interface for managing services
+- [tests/Feature/CodespacesServiceTest.php](mdc:tests/Feature/CodespacesServiceTest.php) - Service management tests
+- [tests/Feature/CodespacesHealthTest.php](mdc:tests/Feature/CodespacesHealthTest.php) - Health check tests
+- [tests/Feature/CodespacesLifecycleTest.php](mdc:tests/Feature/CodespacesLifecycleTest.php) - Lifecycle management tests

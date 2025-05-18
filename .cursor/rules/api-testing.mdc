@@ -1,0 +1,108 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# API Testing Guidelines
+
+## Overview
+
+The MCP server provides several API endpoints that need to be tested. The main routes are defined in [sniffing/mcp/server/routes.py](mdc:sniffing/mcp/server/routes.py).
+
+## API Categories
+
+### AI Endpoints
+- `/ai/models` - Get available AI models
+- `/ai/health` - Check AI service health
+- `/ai/process` - Process AI prompts
+- `/ai/metrics` - Get AI model metrics
+
+### Error Handling
+- `/error-handling/health` - Check error service health
+- `/error-handling/log` - Log errors
+- `/error-handling/metrics` - Get error metrics
+- `/error-handling/patterns` - Get error patterns
+- `/error-handling/resolve` - Resolve errors
+- `/error-handling/aggregate` - Get aggregated errors
+- `/error-handling/notifications/settings` - Set notification settings
+- `/error-handling/recover` - Recover from errors
+- `/error-handling/errors/{error_id}` - Get error details
+
+### Monitoring
+- `/monitoring/health` - Check monitoring service health
+- `/monitoring/system` - Get system metrics
+- `/monitoring/application` - Get application metrics
+- `/monitoring/performance` - Get performance metrics
+- `/monitoring/resources` - Get resource metrics
+- `/monitoring/alerts` - Configure alerts
+- `/monitoring/alerts/history` - Get alert history
+- `/monitoring/retention` - Get metric retention settings
+- `/monitoring/aggregate` - Get aggregated metrics
+- `/monitoring/metrics` - Record custom metrics
+
+## Testing Requirements
+
+1. **Health Checks**
+   - Test all health endpoints
+   - Verify status responses
+   - Check version information
+
+2. **Input Validation**
+   - Test empty inputs
+   - Test invalid inputs
+   - Test boundary conditions
+
+3. **Error Handling**
+   - Test error logging
+   - Test error resolution
+   - Test error recovery
+   - Verify error patterns
+
+4. **Metrics Collection**
+   - Test metric recording
+   - Test metric aggregation
+   - Test alert configuration
+
+## Test Structure
+
+```python
+def test_api_endpoint():
+    # Test implementation
+    result = TestResult(
+        test_name="test_api_endpoint",
+        status="passed",
+        coverage=100.0,
+        timestamp=datetime.now().isoformat(),
+        details={
+            "endpoint": "/api/endpoint",
+            "method": "GET",
+            "status_code": 200
+        },
+        checklist_items=["API-TEST-001"]
+    )
+    tracker.record_test_result(result)
+```
+
+## Best Practices
+
+1. **Test Organization**
+   - Group tests by API category
+   - Use descriptive test names
+   - Include endpoint information
+
+2. **Coverage Goals**
+   - Test all endpoints
+   - Test all response codes
+   - Test error conditions
+
+3. **Monitoring**
+   - Track response times
+   - Monitor error rates
+   - Check resource usage
+
+## Integration
+
+The API testing integrates with:
+- [scripts/test_tracker.py](mdc:scripts/test_tracker.py) for tracking
+- [scripts/update_checklist_files.py](mdc:scripts/update_checklist_files.py) for updates
+- [.github/workflows/checklist-automation.yml](mdc:.github/workflows/checklist-automation.yml) for automation

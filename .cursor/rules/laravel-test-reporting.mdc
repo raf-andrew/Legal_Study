@@ -1,0 +1,136 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Laravel Test Reporting Standards
+
+## Report Types
+1. **Test Results**
+   - Individual test reports
+   - Master test report
+   - Coverage reports
+   - Performance reports
+   - Error reports
+
+2. **Coverage Reports**
+   - Line coverage
+   - Branch coverage
+   - Function coverage
+   - Statement coverage
+   - Path coverage
+
+3. **Performance Reports**
+   - Response time
+   - Memory usage
+   - Database queries
+   - Cache usage
+   - Queue usage
+
+## Report Generation
+```php
+// Example report generation
+public function generateReports(array $results): void
+{
+    // Generate individual test reports
+    foreach ($results as $test => $result) {
+        $this->generateTestReport($test, $result);
+    }
+
+    // Generate master report
+    $this->generateMasterReport($results);
+
+    // Generate coverage reports
+    $this->generateCoverageReports();
+
+    // Generate performance reports
+    $this->generatePerformanceReports();
+}
+```
+
+## Report Format
+```php
+// Example report format
+protected function generateTestReport(string $test, array $result): void
+{
+    $report = [
+        'test' => $test,
+        'status' => $result['status'],
+        'coverage' => [
+            'lines' => $result['coverage']['lines'],
+            'branches' => $result['coverage']['branches'],
+            'functions' => $result['coverage']['functions'],
+        ],
+        'performance' => [
+            'response_time' => $result['performance']['response_time'],
+            'memory_usage' => $result['performance']['memory_usage'],
+            'database_queries' => $result['performance']['database_queries'],
+        ],
+        'errors' => $result['errors'],
+        'timestamp' => now()->toIso8601String(),
+    ];
+
+    file_put_contents(
+        storage_path("reports/{$test}.json"),
+        json_encode($report, JSON_PRETTY_PRINT)
+    );
+}
+```
+
+## Medical-Grade Requirements
+1. **Report Completeness**
+   - All tests are reported
+   - All coverage is reported
+   - All performance is reported
+   - All errors are reported
+   - All warnings are reported
+
+2. **Report Accuracy**
+   - Reports are accurate
+   - Reports are consistent
+   - Reports are complete
+   - Reports are timely
+   - Reports are verified
+
+3. **Report Accessibility**
+   - Reports are accessible
+   - Reports are searchable
+   - Reports are versioned
+   - Reports are archived
+   - Reports are backed up
+
+4. **Report Analysis**
+   - Reports are analyzed
+   - Reports are compared
+   - Reports are trended
+   - Reports are alerted
+   - Reports are acted on
+
+## Best Practices
+1. **Report Generation**
+   - Generate reports automatically
+   - Generate reports consistently
+   - Generate reports completely
+   - Generate reports accurately
+   - Generate reports timely
+
+2. **Report Storage**
+   - Store reports securely
+   - Store reports versioned
+   - Store reports archived
+   - Store reports backed up
+   - Store reports accessible
+
+3. **Report Analysis**
+   - Analyze reports regularly
+   - Analyze reports completely
+   - Analyze reports accurately
+   - Analyze reports timely
+   - Analyze reports acted on
+
+4. **Report Maintenance**
+   - Maintain report history
+   - Maintain report quality
+   - Maintain report access
+   - Maintain report security
+   - Maintain report compliance

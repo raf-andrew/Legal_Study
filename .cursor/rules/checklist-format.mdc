@@ -1,0 +1,75 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Checklist File Format
+
+## Structure
+
+Checklist files should be stored in the `checklists/` directory with a `.md` extension. Each file should follow this format:
+
+```markdown
+# Checklist Title
+
+- [ ] Checklist item 1
+- [ ] Checklist item 2
+- [x] Completed item
+```
+
+## Rules
+
+1. **Title**
+   - Must start with a level 1 heading (`# Title`)
+   - Used to generate unique IDs for checklist items
+   - Should be descriptive and unique
+
+2. **Items**
+   - Each item must start with `- [ ]` or `- [x]`
+   - Space between brackets is required
+   - Item text should be clear and specific
+   - One item per line
+
+3. **Item States**
+   - `[ ]` - Item is not completed (0% test coverage)
+   - `[x]` - Item is completed (100% test coverage)
+
+4. **Item IDs**
+   - Generated automatically from title and item text
+   - Format: `{CHECKLIST_NAME}-{ITEM_TEXT}`
+   - Example: `TESTCLI-FIRSTITE` for "First item" in "Test Checklist"
+
+## Example
+
+```markdown
+# API Testing Checklist
+
+- [ ] Test GET endpoints
+- [ ] Test POST endpoints
+- [ ] Test error handling
+- [x] Test authentication
+```
+
+## Best Practices
+
+1. **Organization**
+   - Group related items together
+   - Use clear, action-oriented descriptions
+   - Keep items focused and testable
+
+2. **Maintenance**
+   - Update items as requirements change
+   - Remove obsolete items
+   - Add new items as needed
+
+3. **Testing**
+   - Each item should have corresponding tests
+   - Tests should verify the item's requirements
+   - Coverage should be tracked automatically
+
+## Integration
+
+The checklist format integrates with:
+- [scripts/test_tracker.py](mdc:scripts/test_tracker.py) for tracking test coverage
+- [scripts/init_checklist_items.py](mdc:scripts/init_checklist_items.py) for initialization
+- [scripts/update_checklist_files.py](mdc:scripts/update_checklist_files.py) for updates

@@ -1,0 +1,73 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Content Standards and Formatting
+
+## Research Documents
+Research documents should follow the template established in [.research/core_knowledge/criminal_law/homicide/README.md](mdc:.research/core_knowledge/criminal_law/homicide/README.md):
+
+1. Overview section introducing the topic
+2. Detailed breakdown of subtopics
+3. References to primary and secondary sources
+4. Case law citations with proper format
+5. Implementation notes and related documents
+
+## Test Materials
+Test documents should follow the format in [.tests/criminal_law/homicide_test.md](mdc:.tests/criminal_law/homicide_test.md):
+
+1. YAML-formatted test overview
+2. Structured question sections
+3. Detailed grading rubrics
+4. Reference materials
+5. Implementation guidelines
+
+## Document Structure
+Every document should include:
+```yaml
+Required Sections:
+  - Title and Overview
+  - Main Content Sections
+  - Reference Materials
+  - Related Documents
+  - Implementation Notes
+
+Formatting:
+  - Markdown headings for sections
+  - YAML blocks for metadata
+  - Code blocks for examples
+  - Proper citation format
+  - Consistent indentation
+```
+
+## Citation Standards
+```yaml
+Case Law:
+  Format: "Case Name (Year)"
+  Citation: "Volume Reporter Page"
+  Example: "People v. Anderson (1968)"
+          "Citation: 70 Cal.2d 15"
+
+Books:
+  Format: "Title (Author)"
+  ISBN: "Required"
+  Chapter: "Specific section"
+  Example: "Understanding Criminal Law (Dressler)"
+          "ISBN: 978-1531007911"
+```
+
+## Quality Guidelines
+1. All content must include:
+   - Clear learning objectives
+   - Assessment criteria
+   - Implementation guidance
+   - Reference materials
+   - Related documents
+
+2. Documentation must be:
+   - Comprehensive
+   - Well-organized
+   - Properly referenced
+   - Regularly updated
+   - Quality assured

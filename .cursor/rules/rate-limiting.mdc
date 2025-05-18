@@ -1,0 +1,117 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Rate Limiting Guidelines
+
+## Overview
+
+The MCP server implements rate limiting through middleware defined in [sniffing/mcp/server/routes.py](mdc:sniffing/mcp/server/routes.py). This guide outlines rate limiting requirements and implementation patterns.
+
+## Rate Limit Headers
+
+### Header Structure
+```python
+@router.middleware("http")
+async def add_rate_limit_headers(request: Request, call_next):
+    response = await call_next(request)
+    response.headers["X-RateLimit-Limit"] = "100"
+    response.headers["X-RateLimit-Remaining"] = "99"
+    response.headers["X-RateLimit-Reset"] = str(int(datetime.now().timestamp() + 3600))
+    return response
+```
+
+### Header Fields
+1. **X-RateLimit-Limit**
+   - Maximum requests per period
+   - Default: 100 requests
+   - Configurable per endpoint
+
+2. **X-RateLimit-Remaining**
+   - Remaining requests in period
+   - Decrements with each request
+   - Resets with period
+
+3. **X-RateLimit-Reset**
+   - Unix timestamp for reset
+   - 1-hour window
+   - Dynamic calculation
+
+## Implementation Patterns
+
+### 1. Middleware Pattern
+```python
+@router.middleware("http")
+async def rate_limit_middleware(request: Request, call_next):
+    # Check rate limits
+    # Add headers
+    # Process request
+    return response
+```
+
+### 2. Header Management
+```python
+def add_rate_limit_headers(response: Response, limit: int, remaining: int, reset: int):
+    response.headers["X-RateLimit-Limit"] = str(limit)
+    response.headers["X-RateLimit-Remaining"] = str(remaining)
+    response.headers["X-RateLimit-Reset"] = str(reset)
+```
+
+## Best Practices
+
+1. **Limit Configuration**
+   - Set appropriate limits
+   - Consider endpoint type
+   - Account for burst traffic
+
+2. **Header Management**
+   - Update headers consistently
+   - Handle edge cases
+   - Maintain accuracy
+
+3. **Error Handling**
+   - Handle limit exceeded
+   - Provide clear messages
+   - Log violations
+
+## Testing Requirements
+
+1. **Limit Testing**
+   - Test limit enforcement
+   - Verify header updates
+   - Check reset behavior
+
+2. **Edge Cases**
+   - Test concurrent requests
+   - Verify period transitions
+   - Check error responses
+
+3. **Performance**
+   - Test overhead
+   - Verify scalability
+   - Check memory usage
+
+## Integration
+
+The rate limiting system integrates with:
+- [scripts/test_tracker.py](mdc:scripts/test_tracker.py) for tracking
+- [scripts/update_checklist_files.py](mdc:scripts/update_checklist_files.py) for updates
+- [.github/workflows/checklist-automation.yml](mdc:.github/workflows/checklist-automation.yml) for automation
+
+## Monitoring
+
+1. **Rate Limit Metrics**
+   - Track limit usage
+   - Monitor violations
+   - Analyze patterns
+
+2. **Performance Metrics**
+   - Track response times
+   - Monitor overhead
+   - Check resource usage
+
+3. **Alert Configuration**
+   - Set violation thresholds
+   - Configure notifications
+   - Track trends

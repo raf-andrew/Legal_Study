@@ -1,0 +1,130 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Monitoring Guidelines
+
+## Overview
+
+The MCP server includes comprehensive monitoring capabilities defined in [sniffing/mcp/server/routes.py](mdc:sniffing/mcp/server/routes.py). This guide outlines the monitoring requirements and metrics collection.
+
+## Monitoring Categories
+
+### System Metrics
+- CPU usage
+- Memory usage
+- Disk usage
+- Resource availability
+
+### Application Metrics
+- Requests per second
+- Average response time
+- Error rate
+- Throughput
+
+### Performance Metrics
+- Latency
+- Concurrency
+- Processing time
+- Queue length
+
+### Resource Metrics
+- CPU cores
+- Total memory
+- Available memory
+- Storage capacity
+
+## Alert Configuration
+
+Alerts are configured using the `AlertConfig` model:
+
+```python
+class AlertConfig:
+    metric: str
+    threshold: float
+    condition: str
+    duration: str
+    severity: str
+    channels: List[str]
+```
+
+### Alert Types
+
+1. **System Alerts**
+   - High CPU usage
+   - Low memory
+   - Disk space warnings
+   - Resource exhaustion
+
+2. **Application Alerts**
+   - High error rate
+   - Slow response time
+   - Low throughput
+   - Service degradation
+
+3. **Performance Alerts**
+   - High latency
+   - Queue buildup
+   - Processing delays
+   - Timeout warnings
+
+## Metric Collection
+
+### Collection Methods
+
+1. **System Metrics**
+   - `/monitoring/system`
+   - `/monitoring/resources`
+   - Resource usage tracking
+
+2. **Application Metrics**
+   - `/monitoring/application`
+   - `/monitoring/performance`
+   - Request tracking
+
+3. **Custom Metrics**
+   - `/monitoring/metrics`
+   - Custom metric recording
+   - Metric aggregation
+
+## Best Practices
+
+1. **Metric Selection**
+   - Choose relevant metrics
+   - Avoid metric overload
+   - Focus on key indicators
+
+2. **Alert Configuration**
+   - Set appropriate thresholds
+   - Use meaningful conditions
+   - Configure proper channels
+
+3. **Monitoring Maintenance**
+   - Regular metric review
+   - Alert tuning
+   - Performance optimization
+
+## Integration
+
+The monitoring system integrates with:
+- [scripts/test_tracker.py](mdc:scripts/test_tracker.py) for tracking
+- [scripts/update_checklist_files.py](mdc:scripts/update_checklist_files.py) for updates
+- [.github/workflows/checklist-automation.yml](mdc:.github/workflows/checklist-automation.yml) for automation
+
+## Testing Requirements
+
+1. **Metric Collection**
+   - Test metric recording
+   - Verify metric accuracy
+   - Check aggregation
+
+2. **Alert System**
+   - Test alert triggers
+   - Verify notifications
+   - Check alert history
+
+3. **Performance**
+   - Test collection overhead
+   - Verify storage efficiency
+   - Check query performance

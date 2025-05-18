@@ -1,0 +1,100 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Wireframe Refinement Process
+
+## Overview
+The wireframe refinement process is a systematic approach to improving wireframes through iterative testing and analysis. The process is implemented in [wireframe_refinement.py](mdc:.wireframe/testing/wireframe_refinement.py).
+
+## Key Components
+
+### Version Tracking
+- Each iteration creates a new version with unique ID
+- Versions maintain parent-child relationships
+- All assets (HTML, screenshots, metadata) are stored in version directories
+- Version metadata includes:
+  - Timestamp
+  - Parent version
+  - Applied improvements
+  - Rejected improvements
+  - Screenshots
+  - Analysis results
+
+### Refinement Loop
+The refinement loop follows these steps in order:
+1. Create new version
+2. Run Cursor analysis
+3. Generate improvements
+4. Apply changes
+5. Capture screenshots
+6. Run feature tests
+7. Generate report
+8. Present options to user
+9. Apply selected option
+10. Create next version
+
+### Browser Testing
+- Tests run at multiple viewport sizes:
+  - Desktop (1920x1080)
+  - Tablet (768x1024)
+  - Mobile (375x667)
+- Screenshots captured for each viewport
+- Responsive design validation
+- HTML validation
+- Feature testing
+
+### Analysis
+- Content density analysis
+- Line length validation
+- Color count optimization
+- Accessibility checks
+- Usability assessment
+
+### Report Generation
+- Before/after comparisons
+- Screenshot comparisons
+- Diff view of changes
+- Feature test results
+- Improvement suggestions
+- Accept/revert options
+
+## Usage
+
+### Command Line Interface
+```bash
+# Run with user interaction
+python wireframe_refinement.py path/to/wireframe.html --max-iterations 10
+
+# Run in automated mode
+python wireframe_refinement.py path/to/wireframe.html --skip-user-interaction
+```
+
+### Configuration
+Configuration is stored in [config.json](mdc:.wireframe/testing/config.json) and includes:
+- Maximum iterations
+- Viewport sizes
+- Security settings
+- Analysis thresholds
+
+## Testing
+Feature tests are implemented in [test_feature_tests.py](mdc:.wireframe/testing/tests/test_feature_tests.py) and cover:
+- Wireframe loading
+- HTML validation
+- Responsive design
+- Screenshot capture
+- Report generation
+- Option picker interface
+
+## Best Practices
+1. Focus on one wireframe at a time
+2. Keep iterations small and focused
+3. Document all changes and decisions
+4. Maintain version history
+5. Run all tests for each iteration
+6. Review before/after comparisons
+7. Validate responsive design
+8. Check accessibility
+9. Verify usability
+10. Document improvements

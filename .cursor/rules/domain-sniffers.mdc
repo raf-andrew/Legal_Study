@@ -1,0 +1,61 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Domain-Specific Sniffers
+
+The sniffing infrastructure includes specialized domain sniffers that focus on specific aspects of code analysis. Each domain implements pattern matching, rule validation, and simulations.
+
+## Security Sniffer
+Implemented in [mcp/server/sniffing/domains/security.py](mdc:mcp/server/sniffing/domains/security.py) with configurations:
+- Patterns: [mcp/server/sniffing/domains/patterns/security.yaml](mdc:mcp/server/sniffing/domains/patterns/security.yaml)
+- Rules: [mcp/server/sniffing/domains/rules/security.yaml](mdc:mcp/server/sniffing/domains/rules/security.yaml)
+
+Key capabilities:
+- Vulnerability detection
+- Security compliance checking
+- Attack simulation
+- Security fix generation
+
+## Browser Sniffer
+Implemented in [mcp/server/sniffing/domains/browser.py](mdc:mcp/server/sniffing/domains/browser.py) with configurations:
+- Patterns: [mcp/server/sniffing/domains/patterns/browser.yaml](mdc:mcp/server/sniffing/domains/patterns/browser.yaml)
+- Rules: [mcp/server/sniffing/domains/rules/browser.yaml](mdc:mcp/server/sniffing/domains/rules/browser.yaml)
+- Simulations: [mcp/server/sniffing/domains/simulations/browser.yaml](mdc:mcp/server/sniffing/domains/simulations/browser.yaml)
+
+Key capabilities:
+- Performance analysis
+- Memory leak detection
+- Animation optimization
+- Layout optimization
+- Compatibility checking
+- Accessibility validation
+
+## Domain Implementation Guide
+When implementing a new domain sniffer:
+
+1. Create the domain sniffer class:
+```python
+class MyDomainSniffer(BaseSniffer):
+    def __init__(self, config: MCPConfig):
+        super().__init__(config, "my_domain")
+        self.patterns = self._load_patterns()
+        self.rules = self._load_rules()
+        self.simulations = self._load_simulations()
+```
+
+2. Define configuration files:
+- patterns.yaml: Pattern matching definitions
+- rules.yaml: Domain-specific rules
+- simulations.yaml: Test scenarios
+
+3. Implement core methods:
+- sniff_file(): Main analysis entry point
+- analyze_result(): Result analysis
+- fix_issues(): Issue resolution
+
+4. Add test coverage:
+- Unit tests for core functionality
+- Integration tests for workflows
+- Simulation tests for scenarios

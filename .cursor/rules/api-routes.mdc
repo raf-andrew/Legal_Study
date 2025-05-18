@@ -1,0 +1,22 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# MCP Server API Routes
+
+The main API routes for the MCP server are defined in [sniffing/mcp/server/routes.py](mdc:sniffing/mcp/server/routes.py).
+
+## Overview
+This file contains FastAPI route definitions for:
+- **AI Service Endpoints**: Model listing, health, prompt processing, and metrics.
+- **Error Handling Endpoints**: Logging, metrics, patterns, resolution, notifications, and error details.
+- **Monitoring Endpoints**: System, application, performance, resource metrics, alert configuration, retention, and aggregation.
+
+## Models
+The following Pydantic models are defined for request/response validation:
+- `AIModel`, `AIPrompt`, `AIResponse`
+- `ErrorLog`, `AlertConfig`, `NotificationSettings`
+
+## Referencing
+Reference this file for all API route implementations, request/response models, and endpoint documentation related to AI, error handling, and monitoring in the MCP server.
