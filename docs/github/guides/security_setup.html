@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Security Setup Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #24292e;
+        }
+
+        .step {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+        }
+
+        .step-number {
+            background: #0366d6;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
+        .screenshot {
+            max-width: 100%;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .note {
+            background: #f6f8fa;
+            padding: 15px;
+            border-left: 4px solid #0366d6;
+            margin: 20px 0;
+        }
+
+        .warning {
+            background: #fff8c5;
+            padding: 15px;
+            border-left: 4px solid #f9c513;
+            margin: 20px 0;
+        }
+
+        code {
+            background: #f6f8fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        }
+
+        pre {
+            background: #f6f8fa;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GitHub Security Setup Guide</h1>
+
+    <div class="note">
+        <strong>Note:</strong> This guide requires repository admin access and GitHub Advanced Security (if available).
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">1</span>Enable GitHub Advanced Security</h2>
+        <ol>
+            <li>Go to your organization's settings</li>
+            <li>Navigate to Security & analysis</li>
+            <li>Click "Enable all" for GitHub Advanced Security features</li>
+            <li>Confirm the changes</li>
+        </ol>
+        <img src="../images/security/advanced_security.png" alt="Enable Advanced Security" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">2</span>Configure Code Scanning</h2>
+        <ol>
+            <li>Go to repository Settings > Security & analysis</li>
+            <li>Under "Code scanning", click "Set up code scanning"</li>
+            <li>Choose your scanning tool:
+                <ul>
+                    <li>CodeQL (recommended)</li>
+                    <li>SonarCloud</li>
+                    <li>Custom tool</li>
+                </ul>
+            </li>
+            <li>Configure scanning frequency and alerts</li>
+        </ol>
+        <img src="../images/security/code_scanning.png" alt="Code Scanning Setup" class="screenshot">
+        <div class="warning">
+            <strong>Warning:</strong> Code scanning may impact repository performance. Consider scheduling scans during
+            off-hours.
+        </div>
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">3</span>Set Up Secret Scanning</h2>
+        <ol>
+            <li>Go to repository Settings > Security & analysis</li>
+            <li>Enable "Secret scanning"</li>
+            <li>Configure alert notifications:
+                <ul>
+                    <li>Email notifications</li>
+                    <li>Webhook notifications</li>
+                    <li>Security alerts in repository</li>
+                </ul>
+            </li>
+        </ol>
+        <img src="../images/security/secret_scanning.png" alt="Secret Scanning Setup" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">4</span>Configure Dependency Scanning</h2>
+        <ol>
+            <li>Enable dependency graph in repository settings</li>
+            <li>Set up Dependabot:
+                <ul>
+                    <li>Enable security updates</li>
+                    <li>Configure update frequency</li>
+                    <li>Set up pull request settings</li>
+                </ul>
+            </li>
+            <li>Configure alert notifications</li>
+        </ol>
+        <img src="../images/security/dependency_scanning.png" alt="Dependency Scanning Setup" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">5</span>Verify Setup</h2>
+        <ol>
+            <li>Push a test commit with a known security issue</li>
+            <li>Check security alerts in repository</li>
+            <li>Verify notification delivery</li>
+            <li>Test dependency update workflow</li>
+        </ol>
+        <div class="note">
+            <strong>Note:</strong> It may take up to 24 hours for all security features to be fully active.
+        </div>
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">6</span>Maintenance Tasks</h2>
+        <ul>
+            <li>Regularly review security alerts</li>
+            <li>Update scanning tools and configurations</li>
+            <li>Rotate security tokens and keys</li>
+            <li>Audit access logs and permissions</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <strong>Need Help?</strong>
+        <ul>
+            <li><a href="https://docs.github.com/en/security">GitHub Security Documentation</a></li>
+            <li><a href="https://github.com/security">GitHub Security Team</a></li>
+            <li><a href="https://github.com/features/security">GitHub Security Features</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -39,6 +39,10 @@ jobs:
       run: |
         python scripts/generate_docs.py
 
+    - name: Generate HTML guides
+      run: |
+        python scripts/generate_html_guides.py
+
     - name: Capture screenshots
       run: |
         python scripts/capture_screenshots.py
@@ -48,7 +52,7 @@ jobs:
     - name: Check for changes
       id: git-check
       run: |
-        git add docs/github/generated/ docs/github/images/
+        git add docs/github/generated/ docs/github/images/ docs/github/guides/
         git diff --quiet && git diff --staged --quiet || echo "changes=true" >> $GITHUB_OUTPUT
 
     - name: Commit and push if changed
@@ -56,5 +60,5 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git commit -m "Update generated documentation and screenshots" -a
+        git commit -m "Update generated documentation, guides, and screenshots" -a
         git push
