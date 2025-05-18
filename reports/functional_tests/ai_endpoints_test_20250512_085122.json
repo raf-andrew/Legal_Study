@@ -1,0 +1,134 @@
+{
+  "test_name": "ai_endpoints_test",
+  "start_time": "2025-05-12T08:51:22.969674",
+  "end_time": "2025-05-12T08:51:22.990423",
+  "verification_steps": [
+    {
+      "step": "Verify /ai/models endpoint availability",
+      "status": "in_progress",
+      "timestamp": "2025-05-12T08:51:22.969674",
+      "details": {
+        "endpoint": "/ai/models",
+        "method": "GET"
+      }
+    },
+    {
+      "step": "Verify /ai/models response structure",
+      "status": "passed",
+      "timestamp": "2025-05-12T08:51:22.975682",
+      "details": {
+        "expected": "models key in response",
+        "actual": [
+          "models"
+        ]
+      }
+    },
+    {
+      "step": "Verify /ai/health endpoint",
+      "status": "in_progress",
+      "timestamp": "2025-05-12T08:51:22.975682",
+      "details": {
+        "endpoint": "/ai/health",
+        "method": "GET"
+      }
+    },
+    {
+      "step": "Verify /ai/health response structure",
+      "status": "passed",
+      "timestamp": "2025-05-12T08:51:22.982683",
+      "details": {
+        "expected": [
+          "status",
+          "timestamp",
+          "version"
+        ],
+        "actual": [
+          "status",
+          "timestamp",
+          "version",
+          "model_version"
+        ]
+      }
+    },
+    {
+      "step": "Verify /ai/process endpoint",
+      "status": "in_progress",
+      "timestamp": "2025-05-12T08:51:22.982683",
+      "details": {
+        "endpoint": "/ai/process",
+        "method": "POST",
+        "payload": {
+          "text": "Test prompt",
+          "model": "gpt-4"
+        }
+      }
+    },
+    {
+      "step": "Verify /ai/process response structure",
+      "status": "passed",
+      "timestamp": "2025-05-12T08:51:22.990423",
+      "details": {
+        "expected": [
+          "response",
+          "model",
+          "processing_time"
+        ],
+        "actual": [
+          "response",
+          "model",
+          "processing_time"
+        ]
+      }
+    }
+  ],
+  "results": [
+    {
+      "endpoint": "/ai/models",
+      "method": "GET",
+      "status_code": 200,
+      "response": {
+        "models": [
+          {
+            "id": "gpt-4",
+            "name": "GPT-4",
+            "description": "OpenAI's GPT-4 model"
+          },
+          {
+            "id": "gpt-3.5-turbo",
+            "name": "GPT-3.5 Turbo",
+            "description": "OpenAI's GPT-3.5 Turbo model"
+          }
+        ]
+      },
+      "timestamp": "2025-05-12T08:51:22.975682"
+    },
+    {
+      "endpoint": "/ai/health",
+      "method": "GET",
+      "status_code": 200,
+      "response": {
+        "status": "healthy",
+        "timestamp": "2025-05-12T08:51:22.978682",
+        "version": "1.0.0",
+        "model_version": "1.0.0"
+      },
+      "timestamp": "2025-05-12T08:51:22.982683"
+    },
+    {
+      "endpoint": "/ai/process",
+      "method": "POST",
+      "status_code": 200,
+      "response": {
+        "response": "This is a mock response",
+        "model": "gpt-4",
+        "processing_time": 0.5
+      },
+      "timestamp": "2025-05-12T08:51:22.990423"
+    }
+  ],
+  "summary": {
+    "total_steps": 6,
+    "passed_steps": 3,
+    "failed_steps": 0
+  }
+}

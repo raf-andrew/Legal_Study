@@ -1,0 +1,163 @@
+{
+  "timestamp": "2024-01-01T00:00:00Z",
+  "version": "1.0.0",
+  "environment": "development",
+  "checks": {
+    "directory": {
+      "status": "passed",
+      "details": {
+        "required_dirs": [
+          ".controls",
+          ".security",
+          ".chaos",
+          ".ui",
+          ".ux",
+          ".refactoring",
+          ".guide",
+          ".api",
+          ".integration",
+          ".unit",
+          ".sniff",
+          ".test",
+          ".completed",
+          ".errors",
+          ".qa"
+        ],
+        "missing_dirs": [],
+        "permission_issues": [],
+        "ownership_issues": []
+      }
+    },
+    "configuration": {
+      "status": "passed",
+      "details": {
+        "required_files": [
+          ".config/environment/development/config.json",
+          ".config/environment/testing/config.json",
+          ".config/environment/production/config.json"
+        ],
+        "missing_files": [],
+        "format_issues": [],
+        "content_issues": []
+      }
+    },
+    "services": {
+      "status": "passed",
+      "details": {
+        "required_services": [
+          "database",
+          "api",
+          "cache",
+          "queue"
+        ],
+        "unavailable_services": [],
+        "response_times": {
+          "database": 100,
+          "api": 200,
+          "cache": 50,
+          "queue": 150
+        },
+        "errors": []
+      }
+    },
+    "security": {
+      "status": "passed",
+      "details": {
+        "authentication": {
+          "status": "passed",
+          "method": "jwt",
+          "token_valid": true,
+          "token_expiry": 3600
+        },
+        "authorization": {
+          "status": "passed",
+          "method": "rbac",
+          "roles": ["admin", "user", "guest"],
+          "permissions": ["read", "write", "execute"]
+        },
+        "access_control": {
+          "status": "passed",
+          "rules": [],
+          "violations": []
+        },
+        "audit_logging": {
+          "status": "passed",
+          "enabled": true,
+          "level": "INFO",
+          "format": "json"
+        },
+        "encryption": {
+          "status": "passed",
+          "enabled": true,
+          "method": "AES-256",
+          "key_rotation": true
+        },
+        "vulnerabilities": {
+          "status": "passed",
+          "scanned": true,
+          "found": 0,
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0
+        }
+      }
+    },
+    "monitoring": {
+      "status": "passed",
+      "details": {
+        "metrics": {
+          "status": "passed",
+          "enabled": true,
+          "interval": 60,
+          "collected": true
+        },
+        "alerts": {
+          "status": "passed",
+          "enabled": true,
+          "thresholds": {
+            "cpu": 80,
+            "memory": 85,
+            "disk": 90,
+            "error_rate": 5
+          },
+          "triggered": false
+        },
+        "logs": {
+          "status": "passed",
+          "enabled": true,
+          "level": "INFO",
+          "rotation": true
+        },
+        "reports": {
+          "status": "passed",
+          "enabled": true,
+          "format": "json",
+          "generated": true
+        }
+      }
+    }
+  },
+  "metrics": {
+    "system": {
+      "cpu_usage": 45.2,
+      "memory_usage": 60.5,
+      "disk_usage": 35.8,
+      "network_usage": 25.3
+    },
+    "application": {
+      "response_time": 150,
+      "error_rate": 0.1,
+      "throughput": 1000,
+      "concurrent_users": 50
+    },
+    "database": {
+      "query_time": 100,
+      "connection_pool": 30,
+      "cache_hit_rate": 95.5,
+      "replication_lag": 0
+    }
+  },
+  "status": "healthy",
+  "errors": []
+} 

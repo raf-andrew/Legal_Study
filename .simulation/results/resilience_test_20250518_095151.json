@@ -1,0 +1,188 @@
+{
+  "scenario": "resilience_test",
+  "start_time": "2025-05-18T09:51:50.522380",
+  "iterations": 3,
+  "results": [
+    {
+      "iteration": 1,
+      "status": "success",
+      "steps": {
+        "failure_scenario": {
+          "status": "success",
+          "message": "Simulating database_corruption failure scenario",
+          "duration": 0.1
+        },
+        "pre_failure_state": {
+          "status": "success",
+          "message": "System state before failure",
+          "duration": 0.1,
+          "metrics": {
+            "cpu_usage": 29.84005464282188,
+            "memory_usage": 41.763891974785594,
+            "disk_io": 20.318132609909828,
+            "network_usage": 47.258448233726796,
+            "active_connections": 115,
+            "error_rate": 0.014161079637566854
+          }
+        },
+        "failure_impact": {
+          "status": "success",
+          "message": "Impact of database_corruption failure",
+          "duration": 0.1,
+          "metrics": {
+            "affected_tables": 5,
+            "data_loss_risk": 0.1908736944689433,
+            "recovery_complexity": "critical"
+          }
+        },
+        "recovery_process": {
+          "status": "success",
+          "message": "Recovery from database_corruption failure",
+          "duration": 106.00765380438881,
+          "metrics": {
+            "duration": 106.00765380438881,
+            "steps_completed": 5,
+            "recovery_success_rate": 0.9388846306363597,
+            "data_consistency_check": 0.9486835699987634
+          }
+        },
+        "post_recovery_state": {
+          "status": "success",
+          "message": "System state after recovery",
+          "duration": 0.1,
+          "metrics": {
+            "cpu_usage": 31.287008339506134,
+            "memory_usage": 49.66531770471986,
+            "disk_io": 41.2172232066894,
+            "network_usage": 59.84329428353346,
+            "active_connections": 87,
+            "error_rate": 1.3009934012546986,
+            "data_integrity": 0.9727158411884791
+          }
+        }
+      },
+      "timestamp": 1747587111.591241
+    },
+    {
+      "iteration": 2,
+      "status": "success",
+      "steps": {
+        "failure_scenario": {
+          "status": "success",
+          "message": "Simulating memory_leak failure scenario",
+          "duration": 0.1
+        },
+        "pre_failure_state": {
+          "status": "success",
+          "message": "System state before failure",
+          "duration": 0.1,
+          "metrics": {
+            "cpu_usage": 32.15175807891184,
+            "memory_usage": 49.51591942184847,
+            "disk_io": 33.44849714754367,
+            "network_usage": 30.361408629817138,
+            "active_connections": 157,
+            "error_rate": 0.5483337938267422
+          }
+        },
+        "failure_impact": {
+          "status": "success",
+          "message": "Impact of memory_leak failure",
+          "duration": 0.1,
+          "metrics": {
+            "leak_rate": 49.84232604655005,
+            "affected_processes": 4,
+            "recovery_complexity": "medium"
+          }
+        },
+        "recovery_process": {
+          "status": "success",
+          "message": "Recovery from memory_leak failure",
+          "duration": 15.085259424398537,
+          "metrics": {
+            "duration": 15.085259424398537,
+            "steps_completed": 5,
+            "recovery_success_rate": 0.9103207204337986,
+            "data_consistency_check": 0.947356631145459
+          }
+        },
+        "post_recovery_state": {
+          "status": "success",
+          "message": "System state after recovery",
+          "duration": 0.1,
+          "metrics": {
+            "cpu_usage": 46.85340947539781,
+            "memory_usage": 41.862023440417175,
+            "disk_io": 36.847282766301426,
+            "network_usage": 52.33445430034842,
+            "active_connections": 393,
+            "error_rate": 1.5381333692002361,
+            "memory_fragmentation": 0.07236744126146488
+          }
+        }
+      },
+      "timestamp": 1747587111.7542763
+    },
+    {
+      "iteration": 3,
+      "status": "success",
+      "steps": {
+        "failure_scenario": {
+          "status": "success",
+          "message": "Simulating cpu_exhaustion failure scenario",
+          "duration": 0.1
+        },
+        "pre_failure_state": {
+          "status": "success",
+          "message": "System state before failure",
+          "duration": 0.1,
+          "metrics": {
+            "cpu_usage": 35.185918909378415,
+            "memory_usage": 39.04278018187137,
+            "disk_io": 34.14406586159659,
+            "network_usage": 37.648754119258236,
+            "active_connections": 316,
+            "error_rate": 0.36473694058462636
+          }
+        },
+        "failure_impact": {
+          "status": "success",
+          "message": "Impact of cpu_exhaustion failure",
+          "duration": 0.1,
+          "metrics": {
+            "affected_cores": 5,
+            "performance_impact": 0.806595256555735,
+            "recovery_complexity": "low"
+          }
+        },
+        "recovery_process": {
+          "status": "success",
+          "message": "Recovery from cpu_exhaustion failure",
+          "duration": 7.17043275389698,
+          "metrics": {
+            "duration": 7.17043275389698,
+            "steps_completed": 3,
+            "recovery_success_rate": 0.9923864367878752,
+            "data_consistency_check": 0.905772578892019
+          }
+        },
+        "post_recovery_state": {
+          "status": "success",
+          "message": "System state after recovery",
+          "duration": 0.1,
+          "metrics": {
+            "cpu_usage": 37.57175761093319,
+            "memory_usage": 57.258644568580266,
+            "disk_io": 42.86573083011413,
+            "network_usage": 56.052778587060885,
+            "active_connections": 180,
+            "error_rate": 0.004380638146572524
+          }
+        }
+      },
+      "timestamp": 1747587111.8492603
+    }
+  ],
+  "end_time": "2025-05-18T09:51:51.849260",
+  "duration": 1.8492603302001953
+}

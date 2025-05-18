@@ -1,0 +1,128 @@
+# Sniffing System Configuration
+
+# General settings
+workspace_path: "."
+report_path: "reports"
+audit_path: "audit/logs"
+
+# Testing thresholds
+min_coverage: 80
+min_test_count: 10
+max_test_duration: 300  # seconds
+
+# Style settings
+style_guide: "google"
+max_line_length: 100
+max_function_length: 50
+max_complexity: 10
+
+# Performance thresholds
+performance:
+  response_time: 200  # milliseconds
+  memory_usage: 100   # MB
+  cpu_usage: 75       # percent
+  max_db_queries: 10  # per request
+
+# API testing
+api:
+  validate_openapi: true
+  max_response_time: 500  # milliseconds
+  required_status_codes:
+    - 200
+    - 201
+    - 400
+    - 401
+    - 403
+    - 404
+    - 500
+
+# Documentation requirements
+documentation:
+  required_sections:
+    - description
+    - parameters
+    - returns
+    - raises
+  check_spelling: true
+  spell_check_language: "en_US"
+
+# Git integration
+git:
+  protected_branches:
+    - main
+    - master
+    - develop
+  required_reviews: 1
+  block_merge_on_failure: true
+
+# Continuous improvement
+improvement:
+  session_retention: 30  # days
+  min_improvement_rate: 5  # percent
+  auto_fix_enabled: true
+  recommendation_threshold: 0.5
+
+# SOC2 compliance
+soc2:
+  enabled: true
+  audit_retention: 365  # days
+  required_checks:
+    - security
+    - availability
+    - confidentiality
+    - integrity
+    - privacy
+
+# Sniffers configuration
+sniffers:
+  functional:
+    enabled: true
+    priority: high
+    auto_fix: true
+
+  unit:
+    enabled: true
+    priority: high
+    auto_fix: true
+    min_assertions: 3
+
+  api:
+    enabled: true
+    priority: medium
+    auto_fix: false
+
+  documentation:
+    enabled: true
+    priority: medium
+    auto_fix: true
+
+  performance:
+    enabled: true
+    priority: medium
+    auto_fix: false
+
+  code_quality:
+    enabled: true
+    priority: high
+    auto_fix: true
+
+# Reporting
+reporting:
+  formats:
+    - json
+    - html
+  email_notifications: false
+  notification_threshold: "high"  # only notify on high priority issues
+  include_metrics: true
+  include_recommendations: true
+
+# AI assistance
+ai:
+  enabled: true
+  model: "gpt-4"
+  confidence_threshold: 0.8
+  max_suggestions: 5
+  domains:
+    - code_quality
+    - security
+    - performance

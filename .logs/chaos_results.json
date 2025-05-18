@@ -1,0 +1,8 @@
+{
+  "test_type": "chaos",
+  "start_time": "2025-04-23T20:46:21.336603",
+  "end_time": "2025-04-23T20:46:41.765335",
+  "duration": 20.428732,
+  "exit_code": 0,
+  "status": "success"
+}

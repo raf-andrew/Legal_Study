@@ -1,0 +1,8 @@
+{
+    "host": "codespaces-redis",
+    "port": 6379,
+    "password": null,
+    "database": 0,
+    "prefix": "legal_study:",
+    "client": "predis"
+}

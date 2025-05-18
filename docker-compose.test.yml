@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  test-runner:
+    build:
+      context: .
+      dockerfile: docker/test/Dockerfile
+    volumes:
+      - .:/app
+      - ./reports:/app/reports
+    environment:
+      - XDEBUG_MODE=coverage
+    command: >
+      sh -c "php vendor/bin/phpunit --coverage-html reports/coverage --coverage-clover reports/coverage/coverage.xml --log-junit reports/verification/junit.xml --testdox-html reports/verification/testdox.html --testdox-text reports/verification/testdox.txt"

@@ -1,0 +1,133 @@
+@startuml Component Dependencies
+
+!define RECTANGLE class
+
+skinparam {
+    backgroundColor white
+    componentStyle uml2
+    ArrowColor black
+    BorderColor black
+}
+
+package "Frontend Components" {
+    [App] as app
+    [Dashboard] as dashboard
+    [ServiceManager] as serviceManager
+    [ConfigEditor] as configEditor
+    [InitializationWizard] as initWizard
+    [MonitoringPanel] as monitor
+}
+
+package "Shared Components" {
+    [StatusIndicator] as status
+    [ActionButton] as button
+    [MetricsChart] as chart
+    [LogViewer] as logs
+    [JsonEditor] as editor
+    [ProgressBar] as progress
+}
+
+package "Composables" {
+    [useWebSocket] as websocket
+    [useApi] as api
+    [useNotifications] as notifications
+    [useValidation] as validation
+}
+
+package "Stores" {
+    [AuthStore] as authStore
+    [ServiceStore] as serviceStore
+    [ConfigStore] as configStore
+    [InitStore] as initStore
+    [MetricsStore] as metricsStore
+}
+
+package "Services" {
+    [ApiService] as apiService
+    [WebSocketService] as wsService
+    [ValidationService] as validationService
+    [MetricsService] as metricsService
+}
+
+package "Utils" {
+    [Logger] as logger
+    [ErrorHandler] as errorHandler
+    [EventBus] as eventBus
+    [SchemaValidator] as schemaValidator
+}
+
+' Component Dependencies
+app --> dashboard
+app --> authStore
+
+dashboard --> serviceManager
+dashboard --> monitor
+dashboard --> notifications
+
+serviceManager --> status
+serviceManager --> button
+serviceManager --> chart
+serviceManager --> serviceStore
+serviceManager --> logs
+
+configEditor --> editor
+configEditor --> validation
+configEditor --> configStore
+configEditor --> schemaValidator
+
+initWizard --> progress
+initWizard --> status
+initWizard --> validation
+initWizard --> initStore
+
+monitor --> chart
+monitor --> logs
+monitor --> metricsStore
+
+' Composable Dependencies
+websocket --> wsService
+websocket --> eventBus
+
+api --> apiService
+api --> authStore
+api --> errorHandler
+
+notifications --> eventBus
+
+validation --> validationService
+validation --> schemaValidator
+
+' Store Dependencies
+authStore --> apiService
+authStore --> logger
+
+serviceStore --> apiService
+serviceStore --> wsService
+serviceStore --> logger
+
+configStore --> apiService
+configStore --> schemaValidator
+configStore --> logger
+
+initStore --> apiService
+initStore --> wsService
+initStore --> logger
+
+metricsStore --> metricsService
+metricsStore --> wsService
+metricsStore --> logger
+
+' Service Dependencies
+apiService --> errorHandler
+apiService --> logger
+
+wsService --> eventBus
+wsService --> errorHandler
+
+validationService --> schemaValidator
+validationService --> logger
+
+metricsService --> wsService
+metricsService --> logger
+
+@enduml 

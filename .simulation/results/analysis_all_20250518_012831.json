@@ -1,0 +1,19 @@
+{
+  "summary": {
+    "total_simulations": 4,
+    "total_iterations": 12,
+    "successful_iterations": 9,
+    "success_rate": 75.0
+  },
+  "performance": {
+    "average_duration": 0.43874325,
+    "min_duration": 0.00101,
+    "max_duration": 1.74366
+  },
+  "reliability": {
+    "initialization": 100.0,
+    "data_processing": 100.0,
+    "validation": 100.0,
+    "completion": 100.0
+  }
+}

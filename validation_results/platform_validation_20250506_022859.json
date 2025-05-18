@@ -1,0 +1,65 @@
+{
+  "timestamp": "2025-05-06T02:28:44.921379",
+  "stages": {
+    "environment_setup": {
+      "status": "fail",
+      "execution_time": 14.21151614189148,
+      "output": {
+        "stdout": "Requirement already satisfied: pip in c:\\users\\ajame\\legal_study\\venv\\lib\\site-packages (25.1.1)\nCollecting pytest==7.4.3 (from -r requirements.txt (line 2))\n  Using cached pytest-7.4.3-py3-none-any.whl.metadata (7.9 kB)\nCollecting pytest-asyncio==0.21.1 (from -r requirements.txt (line 3))\n  Using cached pytest_asyncio-0.21.1-py3-none-any.whl.metadata (4.0 kB)\nCollecting pytest-cov==4.1.0 (from -r requirements.txt (line 4))\n  Using cached pytest_cov-4.1.0-py3-none-any.whl.metadata (26 kB)\nCollecting pytest-xdist==3.3.1 (from -r requirements.txt (line 5))\n  Using cached pytest_xdist-3.3.1-py3-none-any.whl.metadata (3.1 kB)\nCollecting pytest-timeout==2.1.0 (from -r requirements.txt (line 6))\n  Using cached pytest_timeout-2.1.0-py3-none-any.whl.metadata (16 kB)\nCollecting pytest-json-report==1.5.0 (from -r requirements.txt (line 7))\n  Using cached pytest_json_report-1.5.0-py3-none-any.whl.metadata (15 kB)\nCollecting requests==2.31.0 (from -r requirements.txt (line 10))\n  Using cached requests-2.31.0-py3-none-any.whl.metadata (4.6 kB)\nCollecting aiohttp==3.9.1 (from -r requirements.txt (line 11))\n  Using cached aiohttp-3.9.1-cp310-cp310-win_amd64.whl.metadata (7.6 kB)\nCollecting httpx==0.25.2 (from -r requirements.txt (line 12))\n  Using cached httpx-0.25.2-py3-none-any.whl.metadata (6.9 kB)\nCollecting psycopg2-binary==2.9.9 (from -r requirements.txt (line 15))\n  Using cached psycopg2_binary-2.9.9-cp310-cp310-win_amd64.whl.metadata (4.6 kB)\nCollecting redis==5.0.1 (from -r requirements.txt (line 16))\n  Using cached redis-5.0.1-py3-none-any.whl.metadata (8.9 kB)\nCollecting SQLAlchemy==2.0.23 (from -r requirements.txt (line 17))\n  Using cached SQLAlchemy-2.0.23-cp310-cp310-win_amd64.whl.metadata (9.8 kB)\nCollecting pika==1.3.1 (from -r requirements.txt (line 20))\n  Using cached pika-1.3.1-py3-none-any.whl.metadata (13 kB)\nCollecting kombu==5.3.2 (from -r requirements.txt (line 21))\n  Using cached kombu-5.3.2-py3-none-any.whl.metadata (3.0 kB)\nCollecting prometheus-client==0.19.0 (from -r requirements.txt (line 24))\n  Using cached prometheus_client-0.19.0-py3-none-any.whl.metadata (1.8 kB)\nCollecting statsd==4.0.1 (from -r requirements.txt (line 25))\n  Using cached statsd-4.0.1-py2.py3-none-any.whl.metadata (2.9 kB)\nCollecting datadog==0.47.0 (from -r requirements.txt (line 26))\n  Using cached datadog-0.47.0-py2.py3-none-any.whl.metadata (10 kB)\nCollecting locust==2.17.0 (from -r requirements.txt (line 29))\n  Using cached locust-2.17.0-py3-none-any.whl.metadata (7.5 kB)\nCollecting bandit==1.7.5 (from -r requirements.txt (line 32))\n  Using cached bandit-1.7.5-py3-none-any.whl.metadata (5.0 kB)\nCollecting safety==2.3.5 (from -r requirements.txt (line 33))\n  Using cached safety-2.3.5-py3-none-any.whl.metadata (34 kB)\nCollecting torch==2.1.1 (from -r requirements.txt (line 36))\n  Using cached torch-2.1.1-cp310-cp310-win_amd64.whl.metadata (26 kB)\nCollecting tensorflow==2.14.0 (from -r requirements.txt (line 37))\n  Using cached tensorflow-2.14.0-cp310-cp310-win_amd64.whl.metadata (3.3 kB)\nCollecting transformers==4.35.2 (from -r requirements.txt (line 38))\n  Using cached transformers-4.35.2-py3-none-any.whl.metadata (123 kB)\nCollecting numpy==1.26.2 (from -r requirements.txt (line 39))\n  Using cached numpy-1.26.2-cp310-cp310-win_amd64.whl.metadata (61 kB)\nCollecting scipy==1.11.4 (from -r requirements.txt (line 40))\n  Using cached scipy-1.11.4-cp310-cp310-win_amd64.whl.metadata (60 kB)\nCollecting scikit-learn==1.3.2 (from -r requirements.txt (line 41))\n  Using cached scikit_learn-1.3.2-cp310-cp310-win_amd64.whl.metadata (11 kB)\nCollecting black==23.11.0 (from -r requirements.txt (line 44))\n  Using cached black-23.11.0-cp310-cp310-win_amd64.whl.metadata (66 kB)\nCollecting flake8==6.1.0 (from -r requirements.txt (line 45))\n  Using cached flake8-6.1.0-py2.py3-none-any.whl.metadata (3.8 kB)\nCollecting mypy==1.7.1 (from -r requirements.txt (line 46))\n  Using cached mypy-1.7.1-cp310-cp310-win_amd64.whl.metadata (1.9 kB)\nCollecting isort==5.12.0 (from -r requirements.txt (line 47))\n  Using cached isort-5.12.0-py3-none-any.whl.metadata (12 kB)\nCollecting pre-commit==3.5.0 (from -r requirements.txt (line 48))\n  Using cached pre_commit-3.5.0-py2.py3-none-any.whl.metadata (1.3 kB)\nCollecting Sphinx==7.2.6 (from -r requirements.txt (line 51))\n  Using cached sphinx-7.2.6-py3-none-any.whl.metadata (5.9 kB)\nCollecting mkdocs==1.5.3 (from -r requirements.txt (line 52))\n  Using cached mkdocs-1.5.3-py3-none-any.whl.metadata (6.2 kB)\nCollecting mkdocs-material==9.4.14 (from -r requirements.txt (line 53))\n  Using cached mkdocs_material-9.4.14-py3-none-any.whl.metadata (16 kB)\nCollecting python-dotenv==1.0.0 (from -r requirements.txt (line 56))\n  Using cached python_dotenv-1.0.0-py3-none-any.whl.metadata (21 kB)\nCollecting pyyaml==6.0.1 (from -r requirements.txt (line 57))\n  Using cached PyYAML-6.0.1-cp310-cp310-win_amd64.whl.metadata (2.1 kB)\nCollecting rich==13.7.0 (from -r requirements.txt (line 58))\n  Using cached rich-13.7.0-py3-none-any.whl.metadata (18 kB)\nCollecting tqdm==4.66.1 (from -r requirements.txt (line 59))\n  Using cached tqdm-4.66.1-py3-none-any.whl.metadata (57 kB)\nCollecting pytest-benchmark>=4.0.0 (from -r requirements.txt (line 62))\n  Using cached pytest_benchmark-5.1.0-py3-none-any.whl.metadata (25 kB)\nCollecting pytest-mock>=3.10.0 (from -r requirements.txt (line 63))\n  Using cached pytest_mock-3.14.0-py3-none-any.whl.metadata (3.8 kB)\nCollecting hypothesis>=6.75.0 (from -r requirements.txt (line 64))\n  Using cached hypothesis-6.131.10-py3-none-any.whl.metadata (5.6 kB)\nCollecting coverage>=7.2.0 (from -r requirements.txt (line 65))\n  Using cached coverage-7.8.0-cp310-cp310-win_amd64.whl.metadata (8.7 kB)\nCollecting tox>=4.5.0 (from -r requirements.txt (line 66))\n  Using cached tox-4.25.0-py3-none-any.whl.metadata (3.7 kB)\nCollecting sphinx-rtd-theme>=1.2.0 (from -r requirements.txt (line 70))\n  Using cached sphinx_rtd_theme-3.0.2-py2.py3-none-any.whl.metadata (4.4 kB)\nCollecting sphinx-autodoc-typehints>=1.23.0 (from -r requirements.txt (line 71))\n  Using cached sphinx_autodoc_typehints-3.0.1-py3-none-any.whl.metadata (7.9 kB)\nCollecting sphinx-click>=4.4.0 (from -r requirements.txt (line 72))\n  Using cached sphinx_click-6.0.0-py3-none-any.whl.metadata (3.4 kB)\nCollecting myst-parser>=2.0.0 (from -r requirements.txt (line 73))\n  Using cached myst_parser-4.0.1-py3-none-any.whl.metadata (5.5 kB)\nCollecting cryptography>=41.0.0 (from -r requirements.txt (line 78))\n  Using cached cryptography-44.0.3-cp39-abi3-win_amd64.whl.metadata (5.7 kB)\nCollecting python-jose>=3.3.0 (from -r requirements.txt (line 79))\n  Using cached python_jose-3.4.0-py2.py3-none-any.whl.metadata (5.5 kB)\nCollecting passlib>=1.7.0 (from -r requirements.txt (line 80))\n  Using cached passlib-1.7.4-py2.py3-none-any.whl.metadata (1.7 kB)\nCollecting opentelemetry-api>=1.18.0 (from -r requirements.txt (line 83))\n  Using cached opentelemetry_api-1.32.1-py3-none-any.whl.metadata (1.6 kB)\nCollecting opentelemetry-sdk>=1.18.0 (from -r requirements.txt (line 84))\n  Using cached opentelemetry_sdk-1.32.1-py3-none-any.whl.metadata (1.6 kB)\n2025-05-06 02:28:59,073 - ERROR - Error installing dependencies: Command '['venv\\\\Scripts\\\\pip.exe', 'install', '-r', 'requirements.txt']' returned non-zero exit status 1.\ngit version 2.48.1.windows.1\n2025-05-06 02:28:59,118 - INFO - Results saved to setup_results/dev_environment_setup_20250506_022859.json\n\nDevelopment Environment Setup Report\n================================\nGenerated at: 2025-05-06T02:28:45.047933\nOverall Status: FAIL\nTotal Execution Time: 14.07 seconds\n\nSummary:\n--------\nTotal Steps: 6\nPassed Steps: 5\nFailed Steps: 0\nError Steps: 1\nSuccess Rate: 83.33%\n\nDetailed Results:\n---------------\n\nSETTING UP PYTHON ENVIRONMENT:\n  Status: PASS\n  Details:\n    python_version: 3.10.0\n    virtual_env: venv\n\nINSTALLING DEPENDENCIES:\n  Status: ERROR\n  Error: Command '['venv\\\\Scripts\\\\pip.exe', 'install', '-r', 'requirements.txt']' returned non-zero exit status 1.\n\nCONFIGURING GIT:\n  Status: PASS\n  Details:\n    gitignore: .gitignore\n\nSETTING UP IDE CONFIGURATION:\n  Status: PASS\n  Details:\n    vscode_settings: .vscode/settings.json\n\nSETTING UP TEST ENVIRONMENT:\n  Status: PASS\n  Details:\n    pytest_config: pytest.ini\n    test_dirs:\n      - tests/unit\n      - tests/integration\n      - tests/performance\n      - tests/security\n\nSETTING UP DOCUMENTATION:\n  Status: PASS\n  Details:\n    mkdocs_config: mkdocs.yml\n    doc_files:\n      - docs/index.md\n      - docs/user-guide/getting-started.md\n      - docs/developer-guide/setup.md\n      - docs/api-reference/overview.md\n\n",
+        "stderr": "ERROR: Ignored the following versions that require a different python version: 1.6.2 Requires-Python >=3.7,<3.10; 1.6.3 Requires-Python >=3.7,<3.10; 1.7.0 Requires-Python >=3.7,<3.10; 1.7.1 Requires-Python >=3.7,<3.10; 3.1.0 Requires-Python >=3.11; 3.2.0 Requires-Python >=3.11; 8.2.0 Requires-Python >=3.11; 8.2.0rc1 Requires-Python >=3.11; 8.2.0rc2 Requires-Python >=3.11; 8.2.1 Requires-Python >=3.11; 8.2.2 Requires-Python >=3.11; 8.2.3 Requires-Python >=3.11; 8.3.0 Requires-Python >=3.11\nERROR: Could not find a version that satisfies the requirement opentelemetry-instrumentation>=0.39.0 (from versions: 0.9b0, 0.10b0, 0.11b0, 0.12b0, 0.13b0, 0.14b0, 0.15b0, 0.16b0, 0.16b1, 0.17b0, 0.18b0, 0.19b0, 0.20b0, 0.21b0, 0.22b0, 0.23b0, 0.23b1, 0.23b2, 0.24b0, 0.25b0, 0.25b1, 0.25b2, 0.26b1, 0.27b0, 0.28b0, 0.28b1, 0.29b0, 0.30b0, 0.30b1, 0.31b0, 0.32b0, 0.33b0, 0.34b0, 0.35b0, 0.36b0, 0.37b0, 0.38b0, 0.39b0, 0.40b0, 0.41b0, 0.42b0, 0.43b0, 0.44b0, 0.45b0, 0.46b0, 0.47b0, 0.48b0, 0.49b0, 0.49b1, 0.49b2, 0.50b0, 0.51b0, 0.52b0, 0.52b1, 0.53b0, 0.53b1)\nERROR: No matching distribution found for opentelemetry-instrumentation>=0.39.0\n"
+      },
+      "error": "ERROR: Ignored the following versions that require a different python version: 1.6.2 Requires-Python >=3.7,<3.10; 1.6.3 Requires-Python >=3.7,<3.10; 1.7.0 Requires-Python >=3.7,<3.10; 1.7.1 Requires-Python >=3.7,<3.10; 3.1.0 Requires-Python >=3.11; 3.2.0 Requires-Python >=3.11; 8.2.0 Requires-Python >=3.11; 8.2.0rc1 Requires-Python >=3.11; 8.2.0rc2 Requires-Python >=3.11; 8.2.1 Requires-Python >=3.11; 8.2.2 Requires-Python >=3.11; 8.2.3 Requires-Python >=3.11; 8.3.0 Requires-Python >=3.11\nERROR: Could not find a version that satisfies the requirement opentelemetry-instrumentation>=0.39.0 (from versions: 0.9b0, 0.10b0, 0.11b0, 0.12b0, 0.13b0, 0.14b0, 0.15b0, 0.16b0, 0.16b1, 0.17b0, 0.18b0, 0.19b0, 0.20b0, 0.21b0, 0.22b0, 0.23b0, 0.23b1, 0.23b2, 0.24b0, 0.25b0, 0.25b1, 0.25b2, 0.26b1, 0.27b0, 0.28b0, 0.28b1, 0.29b0, 0.30b0, 0.30b1, 0.31b0, 0.32b0, 0.33b0, 0.34b0, 0.35b0, 0.36b0, 0.37b0, 0.38b0, 0.39b0, 0.40b0, 0.41b0, 0.42b0, 0.43b0, 0.44b0, 0.45b0, 0.46b0, 0.47b0, 0.48b0, 0.49b0, 0.49b1, 0.49b2, 0.50b0, 0.51b0, 0.52b0, 0.52b1, 0.53b0, 0.53b1)\nERROR: No matching distribution found for opentelemetry-instrumentation>=0.39.0\n"
+    },
+    "smoke_tests": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    },
+    "integration_tests": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    },
+    "ai_tests": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    },
+    "notification_tests": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    },
+    "error_handling": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    },
+    "performance_tests": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    },
+    "security_tests": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    },
+    "monitoring_setup": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    }
+  },
+  "overall_status": "fail",
+  "execution_time": 14.222867727279663,
+  "summary": {
+    "total_stages": 9,
+    "passed_stages": 0,
+    "failed_stages": 1,
+    "error_stages": 0,
+    "skipped_stages": 8,
+    "success_rate": 0.0,
+    "execution_time": 14.222867727279663
+  }
+}

@@ -1,0 +1,6 @@
+colorama==0.4.6
+inquirer==3.1.3
+boto3==1.34.34
+docker==7.0.0
+requests==2.31.0
+pyyaml==6.0.1

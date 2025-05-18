@@ -1,0 +1,105 @@
+@startuml Component Interaction
+
+!define RECTANGLE class
+skinparam backgroundColor white
+skinparam classBackgroundColor white
+skinparam classBorderColor black
+skinparam arrowColor black
+
+package "Layout Components" {
+  [App.vue] as app
+  [Layout.vue] as layout
+  [Navigation.vue] as nav
+  [Footer.vue] as footer
+}
+
+package "Dashboard Components" {
+  [StatusCard.vue] as status
+  [ActivityFeed.vue] as activity
+  [QuickActions.vue] as actions
+}
+
+package "Configuration Components" {
+  [SettingsPanel.vue] as settings
+  [ProfileManager.vue] as profiles
+  [ImportExport.vue] as import
+}
+
+package "Module Components" {
+  [ModuleList.vue] as moduleList
+  [ModuleCard.vue] as moduleCard
+  [InstallationWizard.vue] as wizard
+}
+
+package "Shared Components" {
+  [InputField.vue] as input
+  [SelectField.vue] as select
+  [ToastNotification.vue] as toast
+  [ProgressIndicator.vue] as progress
+}
+
+package "State Management" {
+  [User Store] as userStore
+  [System Store] as systemStore
+  [UI Store] as uiStore
+}
+
+app --> layout : "Renders"
+layout --> nav : "Contains"
+layout --> footer : "Contains"
+
+layout --> status : "Shows"
+layout --> activity : "Shows"
+layout --> actions : "Shows"
+
+nav --> settings : "Links to"
+nav --> moduleList : "Links to"
+
+settings --> profiles : "Manages"
+settings --> import : "Handles"
+
+moduleList --> moduleCard : "Renders"
+moduleCard --> wizard : "Triggers"
+
+status --> systemStore : "Reads"
+activity --> systemStore : "Reads"
+actions --> systemStore : "Updates"
+
+settings --> systemStore : "Updates"
+profiles --> systemStore : "Manages"
+import --> systemStore : "Updates"
+
+moduleList --> systemStore : "Reads"
+moduleCard --> systemStore : "Updates"
+wizard --> systemStore : "Updates"
+
+input --> uiStore : "Updates"
+select --> uiStore : "Updates"
+toast --> uiStore : "Shows"
+progress --> uiStore : "Shows"
+
+userStore ..> systemStore : "Influences"
+systemStore ..> uiStore : "Updates"
+
+note right of app
+  Root component that:
+  - Initializes stores
+  - Sets up routing
+  - Handles auth
+end note
+
+note right of layout
+  Main layout that:
+  - Manages structure
+  - Handles navigation
+  - Shows notifications
+end note
+
+note right of systemStore
+  Manages:
+  - Configuration
+  - Module state
+  - System status
+end note
+
+@enduml 

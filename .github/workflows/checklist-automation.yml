@@ -1,0 +1,61 @@
+name: Checklist Automation
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'checklists/**'
+      - 'tests/**'
+      - 'scripts/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'checklists/**'
+      - 'tests/**'
+      - 'scripts/**'
+  workflow_dispatch:
+
+jobs:
+  update-checklists:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest pytest-cov
+
+    - name: Run tests
+      run: |
+        pytest tests/ --cov=scripts/ --cov-report=xml
+
+    - name: Initialize checklist items
+      run: |
+        python scripts/init_checklist_items.py
+
+    - name: Update checklist files
+      run: |
+        python scripts/update_checklist_files.py
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add checklists/
+        git commit -m "Update checklists based on test results" || exit 0
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
+        force: true

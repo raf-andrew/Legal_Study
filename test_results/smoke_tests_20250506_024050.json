@@ -1,0 +1,70 @@
+{
+  "timestamp": "2025-05-06T02:40:29.455954",
+  "tests": {
+    "api_health": {
+      "status": "error",
+      "error": "HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000206DF65DF30>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+    },
+    "database_health": {
+      "status": "error",
+      "error": "HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/database/health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000206DF65E9B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+    },
+    "cache_health": {
+      "status": "error",
+      "error": "HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/cache/health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000206DF65F6A0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+    },
+    "ai_health": {
+      "status": "error",
+      "error": "HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/ai/health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000206DF65E260>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+    },
+    "notification_health": {
+      "status": "error",
+      "error": "HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/notifications/health (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000206DF65F220>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+    },
+    "system_resources": {
+      "status": "pass",
+      "metrics": {
+        "cpu_usage": 6.8,
+        "memory_usage": 43.1,
+        "disk_usage": 19.3
+      }
+    },
+    "database": {
+      "status": "pass",
+      "metrics": {
+        "connection_time": 0.0,
+        "query_time": 0.0
+      }
+    },
+    "cache": {
+      "status": "pass",
+      "metrics": {
+        "connection_time": 0.0,
+        "operation_time": 0.0
+      }
+    },
+    "ai_system": {
+      "status": "pass",
+      "metrics": {
+        "model_loaded": true,
+        "inference_time": 0.0
+      }
+    },
+    "notification_system": {
+      "status": "pass",
+      "metrics": {
+        "queue_size": 0,
+        "processing_rate": 0.0
+      }
+    }
+  },
+  "overall_status": "pass",
+  "execution_time": 21.430320262908936,
+  "summary": {
+    "total_tests": 10,
+    "passed_tests": 5,
+    "failed_tests": 5,
+    "success_rate": 50.0,
+    "execution_time": 21.430320262908936
+  }
+}

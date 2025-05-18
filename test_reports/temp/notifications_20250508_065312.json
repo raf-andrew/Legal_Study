@@ -1,0 +1,935 @@
+{
+  "created": 1746712393.9789867,
+  "duration": 0.7100698947906494,
+  "exitcode": 1,
+  "root": "C:\\Users\\ajame\\Legal_Study",
+  "environment": {},
+  "summary": {
+    "failed": 10,
+    "total": 10,
+    "collected": 10
+  },
+  "collectors": [
+    {
+      "nodeid": "",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/notifications/test_notifications.py",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/notifications/test_notifications.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/notifications/test_notifications.py::test_notification_service_health",
+          "type": "Function",
+          "lineno": 15
+        },
+        {
+          "nodeid": "tests/notifications/test_notifications.py::test_email_notification",
+          "type": "Function",
+          "lineno": 24
+        },
+        {
+          "nodeid": "tests/notifications/test_notifications.py::test_push_notification",
+          "type": "Function",
+          "lineno": 45
+        },
+        {
+          "nodeid": "tests/notifications/test_notifications.py::test_in_app_notification",
+          "type": "Function",
+          "lineno": 66
+        },
+        {
+          "nodeid": "tests/notifications/test_notifications.py::test_notification_templates",
+          "type": "Function",
+          "lineno": 87
+        },
+        {
+          "nodeid": "tests/notifications/test_notifications.py::test_notification_preferences",
+          "type": "Function",
+          "lineno": 115
+        },
+        {
+          "nodeid": "tests/notifications/test_notifications.py::test_notification_history",
+          "type": "Function",
+          "lineno": 146
+        },
+        {
+          "nodeid": "tests/notifications/test_notifications.py::test_notification_validation",
+          "type": "Function",
+          "lineno": 166
+        },
+        {
+          "nodeid": "tests/notifications/test_notifications.py::test_notification_rate_limiting",
+          "type": "Function",
+          "lineno": 186
+        },
+        {
+          "nodeid": "tests/notifications/test_notifications.py::test_notification_metrics",
+          "type": "Function",
+          "lineno": 211
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "nodeid": "tests/notifications/test_notifications.py::test_notification_history",
+      "lineno": 146,
+      "outcome": "failed",
+      "keywords": [
+        "test_notification_history",
+        "tests/notifications/test_notifications.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.010256100009428337,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:13.354572",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.3545723,
+            "msecs": 354.5722961425781,
+            "relativeCreated": 17307.740688323975,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,354"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.04324089997680858,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\notifications\\test_notifications.py",
+          "lineno": 154,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\notifications\\test_notifications.py",
+            "lineno": 154,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_notification_history():\n        \"\"\"Test notification history functionality.\"\"\"\n        # Test getting history\n        response = requests.get(\n            f\"{API_BASE_URL}/api/v1/notifications/history/test_user_id\",\n            timeout=TEST_TIMEOUT\n        )\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\notifications\\test_notifications.py:154: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0019699999829754233,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:13.430464",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.4304645,
+            "msecs": 430.464506149292,
+            "relativeCreated": 17383.63289833069,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,430"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/notifications/test_notifications.py::test_notification_metrics",
+      "lineno": 211,
+      "outcome": "failed",
+      "keywords": [
+        "test_notification_metrics",
+        "tests/notifications/test_notifications.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.005517599987797439,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:13.436314",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.4363148,
+            "msecs": 436.31482124328613,
+            "relativeCreated": 17389.483213424683,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,436"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.009238099999492988,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\notifications\\test_notifications.py",
+          "lineno": 215,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\notifications\\test_notifications.py",
+            "lineno": 215,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_notification_metrics():\n        \"\"\"Test notification metrics collection.\"\"\"\n        response = requests.get(f\"{API_BASE_URL}/api/v1/notifications/metrics\", timeout=TEST_TIMEOUT)\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\notifications\\test_notifications.py:215: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.002796000015223399,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:13.468097",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.4680974,
+            "msecs": 468.097448348999,
+            "relativeCreated": 17421.265840530396,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,468"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/notifications/test_notifications.py::test_notification_rate_limiting",
+      "lineno": 186,
+      "outcome": "failed",
+      "keywords": [
+        "test_notification_rate_limiting",
+        "tests/notifications/test_notifications.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0045338000054471195,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:13.475356",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.4753563,
+            "msecs": 475.3563404083252,
+            "relativeCreated": 17428.52473258972,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,475"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.08699380001053214,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\notifications\\test_notifications.py",
+          "lineno": 205,
+          "message": "AssertionError: assert 'X-RateLimit-Limit' in {'date': 'Thu, 08 May 2025 13:53:12 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'}\n +  where {'date': 'Thu, 08 May 2025 13:53:12 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'} = <Response [404]>.headers"
+        },
+        "traceback": [
+          {
+            "path": "tests\\notifications\\test_notifications.py",
+            "lineno": 205,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_notification_rate_limiting():\n        \"\"\"Test notification rate limiting.\"\"\"\n        # Make multiple requests quickly\n        responses = []\n        for _ in range(10):\n            response = requests.post(\n                f\"{API_BASE_URL}/api/v1/notifications/send\",\n                json={\n                    \"type\": \"email\",\n                    \"recipient\": \"test@example.com\",\n                    \"subject\": \"Test\",\n                    \"body\": \"Test\"\n                },\n                timeout=TEST_TIMEOUT\n            )\n            responses.append(response)\n    \n        # Check rate limit headers\n>       assert \"X-RateLimit-Limit\" in responses[-1].headers\nE       AssertionError: assert 'X-RateLimit-Limit' in {'date': 'Thu, 08 May 2025 13:53:12 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'}\nE        +  where {'date': 'Thu, 08 May 2025 13:53:12 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'} = <Response [404]>.headers\n\ntests\\notifications\\test_notifications.py:205: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0016578000213485211,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:13.582940",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.5829406,
+            "msecs": 582.9405784606934,
+            "relativeCreated": 17536.10897064209,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,582"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/notifications/test_notifications.py::test_push_notification",
+      "lineno": 45,
+      "outcome": "failed",
+      "keywords": [
+        "test_push_notification",
+        "tests/notifications/test_notifications.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0040580999921076,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:13.588642",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.5886424,
+            "msecs": 588.6423587799072,
+            "relativeCreated": 17541.810750961304,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,588"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.010306299984222278,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\notifications\\test_notifications.py",
+          "lineno": 61,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\notifications\\test_notifications.py",
+            "lineno": 61,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_push_notification():\n        \"\"\"Test push notification functionality.\"\"\"\n        test_notification = {\n            \"type\": \"push\",\n            \"recipient\": \"test_device_token\",\n            \"title\": \"Test Push\",\n            \"body\": \"This is a test push notification\",\n            \"data\": {\"key\": \"value\"}\n        }\n    \n        response = requests.post(\n            f\"{API_BASE_URL}/api/v1/notifications/send\",\n            json=test_notification,\n            timeout=TEST_TIMEOUT\n        )\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\notifications\\test_notifications.py:61: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0026286999927833676,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:13.625291",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.6252918,
+            "msecs": 625.2918243408203,
+            "relativeCreated": 17578.460216522217,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,625"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/notifications/test_notifications.py::test_in_app_notification",
+      "lineno": 66,
+      "outcome": "failed",
+      "keywords": [
+        "test_in_app_notification",
+        "tests/notifications/test_notifications.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0035083999973721802,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:13.630460",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.6304607,
+            "msecs": 630.4607391357422,
+            "relativeCreated": 17583.62913131714,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,630"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.00829540000995621,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\notifications\\test_notifications.py",
+          "lineno": 82,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\notifications\\test_notifications.py",
+            "lineno": 82,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_in_app_notification():\n        \"\"\"Test in-app notification functionality.\"\"\"\n        test_notification = {\n            \"type\": \"in_app\",\n            \"recipient\": \"test_user_id\",\n            \"title\": \"Test In-App\",\n            \"message\": \"This is a test in-app notification\",\n            \"priority\": \"high\"\n        }\n    \n        response = requests.post(\n            f\"{API_BASE_URL}/api/v1/notifications/send\",\n            json=test_notification,\n            timeout=TEST_TIMEOUT\n        )\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\notifications\\test_notifications.py:82: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0021980000019539148,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:13.659338",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.6593385,
+            "msecs": 659.3384742736816,
+            "relativeCreated": 17612.506866455078,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,659"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/notifications/test_notifications.py::test_email_notification",
+      "lineno": 24,
+      "outcome": "failed",
+      "keywords": [
+        "test_email_notification",
+        "tests/notifications/test_notifications.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.003802699997322634,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:13.665792",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.665792,
+            "msecs": 665.7919883728027,
+            "relativeCreated": 17618.9603805542,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,665"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.007928699982585385,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\notifications\\test_notifications.py",
+          "lineno": 40,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\notifications\\test_notifications.py",
+            "lineno": 40,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_email_notification():\n        \"\"\"Test email notification functionality.\"\"\"\n        test_notification = {\n            \"type\": \"email\",\n            \"recipient\": \"test@example.com\",\n            \"subject\": \"Test Email\",\n            \"body\": \"This is a test email notification\",\n            \"template\": \"default\"\n        }\n    \n        response = requests.post(\n            f\"{API_BASE_URL}/api/v1/notifications/send\",\n            json=test_notification,\n            timeout=TEST_TIMEOUT\n        )\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\notifications\\test_notifications.py:40: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0016476000018883497,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:13.699062",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.6990623,
+            "msecs": 699.0623474121094,
+            "relativeCreated": 17652.230739593506,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,699"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/notifications/test_notifications.py::test_notification_validation",
+      "lineno": 166,
+      "outcome": "failed",
+      "keywords": [
+        "test_notification_validation",
+        "tests/notifications/test_notifications.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0031444999913219362,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:13.703609",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.7036092,
+            "msecs": 703.6092281341553,
+            "relativeCreated": 17656.77762031555,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,703"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.008769399981247261,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\notifications\\test_notifications.py",
+          "lineno": 182,
+          "message": "assert 404 == 400\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\notifications\\test_notifications.py",
+            "lineno": 182,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_notification_validation():\n        \"\"\"Test notification validation and error handling.\"\"\"\n        invalid_notifications = [\n            {},  # Empty notification\n            {\"type\": \"invalid\"},  # Invalid type\n            {\"type\": \"email\"},  # Missing recipient\n            {\"type\": \"email\", \"recipient\": \"invalid_email\"}  # Invalid email\n        ]\n    \n        for notification in invalid_notifications:\n            response = requests.post(\n                f\"{API_BASE_URL}/api/v1/notifications/send\",\n                json=notification,\n                timeout=TEST_TIMEOUT\n            )\n>           assert response.status_code == 400\nE           assert 404 == 400\nE            +  where 404 = <Response [404]>.status_code\n\ntests\\notifications\\test_notifications.py:182: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0014989000046625733,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:13.733595",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.7335951,
+            "msecs": 733.5951328277588,
+            "relativeCreated": 17686.763525009155,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,733"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/notifications/test_notifications.py::test_notification_service_health",
+      "lineno": 15,
+      "outcome": "failed",
+      "keywords": [
+        "test_notification_service_health",
+        "tests/notifications/test_notifications.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.003108300006715581,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:13.737561",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.737562,
+            "msecs": 737.5619411468506,
+            "relativeCreated": 17690.730333328247,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,737"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.024718200002098456,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\notifications\\test_notifications.py",
+          "lineno": 19,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\notifications\\test_notifications.py",
+            "lineno": 19,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_notification_service_health():\n        \"\"\"Test notification service health endpoint.\"\"\"\n        response = requests.get(f\"{API_BASE_URL}/api/v1/notifications/health\", timeout=TEST_TIMEOUT)\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\notifications\\test_notifications.py:19: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.003383499977644533,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:13.780582",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.780583,
+            "msecs": 780.5829048156738,
+            "relativeCreated": 17733.75129699707,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,780"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/notifications/test_notifications.py::test_notification_templates",
+      "lineno": 87,
+      "outcome": "failed",
+      "keywords": [
+        "test_notification_templates",
+        "tests/notifications/test_notifications.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0035419000196270645,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:13.786749",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.7867494,
+            "msecs": 786.7493629455566,
+            "relativeCreated": 17739.917755126953,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,786"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.007183800014900044,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\notifications\\test_notifications.py",
+          "lineno": 92,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\notifications\\test_notifications.py",
+            "lineno": 92,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_notification_templates():\n        \"\"\"Test notification template functionality.\"\"\"\n        # Test template listing\n        response = requests.get(f\"{API_BASE_URL}/api/v1/notifications/templates\", timeout=TEST_TIMEOUT)\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\notifications\\test_notifications.py:92: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0022949999838601798,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:13.813062",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.8136692,
+            "msecs": 813.6692047119141,
+            "relativeCreated": 17766.83759689331,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,813"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/notifications/test_notifications.py::test_notification_preferences",
+      "lineno": 115,
+      "outcome": "failed",
+      "keywords": [
+        "test_notification_preferences",
+        "tests/notifications/test_notifications.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.015191999991657212,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:13.822765",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.8227654,
+            "msecs": 822.7653503417969,
+            "relativeCreated": 17775.933742523193,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,822"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.01245280000148341,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\notifications\\test_notifications.py",
+          "lineno": 123,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\notifications\\test_notifications.py",
+            "lineno": 123,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_notification_preferences():\n        \"\"\"Test notification preferences functionality.\"\"\"\n        # Test getting preferences\n        response = requests.get(\n            f\"{API_BASE_URL}/api/v1/notifications/preferences/test_user_id\",\n            timeout=TEST_TIMEOUT\n        )\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\notifications\\test_notifications.py:123: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.007018800009973347,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:13.866972",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712393.8669722,
+            "msecs": 866.9722080230713,
+            "relativeCreated": 17820.140600204468,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:13,866"
+          }
+        ]
+      }
+    }
+  ],
+  "suite_name": "notifications",
+  "timestamp": "20250508_065312",
+  "exit_code": 1
+}

@@ -1,0 +1,172 @@
+# Codespaces Configuration
+
+# Environment Configuration
+environment:
+  name: "legal-study-codespace"
+  type: "development"  # development, staging, production
+  region: "us-east-1"
+  machine_type: "Standard_DS2_v2"  # 2 vCPUs, 4 GB RAM
+
+# Service Configuration
+services:
+  api:
+    enabled: true
+    port: 8000
+    health_check: "/health"
+    environment:
+      - name: "APP_ENV"
+        value: "development"
+      - name: "DB_HOST"
+        value: "db"
+      - name: "REDIS_HOST"
+        value: "redis"
+
+  frontend:
+    enabled: true
+    port: 3000
+    health_check: "/health"
+    environment:
+      - name: "VITE_API_URL"
+        value: "http://api:8000"
+      - name: "VITE_WS_URL"
+        value: "ws://websocket:6001"
+
+  database:
+    enabled: true
+    type: "postgresql"
+    version: "14"
+    port: 5432
+    environment:
+      - name: "POSTGRES_DB"
+        value: "legal_study"
+      - name: "POSTGRES_USER"
+        value: "platform_user"
+      - name: "POSTGRES_PASSWORD"
+        value: "platform_pass"
+
+  cache:
+    enabled: true
+    type: "redis"
+    version: "7"
+    port: 6379
+
+  queue:
+    enabled: true
+    type: "rabbitmq"
+    version: "3-management"
+    port: 5672
+    management_port: 15672
+
+# Monitoring Configuration
+monitoring:
+  enabled: true
+  prometheus:
+    port: 9090
+    retention: "15d"
+  grafana:
+    port: 3000
+    admin_password: "admin"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "json"
+  retention: "30d"
+  destinations:
+    - type: "file"
+      path: ".codespaces/logs"
+    - type: "elasticsearch"
+      enabled: false
+      host: "elasticsearch"
+      port: 9200
+
+# Testing Configuration
+testing:
+  enabled: true
+  types:
+    - unit
+    - integration
+    - functional
+    - performance
+    - security
+  coverage:
+    minimum: 80
+    exclude:
+      - "**/tests/**"
+      - "**/migrations/**"
+      - "**/config/**"
+
+# Deployment Configuration
+deployment:
+  strategy: "rolling"
+  health_check:
+    interval: 30
+    timeout: 10
+    retries: 3
+  rollback:
+    enabled: true
+    automatic: true
+    threshold: 3
+
+# Security Configuration
+security:
+  authentication:
+    enabled: true
+    method: "jwt"
+    token_expiry: 3600
+  authorization:
+    enabled: true
+    method: "rbac"
+  audit:
+    enabled: true
+    level: "INFO"
+    retention: "90d"
+
+# Data Retention
+data_retention:
+  enabled: true
+  backup:
+    schedule: "0 0 * * *"  # Daily at midnight
+    retention: "30d"
+    storage: "s3"
+  cleanup:
+    schedule: "0 1 * * *"  # Daily at 1 AM
+    retention: "90d"
+
+# Self-healing Configuration
+self_healing:
+  enabled: true
+  checks:
+    - type: "service"
+      interval: 60
+      timeout: 30
+    - type: "database"
+      interval: 300
+      timeout: 60
+    - type: "cache"
+      interval: 300
+      timeout: 30
+  actions:
+    - type: "restart"
+      max_attempts: 3
+      cooldown: 300
+    - type: "rollback"
+      max_attempts: 1
+      cooldown: 600
+
+# Local Development Configuration
+local_development:
+  enabled: true
+  docker_compose: true
+  minikube: false
+  services:
+    - name: "api"
+      port: 8000
+    - name: "frontend"
+      port: 3000
+    - name: "database"
+      port: 5432
+    - name: "cache"
+      port: 6379
+    - name: "queue"
+      port: 5672

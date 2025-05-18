@@ -1,0 +1,202 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Automation Infrastructure Guide
+
+## Overview
+The automation infrastructure provides tools and workflows for automating development, testing, and deployment processes.
+
+## Core Components
+
+### Workflow Automation
+Workflows are configured in [.github/workflows/](mdc:.github/workflows) with:
+- CI/CD pipelines
+- Automated testing
+- Deployment automation
+- Maintenance tasks
+
+### Issue Management
+Issue automation is managed in [.github/ISSUE_TEMPLATE/](mdc:.github/ISSUE_TEMPLATE) providing:
+- Issue templates
+- Label automation
+- Assignment rules
+- Status tracking
+
+### Pull Request Automation
+PR automation is configured in [.github/pull_request_template.md](mdc:.github/pull_request_template.md) including:
+- PR templates
+- Review automation
+- Merge rules
+- Status checks
+
+## Automation Features
+
+### CI/CD Pipeline
+1. Build Process
+   - Code compilation
+   - Dependency installation
+   - Asset building
+   - Version tagging
+
+2. Test Process
+   - Unit testing
+   - Integration testing
+   - End-to-end testing
+   - Performance testing
+
+3. Deployment Process
+   - Environment setup
+   - Configuration management
+   - Service deployment
+   - Health checks
+
+### Issue Management
+1. Issue Creation
+   - Template selection
+   - Field validation
+   - Label assignment
+   - Priority setting
+
+2. Issue Tracking
+   - Status updates
+   - Progress tracking
+   - Dependency management
+   - Milestone tracking
+
+3. Issue Resolution
+   - Resolution verification
+   - Documentation updates
+   - Release notes
+   - Knowledge base updates
+
+## Automation Workflows
+
+### CI/CD Workflow
+```yaml
+# .github/workflows/ci-cd.yml
+name: CI/CD Pipeline
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: |
+          npm install
+          npm run build
+      - name: Test
+        run: npm test
+      - name: Deploy
+        if: github.ref == 'refs/heads/main'
+        run: npm run deploy
+```
+
+### Issue Workflow
+```yaml
+# .github/workflows/issue-management.yml
+name: Issue Management
+on:
+  issues:
+    types: [opened, labeled, unlabeled]
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Process Issue
+        uses: actions/github-script@v6
+        with:
+          script: |
+            // Issue processing logic
+```
+
+## Best Practices
+
+### Workflow Management
+1. Version control
+2. Documentation
+3. Testing
+4. Monitoring
+5. Maintenance
+
+### Issue Management
+1. Clear templates
+2. Regular updates
+3. Status tracking
+4. Resolution verification
+5. Knowledge sharing
+
+### PR Management
+1. Code review
+2. Automated testing
+3. Documentation
+4. Version control
+5. Release management
+
+## Monitoring
+
+### Workflow Monitoring
+1. Execution Status
+   - Success rate
+   - Failure analysis
+   - Performance metrics
+   - Resource usage
+
+2. Issue Metrics
+   - Resolution time
+   - Response time
+   - Backlog size
+   - Priority distribution
+
+3. PR Metrics
+   - Review time
+   - Merge rate
+   - Conflict rate
+   - Quality metrics
+
+## Maintenance
+
+### Regular Tasks
+1. Workflow Updates
+   - Review configurations
+   - Update dependencies
+   - Optimize performance
+   - Document changes
+
+2. Template Updates
+   - Review templates
+   - Update fields
+   - Add validations
+   - Improve usability
+
+3. Automation Rules
+   - Review rules
+   - Update conditions
+   - Optimize triggers
+   - Document changes
+
+## Integration
+
+### External Services
+1. CI/CD Services
+   - Build services
+   - Test services
+   - Deployment services
+   - Monitoring services
+
+2. Issue Tracking
+   - Project management
+   - Time tracking
+   - Resource planning
+   - Reporting
+
+3. Code Quality
+   - Static analysis
+   - Code coverage
+   - Performance testing
+   - Security scanning
+
+
+

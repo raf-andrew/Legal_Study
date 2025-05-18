@@ -1,0 +1,51 @@
+{
+    "name": "Legal Study Development",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-vscode.vscode-typescript-tslint-plugin",
+                "dbaeumer.vscode-eslint"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true,
+                "python.formatting.provider": "black",
+                "editor.formatOnSave": true,
+                "editor.codeActionsOnSave": {
+                    "source.organizeImports": true
+                }
+            }
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.9"
+        },
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "forwardPorts": [
+        8000,
+        3306,
+        6379
+    ],
+    "postCreateCommand": "sudo apt-get update && sudo apt-get install -y mysql-server redis-server && sudo service mysql start && sudo service redis-server start && pip install -r .setup/requirements.txt && python .setup/scripts/deployment_test.py",
+    "remoteUser": "vscode",
+    "remoteEnv": {
+        "DB_CONNECTION": "mysql",
+        "DB_HOST": "localhost",
+        "DB_PORT": "3306",
+        "DB_DATABASE": "legal_study",
+        "DB_USERNAME": "root",
+        "DB_PASSWORD": "secret",
+        "REDIS_HOST": "localhost",
+        "REDIS_PORT": "6379",
+        "CACHE_DRIVER": "redis",
+        "SESSION_DRIVER": "redis",
+        "QUEUE_CONNECTION": "redis"
+    }
+}

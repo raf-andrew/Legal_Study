@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Component Preview - Legal Study System</title>
+    <link rel="stylesheet" href="../../styles/base.css">
+    <link rel="stylesheet" href="button.css">
+    <style>
+        .preview {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-8);
+        }
+
+        .preview header {
+            margin-bottom: var(--spacing-8);
+            text-align: center;
+        }
+
+        .preview section {
+            margin-bottom: var(--spacing-8);
+            padding: var(--spacing-6);
+            background-color: var(--color-secondary-50);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .preview h2 {
+            margin-bottom: var(--spacing-4);
+            color: var(--color-secondary-700);
+            padding-bottom: var(--spacing-2);
+            border-bottom: 1px solid var(--color-secondary-200);
+        }
+
+        .dark-mode {
+            background-color: var(--color-secondary-900);
+        }
+
+        .dark-mode h2 {
+            color: var(--color-secondary-200);
+            border-bottom-color: var(--color-secondary-700);
+        }
+
+        @media (max-width: 640px) {
+            .preview {
+                padding: var(--spacing-4);
+            }
+
+            .preview section {
+                padding: var(--spacing-4);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preview">
+        <header>
+            <h1>Button Component Preview</h1>
+            <p>A showcase of all button variations and states for the Legal Study System.</p>
+        </header>
+
+        <section>
+            <h2>Button Variants</h2>
+            <div class="button-group">
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-secondary">Secondary Button</button>
+                <button class="btn btn-success">Success Button</button>
+                <button class="btn btn-warning">Warning Button</button>
+                <button class="btn btn-error">Error Button</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Button Sizes</h2>
+            <div class="button-group">
+                <button class="btn btn-primary btn-sm">Small Button</button>
+                <button class="btn btn-primary">Default Button</button>
+                <button class="btn btn-primary btn-lg">Large Button</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Button States</h2>
+            <div class="button-group">
+                <button class="btn btn-primary" disabled>Disabled Button</button>
+                <button class="btn btn-primary loading">
+                    <span class="spinner"></span>
+                    Loading Button
+                </button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Buttons with Icons</h2>
+            <div class="button-group">
+                <button class="btn btn-primary">
+                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path
+                            d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
+                    </svg>
+                    Add Item
+                </button>
+                <button class="btn btn-secondary">
+                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path
+                            d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                    </svg>
+                    Edit
+                </button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Button Groups</h2>
+            <div class="button-group">
+                <button class="btn btn-primary">Left</button>
+                <button class="btn btn-primary">Middle</button>
+                <button class="btn btn-primary">Right</button>
+            </div>
+        </section>
+
+        <section class="dark-mode">
+            <h2>Dark Mode Preview</h2>
+            <div class="button-group">
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-secondary">Secondary Button</button>
+                <button class="btn btn-success">Success Button</button>
+                <button class="btn btn-warning">Warning Button</button>
+                <button class="btn btn-error">Error Button</button>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

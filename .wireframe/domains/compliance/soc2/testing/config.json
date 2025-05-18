@@ -1,0 +1,130 @@
+{
+    "security": {
+        "ssl_checks": {
+            "enabled": true,
+            "hosts": [
+                "example.com",
+                "api.example.com"
+            ],
+            "min_tls_version": "TLSv1.2",
+            "required_ciphers": [
+                "TLS_AES_128_GCM_SHA256",
+                "TLS_AES_256_GCM_SHA384"
+            ]
+        },
+        "password_policy": {
+            "enabled": true,
+            "min_length": 12,
+            "require_uppercase": true,
+            "require_lowercase": true,
+            "require_numbers": true,
+            "require_special_chars": true,
+            "max_age_days": 90,
+            "history_count": 5
+        },
+        "access_control": {
+            "enabled": true,
+            "require_mfa": true,
+            "session_timeout_minutes": 30,
+            "max_login_attempts": 5,
+            "lockout_duration_minutes": 15
+        },
+        "encryption": {
+            "enabled": true,
+            "data_at_rest": {
+                "algorithm": "AES-256",
+                "key_rotation_days": 90
+            },
+            "data_in_transit": {
+                "min_tls_version": "TLSv1.2",
+                "required_ciphers": [
+                    "TLS_AES_128_GCM_SHA256",
+                    "TLS_AES_256_GCM_SHA384"
+                ]
+            }
+        }
+    },
+    "availability": {
+        "uptime_monitoring": {
+            "enabled": true,
+            "check_interval_seconds": 300,
+            "timeout_seconds": 30,
+            "required_uptime_percentage": 99.9
+        },
+        "performance": {
+            "enabled": true,
+            "max_response_time_ms": 500,
+            "max_cpu_usage_percent": 80,
+            "max_memory_usage_percent": 80
+        },
+        "backup": {
+            "enabled": true,
+            "frequency_hours": 24,
+            "retention_days": 30,
+            "verify_backups": true
+        }
+    },
+    "processing": {
+        "data_validation": {
+            "enabled": true,
+            "input_validation": true,
+            "output_validation": true,
+            "error_handling": true
+        },
+        "quality_metrics": {
+            "enabled": true,
+            "error_rate_threshold": 0.1,
+            "response_time_threshold_ms": 1000,
+            "data_accuracy_threshold": 99.9
+        }
+    },
+    "confidentiality": {
+        "data_protection": {
+            "enabled": true,
+            "encryption_required": true,
+            "access_logging": true,
+            "audit_trail": true
+        },
+        "access_control": {
+            "enabled": true,
+            "role_based_access": true,
+            "least_privilege": true,
+            "regular_review": true
+        }
+    },
+    "privacy": {
+        "data_minimization": {
+            "enabled": true,
+            "purpose_limitation": true,
+            "data_retention": true,
+            "consent_management": true
+        },
+        "privacy_controls": {
+            "enabled": true,
+            "privacy_notices": true,
+            "data_subject_rights": true,
+            "breach_notification": true
+        }
+    },
+    "reporting": {
+        "format": "json",
+        "include_details": true,
+        "save_reports": true,
+        "report_retention_days": 365,
+        "notification": {
+            "enabled": true,
+            "email": [
+                "admin@example.com"
+            ],
+            "slack": [
+                "#compliance-alerts"
+            ],
+            "threshold": {
+                "critical": true,
+                "high": true,
+                "medium": false,
+                "low": false
+            }
+        }
+    }
+}

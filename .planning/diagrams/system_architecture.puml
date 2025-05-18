@@ -1,0 +1,100 @@
+@startuml System Architecture
+
+!define RECTANGLE class
+!define INTERFACE interface
+!define COMPONENT component
+!define PACKAGE package
+
+skinparam backgroundColor white
+skinparam classBackgroundColor white
+skinparam classBorderColor black
+skinparam classArrowColor black
+skinparam interfaceBackgroundColor white
+skinparam interfaceBorderColor black
+skinparam componentBackgroundColor white
+skinparam componentBorderColor black
+skinparam packageBackgroundColor white
+skinparam packageBorderColor black
+
+PACKAGE "Frontend" {
+    COMPONENT "Vue 3 SPA" as vue
+    COMPONENT "Inertia.js" as inertia
+    COMPONENT "Tailwind CSS" as tailwind
+    COMPONENT "Pinia Store" as pinia
+}
+
+PACKAGE "Backend" {
+    COMPONENT "Laravel API" as laravel
+    COMPONENT "Database" as db
+    COMPONENT "Cache" as cache
+    COMPONENT "Queue" as queue
+}
+
+PACKAGE "Infrastructure" {
+    COMPONENT "Docker" as docker
+    COMPONENT "Kubernetes" as k8s
+    COMPONENT "Nginx" as nginx
+    COMPONENT "Monitoring" as monitoring
+}
+
+vue --> inertia
+inertia --> laravel
+laravel --> db
+laravel --> cache
+laravel --> queue
+laravel --> nginx
+nginx --> docker
+docker --> k8s
+k8s --> monitoring
+
+@enduml 
+
+!define RECTANGLE class
+!define INTERFACE interface
+!define COMPONENT component
+!define PACKAGE package
+
+skinparam backgroundColor white
+skinparam classBackgroundColor white
+skinparam classBorderColor black
+skinparam classArrowColor black
+skinparam interfaceBackgroundColor white
+skinparam interfaceBorderColor black
+skinparam componentBackgroundColor white
+skinparam componentBorderColor black
+skinparam packageBackgroundColor white
+skinparam packageBorderColor black
+
+PACKAGE "Frontend" {
+    COMPONENT "Vue 3 SPA" as vue
+    COMPONENT "Inertia.js" as inertia
+    COMPONENT "Tailwind CSS" as tailwind
+    COMPONENT "Pinia Store" as pinia
+}
+
+PACKAGE "Backend" {
+    COMPONENT "Laravel API" as laravel
+    COMPONENT "Database" as db
+    COMPONENT "Cache" as cache
+    COMPONENT "Queue" as queue
+}
+
+PACKAGE "Infrastructure" {
+    COMPONENT "Docker" as docker
+    COMPONENT "Kubernetes" as k8s
+    COMPONENT "Nginx" as nginx
+    COMPONENT "Monitoring" as monitoring
+}
+
+vue --> inertia
+inertia --> laravel
+laravel --> db
+laravel --> cache
+laravel --> queue
+laravel --> nginx
+nginx --> docker
+docker --> k8s
+k8s --> monitoring
+
+@enduml 
+ 

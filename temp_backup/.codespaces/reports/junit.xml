@@ -1,0 +1,1423 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="9" failures="0" skipped="0" tests="13" time="4.293" timestamp="2025-05-14T09:08:34.242213" hostname="laptop-2"><testcase classname="codespaces.environment.test_environment.TestCodespacesEnvironment" name="test_region_availability[us-east-1]" time="0.012" /><testcase classname="codespaces.environment.test_environment.TestCodespacesEnvironment" name="test_instance_types[large]" time="0.011" /><testcase classname="codespaces.environment.test_environment.TestCodespacesEnvironment" name="test_codespace_creation" time="0.064"><error message="failed on setup with &quot;docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_d5493a27: Internal Server Error (&quot;b'\\workspace%!(EXTRA string=is not a valid Windows path)'&quot;)&quot;">..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:268: in _raise_for_status
+    response.raise_for_status()
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720E83BA90&gt;
+..\AppData\Roaming\Python\Python310\site-packages\requests\models.py:1021: in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+E   requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_d5493a27
+        http_error_msg = ('500 Server Error: Internal Server Error for url: '
+ 'http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_d5493a27')
+        reason     = 'Internal Server Error'
+        self       = &lt;Response [500]&gt;
+
+The above exception was the direct cause of the following exception:
+tests\codespaces\environment\test_environment.py:37: in test_codespace
+    container = docker_client.containers.run(
+        codespaces_dir = WindowsPath('/workspace/.codespaces')
+        config_dir = WindowsPath('/workspace/.codespaces/config')
+        container_name = 'test_environment_codespace_d5493a27'
+        docker_client = &lt;docker.client.DockerClient object at 0x000001720E83B8B0&gt;
+        logs_dir   = WindowsPath('/workspace/.codespaces/logs')
+        reports_dir = WindowsPath('/workspace/.codespaces/reports')
+        scripts_dir = WindowsPath('/workspace/.codespaces/scripts')
+        self       = &lt;codespaces.environment.test_environment.TestCodespacesEnvironment object at 0x000001720E831210&gt;
+        test_config = WindowsPath('/workspace/.codespaces/config/codespaces_test_config.yaml')
+        unit_config = WindowsPath('/workspace/.codespaces/config/unit_test_config.yaml')
+        workspace  = WindowsPath('/workspace')
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:858: in run
+    container = self.create(image=image, command=command,
+        command    = 'tail -f /dev/null'
+        detach     = True
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'name': 'test_environment_codespace_d5493a27',
+ 'volumes': {'\\workspace': {'bind': '/workspace', 'mode': 'rw'}}}
+        platform   = None
+        remove     = False
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720E83BAC0&gt;
+        stderr     = False
+        stdout     = True
+        stream     = False
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:917: in create
+    resp = self.client.api.create_container(**create_kwargs)
+        command    = 'tail -f /dev/null'
+        create_kwargs = {'command': 'tail -f /dev/null',
+ 'detach': True,
+ 'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'host_config': {'Binds': ['\\workspace:/workspace:rw'],
+                 'NetworkMode': 'default'},
+ 'image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'name': 'test_environment_codespace_d5493a27',
+ 'volumes': ['/workspace']}
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {}
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720E83BAC0&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:431: in create_container
+    return self.create_container_from_config(config, name, platform)
+        command    = 'tail -f /dev/null'
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        detach     = True
+        domainname = None
+        entrypoint = None
+        environment = ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test']
+        healthcheck = None
+        host_config = {'Binds': ['\\workspace:/workspace:rw'], 'NetworkMode': 'default'}
+        hostname   = None
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        labels     = None
+        mac_address = None
+        name       = 'test_environment_codespace_d5493a27'
+        network_disabled = False
+        networking_config = None
+        platform   = None
+        ports      = None
+        runtime    = None
+        self       = &lt;docker.api.client.APIClient object at 0x000001720E83BA90&gt;
+        stdin_open = False
+        stop_signal = None
+        stop_timeout = None
+        tty        = False
+        use_config_proxy = True
+        user       = None
+        volumes    = ['/workspace']
+        working_dir = None
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:448: in create_container_from_config
+    return self._result(res, True)
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        name       = 'test_environment_codespace_d5493a27'
+        params     = {'name': 'test_environment_codespace_d5493a27'}
+        platform   = None
+        res        = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720E83BA90&gt;
+        u          = 'http+docker://localnpipe/v1.48/containers/create'
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:274: in _result
+    self._raise_for_status(response)
+        binary     = False
+        json       = True
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720E83BA90&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:270: in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720E83BA90&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\errors.py:39: in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+E   docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_d5493a27: Internal Server Error ("b'\\workspace%!(EXTRA string=is not a valid Windows path)'")
+        cls        = &lt;class 'docker.errors.APIError'&gt;
+        e          = HTTPError('500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_d5493a27')
+        explanation = b'\\workspace%!(EXTRA string=is not a valid Windows path)'
+        response   = &lt;Response [500]&gt;</error></testcase><testcase classname="codespaces.environment.test_environment.TestCodespacesEnvironment" name="test_instance_types[standard]" time="0.007" /><testcase classname="codespaces.environment.test_environment.TestCodespacesEnvironment" name="test_region_availability[us-west-2]" time="0.007" /><testcase classname="codespaces.environment.test_environment.TestCodespacesEnvironment" name="test_cleanup" time="0.039"><error message="failed on setup with &quot;docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_ac325c44: Internal Server Error (&quot;b'\\workspace%!(EXTRA string=is not a valid Windows path)'&quot;)&quot;">..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:268: in _raise_for_status
+    response.raise_for_status()
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720E9FBDF0&gt;
+..\AppData\Roaming\Python\Python310\site-packages\requests\models.py:1021: in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+E   requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_ac325c44
+        http_error_msg = ('500 Server Error: Internal Server Error for url: '
+ 'http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_ac325c44')
+        reason     = 'Internal Server Error'
+        self       = &lt;Response [500]&gt;
+
+The above exception was the direct cause of the following exception:
+tests\codespaces\environment\test_environment.py:37: in test_codespace
+    container = docker_client.containers.run(
+        codespaces_dir = WindowsPath('/workspace/.codespaces')
+        config_dir = WindowsPath('/workspace/.codespaces/config')
+        container_name = 'test_environment_codespace_ac325c44'
+        docker_client = &lt;docker.client.DockerClient object at 0x000001720E9FBCA0&gt;
+        logs_dir   = WindowsPath('/workspace/.codespaces/logs')
+        reports_dir = WindowsPath('/workspace/.codespaces/reports')
+        scripts_dir = WindowsPath('/workspace/.codespaces/scripts')
+        self       = &lt;codespaces.environment.test_environment.TestCodespacesEnvironment object at 0x000001720E91A2F0&gt;
+        test_config = WindowsPath('/workspace/.codespaces/config/codespaces_test_config.yaml')
+        unit_config = WindowsPath('/workspace/.codespaces/config/unit_test_config.yaml')
+        workspace  = WindowsPath('/workspace')
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:858: in run
+    container = self.create(image=image, command=command,
+        command    = 'tail -f /dev/null'
+        detach     = True
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'name': 'test_environment_codespace_ac325c44',
+ 'volumes': {'\\workspace': {'bind': '/workspace', 'mode': 'rw'}}}
+        platform   = None
+        remove     = False
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720E9FB760&gt;
+        stderr     = False
+        stdout     = True
+        stream     = False
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:917: in create
+    resp = self.client.api.create_container(**create_kwargs)
+        command    = 'tail -f /dev/null'
+        create_kwargs = {'command': 'tail -f /dev/null',
+ 'detach': True,
+ 'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'host_config': {'Binds': ['\\workspace:/workspace:rw'],
+                 'NetworkMode': 'default'},
+ 'image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'name': 'test_environment_codespace_ac325c44',
+ 'volumes': ['/workspace']}
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {}
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720E9FB760&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:431: in create_container
+    return self.create_container_from_config(config, name, platform)
+        command    = 'tail -f /dev/null'
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        detach     = True
+        domainname = None
+        entrypoint = None
+        environment = ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test']
+        healthcheck = None
+        host_config = {'Binds': ['\\workspace:/workspace:rw'], 'NetworkMode': 'default'}
+        hostname   = None
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        labels     = None
+        mac_address = None
+        name       = 'test_environment_codespace_ac325c44'
+        network_disabled = False
+        networking_config = None
+        platform   = None
+        ports      = None
+        runtime    = None
+        self       = &lt;docker.api.client.APIClient object at 0x000001720E9FBDF0&gt;
+        stdin_open = False
+        stop_signal = None
+        stop_timeout = None
+        tty        = False
+        use_config_proxy = True
+        user       = None
+        volumes    = ['/workspace']
+        working_dir = None
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:448: in create_container_from_config
+    return self._result(res, True)
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        name       = 'test_environment_codespace_ac325c44'
+        params     = {'name': 'test_environment_codespace_ac325c44'}
+        platform   = None
+        res        = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720E9FBDF0&gt;
+        u          = 'http+docker://localnpipe/v1.48/containers/create'
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:274: in _result
+    self._raise_for_status(response)
+        binary     = False
+        json       = True
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720E9FBDF0&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:270: in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720E9FBDF0&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\errors.py:39: in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+E   docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_ac325c44: Internal Server Error ("b'\\workspace%!(EXTRA string=is not a valid Windows path)'")
+        cls        = &lt;class 'docker.errors.APIError'&gt;
+        e          = HTTPError('500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_ac325c44')
+        explanation = b'\\workspace%!(EXTRA string=is not a valid Windows path)'
+        response   = &lt;Response [500]&gt;</error></testcase><testcase classname="codespaces.environment.test_environment.TestCodespacesEnvironment" name="test_python_version" time="0.038"><error message="failed on setup with &quot;docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_59ce6893: Internal Server Error (&quot;b'\\workspace%!(EXTRA string=is not a valid Windows path)'&quot;)&quot;">..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:268: in _raise_for_status
+    response.raise_for_status()
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBCAA70&gt;
+..\AppData\Roaming\Python\Python310\site-packages\requests\models.py:1021: in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+E   requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_59ce6893
+        http_error_msg = ('500 Server Error: Internal Server Error for url: '
+ 'http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_59ce6893')
+        reason     = 'Internal Server Error'
+        self       = &lt;Response [500]&gt;
+
+The above exception was the direct cause of the following exception:
+tests\codespaces\environment\test_environment.py:37: in test_codespace
+    container = docker_client.containers.run(
+        codespaces_dir = WindowsPath('/workspace/.codespaces')
+        config_dir = WindowsPath('/workspace/.codespaces/config')
+        container_name = 'test_environment_codespace_59ce6893'
+        docker_client = &lt;docker.client.DockerClient object at 0x000001720EBCAD40&gt;
+        logs_dir   = WindowsPath('/workspace/.codespaces/logs')
+        reports_dir = WindowsPath('/workspace/.codespaces/reports')
+        scripts_dir = WindowsPath('/workspace/.codespaces/scripts')
+        self       = &lt;codespaces.environment.test_environment.TestCodespacesEnvironment object at 0x000001720E831390&gt;
+        test_config = WindowsPath('/workspace/.codespaces/config/codespaces_test_config.yaml')
+        unit_config = WindowsPath('/workspace/.codespaces/config/unit_test_config.yaml')
+        workspace  = WindowsPath('/workspace')
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:858: in run
+    container = self.create(image=image, command=command,
+        command    = 'tail -f /dev/null'
+        detach     = True
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'name': 'test_environment_codespace_59ce6893',
+ 'volumes': {'\\workspace': {'bind': '/workspace', 'mode': 'rw'}}}
+        platform   = None
+        remove     = False
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720EBC9FC0&gt;
+        stderr     = False
+        stdout     = True
+        stream     = False
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:917: in create
+    resp = self.client.api.create_container(**create_kwargs)
+        command    = 'tail -f /dev/null'
+        create_kwargs = {'command': 'tail -f /dev/null',
+ 'detach': True,
+ 'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'host_config': {'Binds': ['\\workspace:/workspace:rw'],
+                 'NetworkMode': 'default'},
+ 'image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'name': 'test_environment_codespace_59ce6893',
+ 'volumes': ['/workspace']}
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {}
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720EBC9FC0&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:431: in create_container
+    return self.create_container_from_config(config, name, platform)
+        command    = 'tail -f /dev/null'
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        detach     = True
+        domainname = None
+        entrypoint = None
+        environment = ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test']
+        healthcheck = None
+        host_config = {'Binds': ['\\workspace:/workspace:rw'], 'NetworkMode': 'default'}
+        hostname   = None
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        labels     = None
+        mac_address = None
+        name       = 'test_environment_codespace_59ce6893'
+        network_disabled = False
+        networking_config = None
+        platform   = None
+        ports      = None
+        runtime    = None
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBCAA70&gt;
+        stdin_open = False
+        stop_signal = None
+        stop_timeout = None
+        tty        = False
+        use_config_proxy = True
+        user       = None
+        volumes    = ['/workspace']
+        working_dir = None
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:448: in create_container_from_config
+    return self._result(res, True)
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        name       = 'test_environment_codespace_59ce6893'
+        params     = {'name': 'test_environment_codespace_59ce6893'}
+        platform   = None
+        res        = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBCAA70&gt;
+        u          = 'http+docker://localnpipe/v1.48/containers/create'
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:274: in _result
+    self._raise_for_status(response)
+        binary     = False
+        json       = True
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBCAA70&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:270: in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBCAA70&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\errors.py:39: in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+E   docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_59ce6893: Internal Server Error ("b'\\workspace%!(EXTRA string=is not a valid Windows path)'")
+        cls        = &lt;class 'docker.errors.APIError'&gt;
+        e          = HTTPError('500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_59ce6893')
+        explanation = b'\\workspace%!(EXTRA string=is not a valid Windows path)'
+        response   = &lt;Response [500]&gt;</error></testcase><testcase classname="codespaces.environment.test_environment.TestCodespacesEnvironment" name="test_workspace_structure" time="0.130"><error message="failed on setup with &quot;docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_fa4e25a6: Internal Server Error (&quot;b'\\workspace%!(EXTRA string=is not a valid Windows path)'&quot;)&quot;">..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:268: in _raise_for_status
+    response.raise_for_status()
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBBB130&gt;
+..\AppData\Roaming\Python\Python310\site-packages\requests\models.py:1021: in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+E   requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_fa4e25a6
+        http_error_msg = ('500 Server Error: Internal Server Error for url: '
+ 'http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_fa4e25a6')
+        reason     = 'Internal Server Error'
+        self       = &lt;Response [500]&gt;
+
+The above exception was the direct cause of the following exception:
+tests\codespaces\environment\test_environment.py:37: in test_codespace
+    container = docker_client.containers.run(
+        codespaces_dir = WindowsPath('/workspace/.codespaces')
+        config_dir = WindowsPath('/workspace/.codespaces/config')
+        container_name = 'test_environment_codespace_fa4e25a6'
+        docker_client = &lt;docker.client.DockerClient object at 0x000001720EBBB1C0&gt;
+        logs_dir   = WindowsPath('/workspace/.codespaces/logs')
+        reports_dir = WindowsPath('/workspace/.codespaces/reports')
+        scripts_dir = WindowsPath('/workspace/.codespaces/scripts')
+        self       = &lt;codespaces.environment.test_environment.TestCodespacesEnvironment object at 0x000001720E830490&gt;
+        test_config = WindowsPath('/workspace/.codespaces/config/codespaces_test_config.yaml')
+        unit_config = WindowsPath('/workspace/.codespaces/config/unit_test_config.yaml')
+        workspace  = WindowsPath('/workspace')
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:858: in run
+    container = self.create(image=image, command=command,
+        command    = 'tail -f /dev/null'
+        detach     = True
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'name': 'test_environment_codespace_fa4e25a6',
+ 'volumes': {'\\workspace': {'bind': '/workspace', 'mode': 'rw'}}}
+        platform   = None
+        remove     = False
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720EBBA5F0&gt;
+        stderr     = False
+        stdout     = True
+        stream     = False
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:917: in create
+    resp = self.client.api.create_container(**create_kwargs)
+        command    = 'tail -f /dev/null'
+        create_kwargs = {'command': 'tail -f /dev/null',
+ 'detach': True,
+ 'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'host_config': {'Binds': ['\\workspace:/workspace:rw'],
+                 'NetworkMode': 'default'},
+ 'image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'name': 'test_environment_codespace_fa4e25a6',
+ 'volumes': ['/workspace']}
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {}
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720EBBA5F0&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:431: in create_container
+    return self.create_container_from_config(config, name, platform)
+        command    = 'tail -f /dev/null'
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        detach     = True
+        domainname = None
+        entrypoint = None
+        environment = ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test']
+        healthcheck = None
+        host_config = {'Binds': ['\\workspace:/workspace:rw'], 'NetworkMode': 'default'}
+        hostname   = None
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        labels     = None
+        mac_address = None
+        name       = 'test_environment_codespace_fa4e25a6'
+        network_disabled = False
+        networking_config = None
+        platform   = None
+        ports      = None
+        runtime    = None
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBBB130&gt;
+        stdin_open = False
+        stop_signal = None
+        stop_timeout = None
+        tty        = False
+        use_config_proxy = True
+        user       = None
+        volumes    = ['/workspace']
+        working_dir = None
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:448: in create_container_from_config
+    return self._result(res, True)
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        name       = 'test_environment_codespace_fa4e25a6'
+        params     = {'name': 'test_environment_codespace_fa4e25a6'}
+        platform   = None
+        res        = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBBB130&gt;
+        u          = 'http+docker://localnpipe/v1.48/containers/create'
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:274: in _result
+    self._raise_for_status(response)
+        binary     = False
+        json       = True
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBBB130&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:270: in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBBB130&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\errors.py:39: in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+E   docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_fa4e25a6: Internal Server Error ("b'\\workspace%!(EXTRA string=is not a valid Windows path)'")
+        cls        = &lt;class 'docker.errors.APIError'&gt;
+        e          = HTTPError('500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_fa4e25a6')
+        explanation = b'\\workspace%!(EXTRA string=is not a valid Windows path)'
+        response   = &lt;Response [500]&gt;</error></testcase><testcase classname="codespaces.environment.test_environment.TestCodespacesEnvironment" name="test_environment_variables" time="0.105"><error message="failed on setup with &quot;docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_84e75120: Internal Server Error (&quot;b'\\workspace%!(EXTRA string=is not a valid Windows path)'&quot;)&quot;">..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:268: in _raise_for_status
+    response.raise_for_status()
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBA2EC0&gt;
+..\AppData\Roaming\Python\Python310\site-packages\requests\models.py:1021: in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+E   requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_84e75120
+        http_error_msg = ('500 Server Error: Internal Server Error for url: '
+ 'http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_84e75120')
+        reason     = 'Internal Server Error'
+        self       = &lt;Response [500]&gt;
+
+The above exception was the direct cause of the following exception:
+tests\codespaces\environment\test_environment.py:37: in test_codespace
+    container = docker_client.containers.run(
+        codespaces_dir = WindowsPath('/workspace/.codespaces')
+        config_dir = WindowsPath('/workspace/.codespaces/config')
+        container_name = 'test_environment_codespace_84e75120'
+        docker_client = &lt;docker.client.DockerClient object at 0x000001720EBA2F50&gt;
+        logs_dir   = WindowsPath('/workspace/.codespaces/logs')
+        reports_dir = WindowsPath('/workspace/.codespaces/reports')
+        scripts_dir = WindowsPath('/workspace/.codespaces/scripts')
+        self       = &lt;codespaces.environment.test_environment.TestCodespacesEnvironment object at 0x000001720E832BF0&gt;
+        test_config = WindowsPath('/workspace/.codespaces/config/codespaces_test_config.yaml')
+        unit_config = WindowsPath('/workspace/.codespaces/config/unit_test_config.yaml')
+        workspace  = WindowsPath('/workspace')
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:858: in run
+    container = self.create(image=image, command=command,
+        command    = 'tail -f /dev/null'
+        detach     = True
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'name': 'test_environment_codespace_84e75120',
+ 'volumes': {'\\workspace': {'bind': '/workspace', 'mode': 'rw'}}}
+        platform   = None
+        remove     = False
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720EBA28F0&gt;
+        stderr     = False
+        stdout     = True
+        stream     = False
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:917: in create
+    resp = self.client.api.create_container(**create_kwargs)
+        command    = 'tail -f /dev/null'
+        create_kwargs = {'command': 'tail -f /dev/null',
+ 'detach': True,
+ 'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'host_config': {'Binds': ['\\workspace:/workspace:rw'],
+                 'NetworkMode': 'default'},
+ 'image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'name': 'test_environment_codespace_84e75120',
+ 'volumes': ['/workspace']}
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {}
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720EBA28F0&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:431: in create_container
+    return self.create_container_from_config(config, name, platform)
+        command    = 'tail -f /dev/null'
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        detach     = True
+        domainname = None
+        entrypoint = None
+        environment = ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test']
+        healthcheck = None
+        host_config = {'Binds': ['\\workspace:/workspace:rw'], 'NetworkMode': 'default'}
+        hostname   = None
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        labels     = None
+        mac_address = None
+        name       = 'test_environment_codespace_84e75120'
+        network_disabled = False
+        networking_config = None
+        platform   = None
+        ports      = None
+        runtime    = None
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBA2EC0&gt;
+        stdin_open = False
+        stop_signal = None
+        stop_timeout = None
+        tty        = False
+        use_config_proxy = True
+        user       = None
+        volumes    = ['/workspace']
+        working_dir = None
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:448: in create_container_from_config
+    return self._result(res, True)
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        name       = 'test_environment_codespace_84e75120'
+        params     = {'name': 'test_environment_codespace_84e75120'}
+        platform   = None
+        res        = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBA2EC0&gt;
+        u          = 'http+docker://localnpipe/v1.48/containers/create'
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:274: in _result
+    self._raise_for_status(response)
+        binary     = False
+        json       = True
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBA2EC0&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:270: in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBA2EC0&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\errors.py:39: in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+E   docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_84e75120: Internal Server Error ("b'\\workspace%!(EXTRA string=is not a valid Windows path)'")
+        cls        = &lt;class 'docker.errors.APIError'&gt;
+        e          = HTTPError('500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_84e75120')
+        explanation = b'\\workspace%!(EXTRA string=is not a valid Windows path)'
+        response   = &lt;Response [500]&gt;</error></testcase><testcase classname="codespaces.environment.test_environment.TestCodespacesEnvironment" name="test_config_files" time="0.050"><error message="failed on setup with &quot;docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_97f2fee9: Internal Server Error (&quot;b'\\workspace%!(EXTRA string=is not a valid Windows path)'&quot;)&quot;">..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:268: in _raise_for_status
+    response.raise_for_status()
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EB83B80&gt;
+..\AppData\Roaming\Python\Python310\site-packages\requests\models.py:1021: in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+E   requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_97f2fee9
+        http_error_msg = ('500 Server Error: Internal Server Error for url: '
+ 'http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_97f2fee9')
+        reason     = 'Internal Server Error'
+        self       = &lt;Response [500]&gt;
+
+The above exception was the direct cause of the following exception:
+tests\codespaces\environment\test_environment.py:37: in test_codespace
+    container = docker_client.containers.run(
+        codespaces_dir = WindowsPath('/workspace/.codespaces')
+        config_dir = WindowsPath('/workspace/.codespaces/config')
+        container_name = 'test_environment_codespace_97f2fee9'
+        docker_client = &lt;docker.client.DockerClient object at 0x000001720EB83A60&gt;
+        logs_dir   = WindowsPath('/workspace/.codespaces/logs')
+        reports_dir = WindowsPath('/workspace/.codespaces/reports')
+        scripts_dir = WindowsPath('/workspace/.codespaces/scripts')
+        self       = &lt;codespaces.environment.test_environment.TestCodespacesEnvironment object at 0x000001720E8333D0&gt;
+        test_config = WindowsPath('/workspace/.codespaces/config/codespaces_test_config.yaml')
+        unit_config = WindowsPath('/workspace/.codespaces/config/unit_test_config.yaml')
+        workspace  = WindowsPath('/workspace')
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:858: in run
+    container = self.create(image=image, command=command,
+        command    = 'tail -f /dev/null'
+        detach     = True
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'name': 'test_environment_codespace_97f2fee9',
+ 'volumes': {'\\workspace': {'bind': '/workspace', 'mode': 'rw'}}}
+        platform   = None
+        remove     = False
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720EB82350&gt;
+        stderr     = False
+        stdout     = True
+        stream     = False
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:917: in create
+    resp = self.client.api.create_container(**create_kwargs)
+        command    = 'tail -f /dev/null'
+        create_kwargs = {'command': 'tail -f /dev/null',
+ 'detach': True,
+ 'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'host_config': {'Binds': ['\\workspace:/workspace:rw'],
+                 'NetworkMode': 'default'},
+ 'image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'name': 'test_environment_codespace_97f2fee9',
+ 'volumes': ['/workspace']}
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {}
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720EB82350&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:431: in create_container
+    return self.create_container_from_config(config, name, platform)
+        command    = 'tail -f /dev/null'
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        detach     = True
+        domainname = None
+        entrypoint = None
+        environment = ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test']
+        healthcheck = None
+        host_config = {'Binds': ['\\workspace:/workspace:rw'], 'NetworkMode': 'default'}
+        hostname   = None
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        labels     = None
+        mac_address = None
+        name       = 'test_environment_codespace_97f2fee9'
+        network_disabled = False
+        networking_config = None
+        platform   = None
+        ports      = None
+        runtime    = None
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EB83B80&gt;
+        stdin_open = False
+        stop_signal = None
+        stop_timeout = None
+        tty        = False
+        use_config_proxy = True
+        user       = None
+        volumes    = ['/workspace']
+        working_dir = None
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:448: in create_container_from_config
+    return self._result(res, True)
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        name       = 'test_environment_codespace_97f2fee9'
+        params     = {'name': 'test_environment_codespace_97f2fee9'}
+        platform   = None
+        res        = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EB83B80&gt;
+        u          = 'http+docker://localnpipe/v1.48/containers/create'
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:274: in _result
+    self._raise_for_status(response)
+        binary     = False
+        json       = True
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EB83B80&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:270: in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EB83B80&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\errors.py:39: in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+E   docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_97f2fee9: Internal Server Error ("b'\\workspace%!(EXTRA string=is not a valid Windows path)'")
+        cls        = &lt;class 'docker.errors.APIError'&gt;
+        e          = HTTPError('500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_97f2fee9')
+        explanation = b'\\workspace%!(EXTRA string=is not a valid Windows path)'
+        response   = &lt;Response [500]&gt;</error></testcase><testcase classname="codespaces.environment.test_environment.TestCodespacesEnvironment" name="test_required_packages" time="0.051"><error message="failed on setup with &quot;docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_6b415310: Internal Server Error (&quot;b'\\workspace%!(EXTRA string=is not a valid Windows path)'&quot;)&quot;">..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:268: in _raise_for_status
+    response.raise_for_status()
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBBA8C0&gt;
+..\AppData\Roaming\Python\Python310\site-packages\requests\models.py:1021: in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+E   requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_6b415310
+        http_error_msg = ('500 Server Error: Internal Server Error for url: '
+ 'http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_6b415310')
+        reason     = 'Internal Server Error'
+        self       = &lt;Response [500]&gt;
+
+The above exception was the direct cause of the following exception:
+tests\codespaces\environment\test_environment.py:37: in test_codespace
+    container = docker_client.containers.run(
+        codespaces_dir = WindowsPath('/workspace/.codespaces')
+        config_dir = WindowsPath('/workspace/.codespaces/config')
+        container_name = 'test_environment_codespace_6b415310'
+        docker_client = &lt;docker.client.DockerClient object at 0x000001720EBBA890&gt;
+        logs_dir   = WindowsPath('/workspace/.codespaces/logs')
+        reports_dir = WindowsPath('/workspace/.codespaces/reports')
+        scripts_dir = WindowsPath('/workspace/.codespaces/scripts')
+        self       = &lt;codespaces.environment.test_environment.TestCodespacesEnvironment object at 0x000001720E832D10&gt;
+        test_config = WindowsPath('/workspace/.codespaces/config/codespaces_test_config.yaml')
+        unit_config = WindowsPath('/workspace/.codespaces/config/unit_test_config.yaml')
+        workspace  = WindowsPath('/workspace')
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:858: in run
+    container = self.create(image=image, command=command,
+        command    = 'tail -f /dev/null'
+        detach     = True
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'name': 'test_environment_codespace_6b415310',
+ 'volumes': {'\\workspace': {'bind': '/workspace', 'mode': 'rw'}}}
+        platform   = None
+        remove     = False
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720EBBB460&gt;
+        stderr     = False
+        stdout     = True
+        stream     = False
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:917: in create
+    resp = self.client.api.create_container(**create_kwargs)
+        command    = 'tail -f /dev/null'
+        create_kwargs = {'command': 'tail -f /dev/null',
+ 'detach': True,
+ 'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'host_config': {'Binds': ['\\workspace:/workspace:rw'],
+                 'NetworkMode': 'default'},
+ 'image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'name': 'test_environment_codespace_6b415310',
+ 'volumes': ['/workspace']}
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {}
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720EBBB460&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:431: in create_container
+    return self.create_container_from_config(config, name, platform)
+        command    = 'tail -f /dev/null'
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        detach     = True
+        domainname = None
+        entrypoint = None
+        environment = ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test']
+        healthcheck = None
+        host_config = {'Binds': ['\\workspace:/workspace:rw'], 'NetworkMode': 'default'}
+        hostname   = None
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        labels     = None
+        mac_address = None
+        name       = 'test_environment_codespace_6b415310'
+        network_disabled = False
+        networking_config = None
+        platform   = None
+        ports      = None
+        runtime    = None
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBBA8C0&gt;
+        stdin_open = False
+        stop_signal = None
+        stop_timeout = None
+        tty        = False
+        use_config_proxy = True
+        user       = None
+        volumes    = ['/workspace']
+        working_dir = None
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:448: in create_container_from_config
+    return self._result(res, True)
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        name       = 'test_environment_codespace_6b415310'
+        params     = {'name': 'test_environment_codespace_6b415310'}
+        platform   = None
+        res        = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBBA8C0&gt;
+        u          = 'http+docker://localnpipe/v1.48/containers/create'
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:274: in _result
+    self._raise_for_status(response)
+        binary     = False
+        json       = True
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBBA8C0&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:270: in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBBA8C0&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\errors.py:39: in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+E   docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_6b415310: Internal Server Error ("b'\\workspace%!(EXTRA string=is not a valid Windows path)'")
+        cls        = &lt;class 'docker.errors.APIError'&gt;
+        e          = HTTPError('500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_6b415310')
+        explanation = b'\\workspace%!(EXTRA string=is not a valid Windows path)'
+        response   = &lt;Response [500]&gt;</error></testcase><testcase classname="codespaces.environment.test_environment.TestCodespacesEnvironment" name="test_network_connectivity" time="0.085"><error message="failed on setup with &quot;docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_46f8af4a: Internal Server Error (&quot;b'\\workspace%!(EXTRA string=is not a valid Windows path)'&quot;)&quot;">..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:268: in _raise_for_status
+    response.raise_for_status()
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBAC370&gt;
+..\AppData\Roaming\Python\Python310\site-packages\requests\models.py:1021: in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+E   requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_46f8af4a
+        http_error_msg = ('500 Server Error: Internal Server Error for url: '
+ 'http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_46f8af4a')
+        reason     = 'Internal Server Error'
+        self       = &lt;Response [500]&gt;
+
+The above exception was the direct cause of the following exception:
+tests\codespaces\environment\test_environment.py:37: in test_codespace
+    container = docker_client.containers.run(
+        codespaces_dir = WindowsPath('/workspace/.codespaces')
+        config_dir = WindowsPath('/workspace/.codespaces/config')
+        container_name = 'test_environment_codespace_46f8af4a'
+        docker_client = &lt;docker.client.DockerClient object at 0x000001720EBAE1D0&gt;
+        logs_dir   = WindowsPath('/workspace/.codespaces/logs')
+        reports_dir = WindowsPath('/workspace/.codespaces/reports')
+        scripts_dir = WindowsPath('/workspace/.codespaces/scripts')
+        self       = &lt;codespaces.environment.test_environment.TestCodespacesEnvironment object at 0x000001720E918280&gt;
+        test_config = WindowsPath('/workspace/.codespaces/config/codespaces_test_config.yaml')
+        unit_config = WindowsPath('/workspace/.codespaces/config/unit_test_config.yaml')
+        workspace  = WindowsPath('/workspace')
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:858: in run
+    container = self.create(image=image, command=command,
+        command    = 'tail -f /dev/null'
+        detach     = True
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'name': 'test_environment_codespace_46f8af4a',
+ 'volumes': {'\\workspace': {'bind': '/workspace', 'mode': 'rw'}}}
+        platform   = None
+        remove     = False
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720EBAE200&gt;
+        stderr     = False
+        stdout     = True
+        stream     = False
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:917: in create
+    resp = self.client.api.create_container(**create_kwargs)
+        command    = 'tail -f /dev/null'
+        create_kwargs = {'command': 'tail -f /dev/null',
+ 'detach': True,
+ 'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'host_config': {'Binds': ['\\workspace:/workspace:rw'],
+                 'NetworkMode': 'default'},
+ 'image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'name': 'test_environment_codespace_46f8af4a',
+ 'volumes': ['/workspace']}
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {}
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720EBAE200&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:431: in create_container
+    return self.create_container_from_config(config, name, platform)
+        command    = 'tail -f /dev/null'
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        detach     = True
+        domainname = None
+        entrypoint = None
+        environment = ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test']
+        healthcheck = None
+        host_config = {'Binds': ['\\workspace:/workspace:rw'], 'NetworkMode': 'default'}
+        hostname   = None
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        labels     = None
+        mac_address = None
+        name       = 'test_environment_codespace_46f8af4a'
+        network_disabled = False
+        networking_config = None
+        platform   = None
+        ports      = None
+        runtime    = None
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBAC370&gt;
+        stdin_open = False
+        stop_signal = None
+        stop_timeout = None
+        tty        = False
+        use_config_proxy = True
+        user       = None
+        volumes    = ['/workspace']
+        working_dir = None
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:448: in create_container_from_config
+    return self._result(res, True)
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        name       = 'test_environment_codespace_46f8af4a'
+        params     = {'name': 'test_environment_codespace_46f8af4a'}
+        platform   = None
+        res        = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBAC370&gt;
+        u          = 'http+docker://localnpipe/v1.48/containers/create'
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:274: in _result
+    self._raise_for_status(response)
+        binary     = False
+        json       = True
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBAC370&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:270: in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720EBAC370&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\errors.py:39: in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+E   docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_46f8af4a: Internal Server Error ("b'\\workspace%!(EXTRA string=is not a valid Windows path)'")
+        cls        = &lt;class 'docker.errors.APIError'&gt;
+        e          = HTTPError('500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_46f8af4a')
+        explanation = b'\\workspace%!(EXTRA string=is not a valid Windows path)'
+        response   = &lt;Response [500]&gt;</error></testcase><testcase classname="codespaces.environment.test_environment.TestCodespacesEnvironment" name="test_resource_limits" time="0.098"><error message="failed on setup with &quot;docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_6567744d: Internal Server Error (&quot;b'\\workspace%!(EXTRA string=is not a valid Windows path)'&quot;)&quot;">..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:268: in _raise_for_status
+    response.raise_for_status()
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720E868730&gt;
+..\AppData\Roaming\Python\Python310\site-packages\requests\models.py:1021: in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+E   requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_6567744d
+        http_error_msg = ('500 Server Error: Internal Server Error for url: '
+ 'http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_6567744d')
+        reason     = 'Internal Server Error'
+        self       = &lt;Response [500]&gt;
+
+The above exception was the direct cause of the following exception:
+tests\codespaces\environment\test_environment.py:37: in test_codespace
+    container = docker_client.containers.run(
+        codespaces_dir = WindowsPath('/workspace/.codespaces')
+        config_dir = WindowsPath('/workspace/.codespaces/config')
+        container_name = 'test_environment_codespace_6567744d'
+        docker_client = &lt;docker.client.DockerClient object at 0x000001720E868BB0&gt;
+        logs_dir   = WindowsPath('/workspace/.codespaces/logs')
+        reports_dir = WindowsPath('/workspace/.codespaces/reports')
+        scripts_dir = WindowsPath('/workspace/.codespaces/scripts')
+        self       = &lt;codespaces.environment.test_environment.TestCodespacesEnvironment object at 0x000001720E91BBE0&gt;
+        test_config = WindowsPath('/workspace/.codespaces/config/codespaces_test_config.yaml')
+        unit_config = WindowsPath('/workspace/.codespaces/config/unit_test_config.yaml')
+        workspace  = WindowsPath('/workspace')
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:858: in run
+    container = self.create(image=image, command=command,
+        command    = 'tail -f /dev/null'
+        detach     = True
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'name': 'test_environment_codespace_6567744d',
+ 'volumes': {'\\workspace': {'bind': '/workspace', 'mode': 'rw'}}}
+        platform   = None
+        remove     = False
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720E86B280&gt;
+        stderr     = False
+        stdout     = True
+        stream     = False
+..\AppData\Roaming\Python\Python310\site-packages\docker\models\containers.py:917: in create
+    resp = self.client.api.create_container(**create_kwargs)
+        command    = 'tail -f /dev/null'
+        create_kwargs = {'command': 'tail -f /dev/null',
+ 'detach': True,
+ 'environment': {'TEST_ENVIRONMENT': 'true', 'TEST_NAME': 'environment_test'},
+ 'host_config': {'Binds': ['\\workspace:/workspace:rw'],
+                 'NetworkMode': 'default'},
+ 'image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'name': 'test_environment_codespace_6567744d',
+ 'volumes': ['/workspace']}
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        kwargs     = {}
+        self       = &lt;docker.models.containers.ContainerCollection object at 0x000001720E86B280&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:431: in create_container
+    return self.create_container_from_config(config, name, platform)
+        command    = 'tail -f /dev/null'
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        detach     = True
+        domainname = None
+        entrypoint = None
+        environment = ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test']
+        healthcheck = None
+        host_config = {'Binds': ['\\workspace:/workspace:rw'], 'NetworkMode': 'default'}
+        hostname   = None
+        image      = 'mcr.microsoft.com/vscode/devcontainers/python:3.9'
+        labels     = None
+        mac_address = None
+        name       = 'test_environment_codespace_6567744d'
+        network_disabled = False
+        networking_config = None
+        platform   = None
+        ports      = None
+        runtime    = None
+        self       = &lt;docker.api.client.APIClient object at 0x000001720E868730&gt;
+        stdin_open = False
+        stop_signal = None
+        stop_timeout = None
+        tty        = False
+        use_config_proxy = True
+        user       = None
+        volumes    = ['/workspace']
+        working_dir = None
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\container.py:448: in create_container_from_config
+    return self._result(res, True)
+        config     = {'AttachStderr': False,
+ 'AttachStdin': False,
+ 'AttachStdout': False,
+ 'Cmd': ['tail', '-f', '/dev/null'],
+ 'Domainname': None,
+ 'Entrypoint': None,
+ 'Env': ['TEST_ENVIRONMENT=true', 'TEST_NAME=environment_test'],
+ 'ExposedPorts': None,
+ 'Healthcheck': None,
+ 'HostConfig': {'Binds': ['\\workspace:/workspace:rw'],
+                'NetworkMode': 'default'},
+ 'Hostname': None,
+ 'Image': 'mcr.microsoft.com/vscode/devcontainers/python:3.9',
+ 'Labels': None,
+ 'MacAddress': None,
+ 'NetworkDisabled': False,
+ 'NetworkingConfig': None,
+ 'OpenStdin': False,
+ 'Runtime': None,
+ 'StdinOnce': False,
+ 'StopSignal': None,
+ 'StopTimeout': None,
+ 'Tty': False,
+ 'User': None,
+ 'Volumes': {'/workspace': {}},
+ 'WorkingDir': None}
+        name       = 'test_environment_codespace_6567744d'
+        params     = {'name': 'test_environment_codespace_6567744d'}
+        platform   = None
+        res        = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720E868730&gt;
+        u          = 'http+docker://localnpipe/v1.48/containers/create'
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:274: in _result
+    self._raise_for_status(response)
+        binary     = False
+        json       = True
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720E868730&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\api\client.py:270: in _raise_for_status
+    raise create_api_error_from_http_exception(e) from e
+        response   = &lt;Response [500]&gt;
+        self       = &lt;docker.api.client.APIClient object at 0x000001720E868730&gt;
+..\AppData\Roaming\Python\Python310\site-packages\docker\errors.py:39: in create_api_error_from_http_exception
+    raise cls(e, response=response, explanation=explanation) from e
+E   docker.errors.APIError: 500 Server Error for http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_6567744d: Internal Server Error ("b'\\workspace%!(EXTRA string=is not a valid Windows path)'")
+        cls        = &lt;class 'docker.errors.APIError'&gt;
+        e          = HTTPError('500 Server Error: Internal Server Error for url: http+docker://localnpipe/v1.48/containers/create?name=test_environment_codespace_6567744d')
+        explanation = b'\\workspace%!(EXTRA string=is not a valid Windows path)'
+        response   = &lt;Response [500]&gt;</error></testcase></testsuite></testsuites>

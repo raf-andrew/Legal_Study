@@ -1,0 +1,199 @@
+# Security domain configuration example
+# Copy this file to config.yaml and adjust settings as needed
+
+# Global settings
+global:
+  enabled: true
+  parallel_jobs: 4
+  cache_ttl: 3600
+  workspace_path: "./workspace"
+  report_path: "./reports/security"
+
+# Vulnerability patterns
+vulnerability_patterns:
+  sql_injection:
+    name: "SQL Injection"
+    severity: "critical"
+    description: "Potential SQL injection vulnerability detected"
+    regex: "(?i)(select|insert|update|delete|drop|union).*\\$\\{.*\\}"
+    cwe: "CWE-89"
+    cvss: 9.8
+    references:
+      - "https://owasp.org/www-community/attacks/SQL_Injection"
+    remediation: "Use parameterized queries or ORM to prevent SQL injection"
+
+  xss:
+    name: "Cross-Site Scripting (XSS)"
+    severity: "high"
+    description: "Potential XSS vulnerability detected"
+    regex: "(?i)innerHTML|outerHTML|document\\.write\\(.*\\$\\{.*\\}"
+    cwe: "CWE-79"
+    cvss: 8.2
+    references:
+      - "https://owasp.org/www-community/attacks/xss/"
+    remediation: "Use proper output encoding and content security policies"
+
+  command_injection:
+    name: "Command Injection"
+    severity: "critical"
+    description: "Potential command injection vulnerability detected"
+    regex: "(?i)exec|spawn|system\\(.*\\$\\{.*\\}"
+    cwe: "CWE-78"
+    cvss: 9.8
+    references:
+      - "https://owasp.org/www-community/attacks/Command_Injection"
+    remediation: "Use safe APIs and input validation to prevent command injection"
+
+# Compliance rules
+compliance_rules:
+  password_storage:
+    name: "Insecure Password Storage"
+    severity: "high"
+    description: "Passwords should be properly hashed and salted"
+    regex: "(?i)password.*=.*['\"][^'\"]+['\"]"
+    standard: "OWASP ASVS"
+    requirement: "V2.4 - Password Security Requirements"
+    references:
+      - "https://owasp.org/www-project-application-security-verification-standard/"
+    remediation: "Use secure password hashing algorithms like bcrypt or Argon2"
+
+  logging:
+    name: "Insufficient Logging"
+    severity: "medium"
+    description: "Security-critical operations should be logged"
+    regex: "(?i)(auth|login|password|credential).*\\(.*\\)"
+    standard: "OWASP ASVS"
+    requirement: "V7 - Error Handling and Logging Requirements"
+    references:
+      - "https://owasp.org/www-project-application-security-verification-standard/"
+    remediation: "Implement comprehensive security logging and monitoring"
+
+  encryption:
+    name: "Weak Encryption"
+    severity: "high"
+    description: "Use of weak or deprecated encryption algorithms"
+    regex: "(?i)(md5|sha1|des|rc4)"
+    standard: "OWASP ASVS"
+    requirement: "V6.2 - Algorithm Requirements"
+    references:
+      - "https://owasp.org/www-project-application-security-verification-standard/"
+    remediation: "Use strong encryption algorithms like AES-256 and SHA-256"
+
+# Attack patterns
+attack_patterns:
+  path_traversal:
+    name: "Path Traversal"
+    severity: "high"
+    description: "Potential path traversal vulnerability detected"
+    regex: "(?i)\\.\\./|%2e%2e%2f"
+    technique: "Directory traversal"
+    mitre: "T1083"
+    references:
+      - "https://attack.mitre.org/techniques/T1083/"
+    remediation: "Validate and sanitize file paths, use safe APIs"
+
+  deserialization:
+    name: "Insecure Deserialization"
+    severity: "high"
+    description: "Potential insecure deserialization vulnerability detected"
+    regex: "(?i)deserialize|fromjson|parse"
+    technique: "Deserialization of untrusted data"
+    mitre: "T1565"
+    references:
+      - "https://attack.mitre.org/techniques/T1565/"
+    remediation: "Use safe deserialization methods, validate input data"
+
+  file_upload:
+    name: "Unrestricted File Upload"
+    severity: "medium"
+    description: "Potential file upload vulnerability detected"
+    regex: "(?i)upload|multipart"
+    technique: "Upload malicious file"
+    mitre: "T1105"
+    references:
+      - "https://attack.mitre.org/techniques/T1105/"
+    remediation: "Validate file types, use virus scanning, set upload limits"
+
+# Monitoring settings
+monitoring:
+  enabled: true
+  collection_interval: 60
+  metrics_path: "./metrics/security"
+  health_check_interval: 300
+
+# Logging settings
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "./logs/security/{name}.log"
+
+# Report settings
+report_templates:
+  html: "security.html"
+  pdf: "security.pdf"
+  csv: "security.csv"
+
+# AI model settings
+model:
+  name: "microsoft/codebert-base"
+  confidence_threshold: 0.8
+  max_sequence_length: 512
+  batch_size: 32
+
+# Git integration settings
+git:
+  enabled: true
+  pre_commit_hook: true
+  branch_protection: true
+  required_checks:
+    - "security-scan"
+    - "compliance-check"
+    - "attack-simulation"
+
+# CI/CD integration settings
+ci_cd:
+  enabled: true
+  block_on_critical: true
+  block_on_high: false
+  notification_threshold: "medium"
+  slack_webhook: ""
+  email_notifications: []
+
+# Custom rules
+custom_rules:
+  enabled: true
+  rules_path: "./rules/security"
+  auto_update: true
+  update_interval: 86400
+
+# Performance settings
+performance:
+  max_file_size: 1048576
+  timeout: 300
+  memory_limit: 1024
+  cpu_limit: 2
+
+# Cache settings
+cache:
+  enabled: true
+  backend: "redis"
+  url: "redis://localhost:6379/0"
+  ttl: 3600
+
+# API settings
+api:
+  enabled: true
+  host: "localhost"
+  port: 8000
+  rate_limit: 100
+  token_expiry: 3600
+
+# Documentation settings
+documentation:
+  enabled: true
+  output_path: "./docs/security"
+  formats:
+    - "html"
+    - "pdf"
+    - "markdown"
+  auto_generate: true

@@ -1,0 +1,105 @@
+@startuml User Interaction Flow
+
+!define RECTANGLE class
+
+skinparam {
+    backgroundColor white
+    componentStyle uml2
+    ArrowColor black
+    BorderColor black
+}
+
+' Actor definitions
+actor "System Admin" as admin
+actor "Developer" as dev
+actor "Application User" as user
+
+' State definitions
+state "Authentication" as auth {
+    [*] --> Login
+    Login --> Dashboard : Success
+    Login --> [*] : Failure
+}
+
+state "Dashboard" as dashboard {
+    state "System Overview" as overview
+    state "Quick Actions" as actions
+    state "Alerts" as alerts
+}
+
+state "Service Management" as services {
+    state "Service List" as list
+    state "Service Details" as details
+    state "Service Control" as control
+    state "Health Checks" as health
+}
+
+state "Configuration" as config {
+    state "Edit Config" as edit
+    state "Validate" as validate
+    state "Save/Apply" as save
+    state "History" as history
+}
+
+state "Initialization" as init {
+    state "Component Selection" as select
+    state "Validation" as check
+    state "Progress" as progress
+    state "Results" as results
+}
+
+state "Monitoring" as monitor {
+    state "Metrics View" as metrics
+    state "Logs View" as logs
+    state "Alerts Config" as alertConfig
+}
+
+' Flow definitions
+auth --> dashboard
+dashboard --> services
+dashboard --> config
+dashboard --> init
+dashboard --> monitor
+
+' Admin flows
+admin --> auth
+admin --> services : Manage Services
+admin --> config : Configure System
+admin --> init : Initialize System
+admin --> monitor : Monitor System
+
+' Developer flows
+dev --> auth
+dev --> services : View Service Status
+dev --> config : View Configuration
+dev --> monitor : View Logs & Metrics
+
+' User flows
+user --> auth
+user --> dashboard : View Status
+user --> monitor : View System Health
+
+' Service Management flows
+list --> details : Select Service
+details --> control : Control Actions
+details --> health : View Health
+control --> health : Update Status
+
+' Configuration flows
+edit --> validate : Validate Changes
+validate --> save : Valid
+validate --> edit : Invalid
+save --> history : Record Changes
+
+' Initialization flows
+select --> check : Validate Selection
+check --> progress : Start Initialization
+progress --> results : Complete
+results --> dashboard : Return
+
+' Monitoring flows
+metrics --> alertConfig : Configure Alerts
+logs --> alertConfig : Set Log Alerts
+alertConfig --> alerts : Update Rules
+
+@enduml 

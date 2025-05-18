@@ -1,0 +1,93 @@
+@startuml User Journey Flow
+
+!define RECTANGLE class
+skinparam backgroundColor white
+skinparam classBackgroundColor white
+skinparam classBorderColor black
+skinparam arrowColor black
+
+start
+
+:User arrives at system;
+
+if (First time user?) then (yes)
+  :Show welcome screen;
+  :Start guided tour;
+  :Present setup wizard;
+  :Configure initial settings;
+else (no)
+  :Load user preferences;
+  :Show dashboard;
+endif
+
+:User lands on dashboard;
+
+fork
+  :View system status;
+  :Check recent activities;
+  :Access quick actions;
+fork again
+  :Manage configurations;
+  if (New configuration?) then (yes)
+    :Start configuration wizard;
+    :Fill in settings;
+    :Validate configuration;
+    if (Validation successful?) then (yes)
+      :Save configuration;
+    else (no)
+      :Show errors;
+      :Allow corrections;
+    endif
+  else (no)
+    :Load existing configuration;
+    :Make changes;
+    :Save updates;
+  endif
+fork again
+  :Manage modules;
+  if (New module?) then (yes)
+    :Browse available modules;
+    :Select module;
+    :Check dependencies;
+    :Install module;
+    :Configure settings;
+  else (no)
+    :View installed modules;
+    :Select module;
+    :Modify settings;
+    :Save changes;
+  endif
+end fork
+
+:User initiates action;
+
+fork
+  :Show progress indicator;
+  :Update status in real-time;
+  :Log activities;
+fork again
+  :Process request;
+  :Validate changes;
+  :Apply updates;
+  :Store results;
+end fork
+
+if (Action successful?) then (yes)
+  :Show success message;
+  :Present next steps;
+  :Update dashboard;
+else (no)
+  :Show error details;
+  :Offer recovery options;
+  if (User wants to retry?) then (yes)
+    :Restart process;
+  else (no)
+    :Return to dashboard;
+  endif
+endif
+
+:User completes session;
+
+stop
+
+@enduml 

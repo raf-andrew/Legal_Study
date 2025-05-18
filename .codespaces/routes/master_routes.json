@@ -1,0 +1,156 @@
+{
+    "version": "1.0",
+    "last_updated": "2024-03-19",
+    "routes": {
+        "authentication": {
+            "login": {
+                "path": "/api/auth/login",
+                "method": "POST",
+                "description": "User login endpoint",
+                "category": "authentication",
+                "test_status": "pending",
+                "test_report": null
+            },
+            "logout": {
+                "path": "/api/auth/logout",
+                "method": "POST",
+                "description": "User logout endpoint",
+                "category": "authentication",
+                "test_status": "pending",
+                "test_report": null
+            },
+            "refresh_token": {
+                "path": "/api/auth/refresh",
+                "method": "POST",
+                "description": "Refresh authentication token",
+                "category": "authentication",
+                "test_status": "pending",
+                "test_report": null
+            }
+        },
+        "user_management": {
+            "create_user": {
+                "path": "/api/users",
+                "method": "POST",
+                "description": "Create new user",
+                "category": "user_management",
+                "test_status": "pending",
+                "test_report": null
+            },
+            "get_user": {
+                "path": "/api/users/{id}",
+                "method": "GET",
+                "description": "Get user details",
+                "category": "user_management",
+                "test_status": "pending",
+                "test_report": null
+            },
+            "update_user": {
+                "path": "/api/users/{id}",
+                "method": "PUT",
+                "description": "Update user details",
+                "category": "user_management",
+                "test_status": "pending",
+                "test_report": null
+            },
+            "delete_user": {
+                "path": "/api/users/{id}",
+                "method": "DELETE",
+                "description": "Delete user",
+                "category": "user_management",
+                "test_status": "pending",
+                "test_report": null
+            }
+        },
+        "data_management": {
+            "create_data": {
+                "path": "/api/data",
+                "method": "POST",
+                "description": "Create new data entry",
+                "category": "data_management",
+                "test_status": "pending",
+                "test_report": null
+            },
+            "get_data": {
+                "path": "/api/data/{id}",
+                "method": "GET",
+                "description": "Get data entry",
+                "category": "data_management",
+                "test_status": "pending",
+                "test_report": null
+            },
+            "update_data": {
+                "path": "/api/data/{id}",
+                "method": "PUT",
+                "description": "Update data entry",
+                "category": "data_management",
+                "test_status": "pending",
+                "test_report": null
+            },
+            "delete_data": {
+                "path": "/api/data/{id}",
+                "method": "DELETE",
+                "description": "Delete data entry",
+                "category": "data_management",
+                "test_status": "pending",
+                "test_report": null
+            },
+            "search_data": {
+                "path": "/api/data/search",
+                "method": "GET",
+                "description": "Search data entries",
+                "category": "data_management",
+                "test_status": "pending",
+                "test_report": null
+            }
+        },
+        "system": {
+            "health_check": {
+                "path": "/api/health",
+                "method": "GET",
+                "description": "System health check",
+                "category": "system",
+                "test_status": "pending",
+                "test_report": null
+            },
+            "metrics": {
+                "path": "/api/metrics",
+                "method": "GET",
+                "description": "System metrics",
+                "category": "system",
+                "test_status": "pending",
+                "test_report": null
+            },
+            "config": {
+                "path": "/api/config",
+                "method": "GET",
+                "description": "System configuration",
+                "category": "system",
+                "test_status": "pending",
+                "test_report": null
+            }
+        }
+    },
+    "categories": {
+        "authentication": {
+            "description": "Authentication and authorization endpoints",
+            "test_status": "pending",
+            "test_report": null
+        },
+        "user_management": {
+            "description": "User management endpoints",
+            "test_status": "pending",
+            "test_report": null
+        },
+        "data_management": {
+            "description": "Data management endpoints",
+            "test_status": "pending",
+            "test_report": null
+        },
+        "system": {
+            "description": "System management endpoints",
+            "test_status": "pending",
+            "test_report": null
+        }
+    }
+}

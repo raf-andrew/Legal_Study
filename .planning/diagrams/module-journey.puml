@@ -1,0 +1,79 @@
+@startuml Module Journey
+
+!define RECTANGLE class
+skinparam backgroundColor white
+skinparam classBackgroundColor white
+skinparam classBorderColor black
+skinparam arrowColor black
+
+start
+
+:User accesses module marketplace;
+
+if (Searching for module?) then (yes)
+  :Enter search criteria;
+  :View search results;
+  :Filter and sort;
+else (no)
+  :Browse categories;
+  :View featured modules;
+  :Check popular modules;
+endif
+
+:Select module to view;
+
+:View module details;
+note right
+  - Description
+  - Version info
+  - Dependencies
+  - Requirements
+  - Reviews
+end note
+
+if (Install module?) then (yes)
+  :Check system requirements;
+  
+  if (Requirements met?) then (yes)
+    :Review dependencies;
+    
+    if (Dependencies available?) then (yes)
+      :Configure settings;
+      :Start installation;
+      
+      :Monitor progress;
+      note right
+        - Download status
+        - Installation steps
+        - Dependency resolution
+        - Configuration
+      end note
+      
+      if (Installation successful?) then (yes)
+        :Show success message;
+        :Enable module;
+        :Configure initial settings;
+      else (no)
+        :Show error details;
+        :Provide recovery options;
+        :Log error for support;
+      endif
+    else (no)
+      :Show dependency list;
+      :Offer to install dependencies;
+      :Return to marketplace;
+    endif
+  else (no)
+    :Show requirements list;
+    :Provide upgrade options;
+    :Return to marketplace;
+  endif
+else (no)
+  :Return to marketplace;
+endif
+
+:Complete module journey;
+
+stop
+
+@enduml 

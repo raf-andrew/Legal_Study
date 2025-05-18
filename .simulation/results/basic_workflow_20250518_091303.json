@@ -1,0 +1,90 @@
+{
+  "scenario": "basic_workflow",
+  "start_time": "2025-05-18T09:13:02.258539",
+  "iterations": 3,
+  "results": [
+    {
+      "iteration": 1,
+      "status": "success",
+      "steps": {
+        "initialization": {
+          "status": "success",
+          "message": "System initialized successfully",
+          "duration": 0.1
+        },
+        "data_processing": {
+          "status": "success",
+          "message": "Data processed successfully",
+          "duration": 0.2
+        },
+        "validation": {
+          "status": "success",
+          "message": "Validation completed successfully",
+          "duration": 0.15
+        },
+        "completion": {
+          "status": "success",
+          "message": "Workflow completed successfully",
+          "duration": 0.1
+        }
+      },
+      "timestamp": 1747584782.8301942
+    },
+    {
+      "iteration": 2,
+      "status": "success",
+      "steps": {
+        "initialization": {
+          "status": "success",
+          "message": "System initialized successfully",
+          "duration": 0.1
+        },
+        "data_processing": {
+          "status": "success",
+          "message": "Data processed successfully",
+          "duration": 0.2
+        },
+        "validation": {
+          "status": "success",
+          "message": "Validation completed successfully",
+          "duration": 0.15
+        },
+        "completion": {
+          "status": "success",
+          "message": "Workflow completed successfully",
+          "duration": 0.1
+        }
+      },
+      "timestamp": 1747584783.3989928
+    },
+    {
+      "iteration": 3,
+      "status": "success",
+      "steps": {
+        "initialization": {
+          "status": "success",
+          "message": "System initialized successfully",
+          "duration": 0.1
+        },
+        "data_processing": {
+          "status": "success",
+          "message": "Data processed successfully",
+          "duration": 0.2
+        },
+        "validation": {
+          "status": "success",
+          "message": "Validation completed successfully",
+          "duration": 0.15
+        },
+        "completion": {
+          "status": "success",
+          "message": "Workflow completed successfully",
+          "duration": 0.1
+        }
+      },
+      "timestamp": 1747584783.9796429
+    }
+  ],
+  "end_time": "2025-05-18T09:13:03.979642",
+  "duration": 1.721103
+}

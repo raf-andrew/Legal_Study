@@ -1,0 +1,10 @@
+Agent Health Monitoring (Tests\MCP\Agent\AgentHealthMonitoring)
+ [x] Initial health status
+ [x] Health status updates
+ [x] Resource usage monitoring
+ [x] Error tracking
+ [x] Heartbeat monitoring
+ [x] Health thresholds
+ [x] Health recovery
+ [ ] Health persistence
+

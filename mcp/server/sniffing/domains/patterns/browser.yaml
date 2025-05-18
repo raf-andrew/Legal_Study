@@ -1,0 +1,175 @@
+# Browser patterns for performance and compatibility detection
+
+performance:
+  regex: "\\b(setTimeout|setInterval)\\b.*\\b(\\d{4,}|[1-9]\\d{3,})\\b"
+  severity: high
+  description: "Long timeout or interval detected"
+  category: performance
+  fix:
+    type: replace
+    pattern: "(setTimeout|setInterval)\\([^,]+,\\s*(\\d{4,}|[1-9]\\d{3,})\\s*\\)"
+    replacement: "$1($2, 1000)"
+  recommendation:
+    title: "Use shorter timeouts"
+    description: "Long timeouts can cause performance issues and poor user experience"
+    examples:
+      - before: "setTimeout(() => heavy(), 5000)"
+        after: "setTimeout(() => heavy(), 1000)"
+
+memory_leak:
+  regex: "\\b(addEventListener)\\b(?!.*\\b(removeEventListener)\\b)"
+  severity: high
+  description: "Event listener without cleanup detected"
+  category: memory
+  fix:
+    type: insert
+    position: after
+    content: "element.removeEventListener(event, handler);"
+  recommendation:
+    title: "Clean up event listeners"
+    description: "Always remove event listeners to prevent memory leaks"
+    examples:
+      - before: "element.addEventListener('click', handler)"
+        after: |
+          element.addEventListener('click', handler);
+          // Clean up when done
+          element.removeEventListener('click', handler);
+
+dom_manipulation:
+  regex: "\\b(innerHTML|outerHTML)\\b.*\\+"
+  severity: medium
+  description: "Inefficient DOM manipulation detected"
+  category: performance
+  fix:
+    type: replace
+    pattern: "(\\w+)\\.(innerHTML|outerHTML)\\s*=\\s*([^;]+)"
+    replacement: "$1.textContent = $3"
+  recommendation:
+    title: "Use efficient DOM manipulation"
+    description: "Use textContent or DOM methods instead of innerHTML for better performance"
+    examples:
+      - before: "element.innerHTML = 'Hello ' + name"
+        after: "element.textContent = 'Hello ' + name"
+
+layout_thrashing:
+  regex: "\\b(offsetWidth|offsetHeight|clientWidth|clientHeight|getBoundingClientRect)\\b.*\\b(style\\.[^;]+)\\b"
+  severity: high
+  description: "Layout thrashing detected"
+  category: performance
+  fix:
+    type: replace
+    pattern: "(\\w+\\.(offsetWidth|offsetHeight|clientWidth|clientHeight|getBoundingClientRect\\(\\)))\\s*;\\s*(\\w+\\.style)"
+    replacement: "const measure = $1;\n$3"
+  recommendation:
+    title: "Batch DOM reads and writes"
+    description: "Group DOM reads and writes to prevent layout thrashing"
+    examples:
+      - before: |
+          const width = element.offsetWidth;
+          element.style.width = width + 10 + 'px';
+          const height = element.offsetHeight;
+          element.style.height = height + 10 + 'px';
+        after: |
+          const width = element.offsetWidth;
+          const height = element.offsetHeight;
+          element.style.width = width + 10 + 'px';
+          element.style.height = height + 10 + 'px';
+
+event_delegation:
+  regex: "\\b(addEventListener)\\b.*\\b(forEach|for\\s+\\(|while\\s*\\()\\b"
+  severity: medium
+  description: "Multiple event listeners detected"
+  category: performance
+  fix:
+    type: replace
+    pattern: "(\\w+)\\.forEach\\(.*addEventListener\\([^)]+\\)\\)"
+    replacement: "parent.addEventListener(event, handleEvent)"
+  recommendation:
+    title: "Use event delegation"
+    description: "Use event delegation instead of multiple event listeners"
+    examples:
+      - before: "items.forEach(item => item.addEventListener('click', handler))"
+        after: "container.addEventListener('click', handleClick)"
+
+animation_performance:
+  regex: "\\b(setInterval)\\b.*\\b(style|transform|animate)\\b"
+  severity: medium
+  description: "Inefficient animation detected"
+  category: performance
+  fix:
+    type: replace
+    pattern: "setInterval\\([^,]+,\\s*\\d+\\s*\\)"
+    replacement: "requestAnimationFrame(animate)"
+  recommendation:
+    title: "Use requestAnimationFrame"
+    description: "Use requestAnimationFrame for smooth animations"
+    examples:
+      - before: "setInterval(() => element.style.left = pos + 'px', 16)"
+        after: "requestAnimationFrame(() => element.style.left = pos + 'px')"
+
+unoptimized_loop:
+  regex: "\\b(for\\s*\\(|while\\s*\\().*\\b(length|childNodes|getElementsBy)\\b"
+  severity: medium
+  description: "Unoptimized loop detected"
+  category: performance
+  fix:
+    type: replace
+    pattern: "for\\s*\\([^;]+;\\s*i\\s*<\\s*(\\w+\\.length);\\s*i\\+\\+\\s*\\)"
+    replacement: "for (let i = 0, len = $1; i < len; i++)"
+  recommendation:
+    title: "Optimize loops"
+    description: "Cache array lengths and use optimized loop patterns"
+    examples:
+      - before: "for (let i = 0; i < array.length; i++)"
+        after: "for (let i = 0, len = array.length; i < len; i++)"
+
+reflow_style:
+  regex: "\\b(style\\.[^;]+;\\s*){3,}"
+  severity: medium
+  description: "Multiple style changes detected"
+  category: performance
+  fix:
+    type: replace
+    pattern: "(\\w+)\\.style\\.[^;]+;\\s*(\\w+\\.style\\.[^;]+;\\s*){2,}"
+    replacement: "$1.style.cssText = 'property1: value1; property2: value2;'"
+  recommendation:
+    title: "Batch style changes"
+    description: "Use cssText or classList for multiple style changes"
+    examples:
+      - before: |
+          element.style.width = '100px';
+          element.style.height = '100px';
+          element.style.background = 'red';
+        after: "element.style.cssText = 'width: 100px; height: 100px; background: red;'"
+
+unoptimized_selector:
+  regex: "\\b(getElementsByTagName|getElementsByClassName)\\b.*\\b(for\\s*\\(|while\\s*\\(|forEach)\\b"
+  severity: medium
+  description: "Unoptimized selector usage detected"
+  category: performance
+  fix:
+    type: replace
+    pattern: "document\\.(getElementsByTagName|getElementsByClassName)\\([^)]+\\)"
+    replacement: "document.querySelectorAll(selector)"
+  recommendation:
+    title: "Use optimized selectors"
+    description: "Use querySelectorAll with specific selectors"
+    examples:
+      - before: "document.getElementsByTagName('div')"
+        after: "document.querySelectorAll('.specific-class')"
+
+scroll_performance:
+  regex: "\\b(scroll|resize)\\b.*\\b(setTimeout|setInterval)\\b"
+  severity: high
+  description: "Unoptimized scroll/resize handler detected"
+  category: performance
+  fix:
+    type: replace
+    pattern: "(addEventListener\\(['\"](?:scroll|resize)['\"][^{]+{)([^}]+)(})"
+    replacement: "$1\n  requestAnimationFrame(() => {\n    $2\n  });\n$3"
+  recommendation:
+    title: "Optimize scroll handlers"
+    description: "Use throttling or requestAnimationFrame for scroll/resize handlers"
+    examples:
+      - before: "window.addEventListener('scroll', updatePosition)"
+        after: "window.addEventListener('scroll', () => requestAnimationFrame(updatePosition))"

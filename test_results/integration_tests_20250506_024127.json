@@ -1,0 +1,72 @@
+{
+  "timestamp": "2025-05-06T02:40:51.227771",
+  "tests": {
+    "api_database": {
+      "status": "error",
+      "error": "connection to server at \"localhost\" (::1), port 5432 failed: Connection refused (0x0000274D/10061)\n\tIs the server running on that host and accepting TCP/IP connections?\nconnection to server at \"localhost\" (127.0.0.1), port 5432 failed: Connection refused (0x0000274D/10061)\n\tIs the server running on that host and accepting TCP/IP connections?\n"
+    },
+    "api_cache": {
+      "status": "fail",
+      "results": [
+        {
+          "test_case": "set_cache",
+          "status": "error",
+          "error": "HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/cache-test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000013477432D10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+        },
+        {
+          "test_case": "get_cache",
+          "status": "error",
+          "error": "HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/cache-test?key=test_key (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000134774336A0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+        },
+        {
+          "test_case": "delete_cache",
+          "status": "error",
+          "error": "HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /api/cache-test?key=test_key (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000013477433A90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+        }
+      ]
+    },
+    "api_queue": {
+      "status": "error",
+      "error": ""
+    },
+    "ai_service": {
+      "status": "fail",
+      "results": [
+        {
+          "test_case": "text_generation",
+          "status": "error",
+          "error": "HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /api/ai (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000013477431BA0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+        },
+        {
+          "test_case": "model_status",
+          "status": "error",
+          "error": "HTTPConnectionPool(host='localhost', port=8001): Max retries exceeded with url: /api/ai (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000134773923B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+        }
+      ]
+    },
+    "notification_service": {
+      "status": "fail",
+      "results": [
+        {
+          "test_case": "send_email",
+          "status": "error",
+          "error": "HTTPConnectionPool(host='localhost', port=8002): Max retries exceeded with url: /api/notifications (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000134774322C0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+        },
+        {
+          "test_case": "send_push",
+          "status": "error",
+          "error": "HTTPConnectionPool(host='localhost', port=8002): Max retries exceeded with url: /api/notifications (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000013477432B90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+        }
+      ]
+    }
+  },
+  "overall_status": "fail",
+  "execution_time": 36.74749803543091,
+  "summary": {
+    "total_tests": 5,
+    "passed_tests": 0,
+    "failed_tests": 5,
+    "success_rate": 0.0,
+    "execution_time": 36.74749803543091
+  }
+}

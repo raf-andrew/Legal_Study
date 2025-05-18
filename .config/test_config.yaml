@@ -1,0 +1,137 @@
+# Test Configuration
+
+# Test Environment
+environment:
+  name: "test"
+  debug: true
+  log_level: "DEBUG"
+  api_host: "localhost"
+  api_port: 8000
+
+# Test Database
+database:
+  type: "sqlite"
+  name: "test.db"
+  host: "localhost"
+  port: 5432
+  user: "test_user"
+  password: "test_password"
+
+# Test Security
+security:
+  jwt_secret: "test_jwt_secret_key_123"
+  jwt_algorithm: "HS256"
+  jwt_expiration_minutes: 30
+  encryption_key: "test_encryption_key_123"
+
+# Test Coverage
+coverage:
+  minimum: 90
+  exclude:
+    - "*/tests/*"
+    - "*/__init__.py"
+    - "*/config.py"
+  report:
+    - "term"
+    - "html"
+
+# Test Timeouts
+timeouts:
+  smoke: 60
+  acid: 120
+  chaos: 300
+  security: 180
+  default: 30
+
+# Test Resources
+resources:
+  memory_limit: 512
+  cpu_limit: 50
+  file_limit: 10
+
+# Test Reports
+reports:
+  html: true
+  json: true
+  xml: false
+  junit: true
+  coverage: true
+
+# Test Logging
+logging:
+  level: "DEBUG"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: ".logs/test.log"
+  error_file: ".errors/error.log"
+
+# Test Notifications
+notifications:
+  email:
+    enabled: true
+    sender: "test-monitor@example.com"
+    receiver: "admin@example.com"
+    smtp_host: "localhost"
+    smtp_port: 25
+  slack:
+    enabled: false
+    webhook_url: ""
+    channel: ""
+
+# Test Cleanup
+cleanup:
+  remove_test_db: true
+  remove_logs: false
+  remove_reports: false
+  remove_cache: true
+
+# Test Dependencies
+dependencies:
+  required:
+    - "pytest"
+    - "pytest-cov"
+    - "pytest-html"
+    - "pytest-asyncio"
+    - "pytest-xdist"
+  optional:
+    - "pytest-benchmark"
+    - "pytest-mock"
+    - "pytest-env"
+
+# Test Categories
+categories:
+  smoke:
+    enabled: true
+    priority: 1
+    timeout: 60
+  acid:
+    enabled: true
+    priority: 2
+    timeout: 120
+  chaos:
+    enabled: true
+    priority: 3
+    timeout: 300
+  security:
+    enabled: true
+    priority: 4
+    timeout: 180
+
+# Test Data
+test_data:
+  users:
+    - username: "test_user1"
+      password: "test_password1"
+      role: "admin"
+    - username: "test_user2"
+      password: "test_password2"
+      role: "user"
+  test_cases:
+    - name: "basic_operations"
+      description: "Test basic API operations"
+      priority: "high"
+    - name: "error_handling"
+      description: "Test error handling"
+      priority: "medium"
+    - name: "performance"
+      description: "Test performance"
+      priority: "low" 

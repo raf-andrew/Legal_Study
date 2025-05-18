@@ -1,0 +1,8 @@
+{
+  "test_type": "acid",
+  "start_time": "2025-04-23T20:46:05.683984",
+  "end_time": "2025-04-23T20:46:21.333351",
+  "duration": 15.649367,
+  "exit_code": 1,
+  "status": "failure"
+}

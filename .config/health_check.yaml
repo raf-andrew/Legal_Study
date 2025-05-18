@@ -1,0 +1,156 @@
+# Health Check Configuration
+
+# General settings
+general:
+  version: 1.0.0
+  environment: development
+  debug: false
+  log_level: INFO
+  log_file: .logs/health_check.log
+
+# Check settings
+checks:
+  directory:
+    enabled: true
+    required_dirs:
+      - .controls
+      - .security
+      - .chaos
+      - .ui
+      - .ux
+      - .refactoring
+      - .guide
+      - .api
+      - .integration
+      - .unit
+      - .sniff
+      - .test
+      - .completed
+      - .errors
+      - .qa
+    check_permissions: true
+    check_ownership: true
+
+  configuration:
+    enabled: true
+    required_files:
+      - .config/environment/development/config.json
+      - .config/environment/testing/config.json
+      - .config/environment/production/config.json
+    validate_format: true
+    validate_content: true
+
+  services:
+    enabled: true
+    required_services:
+      - database
+      - api
+      - cache
+      - queue
+    check_availability: true
+    check_response_time: true
+    timeout: 30
+    retry_attempts: 3
+
+  security:
+    enabled: true
+    check_authentication: true
+    check_authorization: true
+    check_access_control: true
+    check_audit_logging: true
+    check_encryption: true
+    check_vulnerabilities: true
+
+  monitoring:
+    enabled: true
+    check_metrics: true
+    check_alerts: true
+    check_logs: true
+    check_reports: true
+    metrics_interval: 60
+    alert_threshold: 80
+
+# Output settings
+output:
+  format: json
+  file: health_check_report.json
+  include_timestamp: true
+  include_checks: true
+  include_errors: true
+  include_metrics: true
+
+# Monitoring settings
+monitoring:
+  prometheus:
+    enabled: true
+    port: 9090
+    path: /metrics
+    interval: 60
+
+  grafana:
+    enabled: true
+    url: http://localhost:3000
+    dashboard: health_check
+    refresh_interval: 60
+
+  alerting:
+    enabled: true
+    channels:
+      - email
+      - slack
+      - webhook
+    thresholds:
+      cpu: 80
+      memory: 85
+      disk: 90
+      error_rate: 5
+
+# Security settings
+security:
+  authentication:
+    enabled: true
+    method: jwt
+    token_expiry: 3600
+    refresh_token: true
+
+  authorization:
+    enabled: true
+    method: rbac
+    roles:
+      - admin
+      - user
+      - guest
+    permissions:
+      - read
+      - write
+      - execute
+
+  audit:
+    enabled: true
+    level: INFO
+    format: json
+    retention: 30
+    rotation: daily
+
+# Logging settings
+logging:
+  console:
+    enabled: true
+    level: INFO
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+  file:
+    enabled: true
+    level: INFO
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    file: .logs/health_check.log
+    max_size: 10485760
+    backup_count: 5
+
+  syslog:
+    enabled: false
+    level: INFO
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    host: localhost
+    port: 514
+    facility: local0 

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .test-case {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #fff;
+            border-left: 4px solid #3498db;
+        }
+        
+        .test-result {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #fff;
+            border-left: 4px solid #2ecc71;
+        }
+        
+        .error {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #fff;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .recommendation {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #fff;
+            border-left: 4px solid #f1c40f;
+        }
+        
+        .priority-high {
+            color: #e74c3c;
+        }
+        
+        .priority-medium {
+            color: #f39c12;
+        }
+        
+        .priority-low {
+            color: #2ecc71;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        .timestamp {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Documentation</h1>
+        <p class="timestamp">Generated on {{ timestamp }}</p>
+        
+        <div class="section">
+            <h2>Test Cases</h2>
+            {% for test_case in test_cases %}
+            <div class="test-case">
+                <h3>{{ test_case.file }}</h3>
+                <ul>
+                    {% for case in test_case.cases %}
+                    <li>{{ case }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="section">
+            <h2>Test Results</h2>
+            {% for result in test_results %}
+            <div class="test-result">
+                <h3>{{ result.file }}</h3>
+                <pre>{{ result.results | tojson(indent=2) }}</pre>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="section">
+            <h2>Coverage</h2>
+            <pre>{{ coverage | tojson(indent=2) }}</pre>
+        </div>
+        
+        <div class="section">
+            <h2>Errors</h2>
+            {% for error in errors %}
+            <div class="error">
+                <h3>{{ error.file }}</h3>
+                <pre>{{ error.errors | tojson(indent=2) }}</pre>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="section">
+            <h2>Recommendations</h2>
+            {% for rec in recommendations %}
+            <div class="recommendation">
+                <h3 class="priority-{{ rec.priority }}">{{ rec.action }}</h3>
+                <p>{{ rec.details }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html> 

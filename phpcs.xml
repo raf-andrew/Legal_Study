@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<ruleset name="Legal Study Console">
+    <description>PHP CodeSniffer configuration for Legal Study Console</description>
+
+    <file>src</file>
+    <exclude-pattern>*/Tests/*</exclude-pattern>
+
+    <rule ref="PSR12">
+        <exclude name="Generic.Files.LineLength"/>
+    </rule>
+
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="120"/>
+        </properties>
+    </rule>
+
+    <rule ref="Squiz.Commenting.FunctionComment">
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingReturn"/>
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
+    </rule>
+
+    <rule ref="Squiz.Commenting.ClassComment">
+        <exclude name="Squiz.Commenting.ClassComment.Missing"/>
+    </rule>
+
+    <rule ref="Squiz.Commenting.VariableComment">
+        <exclude name="Squiz.Commenting.VariableComment.Missing"/>
+    </rule>
+
+    <rule ref="Generic.Commenting.DocComment">
+        <exclude name="Generic.Commenting.DocComment.ContentAfterOpen"/>
+        <exclude name="Generic.Commenting.DocComment.ContentBeforeClose"/>
+    </rule>
+</ruleset> 

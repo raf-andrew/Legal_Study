@@ -1,0 +1,15 @@
+{
+    "status":  "failed",
+    "timestamp":  "20250516_043725",
+    "error":  "Environment variables check failed: Required environment variable CODESPACE_NAME is missing",
+    "test_name":  "Environment Setup",
+    "results":  {
+                    "environment_variables":  {
+                                                  "status":  "failed",
+                                                  "error":  "Required environment variable CODESPACE_NAME is missing",
+                                                  "checks":  {
+                                                                 "CODESPACE_NAME":  "missing"
+                                                             }
+                                              }
+                }
+}

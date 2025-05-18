@@ -1,0 +1,62 @@
+{
+  "timestamp": "2025-05-06T02:29:25.648603",
+  "steps": {
+    "python_environment": {
+      "status": "pass",
+      "details": {
+        "python_version": "3.10.0",
+        "virtual_env": "venv"
+      }
+    },
+    "dependencies": {
+      "status": "error",
+      "error": "Command '['venv\\\\Scripts\\\\pip.exe', 'install', '-r', 'requirements.txt']' returned non-zero exit status 1."
+    },
+    "git_setup": {
+      "status": "pass",
+      "details": {
+        "gitignore": ".gitignore"
+      }
+    },
+    "ide_setup": {
+      "status": "pass",
+      "details": {
+        "vscode_settings": ".vscode/settings.json"
+      }
+    },
+    "test_environment": {
+      "status": "pass",
+      "details": {
+        "pytest_config": "pytest.ini",
+        "test_dirs": [
+          "tests/unit",
+          "tests/integration",
+          "tests/performance",
+          "tests/security"
+        ]
+      }
+    },
+    "documentation": {
+      "status": "pass",
+      "details": {
+        "mkdocs_config": "mkdocs.yml",
+        "doc_files": [
+          "docs/index.md",
+          "docs/user-guide/getting-started.md",
+          "docs/developer-guide/setup.md",
+          "docs/api-reference/overview.md"
+        ]
+      }
+    }
+  },
+  "overall_status": "fail",
+  "execution_time": 34.64166307449341,
+  "summary": {
+    "total_steps": 6,
+    "passed_steps": 5,
+    "failed_steps": 0,
+    "error_steps": 1,
+    "success_rate": 83.33333333333334,
+    "execution_time": 34.64166307449341
+  }
+}

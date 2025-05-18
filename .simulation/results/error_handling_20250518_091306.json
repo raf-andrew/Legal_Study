@@ -1,0 +1,149 @@
+{
+  "scenario": "error_handling",
+  "start_time": "2025-05-18T09:13:03.984184",
+  "iterations": 5,
+  "results": [
+    {
+      "iteration": 1,
+      "status": "success",
+      "steps": {
+        "initialization": {
+          "status": "success",
+          "message": "Initialization succeeded",
+          "duration": 0.1
+        },
+        "data_processing": {
+          "status": "success",
+          "message": "Data processing completed",
+          "duration": 0.2
+        },
+        "validation": {
+          "status": "success",
+          "message": "Validation succeeded",
+          "duration": 0.15
+        },
+        "completion": {
+          "status": "success",
+          "message": "Completion completed",
+          "duration": 0.1
+        }
+      },
+      "error_recovery_triggered": false,
+      "error_message": null,
+      "timestamp": 1747584784.560452
+    },
+    {
+      "iteration": 2,
+      "status": "success",
+      "steps": {
+        "initialization": {
+          "status": "success",
+          "message": "Initialization succeeded",
+          "duration": 0.1
+        },
+        "data_processing": {
+          "status": "success",
+          "message": "Data processing completed",
+          "duration": 0.2
+        },
+        "validation": {
+          "status": "success",
+          "message": "Validation succeeded",
+          "duration": 0.15
+        },
+        "completion": {
+          "status": "success",
+          "message": "Completion completed",
+          "duration": 0.1
+        }
+      },
+      "error_recovery_triggered": false,
+      "error_message": null,
+      "timestamp": 1747584785.1391969
+    },
+    {
+      "iteration": 3,
+      "status": "success",
+      "steps": {
+        "initialization": {
+          "status": "success",
+          "message": "Initialization succeeded",
+          "duration": 0.1
+        },
+        "data_processing": {
+          "status": "success",
+          "message": "Data processing completed",
+          "duration": 0.2
+        },
+        "validation": {
+          "status": "success",
+          "message": "Validation succeeded",
+          "duration": 0.15
+        },
+        "completion": {
+          "status": "success",
+          "message": "Completion completed",
+          "duration": 0.1
+        }
+      },
+      "error_recovery_triggered": false,
+      "error_message": null,
+      "timestamp": 1747584785.70944
+    },
+    {
+      "iteration": 4,
+      "status": "success",
+      "steps": {
+        "initialization": {
+          "status": "success",
+          "message": "Initialization succeeded",
+          "duration": 0.1
+        },
+        "data_processing": {
+          "status": "success",
+          "message": "Data processing completed",
+          "duration": 0.2
+        },
+        "validation": {
+          "status": "success",
+          "message": "Validation succeeded",
+          "duration": 0.15
+        },
+        "completion": {
+          "status": "success",
+          "message": "Completion completed",
+          "duration": 0.1
+        }
+      },
+      "error_recovery_triggered": false,
+      "error_message": null,
+      "timestamp": 1747584786.2761204
+    },
+    {
+      "iteration": 5,
+      "status": "failure",
+      "steps": {
+        "initialization": {
+          "status": "success",
+          "message": "Initialization succeeded",
+          "duration": 0.1
+        },
+        "data_processing": {
+          "status": "failure",
+          "message": "Data processing error",
+          "duration": 0.2
+        },
+        "error_recovery": {
+          "status": "recovered",
+          "message": "Error recovery procedure executed",
+          "duration": 0.05
+        }
+      },
+      "error_recovery_triggered": true,
+      "error_message": "Data processing error",
+      "timestamp": 1747584786.6594222
+    }
+  ],
+  "end_time": "2025-05-18T09:13:06.659422",
+  "duration": 2.675238
+}

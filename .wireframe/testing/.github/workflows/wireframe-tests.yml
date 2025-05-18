@@ -1,0 +1,119 @@
+name: Wireframe Testing and Analysis
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight
+  push:
+    branches: [ main ]
+    paths:
+      - '.wireframe/**/*.html'
+      - '.wireframe/**/*.css'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '.wireframe/**/*.html'
+      - '.wireframe/**/*.css'
+
+jobs:
+  wireframe-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.9]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install Chrome
+      run: |
+        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable
+
+    - name: Install Tesseract
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y tesseract-ocr
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r .wireframe/testing/requirements.txt
+        pip install -r .wireframe/testing/analysis_requirements.txt
+
+    - name: Run wireframe browser tests
+      run: |
+        cd .wireframe/testing
+        python browser_test.py
+
+    - name: Run wireframe analysis
+      run: |
+        cd .wireframe/testing
+        python analyze_wireframes.py
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: wireframe-test-results
+        path: .wireframe/testing/output/
+
+    - name: Upload analysis results
+      uses: actions/upload-artifact@v3
+      with:
+        name: wireframe-analysis-results
+        path: .wireframe/testing/analysis/
+
+    - name: Create analysis report
+      if: always()
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          const path = require('path');
+
+          // Read analysis results
+          const analysisDir = '.wireframe/testing/analysis';
+          const reports = [];
+
+          function processDirectory(dir) {
+            const files = fs.readdirSync(dir);
+            for (const file of files) {
+              const filePath = path.join(dir, file);
+              const stat = fs.statSync(filePath);
+
+              if (stat.isDirectory()) {
+                processDirectory(filePath);
+              } else if (file.endsWith('.json')) {
+                const content = JSON.parse(fs.readFileSync(filePath));
+                reports.push({
+                  file: path.relative(analysisDir, filePath),
+                  recommendations: content.recommendations
+                });
+              }
+            }
+          }
+
+          processDirectory(analysisDir);
+
+          // Generate report
+          const message = `## Wireframe Analysis Report\n\n` +
+            reports.map(report =>
+              `### ${report.file}\n\n` +
+              `Recommendations:\n` +
+              report.recommendations.map(rec => `- ${rec}`).join('\n')
+            ).join('\n\n');
+
+          // Create issue with report
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: 'Wireframe Analysis Report',
+            body: message,
+            labels: ['wireframe', 'analysis']
+          });

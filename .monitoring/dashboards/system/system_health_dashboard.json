@@ -1,0 +1,143 @@
+{
+  "dashboard": {
+    "name": "System Health Dashboard",
+    "description": "Real-time monitoring of system health and performance",
+    "version": "1.0.0",
+    "refresh_interval": 60
+  },
+  "panels": {
+    "system_status": {
+      "title": "System Status",
+      "type": "status",
+      "metrics": [
+        {
+          "name": "CPU Usage",
+          "query": "system.cpu.usage",
+          "thresholds": {
+            "warning": 80,
+            "critical": 90
+          }
+        },
+        {
+          "name": "Memory Usage",
+          "query": "system.memory.usage",
+          "thresholds": {
+            "warning": 85,
+            "critical": 95
+          }
+        },
+        {
+          "name": "Disk Usage",
+          "query": "system.disk.usage",
+          "thresholds": {
+            "warning": 85,
+            "critical": 95
+          }
+        }
+      ]
+    },
+    "application_health": {
+      "title": "Application Health",
+      "type": "metrics",
+      "metrics": [
+        {
+          "name": "Response Time",
+          "query": "app.response.time",
+          "thresholds": {
+            "warning": 1000,
+            "critical": 2000
+          }
+        },
+        {
+          "name": "Error Rate",
+          "query": "app.error.rate",
+          "thresholds": {
+            "warning": 5,
+            "critical": 10
+          }
+        },
+        {
+          "name": "Active Users",
+          "query": "app.users.active",
+          "thresholds": {
+            "warning": 100,
+            "critical": 150
+          }
+        }
+      ]
+    },
+    "database_health": {
+      "title": "Database Health",
+      "type": "metrics",
+      "metrics": [
+        {
+          "name": "Query Time",
+          "query": "db.query.time",
+          "thresholds": {
+            "warning": 500,
+            "critical": 1000
+          }
+        },
+        {
+          "name": "Connection Pool",
+          "query": "db.connections.active",
+          "thresholds": {
+            "warning": 80,
+            "critical": 90
+          }
+        },
+        {
+          "name": "Replication Lag",
+          "query": "db.replication.lag",
+          "thresholds": {
+            "warning": 5,
+            "critical": 10
+          }
+        }
+      ]
+    },
+    "security_status": {
+      "title": "Security Status",
+      "type": "alerts",
+      "metrics": [
+        {
+          "name": "Failed Logins",
+          "query": "security.login.failed",
+          "thresholds": {
+            "warning": 10,
+            "critical": 20
+          }
+        },
+        {
+          "name": "Security Events",
+          "query": "security.events.total",
+          "thresholds": {
+            "warning": 5,
+            "critical": 10
+          }
+        }
+      ]
+    }
+  },
+  "alerts": {
+    "notification_channels": [
+      "email",
+      "slack",
+      "pagerduty"
+    ],
+    "escalation_policy": {
+      "level1": {
+        "timeout": 15,
+        "notify": ["team-leads"]
+      },
+      "level2": {
+        "timeout": 30,
+        "notify": ["management"]
+      },
+      "level3": {
+        "timeout": 60,
+        "notify": ["executives"]
+      }
+    }
+  }
+} 

@@ -1,0 +1,24 @@
+{
+  "scenario": "performance_test",
+  "start_time": "2025-05-18T01:20:13.003793",
+  "iterations": 3,
+  "results": [
+    {
+      "iteration": 1,
+      "status": "completed",
+      "timestamp": "2025-05-18T01:20:13.008879"
+    },
+    {
+      "iteration": 2,
+      "status": "completed",
+      "timestamp": "2025-05-18T01:20:13.009894"
+    },
+    {
+      "iteration": 3,
+      "status": "completed",
+      "timestamp": "2025-05-18T01:20:13.011413"
+    }
+  ],
+  "end_time": "2025-05-18T01:20:13.011413",
+  "duration": 0.00762
+}

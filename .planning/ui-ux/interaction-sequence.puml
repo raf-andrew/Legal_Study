@@ -1,0 +1,104 @@
+@startuml Interaction Sequence
+
+skinparam {
+    ParticipantPadding 20
+    BoxPadding 10
+    SequenceGroupBodyBackgroundColor white
+    SequenceGroupBorderColor gray
+}
+
+actor User
+participant "Frontend\nApp" as Frontend
+participant "API\nGateway" as Gateway
+participant "Auth\nService" as Auth
+participant "Service\nManager" as Manager
+participant "Config\nService" as Config
+participant "WebSocket\nServer" as WS
+database "Database" as DB
+queue "Message\nQueue" as Queue
+
+== Authentication ==
+User -> Frontend: Access application
+Frontend -> Gateway: Request authentication
+Gateway -> Auth: Validate credentials
+Auth -> DB: Check user
+DB --> Auth: User data
+Auth --> Gateway: JWT token
+Gateway --> Frontend: Authentication response
+Frontend --> User: Show dashboard
+
+== Service Management ==
+User -> Frontend: View services
+Frontend -> Gateway: GET /api/services
+Gateway -> Manager: List services
+Manager -> DB: Fetch service status
+DB --> Manager: Service data
+Manager --> Gateway: Service list
+Gateway --> Frontend: Service data
+Frontend --> User: Display service list
+
+group Service Control
+    User -> Frontend: Control service
+    Frontend -> Gateway: POST /api/services/{id}/action
+    Gateway -> Manager: Execute action
+    Manager -> Queue: Queue action
+    Queue --> Manager: Action queued
+    Manager --> Gateway: Action accepted
+    Gateway --> Frontend: Action status
+    Frontend --> User: Show progress
+
+    Queue -> Manager: Process action
+    Manager -> DB: Update status
+    Manager -> WS: Broadcast update
+    WS --> Frontend: Status change
+    Frontend --> User: Update UI
+end
+
+== Configuration Management ==
+User -> Frontend: Edit configuration
+Frontend -> Gateway: GET /api/config/{service}
+Gateway -> Config: Get configuration
+Config -> DB: Fetch config
+DB --> Config: Config data
+Config --> Gateway: Configuration
+Gateway --> Frontend: Config data
+Frontend --> User: Show editor
+
+group Save Configuration
+    User -> Frontend: Save changes
+    Frontend -> Gateway: PUT /api/config/{service}
+    Gateway -> Config: Validate & save
+    Config -> DB: Store config
+    Config -> Queue: Trigger update
+    Queue --> Config: Update queued
+    Config --> Gateway: Save status
+    Gateway --> Frontend: Save result
+    Frontend --> User: Show confirmation
+
+    Queue -> Manager: Apply config
+    Manager -> WS: Broadcast update
+    WS --> Frontend: Config applied
+    Frontend --> User: Update status
+end
+
+== Real-time Monitoring ==
+User -> Frontend: Open monitoring
+Frontend -> WS: Subscribe to metrics
+WS -> Manager: Register client
+
+group Metric Updates
+    Manager -> DB: Poll metrics
+    DB --> Manager: Metric data
+    Manager -> WS: Broadcast metrics
+    WS --> Frontend: Update metrics
+    Frontend --> User: Update charts
+end
+
+group Alert Handling
+    Manager -> Manager: Detect issue
+    Manager -> WS: Broadcast alert
+    WS --> Frontend: Show alert
+    Frontend --> User: Display notification
+end
+
+@enduml 

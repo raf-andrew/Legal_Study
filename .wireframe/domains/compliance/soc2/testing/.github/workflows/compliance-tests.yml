@@ -1,0 +1,104 @@
+name: SOC2 Compliance Tests
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight
+  push:
+    branches: [ main ]
+    paths:
+      - '.wireframe/domains/compliance/soc2/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '.wireframe/domains/compliance/soc2/**'
+
+jobs:
+  compliance-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.9]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r .wireframe/domains/compliance/soc2/testing/security/requirements.txt
+        pip install -r .wireframe/domains/compliance/soc2/testing/availability/requirements.txt
+        pip install -r .wireframe/domains/compliance/soc2/testing/processing/requirements.txt
+
+    - name: Run security compliance tests
+      run: |
+        cd .wireframe/domains/compliance/soc2/testing
+        python security/security_checks.py
+      continue-on-error: true
+
+    - name: Run availability compliance tests
+      run: |
+        cd .wireframe/domains/compliance/soc2/testing
+        python availability/availability_checks.py
+      continue-on-error: true
+
+    - name: Run processing integrity tests
+      run: |
+        cd .wireframe/domains/compliance/soc2/testing
+        python processing/processing_checks.py
+      continue-on-error: true
+
+    - name: Run all compliance tests
+      run: |
+        cd .wireframe/domains/compliance/soc2/testing
+        python run_compliance_tests.py
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: compliance-test-results
+        path: .wireframe/domains/compliance/soc2/testing/reports/
+
+    - name: Check for critical failures
+      run: |
+        if grep -q '"status": "failed"' .wireframe/domains/compliance/soc2/testing/reports/*.json; then
+          echo "Critical compliance test failures detected"
+          exit 1
+        fi
+
+    - name: Notify on failure
+      if: failure()
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          const reports = fs.readdirSync('.wireframe/domains/compliance/soc2/testing/reports/')
+            .filter(file => file.endsWith('.json'))
+            .map(file => {
+              const content = JSON.parse(fs.readFileSync(`.wireframe/domains/compliance/soc2/testing/reports/${file}`));
+              return {
+                file,
+                summary: content.summary
+              };
+            });
+
+          const message = `## Compliance Test Failures Detected\n\n` +
+            reports.map(report =>
+              `### ${report.file}\n` +
+              `- Total: ${report.summary.total}\n` +
+              `- Passed: ${report.summary.passed}\n` +
+              `- Failed: ${report.summary.failed}\n` +
+              `- Warnings: ${report.summary.warnings}\n`
+            ).join('\n');
+
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: 'Compliance Test Failures',
+            body: message,
+            labels: ['compliance', 'needs-attention']
+          });

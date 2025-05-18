@@ -1,0 +1,147 @@
+# Codespaces Testing Configuration
+
+# Test environment settings
+environment:
+  python_version: "3.9"
+  use_venv: true
+  test_prefix: "test_"  # Prefix for test codespaces
+  dependencies:
+    - pytest
+    - pytest-cov
+    - pytest-html
+    - pytest-xdist
+    - pytest-timeout
+    - pytest-mock
+    - docker
+    - requests
+    - colorama
+
+# Test isolation settings
+isolation:
+  use_docker: true
+  cleanup_after_test: true
+  preserve_logs: true
+  max_parallel_tests: 3
+  test_timeout: 600  # 10 minutes
+
+# Codespaces settings
+codespaces:
+  test_environment:
+    docker_image: "mcr.microsoft.com/vscode/devcontainers/python:3.9"
+    container_prefix: "test_"
+    workspace_path: "/workspace"
+    python_version: "3.9"
+  production_environment: "prod"
+  regions:
+    - "us-east-1"
+    - "us-west-2"
+    - "eu-west-1"
+  instance_types:
+    - "t3.micro"
+    - "t3.small"
+    - "t3.medium"
+  cleanup_delay: 300  # 5 minutes before cleanup
+
+# Test categories
+test_categories:
+  unit:
+    pattern: "test_*.py"
+    markers:
+      - unit
+      - fast
+  integration:
+    pattern: "test_*.py"
+    markers:
+      - integration
+      - slow
+  functional:
+    pattern: "test_*.py"
+    markers:
+      - functional
+      - e2e
+
+# Reporting settings
+reporting:
+  directory: "reports/codespaces"
+  formats:
+    - html
+    - xml
+    - json
+  html:
+    self_contained: true
+  junit:
+    output: "reports/codespaces/junit.xml"
+  coverage:
+    output: "reports/codespaces/coverage"
+    formats:
+      - html
+      - xml
+      - json
+  html_report: true
+  xml_report: true
+  coverage_report: true
+  junit_report: true
+
+# Logging settings
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  directory: "logs/codespaces"
+  file: "codespaces_tests_{timestamp}.log"
+
+# Error handling
+error_handling:
+  retry_failed: true
+  max_retries: 3
+  retry_delay: 5
+  fail_fast: true
+  continue_on_error: true
+  cleanup_on_failure: true
+  log_level: "INFO"
+
+# Cleanup settings
+cleanup:
+  remove_test_codespaces: true
+  remove_test_containers: true
+  remove_test_volumes: true
+  remove_test_networks: true
+  preserve_reports: true
+  preserve_logs: true
+
+# Security settings
+security:
+  scan_dependencies: true
+  check_vulnerabilities: true
+  validate_requirements: true
+  test_credentials:
+    use_mock: true
+    mock_credentials:
+      - "test_user"
+      - "test_admin"
+
+test_suites:
+  - name: "environment"
+    timeout: 300
+    retries: 3
+  - name: "configuration"
+    timeout: 300
+    retries: 3
+  - name: "deployment"
+    timeout: 600
+    retries: 2
+  - name: "integration"
+    timeout: 900
+    retries: 2
+  - name: "cleanup"
+    timeout: 300
+    retries: 3
+
+aws:
+  regions:
+    - "us-east-1"
+    - "us-west-2"
+    - "eu-west-1"
+  instance_types:
+    - "t3.micro"
+    - "t3.small"
+    - "t3.medium"

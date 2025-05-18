@@ -1,0 +1,140 @@
+# Sniffing Infrastructure Configuration
+
+# Core Settings
+core:
+  max_concurrent_files: 10
+  max_queue_size: 100
+  cache_ttl_seconds: 3600
+  file_lock_timeout: 30
+  report_retention_days: 30
+
+# Domain Settings
+domains:
+  security:
+    enabled: true
+    priority: 1
+    patterns_path: domains/security/patterns
+    rules_path: domains/security/rules
+    simulations_path: domains/security/simulations
+    report_format: json
+    thresholds:
+      critical: 0
+      high: 0
+      medium: 5
+      low: 10
+
+  browser:
+    enabled: true
+    priority: 2
+    patterns_path: domains/browser/patterns
+    rules_path: domains/browser/rules
+    simulations_path: domains/browser/simulations
+    report_format: json
+    thresholds:
+      performance_ms: 1000
+      memory_mb: 50
+      cpu_percent: 80
+
+  functional:
+    enabled: true
+    priority: 3
+    patterns_path: domains/functional/patterns
+    rules_path: domains/functional/rules
+    simulations_path: domains/functional/simulations
+    report_format: json
+    thresholds:
+      coverage_percent: 90
+      success_rate: 0.95
+
+  unit:
+    enabled: true
+    priority: 4
+    patterns_path: domains/unit/patterns
+    rules_path: domains/unit/rules
+    report_format: json
+    thresholds:
+      coverage_percent: 100
+      complexity: 10
+
+  documentation:
+    enabled: true
+    priority: 5
+    patterns_path: domains/documentation/patterns
+    rules_path: domains/documentation/rules
+    report_format: json
+    thresholds:
+      completeness_percent: 90
+      quality_score: 0.8
+
+# Git Integration
+git:
+  hooks:
+    pre_commit:
+      enabled: true
+      domains: [security, functional, unit]
+      block_on_critical: true
+      block_on_high: false
+    pre_push:
+      enabled: true
+      domains: [security, browser, functional, unit, documentation]
+      block_on_critical: true
+      block_on_high: true
+
+# Reporting
+reporting:
+  base_path: reports
+  formats: [json, html, pdf]
+  metrics:
+    enabled: true
+    collection_interval: 60
+    retention_days: 90
+  alerts:
+    enabled: true
+    channels: [email, slack]
+    thresholds:
+      critical: immediate
+      high: 1h
+      medium: 24h
+      low: 72h
+
+# Monitoring
+monitoring:
+  health_check_interval: 60
+  metrics_enabled: true
+  logging:
+    level: INFO
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    file: logs/sniffing.log
+    max_size_mb: 100
+    backup_count: 10
+
+# API Integration
+api:
+  enabled: true
+  host: localhost
+  port: 8080
+  rate_limit:
+    requests_per_second: 10
+    burst: 20
+  authentication:
+    enabled: true
+    token_header: X-API-Token
+    token_expiry_hours: 24
+
+# SOC2 Compliance
+soc2:
+  enabled: true
+  audit_logging: true
+  encryption:
+    enabled: true
+    algorithm: AES-256
+  access_control:
+    enabled: true
+    role_based: true
+  monitoring:
+    enabled: true
+    interval: 300
+  reporting:
+    enabled: true
+    format: pdf
+    schedule: daily

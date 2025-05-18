@@ -1,0 +1,82 @@
+{
+  "timestamp": "2025-05-17T11:26:04.225066",
+  "total_tests": 27,
+  "failures": 1,
+  "errors": 21,
+  "skipped": 0,
+  "coverage": {
+    "core_components": {
+      "initialization": false,
+      "configuration_loading": false,
+      "directory_setup": false,
+      "state_management": false,
+      "error_handling": false
+    },
+    "browser_testing": {
+      "viewport_testing": false,
+      "screenshot_capture": true,
+      "element_detection": false,
+      "responsive_design": false
+    },
+    "cursor_analysis": {
+      "cli_integration": true,
+      "analysis_features": true,
+      "configuration_validation": true,
+      "error_handling": true
+    },
+    "snapshot_management": {
+      "creation": false,
+      "restoration": false,
+      "history_tracking": false,
+      "cleanup": false
+    },
+    "user_interaction": {
+      "command_processing": false,
+      "input_validation": false,
+      "error_feedback": false,
+      "progress_reporting": false
+    },
+    "integration_tests": {
+      "end_to_end_workflow": false,
+      "component_interaction": false,
+      "state_persistence": false,
+      "error_recovery": false
+    },
+    "performance": {
+      "memory_usage": true,
+      "cpu_utilization": true,
+      "disk_io": true,
+      "network_operations": true
+    },
+    "security": {
+      "file_permissions": true,
+      "input_sanitization": false,
+      "resource_cleanup": true,
+      "error_exposure": false
+    },
+    "documentation": {
+      "test_documentation": false,
+      "coverage_reports": false,
+      "error_documentation": false,
+      "usage_examples": false
+    },
+    "test_environment": {
+      "setup_verification": false,
+      "cleanup_verification": false,
+      "resource_isolation": false,
+      "state_isolation": false
+    },
+    "reporting": {
+      "test_results": false,
+      "coverage_metrics": false,
+      "performance_metrics": false,
+      "error_reports": false
+    },
+    "maintenance": {
+      "test_data_management": false,
+      "configuration_updates": false,
+      "dependency_updates": false,
+      "version_compatibility": false
+    }
+  }
+}

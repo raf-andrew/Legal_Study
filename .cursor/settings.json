@@ -1,0 +1,220 @@
+{
+  "project": {
+    "name": "Legal_Study",
+    "description": "Self-directed legal education research and tracking system",
+    "version": "1.0.0"
+  },
+  "folders": {
+    ".research": {
+      "description": "Primary research and documentation",
+      "fileAssociations": {
+        "*.md": "markdown",
+        "*.pdf": "pdf",
+        "*.docx": "word"
+      },
+      "subfolders": {
+        "core_knowledge": "Core legal domains and concepts",
+        "state_requirements": "State-specific legal requirements",
+        "bar_examination": "Bar exam preparation materials",
+        "practice_areas": "Specialized legal practice areas",
+        "legal_skills": "Legal skills development materials",
+        "assessments": "Assessment materials and results"
+      }
+    },
+    ".jobs": {
+      "description": "Task tracking and execution checklists",
+      "fileAssociations": {
+        "*.md": "markdown",
+        "*.json": "json"
+      },
+      "subfolders": {
+        "active": "Currently active jobs",
+        "completed": "Completed job records",
+        "templates": "Job checklist templates",
+        "phases": "Phase-specific jobs",
+        "management": "Job system management"
+      }
+    },
+    ".qa": {
+      "description": "Quality assurance templates and active reviews",
+      "fileAssociations": {
+        "*.md": "markdown",
+        "*.json": "json"
+      },
+      "subfolders": {
+        "templates": "QA templates",
+        "reviews": "Active quality reviews",
+        "metrics": "Quality metrics and tracking",
+        "checklists": "Job-specific checklists",
+        "reports": "QA reports and analysis",
+        "management": "QA system management"
+      }
+    },
+    ".prompts": {
+      "description": "AI prompts for generating research and analysis",
+      "fileAssociations": {
+        "*.md": "markdown",
+        "*.yaml": "yaml"
+      },
+      "subfolders": {
+        "templates": "Prompt templates",
+        "research": "Research generation prompts",
+        "analysis": "Analysis generation prompts",
+        "qa": "Quality assurance prompts",
+        "study": "Study-related prompts",
+        "practice": "Practice-related prompts",
+        "assessment": "Assessment-related prompts",
+        "management": "Prompt system management",
+        "jobs": "Job-specific prompts"
+      }
+    },
+    ".errors": {
+      "description": "Error tracking and resolution documentation",
+      "fileAssociations": {
+        "*.md": "markdown",
+        "*.json": "json"
+      },
+      "subfolders": {
+        "active": "Active error reports",
+        "resolved": "Resolved error documentation",
+        "analysis": "Error pattern analysis",
+        "prevention": "Error prevention strategies"
+      }
+    },
+    ".experiments": {
+      "description": "Research experiments and tracking",
+      "fileAssociations": {
+        "*.md": "markdown",
+        "*.json": "json"
+      },
+      "subfolders": {
+        "active": "Active experiments",
+        "completed": "Completed experiments",
+        "results": "Experiment results and analysis",
+        "methodologies": "Experimental methodologies"
+      }
+    },
+    ".tests": {
+      "description": "Practice tests and assessments",
+      "fileAssociations": {
+        "*.md": "markdown",
+        "*.json": "json",
+        "*.pdf": "pdf"
+      },
+      "subfolders": {
+        "criminal_law": "Criminal law practice tests",
+        "civil_law": "Civil law practice tests",
+        "constitutional_law": "Constitutional law practice tests",
+        "results": "Test results and analysis",
+        "feedback": "Test feedback and improvement"
+      }
+    },
+    ".completed": {
+      "description": "Completed work and achievements",
+      "fileAssociations": {
+        "*.md": "markdown",
+        "*.json": "json"
+      },
+      "subfolders": {
+        "jobs": "Completed jobs",
+        "assessments": "Completed assessments",
+        "certifications": "Achieved certifications",
+        "milestones": "Project milestones"
+      }
+    }
+  },
+  "search": {
+    "exclude": [
+      ".git",
+      "node_modules",
+      ".backup"
+    ],
+    "include": [
+      "*.md",
+      "*.json",
+      "*.yaml",
+      "*.pdf",
+      "*.docx"
+    ]
+  },
+  "formatting": {
+    "markdown": {
+      "lineLength": 80,
+      "wrap": true
+    },
+    "json": {
+      "indent": 2
+    },
+    "yaml": {
+      "indent": 2
+    }
+  },
+  "workflow": {
+    "defaultView": "split",
+    "autoSave": true,
+    "backupFrequency": "daily",
+    "syncInterval": 300,
+    "promptManagement": {
+      "idFormat": "[TYPE]-[NUMBER]",
+      "requiredSections": [
+        "Metadata",
+        "Purpose",
+        "Context",
+        "Input Requirements",
+        "Output Specifications",
+        "Quality Assurance",
+        "Notes",
+        "Version History"
+      ],
+      "qaIntegration": true
+    },
+    "qaManagement": {
+      "requiredSections": [
+        "Job Information",
+        "Verification",
+        "Quality Metrics",
+        "Issues Tracking",
+        "Final Assessment",
+        "QA Sign-off"
+      ],
+      "metrics": {
+        "scale": 10,
+        "requiredMetrics": [
+          "Completeness",
+          "Accuracy",
+          "Clarity",
+          "Professionalism"
+        ]
+      }
+    },
+    "jobManagement": {
+      "idFormat": "[TYPE]-[NUMBER]",
+      "requiredSections": [
+        "Job Information",
+        "Requirements",
+        "Deliverables",
+        "Dependencies",
+        "Status Tracking",
+        "Quality Assurance",
+        "Notes",
+        "Version History"
+      ],
+      "statusOptions": [
+        "Not Started",
+        "In Progress",
+        "Under Review",
+        "Completed",
+        "On Hold",
+        "Cancelled"
+      ],
+      "priorityLevels": [
+        "Critical",
+        "High",
+        "Medium",
+        "Low"
+      ],
+      "promptIntegration": true,
+      "qaIntegration": true
+    }
+  }
+} 

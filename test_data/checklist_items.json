@@ -1,0 +1,38 @@
+{
+  "TESTCLI-FIRSTITE": {
+    "id": "TESTCLI-FIRSTITE",
+    "description": "First item",
+    "status": "in_progress",
+    "test_coverage": 100.0,
+    "last_updated": "2024-03-20",
+    "test_results": [],
+    "dependencies": []
+  },
+  "TESTCLI-SECONDI": {
+    "id": "TESTCLI-SECONDI",
+    "description": "Second item",
+    "status": "in_progress",
+    "test_coverage": 50.0,
+    "last_updated": "2024-03-20",
+    "test_results": [],
+    "dependencies": []
+  },
+  "TESTCLI-COMPLETE": {
+    "id": "TESTCLI-COMPLETE",
+    "description": "Completed item",
+    "status": "completed",
+    "test_coverage": 100.0,
+    "last_updated": "2024-03-20",
+    "test_results": [],
+    "dependencies": []
+  },
+  "TESTCLI-ANOTHERI": {
+    "id": "TESTCLI-ANOTHERI",
+    "description": "Another item",
+    "status": "in_progress",
+    "test_coverage": 0.0,
+    "last_updated": "2024-03-20",
+    "test_results": [],
+    "dependencies": []
+  }
+}

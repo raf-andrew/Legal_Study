@@ -1,0 +1,52 @@
+{
+    "browser": {
+        "headless": true,
+        "slow_mo": 100,
+        "timeout": 30000
+    },
+    "viewport_sizes": {
+        "desktop": {
+            "width": 1920,
+            "height": 1080
+        },
+        "tablet": {
+            "width": 768,
+            "height": 1024
+        },
+        "mobile": {
+            "width": 375,
+            "height": 667
+        }
+    },
+    "test_timeouts": {
+        "page_load": 30000,
+        "navigation": 5000,
+        "element_wait": 5000
+    },
+    "report_settings": {
+        "screenshot_dir": ".wireframe/testing/screenshots",
+        "results_dir": ".wireframe/testing/results",
+        "logs_dir": ".wireframe/testing/logs"
+    },
+    "test_categories": {
+        "report_generation": true,
+        "ui_interaction": true,
+        "responsive_design": true,
+        "accessibility": true,
+        "performance": true
+    },
+    "security": {
+        "allowed_file_extensions": [
+            ".html",
+            ".css",
+            ".js",
+            ".json"
+        ],
+        "max_file_size": 10485760,
+        "file_permissions": [
+            "read",
+            "write",
+            "execute"
+        ]
+    }
+}

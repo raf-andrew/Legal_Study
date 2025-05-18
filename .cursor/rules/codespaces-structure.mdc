@@ -3,3 +3,50 @@ description:
 globs:
 alwaysApply: false
 ---
+# Codespaces Directory Structure
+
+The Codespaces environment is organized into several key directories:
+
+## Root Structure
+```
+.codespaces/
+├── data/           # Database and persistent data
+├── logs/           # Log files
+├── complete/       # Completion markers
+├── services/       # Service configurations
+└── scripts/        # PowerShell scripts
+```
+
+## Scripts Directory
+```
+.codespaces/scripts/
+├── setup_codespaces.ps1      # Initial environment setup
+├── manage_codespaces.ps1     # Service management
+├── simulate_build.ps1        # Full simulation
+├── monitor_codespaces.ps1    # Environment monitoring
+├── update_checklist.ps1      # Checklist management
+├── run_health_checks.php     # Health check execution
+├── run_tests.php            # Test execution
+└── full_simulation.ps1      # Main workflow orchestration
+```
+
+## Data Directory
+- `codespaces.db`: SQLite database
+- Environment state files
+- Test results and reports
+
+## Logs Directory
+- Service logs
+- Test execution logs
+- Health check logs
+- Error logs
+
+## Complete Directory
+- Completion marker files
+- Timestamped completion records
+- Status indicators
+
+## Services Directory
+- Service configuration files
+- Docker compose files
+- Environment configurations

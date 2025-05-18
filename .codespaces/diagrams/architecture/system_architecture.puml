@@ -1,0 +1,49 @@
+@startuml System Architecture
+
+!define RECTANGLE class
+
+skinparam componentStyle rectangle
+skinparam backgroundColor white
+skinparam handwritten false
+
+title Codespaces System Architecture
+
+package "Codespaces Environment" {
+    [Frontend Services] as FE
+    [Backend Services] as BE
+    [Database Layer] as DB
+    [Monitoring System] as MON
+    [Security Layer] as SEC
+    [Deployment Pipeline] as DEP
+}
+
+package "External Systems" {
+    [GitHub Integration] as GH
+    [Container Registry] as CR
+    [Cloud Services] as CS
+}
+
+FE --> BE : API Calls
+BE --> DB : Data Operations
+BE --> MON : Metrics
+BE --> SEC : Auth/Validation
+DEP --> CR : Container Images
+GH --> DEP : Code Changes
+CS --> MON : Cloud Metrics
+
+note right of FE
+  User Interface
+  and Client Apps
+end note
+
+note right of BE
+  Core Business Logic
+  and API Services
+end note
+
+note right of DB
+  Data Storage
+  and Persistence
+end note
+
+@enduml

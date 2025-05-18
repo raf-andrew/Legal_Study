@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="0.143" timestamp="2025-04-23T20:28:34.993582" hostname="laptop-2"><testcase classname="pytest" name="internal" time="0.000"><error message="internal error">Traceback (most recent call last):
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\_pytest\main.py", line 271, in wrap_session
+    session.exitstatus = doit(config, session) or 0
+                         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\_pytest\main.py", line 325, in _main
+    config.hook.pytest_runtestloop(session=session)
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\pluggy\_hooks.py", line 513, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\pluggy\_callers.py", line 182, in _multicall
+    return outcome.get_result()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\pluggy\_result.py", line 100, in get_result
+    raise exc.with_traceback(exc.__traceback__)
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\pluggy\_callers.py", line 103, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\_pytest\main.py", line 350, in pytest_runtestloop
+    item.config.hook.pytest_runtest_protocol(item=item, nextitem=nextitem)
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\pluggy\_hooks.py", line 513, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\pluggy\_callers.py", line 182, in _multicall
+    return outcome.get_result()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\pluggy\_result.py", line 100, in get_result
+    raise exc.with_traceback(exc.__traceback__)
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\pluggy\_callers.py", line 103, in _multicall
+    res = hook_impl.function(*args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\_pytest\runner.py", line 114, in pytest_runtest_protocol
+    runtestprotocol(item, nextitem=nextitem)
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\_pytest\runner.py", line 127, in runtestprotocol
+    rep = call_and_report(item, "setup", log)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\_pytest\runner.py", line 224, in call_and_report
+    report: TestReport = hook.pytest_runtest_makereport(item=item, call=call)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\pluggy\_hooks.py", line 513, in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\pluggy\_manager.py", line 120, in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\pluggy\_callers.py", line 156, in _multicall
+    teardown[0].send(outcome)
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\pytest_html_reporter\plugin.py", line 310, in pytest_runtest_makereport
+    self.append_suite_metrics_row(_previous_suite_name)
+  File "C:\Users\ajame\Legal_Study\.venv\Lib\site-packages\pytest_html_reporter\plugin.py", line 529, in append_suite_metrics_row
+    for i in self.json_data['content']['suites'].setdefault(len(_test_suite_name) - 1, {})['tests']:
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'tests'</error></testcase></testsuite></testsuites>

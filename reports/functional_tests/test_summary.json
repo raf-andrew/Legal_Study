@@ -1,0 +1,25 @@
+{
+  "test_runs": [
+    {
+      "timestamp": "2025-05-12T08:49:16.999622",
+      "exit_code": 2,
+      "coverage_report": "reports\\coverage/functional_20250512_084909/index.html",
+      "junit_report": "reports/functional_tests/junit.xml",
+      "html_report": "reports/functional_tests/report.html"
+    },
+    {
+      "timestamp": "2025-05-12T08:50:24.011168",
+      "exit_code": 2,
+      "coverage_report": "reports\\coverage/functional_20250512_085020/index.html",
+      "junit_report": "reports/functional_tests/junit.xml",
+      "html_report": "reports/functional_tests/report.html"
+    },
+    {
+      "timestamp": "2025-05-12T08:51:23.791406",
+      "exit_code": 0,
+      "coverage_report": "reports\\coverage/functional_20250512_085118/index.html",
+      "junit_report": "reports/functional_tests/junit.xml",
+      "html_report": "reports/functional_tests/report.html"
+    }
+  ]
+}

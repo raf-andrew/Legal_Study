@@ -1,0 +1,68 @@
+@startuml Security Architecture
+
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam componentStyle rectangle
+
+title Security Architecture
+
+package "Authentication & Authorization" {
+    [Identity Provider] as IDP
+    [Access Control] as AC
+    [Role Management] as RM
+    [Token Service] as TS
+}
+
+package "Security Services" {
+    [Encryption Service] as ES
+    [Key Management] as KM
+    [Security Monitoring] as SM
+    [Audit Logging] as AL
+}
+
+package "Application Security" {
+    [API Gateway] as API
+    [WAF] as WAF
+    [Rate Limiting] as RL
+    [Input Validation] as IV
+}
+
+package "Data Security" {
+    [Data Encryption] as DE
+    [Data Masking] as DM
+    [Backup Encryption] as BE
+}
+
+IDP --> AC : User Authentication
+AC --> RM : Role Verification
+RM --> TS : Token Generation
+TS --> API : Access Tokens
+
+API --> WAF : Request Filtering
+WAF --> RL : Traffic Control
+RL --> IV : Input Sanitization
+
+ES --> KM : Key Operations
+KM --> DE : Encryption Keys
+DE --> DM : Data Protection
+DE --> BE : Backup Security
+
+SM --> AL : Security Events
+AL --> API : Access Logs
+
+note right of IDP
+  Handles user authentication
+  and identity verification
+end note
+
+note right of WAF
+  Web Application Firewall
+  for request filtering
+end note
+
+note right of DE
+  Ensures data security
+  at rest and in transit
+end note
+
+@enduml

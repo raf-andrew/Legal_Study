@@ -1,0 +1,53 @@
+@startuml Deployment Architecture
+
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam nodeStyle rectangle
+
+title Codespaces Deployment Architecture
+
+node "GitHub Codespaces" {
+    node "Development Environment" {
+        [Dev Container] as dev
+        [GitHub CLI] as ghcli
+        [VS Code] as vscode
+    }
+}
+
+cloud "Cloud Services" {
+    node "Storage" {
+        [Cloud Storage] as storage
+    }
+
+    node "Database" {
+        [Cloud Database] as db
+    }
+
+    node "Monitoring" {
+        [Cloud Monitoring] as monitor
+    }
+}
+
+node "Local Environment" {
+    [Local Development] as local
+    [Local Testing] as test
+    [Local Verification] as verify
+}
+
+dev --> ghcli
+ghcli --> vscode
+vscode --> local
+
+local --> storage
+local --> db
+local --> monitor
+
+test --> storage
+test --> db
+test --> monitor
+
+verify --> storage
+verify --> db
+verify --> monitor
+
+@enduml

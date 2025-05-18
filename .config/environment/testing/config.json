@@ -1,0 +1,47 @@
+{
+  "environment": {
+    "name": "testing",
+    "description": "Testing environment configuration",
+    "version": "1.0.0"
+  },
+  "system": {
+    "debug_mode": true,
+    "log_level": "INFO",
+    "backup_frequency": "daily",
+    "retention_days": 14
+  },
+  "database": {
+    "host": "test-db.local",
+    "port": 5432,
+    "name": "legal_study_test",
+    "user": "test_user",
+    "password": "test_password"
+  },
+  "api": {
+    "base_url": "http://test-api.local:8000",
+    "timeout": 60,
+    "retry_attempts": 5
+  },
+  "security": {
+    "encryption_enabled": true,
+    "audit_logging": true,
+    "access_control": "testing"
+  },
+  "monitoring": {
+    "enabled": true,
+    "interval": 30,
+    "alert_threshold": 70
+  },
+  "testing": {
+    "test_data": {
+      "enabled": true,
+      "refresh_frequency": "daily",
+      "retention_days": 7
+    },
+    "automation": {
+      "enabled": true,
+      "schedule": "nightly",
+      "report_generation": true
+    }
+  }
+} 

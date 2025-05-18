@@ -1,0 +1,86 @@
+@startuml Service Architecture
+
+!define RECTANGLE class
+
+skinparam {
+    backgroundColor white
+    componentStyle uml2
+    ArrowColor black
+    BorderColor black
+}
+
+' User Interface Layer
+package "Frontend" {
+    [Vue 3 SPA] as vue
+    [Inertia.js] as inertia
+    [TailwindCSS] as tailwind
+    [Pinia Store] as pinia
+}
+
+' API Gateway Layer
+package "API Gateway" {
+    [Laravel] as laravel
+    [Authentication] as auth
+    [Rate Limiting] as rate
+    [Request Validation] as validation
+}
+
+' Core Services Layer
+package "Core Services" {
+    [Initialization Service] as init
+    [Configuration Service] as config
+    [Service Manager] as service
+    [Monitoring Service] as monitor
+}
+
+' Storage Layer
+package "Storage" {
+    [Database] as db
+    [Cache] as cache
+    [File Storage] as storage
+}
+
+' Infrastructure Layer
+package "Infrastructure" {
+    [Docker] as docker
+    [Kubernetes] as k8s
+    [CI/CD Pipeline] as cicd
+}
+
+' User Interactions
+vue --> inertia : "HTTP Requests"
+inertia --> laravel : "API Calls"
+laravel --> auth : "Authenticate"
+laravel --> rate : "Limit Requests"
+laravel --> validation : "Validate Input"
+
+laravel --> init : "Initialize System"
+laravel --> config : "Manage Config"
+laravel --> service : "Control Services"
+laravel --> monitor : "Monitor System"
+
+init --> db : "Store State"
+config --> db : "Store Config"
+service --> db : "Store Status"
+monitor --> db : "Store Metrics"
+
+init --> cache : "Cache State"
+config --> cache : "Cache Config"
+service --> cache : "Cache Status"
+monitor --> cache : "Cache Metrics"
+
+init --> storage : "Store Files"
+config --> storage : "Store Config Files"
+monitor --> storage : "Store Logs"
+
+' Infrastructure Support
+docker --> k8s : "Deploy Containers"
+k8s --> init : "Run Service"
+k8s --> config : "Run Service"
+k8s --> service : "Run Service"
+k8s --> monitor : "Run Service"
+
+cicd --> docker : "Build Images"
+cicd --> k8s : "Deploy Services"
+
+@enduml 

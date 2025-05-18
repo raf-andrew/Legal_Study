@@ -1,0 +1,79 @@
+{
+  "test_id": "SECURITY-20250512",
+  "test_name": "Security Features",
+  "status": "failed",
+  "start_time": "2025-05-12T11:11:04.661916",
+  "end_time": "2025-05-12T11:11:07.747952",
+  "duration": 3.086036,
+  "coverage": 0.0,
+  "verification_steps": [
+    {
+      "name": "Authentication",
+      "status": "in_progress",
+      "details": "Running Authentication for security",
+      "timestamp": "2025-05-12T11:11:04.661916"
+    },
+    {
+      "name": "Authorization",
+      "status": "in_progress",
+      "details": "Running Authorization for security",
+      "timestamp": "2025-05-12T11:11:04.662947"
+    },
+    {
+      "name": "Encryption",
+      "status": "in_progress",
+      "details": "Running Encryption for security",
+      "timestamp": "2025-05-12T11:11:04.662947"
+    },
+    {
+      "name": "Audit logging",
+      "status": "in_progress",
+      "details": "Running Audit logging for security",
+      "timestamp": "2025-05-12T11:11:04.662947"
+    },
+    {
+      "name": "Vulnerability scan",
+      "status": "in_progress",
+      "details": "Running Vulnerability scan for security",
+      "timestamp": "2025-05-12T11:11:04.662947"
+    },
+    {
+      "name": "Authentication",
+      "status": "failed",
+      "details": "Authentication failed for security",
+      "timestamp": "2025-05-12T11:11:07.746953"
+    },
+    {
+      "name": "Authorization",
+      "status": "failed",
+      "details": "Authorization failed for security",
+      "timestamp": "2025-05-12T11:11:07.747952"
+    },
+    {
+      "name": "Encryption",
+      "status": "failed",
+      "details": "Encryption failed for security",
+      "timestamp": "2025-05-12T11:11:07.747952"
+    },
+    {
+      "name": "Audit logging",
+      "status": "failed",
+      "details": "Audit logging failed for security",
+      "timestamp": "2025-05-12T11:11:07.747952"
+    },
+    {
+      "name": "Vulnerability scan",
+      "status": "failed",
+      "details": "Vulnerability scan failed for security",
+      "timestamp": "2025-05-12T11:11:07.747952"
+    }
+  ],
+  "checklist_items": [
+    "security_auth",
+    "security_encryption",
+    "security_audit"
+  ],
+  "evidence_files": [],
+  "certifier": null,
+  "certification_time": null
+}

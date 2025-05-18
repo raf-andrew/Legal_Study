@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-05-15T11:14:36.280323",
+  "components": {
+    "php": {
+      "status": "success",
+      "version": "PHP 8.3.14 (cli) (built: Nov 19 2024 15:53:22) (ZTS Visual C++ 2019 x64)",
+      "message": "PHP is installed and working"
+    },
+    "composer": {
+      "status": "error",
+      "message": "Composer verification failed: [WinError 2] The system cannot find the file specified"
+    },
+    "laravel": {
+      "status": "success",
+      "version": "",
+      "message": "Laravel is installed and working"
+    }
+  }
+}

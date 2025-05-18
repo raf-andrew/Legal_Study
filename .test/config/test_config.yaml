@@ -1,0 +1,120 @@
+# Test configuration for mock services
+
+# Mock service settings
+services:
+  config:
+    enabled: true
+    configs:
+      console.yaml:
+        general:
+          version: 1.0.0
+          environment: test
+        checks:
+          enabled:
+            - directories
+            - configurations
+  
+  directory:
+    enabled: true
+    directories:
+      - .controls
+      - .config
+      - .logs
+      - .test
+      - .docs
+  
+  security:
+    enabled: true
+    tokens:
+      test_token: valid
+      expired_token: expired
+    permissions:
+      test_token:
+        - read
+        - write
+        - execute
+  
+  monitoring:
+    enabled: true
+    metrics:
+      cpu_usage: 50.0
+      memory_usage: 60.0
+      disk_usage: 70.0
+    alerts:
+      - name: high_cpu
+        condition: cpu_usage > 80
+        threshold: 80.0
+      - name: high_memory
+        condition: memory_usage > 80
+        threshold: 80.0
+  
+  logging:
+    enabled: true
+    levels:
+      - DEBUG
+      - INFO
+      - WARNING
+      - ERROR
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Test scenarios
+scenarios:
+  healthy:
+    services:
+      config: healthy
+      directory: healthy
+      security: healthy
+      monitoring: healthy
+      logging: healthy
+  
+  degraded:
+    services:
+      config: degraded
+      directory: healthy
+      security: healthy
+      monitoring: degraded
+      logging: healthy
+  
+  failed:
+    services:
+      config: failed
+      directory: failed
+      security: failed
+      monitoring: failed
+      logging: failed
+
+# Test data
+test_data:
+  directories:
+    valid:
+      - .controls
+      - .config
+      - .logs
+    invalid:
+      - .invalid
+      - .missing
+  
+  configurations:
+    valid:
+      - console.yaml
+      - security.yaml
+    invalid:
+      - invalid.yaml
+      - missing.yaml
+  
+  tokens:
+    valid:
+      - test_token
+    invalid:
+      - invalid_token
+      - expired_token
+  
+  metrics:
+    normal:
+      cpu_usage: 50.0
+      memory_usage: 60.0
+      disk_usage: 70.0
+    high:
+      cpu_usage: 90.0
+      memory_usage: 95.0
+      disk_usage: 85.0 

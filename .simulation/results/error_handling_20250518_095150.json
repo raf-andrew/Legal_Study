@@ -1,0 +1,101 @@
+{
+  "scenario": "error_handling",
+  "start_time": "2025-05-18T09:51:50.511852",
+  "iterations": 3,
+  "results": [
+    {
+      "iteration": 1,
+      "status": "failure",
+      "steps": {
+        "initialization": {
+          "status": "success",
+          "message": "Initialization succeeded",
+          "duration": 0.1
+        },
+        "data_processing": {
+          "status": "failure",
+          "message": "Missing required fields",
+          "duration": 0.2,
+          "error_details": {
+            "error_code": "ERR_DATA_PROCESSING_841",
+            "severity": "low",
+            "affected_components": 2
+          }
+        },
+        "error_recovery": {
+          "status": "recovered",
+          "message": "Error recovery procedure executed",
+          "duration": 0.05,
+          "recovery_details": {
+            "recovery_steps": 5,
+            "recovery_time": 0.44,
+            "recovery_success_rate": 0.97
+          }
+        }
+      },
+      "error_recovery_triggered": true,
+      "error_message": "Missing required fields",
+      "timestamp": 1747587110.511852
+    },
+    {
+      "iteration": 2,
+      "status": "success",
+      "steps": {
+        "initialization": {
+          "status": "success",
+          "message": "Initialization succeeded",
+          "duration": 0.1
+        },
+        "data_processing": {
+          "status": "success",
+          "message": "Data processing completed",
+          "duration": 0.2
+        },
+        "validation": {
+          "status": "success",
+          "message": "Validation succeeded",
+          "duration": 0.15
+        },
+        "completion": {
+          "status": "success",
+          "message": "Completion completed",
+          "duration": 0.1
+        }
+      },
+      "error_recovery_triggered": false,
+      "error_message": null,
+      "timestamp": 1747587110.5128617
+    },
+    {
+      "iteration": 3,
+      "status": "success",
+      "steps": {
+        "initialization": {
+          "status": "success",
+          "message": "Initialization succeeded",
+          "duration": 0.1
+        },
+        "data_processing": {
+          "status": "success",
+          "message": "Data processing completed",
+          "duration": 0.2
+        },
+        "validation": {
+          "status": "success",
+          "message": "Validation succeeded",
+          "duration": 0.15
+        },
+        "completion": {
+          "status": "success",
+          "message": "Completion completed",
+          "duration": 0.1
+        }
+      },
+      "error_recovery_triggered": false,
+      "error_message": null,
+      "timestamp": 1747587110.5128617
+    }
+  ],
+  "end_time": "2025-05-18T09:51:50.512861",
+  "duration": 0.5128617286682129
+}

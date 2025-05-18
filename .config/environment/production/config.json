@@ -1,0 +1,86 @@
+{
+  "environment": {
+    "name": "production",
+    "description": "Production environment configuration",
+    "version": "1.0.0"
+  },
+  "system": {
+    "debug_mode": false,
+    "log_level": "WARNING",
+    "backup_frequency": "hourly",
+    "retention_days": 30
+  },
+  "database": {
+    "host": "prod-db.legalstudy.com",
+    "port": 5432,
+    "name": "legal_study_prod",
+    "user": "prod_user",
+    "password": "${DB_PASSWORD}",
+    "pool_size": 20,
+    "max_connections": 100,
+    "timeout": 30
+  },
+  "api": {
+    "base_url": "https://api.legalstudy.com",
+    "timeout": 30,
+    "retry_attempts": 3,
+    "rate_limit": {
+      "requests": 1000,
+      "period": "minute"
+    }
+  },
+  "security": {
+    "encryption_enabled": true,
+    "audit_logging": true,
+    "access_control": "strict",
+    "ssl_required": true,
+    "session_timeout": 3600,
+    "password_policy": {
+      "min_length": 12,
+      "require_special": true,
+      "require_numbers": true,
+      "require_uppercase": true,
+      "expiry_days": 90
+    }
+  },
+  "monitoring": {
+    "enabled": true,
+    "interval": 15,
+    "alert_threshold": 80,
+    "metrics": {
+      "retention_days": 90,
+      "sampling_rate": 1
+    }
+  },
+  "performance": {
+    "cache_enabled": true,
+    "cache_ttl": 3600,
+    "compression_enabled": true,
+    "query_optimization": true,
+    "resource_limits": {
+      "memory": "8GB",
+      "cpu": "4 cores"
+    }
+  },
+  "backup": {
+    "enabled": true,
+    "schedule": "0 */4 * * *",
+    "retention": {
+      "daily": 7,
+      "weekly": 4,
+      "monthly": 12
+    },
+    "storage": {
+      "type": "s3",
+      "bucket": "legal-study-backups",
+      "region": "us-east-1"
+    }
+  },
+  "scaling": {
+    "auto_scaling": true,
+    "min_instances": 2,
+    "max_instances": 10,
+    "scale_up_threshold": 70,
+    "scale_down_threshold": 30
+  }
+} 

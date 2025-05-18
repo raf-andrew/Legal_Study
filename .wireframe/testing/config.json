@@ -1,0 +1,152 @@
+{
+    "max_iterations": 10,
+    "viewport_sizes": {
+        "desktop": {
+            "width": 1920,
+            "height": 1080
+        },
+        "tablet": {
+            "width": 768,
+            "height": 1024
+        },
+        "mobile": {
+            "width": 375,
+            "height": 667
+        }
+    },
+    "analysis_thresholds": {
+        "min_content_density": 30,
+        "max_line_length": 100,
+        "max_color_count": 10,
+        "min_contrast_ratio": 4.5,
+        "max_elements_per_section": 15
+    },
+    "snapshot_settings": {
+        "auto_snapshot": true,
+        "snapshot_interval": 5,
+        "max_snapshots": 50
+    },
+    "refinement_rules": {
+        "layout": {
+            "min_spacing": 8,
+            "max_spacing": 32,
+            "grid_columns": 12
+        },
+        "typography": {
+            "min_font_size": 14,
+            "max_font_size": 32,
+            "line_height_ratio": 1.5
+        },
+        "colors": {
+            "max_palette_size": 5,
+            "min_contrast_ratio": 4.5
+        }
+    },
+    "output_settings": {
+        "save_screenshots": true,
+        "save_analysis": true,
+        "generate_report": true,
+        "report_format": "markdown"
+    },
+    "feature_tests": {
+        "report_generation": {
+            "enabled": true,
+            "timeout": 5000
+        },
+        "ui_ux": {
+            "enabled": true,
+            "timeout": 3000
+        },
+        "performance": {
+            "enabled": true,
+            "timeout": 10000
+        },
+        "integration": {
+            "enabled": true,
+            "timeout": 5000
+        },
+        "error_handling": {
+            "enabled": true,
+            "timeout": 3000
+        },
+        "security": {
+            "enabled": true,
+            "timeout": 5000
+        }
+    },
+    "analysis_checks": {
+        "html_validation": true,
+        "css_validation": true,
+        "javascript_validation": true,
+        "accessibility": true,
+        "performance": true,
+        "security": true
+    },
+    "improvement_categories": [
+        "layout",
+        "styling",
+        "interaction",
+        "accessibility",
+        "performance",
+        "security"
+    ],
+    "logging": {
+        "level": "INFO",
+        "file": "test_runner.log",
+        "max_size": 10485760,
+        "backup_count": 5
+    },
+    "reporting": {
+        "html_template": "test_report_template.html",
+        "screenshot_dir": "screenshots",
+        "results_dir": "results",
+        "export_formats": [
+            "html",
+            "json",
+            "pdf"
+        ]
+    },
+    "browser": {
+        "headless": true,
+        "slow_mo": 100,
+        "timeout": 30000
+    },
+    "paths": {
+        "base_dir": ".wireframe/testing",
+        "output_dir": "output",
+        "screenshots_dir": "screenshots",
+        "logs_dir": "logs",
+        "reports_dir": "reports"
+    },
+    "test_timeouts": {
+        "page_load": 30000,
+        "navigation": 5000,
+        "element_wait": 5000
+    },
+    "report_settings": {
+        "screenshot_dir": "screenshots",
+        "results_dir": "results",
+        "log_dir": "logs"
+    },
+    "test_categories": [
+        "report_generation",
+        "ui_interaction",
+        "responsive_design",
+        "accessibility",
+        "performance"
+    ],
+    "security_settings": {
+        "allowed_extensions": [
+            ".html",
+            ".css",
+            ".js",
+            ".json"
+        ],
+        "max_file_size": 10485760,
+        "file_permissions": {
+            "read": true,
+            "write": true,
+            "execute": false
+        }
+    }
+}

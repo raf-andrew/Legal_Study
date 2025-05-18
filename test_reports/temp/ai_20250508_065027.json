@@ -1,0 +1,935 @@
+{
+  "created": 1746712229.3558633,
+  "duration": 0.8350377082824707,
+  "exitcode": 1,
+  "root": "C:\\Users\\ajame\\Legal_Study",
+  "environment": {},
+  "summary": {
+    "failed": 10,
+    "total": 10,
+    "collected": 10
+  },
+  "collectors": [
+    {
+      "nodeid": "",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/ai/test_ai_features.py",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/ai/test_ai_features.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/ai/test_ai_features.py::test_ai_service_health",
+          "type": "Function",
+          "lineno": 16
+        },
+        {
+          "nodeid": "tests/ai/test_ai_features.py::test_model_initialization",
+          "type": "Function",
+          "lineno": 25
+        },
+        {
+          "nodeid": "tests/ai/test_ai_features.py::test_prompt_processing",
+          "type": "Function",
+          "lineno": 41
+        },
+        {
+          "nodeid": "tests/ai/test_ai_features.py::test_prompt_validation",
+          "type": "Function",
+          "lineno": 61
+        },
+        {
+          "nodeid": "tests/ai/test_ai_features.py::test_model_selection",
+          "type": "Function",
+          "lineno": 81
+        },
+        {
+          "nodeid": "tests/ai/test_ai_features.py::test_response_quality",
+          "type": "Function",
+          "lineno": 101
+        },
+        {
+          "nodeid": "tests/ai/test_ai_features.py::test_error_handling",
+          "type": "Function",
+          "lineno": 121
+        },
+        {
+          "nodeid": "tests/ai/test_ai_features.py::test_rate_limiting",
+          "type": "Function",
+          "lineno": 141
+        },
+        {
+          "nodeid": "tests/ai/test_ai_features.py::test_concurrent_requests",
+          "type": "Function",
+          "lineno": 161
+        },
+        {
+          "nodeid": "tests/ai/test_ai_features.py::test_model_metrics",
+          "type": "Function",
+          "lineno": 181
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "nodeid": "tests/ai/test_ai_features.py::test_model_selection",
+      "lineno": 81,
+      "outcome": "failed",
+      "keywords": [
+        "test_model_selection",
+        "tests/ai/test_ai_features.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.011616599978879094,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:28.614280",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712228.6142805,
+            "msecs": 614.2804622650146,
+            "relativeCreated": 22709.53679084778,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:28,614"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.017885700013721362,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\ai\\test_ai_features.py",
+          "lineno": 87,
+          "message": "TypeError: list indices must be integers or slices, not str"
+        },
+        "traceback": [
+          {
+            "path": "tests\\ai\\test_ai_features.py",
+            "lineno": 87,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "def test_model_selection():\n        \"\"\"Test model selection and switching.\"\"\"\n        # Get available models\n        response = requests.get(f\"{API_BASE_URL}/api/v1/ai/models\", timeout=TEST_TIMEOUT)\n        assert response.status_code == 200\n>       models = response.json()[\"models\"]\nE       TypeError: list indices must be integers or slices, not str\n\ntests\\ai\\test_ai_features.py:87: TypeError"
+      },
+      "teardown": {
+        "duration": 0.0040182000084314495,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:28.733434",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712228.7334344,
+            "msecs": 733.4344387054443,
+            "relativeCreated": 22828.690767288208,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:28,733"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/ai/test_ai_features.py::test_error_handling",
+      "lineno": 121,
+      "outcome": "failed",
+      "keywords": [
+        "test_error_handling",
+        "tests/ai/test_ai_features.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.028680199990049005,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:28.741954",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712228.7419548,
+            "msecs": 741.9548034667969,
+            "relativeCreated": 22837.21113204956,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:28,741"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.015887999994447455,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\ai\\test_ai_features.py",
+          "lineno": 130,
+          "message": "assert 404 == 400\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\ai\\test_ai_features.py",
+            "lineno": 130,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_error_handling():\n        \"\"\"Test error handling in AI service.\"\"\"\n        # Test invalid model\n        response = requests.post(\n            f\"{API_BASE_URL}/api/v1/ai/process\",\n            json={\"text\": \"Test prompt\", \"model\": \"nonexistent_model\"},\n            timeout=TEST_TIMEOUT\n        )\n>       assert response.status_code == 400\nE       assert 404 == 400\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\ai\\test_ai_features.py:130: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0051481999980751425,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:28.811581",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712228.8115814,
+            "msecs": 811.5813732147217,
+            "relativeCreated": 22906.837701797485,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:28,811"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/ai/test_ai_features.py::test_model_initialization",
+      "lineno": 25,
+      "outcome": "failed",
+      "keywords": [
+        "test_model_initialization",
+        "tests/ai/test_ai_features.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.005961699993349612,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:28.821620",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712228.8216207,
+            "msecs": 821.6207027435303,
+            "relativeCreated": 22916.877031326294,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:28,821"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.011676299996906891,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\ai\\test_ai_features.py",
+          "lineno": 31,
+          "message": "assert 'models' in [{'description': \"OpenAI's GPT-4 model\", 'id': 'gpt-4', 'name': 'GPT-4'}, {'description': \"OpenAI's GPT-3.5 Turbo model\", 'id': 'gpt-3.5-turbo', 'name': 'GPT-3.5 Turbo'}]"
+        },
+        "traceback": [
+          {
+            "path": "tests\\ai\\test_ai_features.py",
+            "lineno": 31,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_model_initialization():\n        \"\"\"Test model initialization and configuration.\"\"\"\n        response = requests.get(f\"{API_BASE_URL}/api/v1/ai/models\", timeout=TEST_TIMEOUT)\n        assert response.status_code == 200\n        data = response.json()\n>       assert \"models\" in data\nE       assert 'models' in [{'description': \"OpenAI's GPT-4 model\", 'id': 'gpt-4', 'name': 'GPT-4'}, {'description': \"OpenAI's GPT-3.5 Turbo model\", 'id': 'gpt-3.5-turbo', 'name': 'GPT-3.5 Turbo'}]\n\ntests\\ai\\test_ai_features.py:31: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.003746100002899766,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:28.864671",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712228.8646717,
+            "msecs": 864.6717071533203,
+            "relativeCreated": 22959.928035736084,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:28,864"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/ai/test_ai_features.py::test_prompt_validation",
+      "lineno": 61,
+      "outcome": "failed",
+      "keywords": [
+        "test_prompt_validation",
+        "tests/ai/test_ai_features.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0050073000020347536,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:28.873195",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712228.8731954,
+            "msecs": 873.1954097747803,
+            "relativeCreated": 22968.451738357544,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:28,873"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.011078699986683205,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\ai\\test_ai_features.py",
+          "lineno": 77,
+          "message": "assert 404 == 400\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\ai\\test_ai_features.py",
+            "lineno": 77,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_prompt_validation():\n        \"\"\"Test prompt validation and error handling.\"\"\"\n        invalid_prompts = [\n            \"\",  # Empty prompt\n            \" \" * 1000,  # Too long\n            None,  # Null prompt\n            {\"invalid\": \"format\"}  # Wrong format\n        ]\n    \n        for prompt in invalid_prompts:\n            response = requests.post(\n                f\"{API_BASE_URL}/api/v1/ai/process\",\n                json={\"text\": prompt, \"model\": \"default\"},\n                timeout=TEST_TIMEOUT\n            )\n>           assert response.status_code == 400\nE           assert 404 == 400\nE            +  where 404 = <Response [404]>.status_code\n\ntests\\ai\\test_ai_features.py:77: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0016308000194840133,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:28.922369",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712228.9223695,
+            "msecs": 922.3694801330566,
+            "relativeCreated": 23017.62580871582,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:28,922"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/ai/test_ai_features.py::test_prompt_processing",
+      "lineno": 41,
+      "outcome": "failed",
+      "keywords": [
+        "test_prompt_processing",
+        "tests/ai/test_ai_features.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.005311300017638132,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:28.928217",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712228.9282174,
+            "msecs": 928.2174110412598,
+            "relativeCreated": 23023.473739624023,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:28,928"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.010820900002727285,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\ai\\test_ai_features.py",
+          "lineno": 56,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\ai\\test_ai_features.py",
+            "lineno": 56,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_prompt_processing():\n        \"\"\"Test prompt processing functionality.\"\"\"\n        test_prompts = [\n            \"What is the capital of France?\",\n            \"Explain quantum computing in simple terms\",\n            \"Write a short poem about technology\"\n        ]\n    \n        for prompt in test_prompts:\n            response = requests.post(\n                f\"{API_BASE_URL}/api/v1/ai/process\",\n                json={\"text\": prompt, \"model\": \"default\"},\n                timeout=TEST_TIMEOUT\n            )\n>           assert response.status_code == 200\nE           assert 404 == 200\nE            +  where 404 = <Response [404]>.status_code\n\ntests\\ai\\test_ai_features.py:56: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0035777000011876225,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:28.965273",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712228.9652734,
+            "msecs": 965.273380279541,
+            "relativeCreated": 23060.529708862305,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:28,965"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/ai/test_ai_features.py::test_rate_limiting",
+      "lineno": 141,
+      "outcome": "failed",
+      "keywords": [
+        "test_rate_limiting",
+        "tests/ai/test_ai_features.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.004935400007525459,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:28.973427",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712228.973428,
+            "msecs": 973.4280109405518,
+            "relativeCreated": 23068.684339523315,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:28,973"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.12043789998278953,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\ai\\test_ai_features.py",
+          "lineno": 155,
+          "message": "AssertionError: assert 'X-RateLimit-Limit' in {'date': 'Thu, 08 May 2025 13:50:28 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'}\n +  where {'date': 'Thu, 08 May 2025 13:50:28 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'} = <Response [404]>.headers"
+        },
+        "traceback": [
+          {
+            "path": "tests\\ai\\test_ai_features.py",
+            "lineno": 155,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_rate_limiting():\n        \"\"\"Test rate limiting functionality.\"\"\"\n        # Make multiple requests quickly\n        responses = []\n        for _ in range(10):\n            response = requests.post(\n                f\"{API_BASE_URL}/api/v1/ai/process\",\n                json={\"text\": \"Test prompt\", \"model\": \"default\"},\n                timeout=TEST_TIMEOUT\n            )\n            responses.append(response)\n    \n        # Check rate limit headers\n>       assert \"X-RateLimit-Limit\" in responses[-1].headers\nE       AssertionError: assert 'X-RateLimit-Limit' in {'date': 'Thu, 08 May 2025 13:50:28 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'}\nE        +  where {'date': 'Thu, 08 May 2025 13:50:28 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'} = <Response [404]>.headers\n\ntests\\ai\\test_ai_features.py:155: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.002137400006176904,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:29.118368",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712229.1183686,
+            "msecs": 118.36862564086914,
+            "relativeCreated": 23213.624954223633,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:29,118"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/ai/test_ai_features.py::test_response_quality",
+      "lineno": 101,
+      "outcome": "failed",
+      "keywords": [
+        "test_response_quality",
+        "tests/ai/test_ai_features.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0038262000016402453,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:29.123370",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712229.1233711,
+            "msecs": 123.37112426757812,
+            "relativeCreated": 23218.62745285034,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:29,123"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.010685699991881847,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\ai\\test_ai_features.py",
+          "lineno": 114,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\ai\\test_ai_features.py",
+            "lineno": 114,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_response_quality():\n        \"\"\"Test response quality and consistency.\"\"\"\n        # Test multiple responses for the same prompt\n        prompt = \"What is 2+2?\"\n        responses = []\n    \n        for _ in range(3):\n            response = requests.post(\n                f\"{API_BASE_URL}/api/v1/ai/process\",\n                json={\"text\": prompt, \"model\": \"default\"},\n                timeout=TEST_TIMEOUT\n            )\n>           assert response.status_code == 200\nE           assert 404 == 200\nE            +  where 404 = <Response [404]>.status_code\n\ntests\\ai\\test_ai_features.py:114: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0023000999935902655,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:29.165859",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712229.1658597,
+            "msecs": 165.85969924926758,
+            "relativeCreated": 23261.11602783203,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:29,165"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/ai/test_ai_features.py::test_ai_service_health",
+      "lineno": 16,
+      "outcome": "failed",
+      "keywords": [
+        "test_ai_service_health",
+        "tests/ai/test_ai_features.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0036139999865554273,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:29.171502",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712229.1715028,
+            "msecs": 171.50282859802246,
+            "relativeCreated": 23266.759157180786,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:29,171"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.008937599981436506,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\ai\\test_ai_features.py",
+          "lineno": 20,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\ai\\test_ai_features.py",
+            "lineno": 20,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_ai_service_health():\n        \"\"\"Test AI service health endpoint.\"\"\"\n        response = requests.get(f\"{API_BASE_URL}/api/v1/ai/health\", timeout=TEST_TIMEOUT)\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\ai\\test_ai_features.py:20: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0014029000012669712,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:29.200551",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712229.2005515,
+            "msecs": 200.55150985717773,
+            "relativeCreated": 23295.80783843994,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:29,200"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/ai/test_ai_features.py::test_model_metrics",
+      "lineno": 181,
+      "outcome": "failed",
+      "keywords": [
+        "test_model_metrics",
+        "tests/ai/test_ai_features.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.004512799991061911,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:29.206064",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712229.2060645,
+            "msecs": 206.06446266174316,
+            "relativeCreated": 23301.320791244507,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:29,206"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.007946600002469495,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\ai\\test_ai_features.py",
+          "lineno": 188,
+          "message": "AssertionError: assert 'metrics' in {'accuracy': 0.95, 'latency': 0.5, 'throughput': 100.0}"
+        },
+        "traceback": [
+          {
+            "path": "tests\\ai\\test_ai_features.py",
+            "lineno": 188,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_model_metrics():\n        \"\"\"Test model performance metrics.\"\"\"\n        response = requests.get(f\"{API_BASE_URL}/api/v1/ai/metrics\", timeout=TEST_TIMEOUT)\n        assert response.status_code == 200\n        data = response.json()\n    \n>       assert \"metrics\" in data\nE       AssertionError: assert 'metrics' in {'accuracy': 0.95, 'latency': 0.5, 'throughput': 100.0}\n\ntests\\ai\\test_ai_features.py:188: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0022040999901946634,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:29.234874",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712229.2348747,
+            "msecs": 234.87472534179688,
+            "relativeCreated": 23330.13105392456,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:29,234"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/ai/test_ai_features.py::test_concurrent_requests",
+      "lineno": 161,
+      "outcome": "failed",
+      "keywords": [
+        "test_concurrent_requests",
+        "tests/ai/test_ai_features.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.003941700007999316,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:29.239851",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712229.2398512,
+            "msecs": 239.8512363433838,
+            "relativeCreated": 23335.107564926147,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:29,239"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.03494630000204779,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\ai\\test_ai_features.py",
+          "lineno": 179,
+          "message": "assert False\n +  where False = all(<generator object test_concurrent_requests.<locals>.<genexpr> at 0x000001F853A586D0>)"
+        },
+        "traceback": [
+          {
+            "path": "tests\\ai\\test_ai_features.py",
+            "lineno": 179,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_concurrent_requests():\n        \"\"\"Test handling of concurrent requests.\"\"\"\n        import concurrent.futures\n    \n        def make_request():\n            return requests.post(\n                f\"{API_BASE_URL}/api/v1/ai/process\",\n                json={\"text\": \"Test prompt\", \"model\": \"default\"},\n                timeout=TEST_TIMEOUT\n            )\n    \n        # Make 5 concurrent requests\n        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:\n            futures = [executor.submit(make_request) for _ in range(5)]\n            responses = [f.result() for f in futures]\n    \n        # Check all requests were handled\n>       assert all(r.status_code in [200, 429] for r in responses)\nE       assert False\nE        +  where False = all(<generator object test_concurrent_requests.<locals>.<genexpr> at 0x000001F853A586D0>)\n\ntests\\ai\\test_ai_features.py:179: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.005662899988237768,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:29.306607",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712229.306607,
+            "msecs": 306.6070079803467,
+            "relativeCreated": 23401.86333656311,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:29,306"
+          }
+        ]
+      }
+    }
+  ],
+  "suite_name": "ai",
+  "timestamp": "20250508_065027",
+  "exit_code": 1
+}

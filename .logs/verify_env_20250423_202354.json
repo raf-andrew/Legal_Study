@@ -1,0 +1,98 @@
+{
+  "timestamp": "2025-04-23T20:23:53.479669",
+  "platform": {
+    "system": "Windows",
+    "release": "10",
+    "version": "10.0.26100",
+    "machine": "AMD64",
+    "processor": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD"
+  },
+  "python": {
+    "version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "executable": "C:\\Users\\ajame\\Legal_Study\\.venv\\Scripts\\python.exe",
+    "prefix": "C:\\Users\\ajame\\Legal_Study\\.venv",
+    "path": [
+      "C:\\Users\\ajame\\Legal_Study",
+      "C:\\Users\\ajame\\AppData\\Local\\Programs\\Python\\Python311\\python311.zip",
+      "C:\\Users\\ajame\\AppData\\Local\\Programs\\Python\\Python311\\DLLs",
+      "C:\\Users\\ajame\\AppData\\Local\\Programs\\Python\\Python311\\Lib",
+      "C:\\Users\\ajame\\AppData\\Local\\Programs\\Python\\Python311",
+      "C:\\Users\\ajame\\Legal_Study\\.venv",
+      "C:\\Users\\ajame\\Legal_Study\\.venv\\Lib\\site-packages",
+      "C:\\Users\\ajame\\Legal_Study\\.venv\\Lib\\site-packages\\win32",
+      "C:\\Users\\ajame\\Legal_Study\\.venv\\Lib\\site-packages\\win32\\lib",
+      "C:\\Users\\ajame\\Legal_Study\\.venv\\Lib\\site-packages\\Pythonwin"
+    ]
+  },
+  "checks": [
+    {
+      "name": "python_version",
+      "status": true,
+      "details": {
+        "required": "3.8",
+        "current": "3.11"
+      },
+      "timestamp": "2025-04-23T20:23:53.500817"
+    },
+    {
+      "name": "virtual_env",
+      "status": true,
+      "details": {
+        "prefix": "C:\\Users\\ajame\\Legal_Study\\.venv",
+        "base_prefix": "C:\\Users\\ajame\\AppData\\Local\\Programs\\Python\\Python311"
+      },
+      "timestamp": "2025-04-23T20:23:53.500817"
+    },
+    {
+      "name": "dependencies",
+      "status": true,
+      "details": {
+        "missing": [],
+        "total": 0
+      },
+      "timestamp": "2025-04-23T20:23:54.406367"
+    },
+    {
+      "name": "database",
+      "status": true,
+      "details": {
+        "database": "sqlite",
+        "path": "./test.db"
+      },
+      "timestamp": "2025-04-23T20:23:54.407880"
+    },
+    {
+      "name": "environment_variables",
+      "status": false,
+      "details": {
+        "missing": [
+          "APP_NAME",
+          "DEBUG",
+          "TESTING",
+          "API_VERSION",
+          "DATABASE_URL",
+          "SECRET_KEY"
+        ],
+        "total": 6
+      },
+      "timestamp": "2025-04-23T20:23:54.407880"
+    },
+    {
+      "name": "directories",
+      "status": true,
+      "details": {
+        "missing": [],
+        "total": 7
+      },
+      "timestamp": "2025-04-23T20:23:54.408892"
+    }
+  ],
+  "errors": [
+    {
+      "name": "environment_variables",
+      "error": "Missing environment variables: APP_NAME, DEBUG, TESTING, API_VERSION, DATABASE_URL, SECRET_KEY",
+      "type": "ValueError",
+      "timestamp": "2025-04-23T20:23:54.407880"
+    }
+  ]
+}

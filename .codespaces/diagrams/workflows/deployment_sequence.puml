@@ -1,0 +1,79 @@
+@startuml Deployment Sequence
+
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam sequenceArrowColor #666666
+skinparam sequenceParticipantBackgroundColor #f5f5f5
+
+title Deployment Sequence
+
+actor Developer
+participant "GitHub" as GH
+participant "CI/CD Pipeline" as CD
+participant "Container Registry" as CR
+participant "Kubernetes" as K8S
+participant "Monitoring" as MON
+
+Developer -> GH: Push code changes
+activate GH
+
+GH -> CD: Trigger pipeline
+activate CD
+
+CD -> CD: Run tests
+CD -> CD: Build container
+CD -> CR: Push image
+activate CR
+
+CR --> CD: Image ready
+deactivate CR
+
+CD -> K8S: Deploy to staging
+activate K8S
+
+K8S -> MON: Health check
+activate MON
+MON --> K8S: Health status
+deactivate MON
+
+alt Health check passed
+    K8S -> K8S: Update deployment
+    K8S -> MON: Monitor deployment
+    activate MON
+    MON --> K8S: Deployment status
+    deactivate MON
+else Health check failed
+    K8S -> CD: Rollback request
+    CD -> K8S: Rollback deployment
+end
+
+K8S --> CD: Deployment complete
+deactivate K8S
+
+CD --> GH: Update status
+deactivate CD
+
+GH --> Developer: Notify completion
+deactivate GH
+
+note right of Developer
+  Initiates deployment
+  process
+end note
+
+note right of CD
+  Manages build and
+  deployment pipeline
+end note
+
+note right of K8S
+  Orchestrates
+  container deployment
+end note
+
+note right of MON
+  Monitors system
+  health and status
+end note
+
+@enduml

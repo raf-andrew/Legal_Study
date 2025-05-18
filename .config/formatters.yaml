@@ -1,0 +1,103 @@
+# Formatters Configuration
+
+# Default formatter settings
+default:
+  format: json
+  indent: 2
+  sort_keys: true
+  encoding: utf-8
+
+# JSON formatter settings
+json:
+  indent: 2
+  sort_keys: true
+  ensure_ascii: false
+  allow_nan: true
+
+# YAML formatter settings
+yaml:
+  default_flow_style: false
+  allow_unicode: true
+  indent: 2
+  width: 80
+  sort_keys: true
+
+# Table formatter settings
+table:
+  show_header: true
+  show_lines: true
+  padding: (1, 1)
+  title_style: "bold cyan"
+  header_style: "bold magenta"
+  row_styles: ["", "dim"]
+  border_style: "blue"
+  expand: true
+
+# Progress formatter settings
+progress:
+  transient: true
+  show_time: true
+  show_speed: true
+  refresh_per_second: 10
+  style: "bold green"
+  description_style: "bold blue"
+
+# Error formatter settings
+error:
+  style: "bold red"
+  border_style: "red"
+  title: "Error"
+  padding: (1, 1)
+  expand: true
+  show_traceback: true
+  show_context: true
+
+# Success formatter settings
+success:
+  style: "bold green"
+  border_style: "green"
+  title: "Success"
+  padding: (1, 1)
+  expand: true
+  show_details: true
+
+# Output settings
+output:
+  colors: true
+  markup: true
+  emoji: true
+  highlight: true
+  log_time: true
+  log_path: ".logs/formatters.log"
+  record_width: 100
+  soft_wrap: true
+
+# Theme settings
+theme:
+  # Syntax highlighting styles
+  syntax:
+    string: "green"
+    number: "cyan"
+    boolean: "yellow"
+    null: "dim"
+    key: "blue"
+    comment: "dim italic"
+  
+  # Status colors
+  status:
+    info: "blue"
+    warning: "yellow"
+    error: "red"
+    success: "green"
+    debug: "magenta"
+
+# Logging settings
+logging:
+  enabled: true
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"
+  file: ".logs/formatters.log"
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  encoding: utf-8 

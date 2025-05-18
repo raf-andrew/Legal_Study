@@ -1,0 +1,90 @@
+@startuml Infrastructure
+
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam componentStyle rectangle
+
+title Infrastructure and Deployment Architecture
+
+node "Development Environment" {
+    [Local Development] as LD
+    [Code Editor] as CE
+    [Git Client] as GC
+}
+
+cloud "GitHub" {
+    [Repository] as REPO
+    [Actions] as ACTIONS
+    [Packages] as PKG
+}
+
+node "Build Pipeline" {
+    [Build Server] as BS
+    [Test Runner] as TR
+    [Container Builder] as CB
+}
+
+node "Container Registry" {
+    [Image Registry] as REG
+    [Image Scanner] as SCAN
+}
+
+node "Deployment Environment" {
+    package "Staging" {
+        [Staging Cluster] as STG
+        [Staging DB] as STGDB
+    }
+
+    package "Production" {
+        [Prod Cluster] as PROD
+        [Prod DB] as PRODDB
+        [Load Balancer] as LB
+    }
+}
+
+node "Monitoring" {
+    [Metrics Server] as MS
+    [Log Aggregator] as LA
+    [Alert Manager] as AM
+}
+
+' Relationships
+LD --> CE : Develop
+CE --> GC : Commit
+GC --> REPO : Push
+REPO --> ACTIONS : Trigger
+ACTIONS --> BS : Build
+BS --> TR : Test
+TR --> CB : Package
+CB --> REG : Push
+REG --> SCAN : Verify
+SCAN --> STG : Deploy
+STG --> STGDB : Connect
+STG --> PROD : Promote
+PROD --> PRODDB : Connect
+PROD --> LB : Register
+LB --> MS : Metrics
+MS --> LA : Logs
+LA --> AM : Alerts
+
+note right of LD
+  Local development
+  environment setup
+end note
+
+note right of REPO
+  Source code and
+  configuration
+end note
+
+note right of REG
+  Container images
+  and artifacts
+end note
+
+note right of PROD
+  Production deployment
+  with high availability
+end note
+
+@enduml

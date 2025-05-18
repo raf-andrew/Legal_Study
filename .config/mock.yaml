@@ -1,0 +1,217 @@
+# Mock Services Configuration
+
+# API Service Configuration
+api:
+  name: "mock_api"
+  routes:
+    "/health":
+      methods: ["GET"]
+      auth_required: false
+      status_code: 200
+      params: {}
+      headers: {}
+    
+    "/api/v1/version":
+      methods: ["GET"]
+      auth_required: false
+      status_code: 200
+      params: {}
+      headers: {}
+    
+    "/api/v1/error":
+      methods: ["GET"]
+      auth_required: false
+      status_code: 500
+      params: {}
+      headers: {}
+    
+    "/api/v1/protected":
+      methods: ["GET"]
+      auth_required: true
+      status_code: 200
+      params: {}
+      headers: {}
+    
+    "/api/v1/search":
+      methods: ["POST"]
+      auth_required: true
+      status_code: 200
+      params:
+        required: ["query"]
+      headers: {}
+    
+    "/api/v1/comment":
+      methods: ["POST"]
+      auth_required: true
+      status_code: 200
+      params:
+        required: ["content"]
+      headers: {}
+  
+  responses:
+    "/health":
+      - status_code: 200
+        headers: {}
+        body:
+          status: "healthy"
+          version: "1.0.0"
+          timestamp: "2024-03-19T12:00:00Z"
+    
+    "/api/v1/version":
+      - status_code: 200
+        headers: {}
+        body:
+          version: "v1"
+          build: "123"
+          timestamp: "2024-03-19T12:00:00Z"
+    
+    "/api/v1/error":
+      - status_code: 500
+        headers: {}
+        body:
+          detail: "Test error endpoint"
+          code: "INTERNAL_ERROR"
+          timestamp: "2024-03-19T12:00:00Z"
+    
+    "/api/v1/protected":
+      - status_code: 200
+        headers: {}
+        body:
+          message: "Access granted"
+          user: "test_user"
+          timestamp: "2024-03-19T12:00:00Z"
+      - status_code: 401
+        headers: {}
+        body:
+          error: "Unauthorized"
+          message: "Invalid token"
+          timestamp: "2024-03-19T12:00:00Z"
+    
+    "/api/v1/search":
+      - status_code: 200
+        headers: {}
+        body:
+          results:
+            - id: "doc1"
+              title: "Test Document 1"
+              content: "Test content 1"
+            - id: "doc2"
+              title: "Test Document 2"
+              content: "Test content 2"
+          total: 2
+          timestamp: "2024-03-19T12:00:00Z"
+      - status_code: 400
+        headers: {}
+        body:
+          error: "Bad Request"
+          message: "Invalid query parameter"
+          timestamp: "2024-03-19T12:00:00Z"
+    
+    "/api/v1/comment":
+      - status_code: 200
+        headers: {}
+        body:
+          id: "comment1"
+          content: "Test comment"
+          created_at: "2024-03-19T12:00:00Z"
+          user: "test_user"
+      - status_code: 400
+        headers: {}
+        body:
+          error: "Bad Request"
+          message: "Invalid content parameter"
+          timestamp: "2024-03-19T12:00:00Z"
+
+# Database Service Configuration
+database:
+  name: "mock_db"
+  tables:
+    users:
+      columns:
+        - name: "id"
+          type: "string"
+          primary_key: true
+        - name: "username"
+          type: "string"
+          unique: true
+        - name: "created_at"
+          type: "datetime"
+    documents:
+      columns:
+        - name: "id"
+          type: "string"
+          primary_key: true
+        - name: "title"
+          type: "string"
+        - name: "content"
+          type: "text"
+        - name: "created_at"
+          type: "datetime"
+    comments:
+      columns:
+        - name: "id"
+          type: "string"
+          primary_key: true
+        - name: "content"
+          type: "text"
+        - name: "user_id"
+          type: "string"
+          foreign_key: "users.id"
+        - name: "created_at"
+          type: "datetime"
+
+# Cache Service Configuration
+cache:
+  name: "mock_cache"
+  default_ttl: 3600
+  max_size: 1000
+  eviction_policy: "lru"
+
+# Queue Service Configuration
+queue:
+  name: "mock_queue"
+  queues:
+    - name: "tasks"
+      max_size: 1000
+      consumers: 2
+    - name: "notifications"
+      max_size: 500
+      consumers: 1
+
+# Authentication Service Configuration
+auth:
+  name: "mock_auth"
+  tokens:
+    - token: "test_token"
+      user: "test_user"
+      roles: ["user", "admin"]
+      expires_at: "2024-12-31T23:59:59Z"
+  users:
+    - username: "test_user"
+      roles: ["user", "admin"]
+      active: true
+
+# Metrics Service Configuration
+metrics:
+  name: "mock_metrics"
+  collectors:
+    - name: "requests"
+      type: "counter"
+      labels: ["method", "path", "status"]
+    - name: "latency"
+      type: "histogram"
+      labels: ["method", "path"]
+      buckets: [0.1, 0.5, 1.0, 2.0, 5.0]
+
+# Logging Service Configuration
+logging:
+  name: "mock_logging"
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  handlers:
+    - type: "file"
+      filename: ".logs/mocks.log"
+      max_bytes: 10485760
+      backup_count: 5
+    - type: "console"
+      level: "INFO" 

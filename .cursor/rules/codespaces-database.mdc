@@ -3,3 +3,60 @@ description:
 globs:
 alwaysApply: false
 ---
+# Codespaces Database Schema
+
+The Codespaces environment uses SQLite for tracking environment state, test results, and health checks.
+
+## Database Location
+The SQLite database is stored at `.codespaces/data/codespaces.db`
+
+## Tables
+
+### health_checks
+Tracks service health check results:
+```sql
+CREATE TABLE health_checks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    service TEXT NOT NULL,
+    status TEXT NOT NULL,
+    message TEXT,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+```
+
+### test_results
+Records test execution results:
+```sql
+CREATE TABLE test_results (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    test_type TEXT NOT NULL,
+    status TEXT NOT NULL,
+    report_file TEXT,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+```
+
+### checklist_items
+Manages environment setup and test completion status:
+```sql
+CREATE TABLE checklist_items (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    status TEXT DEFAULT 'pending',
+    completion_file TEXT,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+```
+
+## Initial Checklist Items
+The following items are automatically created during setup:
+- Environment Setup
+- Health Checks
+- Database Tests
+- Cache Tests
+- Feature Tests
+
+## Status Values
+- `pending`: Item not yet started
+- `complete`: Item successfully completed
+- `failed`: Item failed or encountered errors

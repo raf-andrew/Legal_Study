@@ -1,0 +1,342 @@
+{
+  "workspace": {
+    "name": "Legal Self-Study Workspace",
+    "description": "A comprehensive workspace for self-directed legal education",
+    "version": "1.0.0"
+  },
+  "structure": {
+    "directories": {
+      ".cursor": "Cursor configuration and guidance",
+      ".errors": "Error tracking and resolution",
+      ".experiments": "Experimental documentation",
+      ".jobs": "Job checklists and execution plans",
+      ".completed": "Completed job documentation",
+      ".research": "Research materials and notes",
+      ".prompts": "AI prompts and templates",
+      ".tests": "Testing documentation",
+      ".qa": "Quality assurance documentation",
+      ".backup": "Backup and version control"
+    }
+  },
+  "file_types": {
+    "markdown": {
+      "extensions": [
+        ".md",
+        ".markdown"
+      ],
+      "purpose": "Documentation and notes"
+    },
+    "yaml": {
+      "extensions": [
+        ".yaml",
+        ".yml"
+      ],
+      "purpose": "Configuration and metadata"
+    },
+    "json": {
+      "extensions": [
+        ".json"
+      ],
+      "purpose": "Data and configuration"
+    }
+  },
+  "workflows": {
+    "job_execution": {
+      "start": ".jobs/",
+      "progress": "Update job checklist",
+      "complete": "Move to .completed/",
+      "document": "Update related files"
+    },
+    "research": {
+      "gather": ".research/",
+      "organize": "By subject and topic",
+      "link": "To relevant jobs",
+      "cite": "All sources"
+    },
+    "quality_assurance": {
+      "check": ".qa/",
+      "document": "All quality checks",
+      "resolve": "Track issues",
+      "maintain": "Quality standards"
+    },
+    "prompt_based": {
+      "template": ".prompts/template.md",
+      "categories": {
+        "research": "Research tasks and analysis",
+        "study": "Subject mastery and learning",
+        "practice": "Skill development and application",
+        "assessment": "Progress tracking and evaluation",
+        "documentation": "Note taking and reporting",
+        "quality": "Quality assurance and improvement"
+      },
+      "process": {
+        "select": "Choose appropriate prompt template",
+        "customize": "Adapt to specific needs",
+        "execute": "Follow process steps",
+        "document": "Record results and feedback",
+        "improve": "Update based on outcomes"
+      }
+    },
+    "quality_control": {
+      "standards": {
+        "documentation": "Complete and properly formatted",
+        "content": "Accurate and up-to-date",
+        "process": "Followed and documented",
+        "results": "Verified and validated"
+      },
+      "procedures": {
+        "review": "Regular quality checks",
+        "verification": "Content and process validation",
+        "documentation": "Complete records",
+        "improvement": "Continuous updates"
+      },
+      "metrics": {
+        "completeness": "All required elements present",
+        "accuracy": "Information verified",
+        "consistency": "Standards maintained",
+        "effectiveness": "Goals achieved"
+      }
+    }
+  },
+  "preferences": {
+    "formatting": {
+      "markdown": {
+        "line_length": 80,
+        "headers": "ATX",
+        "lists": "consistent",
+        "code_blocks": "fenced"
+      }
+    },
+    "documentation": {
+      "metadata": "required",
+      "versioning": "enabled",
+      "linking": "required"
+    },
+    "prompts": {
+      "structure": "template.md",
+      "metadata": "required",
+      "versioning": "enabled",
+      "quality_checks": "required",
+      "documentation": "required"
+    },
+    "quality": {
+      "standards": "strict",
+      "documentation": "complete",
+      "verification": "regular",
+      "improvement": "continuous"
+    }
+  },
+  "project": {
+    "name": "Legal_Study",
+    "type": "legal_education",
+    "version": "1.0.0"
+  },
+  "editor": {
+    "defaultView": "split",
+    "autoSave": true,
+    "formatOnSave": true,
+    "lineNumbers": true,
+    "wordWrap": true,
+    "rulers": [
+      80
+    ],
+    "tabSize": 2,
+    "insertSpaces": true
+  },
+  "fileAssociations": {
+    "*.md": {
+      "language": "markdown",
+      "formatting": {
+        "lineLength": 80,
+        "wrap": true
+      }
+    },
+    "*.json": {
+      "language": "json",
+      "formatting": {
+        "indent": 2
+      }
+    },
+    "*.yaml": {
+      "language": "yaml",
+      "formatting": {
+        "indent": 2
+      }
+    }
+  },
+  "search": {
+    "exclude": [
+      ".git",
+      "node_modules",
+      ".backup"
+    ],
+    "include": [
+      "*.md",
+      "*.json",
+      "*.yaml",
+      "*.pdf",
+      "*.docx"
+    ]
+  },
+  "workflow": {
+    "prompts": {
+      "directory": ".prompts",
+      "types": {
+        "SM": "System Management",
+        "JM": "Job Management",
+        "QA": "Quality Assurance",
+        "RS": "Research",
+        "AN": "Analysis",
+        "ST": "Study",
+        "PR": "Practice",
+        "AS": "Assessment"
+      },
+      "requiredSections": [
+        "Metadata",
+        "Purpose",
+        "Context",
+        "Input Requirements",
+        "Output Specifications",
+        "Quality Assurance",
+        "Notes",
+        "Version History"
+      ]
+    },
+    "jobs": {
+      "directory": ".jobs",
+      "status": [
+        "Not Started",
+        "In Progress",
+        "Under Review",
+        "Completed",
+        "On Hold",
+        "Cancelled"
+      ],
+      "priority": [
+        "Critical",
+        "High",
+        "Medium",
+        "Low"
+      ]
+    },
+    "qa": {
+      "directory": ".qa",
+      "metrics": {
+        "scale": 10,
+        "required": [
+          "Completeness",
+          "Accuracy",
+          "Clarity",
+          "Professionalism"
+        ]
+      }
+    }
+  },
+  "formatting": {
+    "markdown": {
+      "lineLength": 80,
+      "wrap": true,
+      "headingStyle": "atx",
+      "listStyle": "dash",
+      "codeBlockStyle": "fenced"
+    },
+    "json": {
+      "indent": 2,
+      "sortKeys": true
+    },
+    "yaml": {
+      "indent": 2,
+      "lineWidth": 80
+    }
+  },
+  "linting": {
+    "markdown": {
+      "rules": {
+        "MD001": true,
+        "MD002": true,
+        "MD003": true,
+        "MD004": true,
+        "MD005": true,
+        "MD006": true,
+        "MD007": true,
+        "MD009": true,
+        "MD010": true,
+        "MD011": true,
+        "MD012": true,
+        "MD013": true,
+        "MD014": true,
+        "MD018": true,
+        "MD019": true,
+        "MD022": true,
+        "MD023": true,
+        "MD024": true,
+        "MD025": true,
+        "MD026": true,
+        "MD027": true,
+        "MD028": true,
+        "MD029": true,
+        "MD030": true,
+        "MD031": true,
+        "MD032": true,
+        "MD033": true,
+        "MD034": true,
+        "MD035": true,
+        "MD036": true,
+        "MD037": true,
+        "MD038": true,
+        "MD039": true,
+        "MD040": true,
+        "MD041": true,
+        "MD042": true,
+        "MD043": true,
+        "MD044": true,
+        "MD045": true,
+        "MD046": true,
+        "MD047": true,
+        "MD048": true,
+        "MD049": true,
+        "MD050": true
+      }
+    },
+    "json": {
+      "rules": {
+        "indent": 2,
+        "no-trailing-spaces": true,
+        "object-curly-spacing": [
+          "error",
+          "always"
+        ],
+        "array-bracket-spacing": [
+          "error",
+          "never"
+        ],
+        "comma-dangle": [
+          "error",
+          "never"
+        ],
+        "quotes": [
+          "error",
+          "double"
+        ]
+      }
+    },
+    "yaml": {
+      "rules": {
+        "indent": 2,
+        "line-length": 80,
+        "trailing-spaces": true,
+        "document-start": true,
+        "document-end": true
+      }
+    }
+  },
+  "backup": {
+    "frequency": "daily",
+    "location": ".backup",
+    "retention": 7
+  },
+  "sync": {
+    "interval": 300,
+    "autoSave": true
+  }
+}

@@ -3,3 +3,127 @@ description:
 globs:
 alwaysApply: false
 ---
+# Laravel Test Standards
+
+## Test File Organization
+All test files should be organized in the following structure:
+```
+tests/
+├── Feature/           # Feature tests
+│   ├── User/         # User-related tests
+│   └── System/       # System-related tests
+├── Unit/             # Unit tests
+└── TestCase.php      # Base test case
+```
+
+## Test Class Standards
+1. Naming Convention
+   - Feature tests: `{Feature}Test.php`
+   - Unit tests: `{Class}Test.php`
+   - Example: `UserProfileTest.php`, `HealthCheckTest.php`
+
+2. Required Traits
+   ```php
+   use RefreshDatabase;
+   use WithoutMiddleware; // When needed
+   ```
+
+3. Base Structure
+   ```php
+   namespace Tests\Feature;
+
+   use Tests\TestCase;
+   use Illuminate\Foundation\Testing\RefreshDatabase;
+
+   class FeatureTest extends TestCase
+   {
+       use RefreshDatabase;
+
+       protected function setUp(): void
+       {
+           parent::setUp();
+           $this->beginDatabaseTransaction();
+       }
+   }
+   ```
+
+## Test Method Standards
+1. Naming Convention
+   - Should describe the test scenario
+   - Use `test_` prefix or `@test` annotation
+   - Example: `test_user_can_get_profile()`
+
+2. Structure
+   ```php
+   /** @test */
+   public function test_scenario()
+   {
+       // Arrange
+       // Act
+       // Assert
+   }
+   ```
+
+## Assertion Standards
+1. Status Codes
+   ```php
+   $response->assertStatus(200);
+   $response->assertStatus(401);
+   $response->assertStatus(429);
+   ```
+
+2. JSON Structure
+   ```php
+   $response->assertJsonStructure([
+       'field1',
+       'field2' => [
+           'nested'
+       ]
+   ]);
+   ```
+
+3. Performance
+   ```php
+   $start = microtime(true);
+   $response = $this->getJson('/endpoint');
+   $duration = microtime(true) - $start;
+   $this->assertLessThan(0.5, $duration);
+   ```
+
+## Documentation Standards
+1. Test Description
+   - Clear purpose
+   - Expected behavior
+   - Edge cases
+   - Error scenarios
+
+2. Test Reports
+   - JSON format
+   - ISO8601 timestamps
+   - Performance metrics
+   - Coverage statistics
+
+## Medical-Grade Requirements
+1. Test Coverage
+   - 100% code coverage
+   - All edge cases
+   - All error cases
+   - All security cases
+
+2. Performance
+   - Response time < 0.5s
+   - Memory usage within limits
+   - CPU usage within limits
+   - No resource leaks
+
+3. Security
+   - Authentication tests
+   - Authorization tests
+   - Rate limiting tests
+   - Input validation tests
+
+4. Documentation
+   - Complete test docs
+   - Clear test reports
+   - Traceable test cases
+   - Maintained history

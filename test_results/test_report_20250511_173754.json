@@ -1,0 +1,35 @@
+{
+  "timestamp": "2025-05-11T17:37:30.926638",
+  "tests": {
+    "test_documentation_completeness": {
+      "passed": true,
+      "missing_files": [],
+      "errors": []
+    },
+    "test_markdown_formatting": {
+      "passed": false,
+      "errors": [
+        "Malformed link in .process\\automation\\README.md",
+        "Malformed link in .process\\documentation\\README.md",
+        "Malformed link in .process\\resolution\\README.md",
+        "Malformed link in .process\\testing\\README.md",
+        "Malformed link in .process\\testing\\test_execution_plan.md",
+        "Malformed link in .process\\validation\\README.md"
+      ]
+    },
+    "test_directory_structure": {
+      "passed": true,
+      "errors": []
+    },
+    "test_template_files": {
+      "passed": true,
+      "errors": []
+    },
+    "test_workflow_files": {
+      "passed": true,
+      "errors": []
+    }
+  },
+  "overall_status": "FAILED",
+  "coverage": 80.0
+}

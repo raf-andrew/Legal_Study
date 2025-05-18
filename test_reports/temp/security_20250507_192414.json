@@ -1,0 +1,2590 @@
+{
+  "created": 1746671060.183435,
+  "duration": 5.082840442657471,
+  "exitcode": 1,
+  "root": "C:\\Users\\ajame\\Legal_Study",
+  "environment": {},
+  "summary": {
+    "passed": 5,
+    "failed": 12,
+    "total": 17,
+    "collected": 17
+  },
+  "collectors": [
+    {
+      "nodeid": "",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/security/__init__.py",
+          "type": "Package"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/security/test_security.py::TestClient",
+      "outcome": "passed",
+      "result": []
+    },
+    {
+      "nodeid": "tests/security/test_security.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/security/test_security.py::TestClient",
+          "type": "Class"
+        },
+        {
+          "nodeid": "tests/security/test_security.py::test_authentication_required",
+          "type": "Function",
+          "lineno": 14
+        },
+        {
+          "nodeid": "tests/security/test_security.py::test_jwt_token_validation",
+          "type": "Function",
+          "lineno": 21
+        },
+        {
+          "nodeid": "tests/security/test_security.py::test_rate_limiting",
+          "type": "Function",
+          "lineno": 57
+        },
+        {
+          "nodeid": "tests/security/test_security.py::test_cors_headers",
+          "type": "Function",
+          "lineno": 69
+        },
+        {
+          "nodeid": "tests/security/test_security.py::test_security_headers",
+          "type": "Function",
+          "lineno": 77
+        },
+        {
+          "nodeid": "tests/security/test_security.py::test_input_validation",
+          "type": "Function",
+          "lineno": 90
+        },
+        {
+          "nodeid": "tests/security/test_security.py::test_session_management",
+          "type": "Function",
+          "lineno": 105
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/security/test_security_measures.py::TestClient",
+      "outcome": "passed",
+      "result": []
+    },
+    {
+      "nodeid": "tests/security/test_security_measures.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/security/test_security_measures.py::TestClient",
+          "type": "Class"
+        },
+        {
+          "nodeid": "tests/security/test_security_measures.py::test_authentication",
+          "type": "Function",
+          "lineno": 10
+        },
+        {
+          "nodeid": "tests/security/test_security_measures.py::test_authorization",
+          "type": "Function",
+          "lineno": 26
+        },
+        {
+          "nodeid": "tests/security/test_security_measures.py::test_input_validation",
+          "type": "Function",
+          "lineno": 32
+        },
+        {
+          "nodeid": "tests/security/test_security_measures.py::test_data_protection",
+          "type": "Function",
+          "lineno": 50
+        },
+        {
+          "nodeid": "tests/security/test_security_measures.py::test_api_security",
+          "type": "Function",
+          "lineno": 56
+        },
+        {
+          "nodeid": "tests/security/test_security_measures.py::test_security_headers",
+          "type": "Function",
+          "lineno": 76
+        },
+        {
+          "nodeid": "tests/security/test_security_measures.py::test_password_security",
+          "type": "Function",
+          "lineno": 88
+        },
+        {
+          "nodeid": "tests/security/test_security_measures.py::test_session_management",
+          "type": "Function",
+          "lineno": 94
+        },
+        {
+          "nodeid": "tests/security/test_security_measures.py::test_audit_logging",
+          "type": "Function",
+          "lineno": 100
+        },
+        {
+          "nodeid": "tests/security/test_security_measures.py::test_error_handling",
+          "type": "Function",
+          "lineno": 106
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/security/__init__.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/security/test_security.py",
+          "type": "Module"
+        },
+        {
+          "nodeid": "tests/security/test_security_measures.py",
+          "type": "Module"
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "nodeid": "tests/security/test_security_measures.py::test_session_management",
+      "lineno": 94,
+      "outcome": "passed",
+      "keywords": [
+        "test_session_management",
+        "test_security_measures.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.007051199994748458,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:15.169526",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671055.1695268,
+            "msecs": 169.5268154144287,
+            "relativeCreated": 4878.22413444519,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:15,169"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0003146999952150509,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0009107999940169975,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:15.173128",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671055.1731286,
+            "msecs": 173.12860488891602,
+            "relativeCreated": 4881.825923919678,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:15,173"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security_measures.py::test_input_validation",
+      "lineno": 32,
+      "outcome": "failed",
+      "keywords": [
+        "test_input_validation",
+        "test_security_measures.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0019819000008283183,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:15.175128",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671055.1751285,
+            "msecs": 175.12845993041992,
+            "relativeCreated": 4883.825778961182,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:15,175"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.018667600001208484,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+          "lineno": 1015,
+          "message": "TypeError: AuthMiddleware() takes no arguments"
+        },
+        "traceback": [
+          {
+            "path": "tests\\security\\test_security_measures.py",
+            "lineno": 37,
+            "message": ""
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 590,
+            "message": "in post"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1132,
+            "message": "in post"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 465,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 814,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 901,
+            "message": "in send"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 929,
+            "message": "in _send_handling_auth"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 966,
+            "message": "in _send_handling_redirects"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1002,
+            "message": "in _send_single_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 342,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 339,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 277,
+            "message": "in call"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 445,
+            "message": "in result"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 390,
+            "message": "in __get_result"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 217,
+            "message": "in _call_func"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1106,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py",
+            "lineno": 121,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1015,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "def test_input_validation():\n        \"\"\"Test input validation\"\"\"\n        # Test SQL injection prevention\n        malicious_input = \"'; DROP TABLE users; --\"\n>       response = client.post(\n            \"/api/v1/search\",\n            json={\"query\": malicious_input}\n        )\n\ntests\\security\\test_security_measures.py:37: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:590: in post\n    return super().post(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1132: in post\n    return self.request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:465: in request\n    return super().request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:814: in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:901: in send\n    response = self._send_handling_auth(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:929: in _send_handling_auth\n    response = self._send_handling_redirects(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:966: in _send_handling_redirects\n    response = self._send_single_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1002: in _send_single_request\n    response = transport.handle_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:342: in handle_request\n    raise exc\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:339: in handle_request\n    portal.call(self.app, scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:277: in call\n    return cast(T_Retval, self.start_task_soon(func, *args).result())\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:445: in result\n    return self.__get_result()\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:390: in __get_result\n    raise self._exception\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:217: in _call_func\n    retval = await retval\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1106: in __call__\n    await super().__call__(scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py:121: in __call__\n    self.middleware_stack = self.build_middleware_stack()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <fastapi.applications.FastAPI object at 0x000001BD3065CBB0>\n\n    def build_middleware_stack(self) -> ASGIApp:\n        # Duplicate/override from Starlette to add AsyncExitStackMiddleware\n        # inside of ExceptionMiddleware, inside of custom user middlewares\n        debug = self.debug\n        error_handler = None\n        exception_handlers = {}\n    \n        for key, value in self.exception_handlers.items():\n            if key in (500, Exception):\n                error_handler = value\n            else:\n                exception_handlers[key] = value\n    \n        middleware = (\n            [Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug)]\n            + self.user_middleware\n            + [\n                Middleware(\n                    ExceptionMiddleware, handlers=exception_handlers, debug=debug\n                ),\n                # Add FastAPI-specific AsyncExitStackMiddleware for dependencies with\n                # contextvars.\n                # This needs to happen after user middlewares because those create a\n                # new contextvars context copy by using a new AnyIO task group.\n                # The initial part of dependencies with 'yield' is executed in the\n                # FastAPI code, inside all the middlewares. However, the teardown part\n                # (after 'yield') is executed in the AsyncExitStack in this middleware.\n                # If the AsyncExitStack lived outside of the custom middlewares and\n                # contextvars were set in a dependency with 'yield' in that internal\n                # contextvars context, the values would not be available in the\n                # outer context of the AsyncExitStack.\n                # By placing the middleware and the AsyncExitStack here, inside all\n                # user middlewares, the code before and after 'yield' in dependencies\n                # with 'yield' is executed in the same contextvars context. Thus, all values\n                # set in contextvars before 'yield' are still available after 'yield,' as\n                # expected.\n                # Additionally, by having this AsyncExitStack here, after the\n                # ExceptionMiddleware, dependencies can now catch handled exceptions,\n                # e.g. HTTPException, to customize the teardown code (e.g. DB session\n                # rollback).\n                Middleware(AsyncExitStackMiddleware),\n            ]\n        )\n    \n        app = self.router\n        for cls, options in reversed(middleware):\n>           app = cls(app=app, **options)\nE           TypeError: AuthMiddleware() takes no arguments\n\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1015: TypeError"
+      },
+      "teardown": {
+        "duration": 0.0010328000062145293,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:15.506869",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671055.5068698,
+            "msecs": 506.8697929382324,
+            "relativeCreated": 5215.567111968994,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:15,506"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security_measures.py::test_api_security",
+      "lineno": 56,
+      "outcome": "failed",
+      "keywords": [
+        "test_api_security",
+        "test_security_measures.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0020631000079447404,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:15.509868",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671055.5098689,
+            "msecs": 509.868860244751,
+            "relativeCreated": 5218.566179275513,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:15,509"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.003170500000123866,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+          "lineno": 1015,
+          "message": "TypeError: AuthMiddleware() takes no arguments"
+        },
+        "traceback": [
+          {
+            "path": "tests\\security\\test_security_measures.py",
+            "lineno": 61,
+            "message": ""
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 499,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1041,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 465,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 814,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 901,
+            "message": "in send"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 929,
+            "message": "in _send_handling_auth"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 966,
+            "message": "in _send_handling_redirects"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1002,
+            "message": "in _send_single_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 342,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 339,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 277,
+            "message": "in call"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 438,
+            "message": "in result"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 390,
+            "message": "in __get_result"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 217,
+            "message": "in _call_func"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1106,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py",
+            "lineno": 121,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1015,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "def test_api_security():\n        \"\"\"Test API security measures\"\"\"\n        # Test rate limiting\n        for _ in range(5):\n>           response = client.get(\"/api/v1/public\")\n\ntests\\security\\test_security_measures.py:61: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:499: in get\n    return super().get(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1041: in get\n    return self.request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:465: in request\n    return super().request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:814: in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:901: in send\n    response = self._send_handling_auth(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:929: in _send_handling_auth\n    response = self._send_handling_redirects(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:966: in _send_handling_redirects\n    response = self._send_single_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1002: in _send_single_request\n    response = transport.handle_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:342: in handle_request\n    raise exc\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:339: in handle_request\n    portal.call(self.app, scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:277: in call\n    return cast(T_Retval, self.start_task_soon(func, *args).result())\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:438: in result\n    return self.__get_result()\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:390: in __get_result\n    raise self._exception\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:217: in _call_func\n    retval = await retval\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1106: in __call__\n    await super().__call__(scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py:121: in __call__\n    self.middleware_stack = self.build_middleware_stack()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <fastapi.applications.FastAPI object at 0x000001BD3065CBB0>\n\n    def build_middleware_stack(self) -> ASGIApp:\n        # Duplicate/override from Starlette to add AsyncExitStackMiddleware\n        # inside of ExceptionMiddleware, inside of custom user middlewares\n        debug = self.debug\n        error_handler = None\n        exception_handlers = {}\n    \n        for key, value in self.exception_handlers.items():\n            if key in (500, Exception):\n                error_handler = value\n            else:\n                exception_handlers[key] = value\n    \n        middleware = (\n            [Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug)]\n            + self.user_middleware\n            + [\n                Middleware(\n                    ExceptionMiddleware, handlers=exception_handlers, debug=debug\n                ),\n                # Add FastAPI-specific AsyncExitStackMiddleware for dependencies with\n                # contextvars.\n                # This needs to happen after user middlewares because those create a\n                # new contextvars context copy by using a new AnyIO task group.\n                # The initial part of dependencies with 'yield' is executed in the\n                # FastAPI code, inside all the middlewares. However, the teardown part\n                # (after 'yield') is executed in the AsyncExitStack in this middleware.\n                # If the AsyncExitStack lived outside of the custom middlewares and\n                # contextvars were set in a dependency with 'yield' in that internal\n                # contextvars context, the values would not be available in the\n                # outer context of the AsyncExitStack.\n                # By placing the middleware and the AsyncExitStack here, inside all\n                # user middlewares, the code before and after 'yield' in dependencies\n                # with 'yield' is executed in the same contextvars context. Thus, all values\n                # set in contextvars before 'yield' are still available after 'yield,' as\n                # expected.\n                # Additionally, by having this AsyncExitStack here, after the\n                # ExceptionMiddleware, dependencies can now catch handled exceptions,\n                # e.g. HTTPException, to customize the teardown code (e.g. DB session\n                # rollback).\n                Middleware(AsyncExitStackMiddleware),\n            ]\n        )\n    \n        app = self.router\n        for cls, options in reversed(middleware):\n>           app = cls(app=app, **options)\nE           TypeError: AuthMiddleware() takes no arguments\n\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1015: TypeError"
+      },
+      "teardown": {
+        "duration": 0.001047199999447912,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:15.880689",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671055.8806899,
+            "msecs": 880.6898593902588,
+            "relativeCreated": 5589.3871784210205,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:15,880"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security_measures.py::test_audit_logging",
+      "lineno": 100,
+      "outcome": "passed",
+      "keywords": [
+        "test_audit_logging",
+        "test_security_measures.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.00213350000558421,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:15.883693",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671055.8836935,
+            "msecs": 883.6934566497803,
+            "relativeCreated": 5592.390775680542,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:15,883"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0003974999999627471,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0008178999996744096,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:15.884693",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671055.8846939,
+            "msecs": 884.6938610076904,
+            "relativeCreated": 5593.391180038452,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:15,884"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security_measures.py::test_data_protection",
+      "lineno": 50,
+      "outcome": "passed",
+      "keywords": [
+        "test_data_protection",
+        "test_security_measures.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0018749000009847805,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:15.887693",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671055.8876936,
+            "msecs": 887.6936435699463,
+            "relativeCreated": 5596.390962600708,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:15,887"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0002960999991046265,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0006723000115016475,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:15.888693",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671055.8886938,
+            "msecs": 888.6938095092773,
+            "relativeCreated": 5597.391128540039,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:15,888"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security_measures.py::test_error_handling",
+      "lineno": 106,
+      "outcome": "failed",
+      "keywords": [
+        "test_error_handling",
+        "test_security_measures.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0018130999960703775,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:15.891693",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671055.8916938,
+            "msecs": 891.6938304901123,
+            "relativeCreated": 5600.391149520874,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:15,891"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.003475400008028373,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+          "lineno": 1015,
+          "message": "TypeError: AuthMiddleware() takes no arguments"
+        },
+        "traceback": [
+          {
+            "path": "tests\\security\\test_security_measures.py",
+            "lineno": 110,
+            "message": ""
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 499,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1041,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 465,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 814,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 901,
+            "message": "in send"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 929,
+            "message": "in _send_handling_auth"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 966,
+            "message": "in _send_handling_redirects"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1002,
+            "message": "in _send_single_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 342,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 339,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 277,
+            "message": "in call"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 445,
+            "message": "in result"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 390,
+            "message": "in __get_result"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 217,
+            "message": "in _call_func"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1106,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py",
+            "lineno": 121,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1015,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "def test_error_handling():\n        \"\"\"Test security error handling\"\"\"\n        # Test error message security\n>       response = client.get(\"/api/v1/error\")\n\ntests\\security\\test_security_measures.py:110: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:499: in get\n    return super().get(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1041: in get\n    return self.request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:465: in request\n    return super().request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:814: in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:901: in send\n    response = self._send_handling_auth(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:929: in _send_handling_auth\n    response = self._send_handling_redirects(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:966: in _send_handling_redirects\n    response = self._send_single_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1002: in _send_single_request\n    response = transport.handle_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:342: in handle_request\n    raise exc\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:339: in handle_request\n    portal.call(self.app, scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:277: in call\n    return cast(T_Retval, self.start_task_soon(func, *args).result())\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:445: in result\n    return self.__get_result()\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:390: in __get_result\n    raise self._exception\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:217: in _call_func\n    retval = await retval\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1106: in __call__\n    await super().__call__(scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py:121: in __call__\n    self.middleware_stack = self.build_middleware_stack()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <fastapi.applications.FastAPI object at 0x000001BD3065CBB0>\n\n    def build_middleware_stack(self) -> ASGIApp:\n        # Duplicate/override from Starlette to add AsyncExitStackMiddleware\n        # inside of ExceptionMiddleware, inside of custom user middlewares\n        debug = self.debug\n        error_handler = None\n        exception_handlers = {}\n    \n        for key, value in self.exception_handlers.items():\n            if key in (500, Exception):\n                error_handler = value\n            else:\n                exception_handlers[key] = value\n    \n        middleware = (\n            [Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug)]\n            + self.user_middleware\n            + [\n                Middleware(\n                    ExceptionMiddleware, handlers=exception_handlers, debug=debug\n                ),\n                # Add FastAPI-specific AsyncExitStackMiddleware for dependencies with\n                # contextvars.\n                # This needs to happen after user middlewares because those create a\n                # new contextvars context copy by using a new AnyIO task group.\n                # The initial part of dependencies with 'yield' is executed in the\n                # FastAPI code, inside all the middlewares. However, the teardown part\n                # (after 'yield') is executed in the AsyncExitStack in this middleware.\n                # If the AsyncExitStack lived outside of the custom middlewares and\n                # contextvars were set in a dependency with 'yield' in that internal\n                # contextvars context, the values would not be available in the\n                # outer context of the AsyncExitStack.\n                # By placing the middleware and the AsyncExitStack here, inside all\n                # user middlewares, the code before and after 'yield' in dependencies\n                # with 'yield' is executed in the same contextvars context. Thus, all values\n                # set in contextvars before 'yield' are still available after 'yield,' as\n                # expected.\n                # Additionally, by having this AsyncExitStack here, after the\n                # ExceptionMiddleware, dependencies can now catch handled exceptions,\n                # e.g. HTTPException, to customize the teardown code (e.g. DB session\n                # rollback).\n                Middleware(AsyncExitStackMiddleware),\n            ]\n        )\n    \n        app = self.router\n        for cls, options in reversed(middleware):\n>           app = cls(app=app, **options)\nE           TypeError: AuthMiddleware() takes no arguments\n\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1015: TypeError"
+      },
+      "teardown": {
+        "duration": 0.0012061000015819445,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:16.174585",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671056.1745853,
+            "msecs": 174.58534240722656,
+            "relativeCreated": 5883.282661437988,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:16,174"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security_measures.py::test_security_headers",
+      "lineno": 76,
+      "outcome": "failed",
+      "keywords": [
+        "test_security_headers",
+        "test_security_measures.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.002749999999650754,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:16.177606",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671056.177606,
+            "msecs": 177.60610580444336,
+            "relativeCreated": 5886.303424835205,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:16,177"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0043197000049985945,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+          "lineno": 1015,
+          "message": "TypeError: AuthMiddleware() takes no arguments"
+        },
+        "traceback": [
+          {
+            "path": "tests\\security\\test_security_measures.py",
+            "lineno": 79,
+            "message": ""
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 499,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1041,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 465,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 814,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 901,
+            "message": "in send"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 929,
+            "message": "in _send_handling_auth"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 966,
+            "message": "in _send_handling_redirects"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1002,
+            "message": "in _send_single_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 342,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 339,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 277,
+            "message": "in call"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 445,
+            "message": "in result"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 390,
+            "message": "in __get_result"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 217,
+            "message": "in _call_func"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1106,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py",
+            "lineno": 121,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1015,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "def test_security_headers():\n        \"\"\"Test security headers\"\"\"\n>       response = client.get(\"/\")\n\ntests\\security\\test_security_measures.py:79: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:499: in get\n    return super().get(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1041: in get\n    return self.request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:465: in request\n    return super().request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:814: in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:901: in send\n    response = self._send_handling_auth(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:929: in _send_handling_auth\n    response = self._send_handling_redirects(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:966: in _send_handling_redirects\n    response = self._send_single_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1002: in _send_single_request\n    response = transport.handle_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:342: in handle_request\n    raise exc\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:339: in handle_request\n    portal.call(self.app, scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:277: in call\n    return cast(T_Retval, self.start_task_soon(func, *args).result())\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:445: in result\n    return self.__get_result()\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:390: in __get_result\n    raise self._exception\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:217: in _call_func\n    retval = await retval\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1106: in __call__\n    await super().__call__(scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py:121: in __call__\n    self.middleware_stack = self.build_middleware_stack()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <fastapi.applications.FastAPI object at 0x000001BD3065CBB0>\n\n    def build_middleware_stack(self) -> ASGIApp:\n        # Duplicate/override from Starlette to add AsyncExitStackMiddleware\n        # inside of ExceptionMiddleware, inside of custom user middlewares\n        debug = self.debug\n        error_handler = None\n        exception_handlers = {}\n    \n        for key, value in self.exception_handlers.items():\n            if key in (500, Exception):\n                error_handler = value\n            else:\n                exception_handlers[key] = value\n    \n        middleware = (\n            [Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug)]\n            + self.user_middleware\n            + [\n                Middleware(\n                    ExceptionMiddleware, handlers=exception_handlers, debug=debug\n                ),\n                # Add FastAPI-specific AsyncExitStackMiddleware for dependencies with\n                # contextvars.\n                # This needs to happen after user middlewares because those create a\n                # new contextvars context copy by using a new AnyIO task group.\n                # The initial part of dependencies with 'yield' is executed in the\n                # FastAPI code, inside all the middlewares. However, the teardown part\n                # (after 'yield') is executed in the AsyncExitStack in this middleware.\n                # If the AsyncExitStack lived outside of the custom middlewares and\n                # contextvars were set in a dependency with 'yield' in that internal\n                # contextvars context, the values would not be available in the\n                # outer context of the AsyncExitStack.\n                # By placing the middleware and the AsyncExitStack here, inside all\n                # user middlewares, the code before and after 'yield' in dependencies\n                # with 'yield' is executed in the same contextvars context. Thus, all values\n                # set in contextvars before 'yield' are still available after 'yield,' as\n                # expected.\n                # Additionally, by having this AsyncExitStack here, after the\n                # ExceptionMiddleware, dependencies can now catch handled exceptions,\n                # e.g. HTTPException, to customize the teardown code (e.g. DB session\n                # rollback).\n                Middleware(AsyncExitStackMiddleware),\n            ]\n        )\n    \n        app = self.router\n        for cls, options in reversed(middleware):\n>           app = cls(app=app, **options)\nE           TypeError: AuthMiddleware() takes no arguments\n\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1015: TypeError"
+      },
+      "teardown": {
+        "duration": 0.00104010000359267,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:16.573342",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671056.5733423,
+            "msecs": 573.3423233032227,
+            "relativeCreated": 6282.039642333984,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:16,573"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security_measures.py::test_authentication",
+      "lineno": 10,
+      "outcome": "failed",
+      "keywords": [
+        "test_authentication",
+        "test_security_measures.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0020868999999947846,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:16.576340",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671056.5763404,
+            "msecs": 576.3404369354248,
+            "relativeCreated": 6285.0377559661865,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:16,576"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.004673299990827218,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+          "lineno": 1015,
+          "message": "TypeError: AuthMiddleware() takes no arguments"
+        },
+        "traceback": [
+          {
+            "path": "tests\\security\\test_security_measures.py",
+            "lineno": 21,
+            "message": ""
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 499,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1041,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 465,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 814,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 901,
+            "message": "in send"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 929,
+            "message": "in _send_handling_auth"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 966,
+            "message": "in _send_handling_redirects"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1002,
+            "message": "in _send_single_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 342,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 339,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 277,
+            "message": "in call"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 438,
+            "message": "in result"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 390,
+            "message": "in __get_result"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 217,
+            "message": "in _call_func"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1106,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py",
+            "lineno": 121,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1015,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "def test_authentication():\n        \"\"\"Test authentication mechanisms\"\"\"\n        # Test JWT token generation\n        payload = {\n            \"sub\": \"test_user\",\n            \"exp\": datetime.utcnow() + timedelta(minutes=30)\n        }\n        token = jwt.encode(payload, os.getenv(\"JWT_SECRET\"), algorithm=os.getenv(\"JWT_ALGORITHM\"))\n    \n        # Test token validation\n>       response = client.get(\n            \"/api/v1/protected\",\n            headers={\"Authorization\": f\"Bearer {token}\"}\n        )\n\ntests\\security\\test_security_measures.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:499: in get\n    return super().get(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1041: in get\n    return self.request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:465: in request\n    return super().request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:814: in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:901: in send\n    response = self._send_handling_auth(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:929: in _send_handling_auth\n    response = self._send_handling_redirects(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:966: in _send_handling_redirects\n    response = self._send_single_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1002: in _send_single_request\n    response = transport.handle_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:342: in handle_request\n    raise exc\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:339: in handle_request\n    portal.call(self.app, scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:277: in call\n    return cast(T_Retval, self.start_task_soon(func, *args).result())\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:438: in result\n    return self.__get_result()\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:390: in __get_result\n    raise self._exception\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:217: in _call_func\n    retval = await retval\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1106: in __call__\n    await super().__call__(scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py:121: in __call__\n    self.middleware_stack = self.build_middleware_stack()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <fastapi.applications.FastAPI object at 0x000001BD3065CBB0>\n\n    def build_middleware_stack(self) -> ASGIApp:\n        # Duplicate/override from Starlette to add AsyncExitStackMiddleware\n        # inside of ExceptionMiddleware, inside of custom user middlewares\n        debug = self.debug\n        error_handler = None\n        exception_handlers = {}\n    \n        for key, value in self.exception_handlers.items():\n            if key in (500, Exception):\n                error_handler = value\n            else:\n                exception_handlers[key] = value\n    \n        middleware = (\n            [Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug)]\n            + self.user_middleware\n            + [\n                Middleware(\n                    ExceptionMiddleware, handlers=exception_handlers, debug=debug\n                ),\n                # Add FastAPI-specific AsyncExitStackMiddleware for dependencies with\n                # contextvars.\n                # This needs to happen after user middlewares because those create a\n                # new contextvars context copy by using a new AnyIO task group.\n                # The initial part of dependencies with 'yield' is executed in the\n                # FastAPI code, inside all the middlewares. However, the teardown part\n                # (after 'yield') is executed in the AsyncExitStack in this middleware.\n                # If the AsyncExitStack lived outside of the custom middlewares and\n                # contextvars were set in a dependency with 'yield' in that internal\n                # contextvars context, the values would not be available in the\n                # outer context of the AsyncExitStack.\n                # By placing the middleware and the AsyncExitStack here, inside all\n                # user middlewares, the code before and after 'yield' in dependencies\n                # with 'yield' is executed in the same contextvars context. Thus, all values\n                # set in contextvars before 'yield' are still available after 'yield,' as\n                # expected.\n                # Additionally, by having this AsyncExitStack here, after the\n                # ExceptionMiddleware, dependencies can now catch handled exceptions,\n                # e.g. HTTPException, to customize the teardown code (e.g. DB session\n                # rollback).\n                Middleware(AsyncExitStackMiddleware),\n            ]\n        )\n    \n        app = self.router\n        for cls, options in reversed(middleware):\n>           app = cls(app=app, **options)\nE           TypeError: AuthMiddleware() takes no arguments\n\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1015: TypeError"
+      },
+      "teardown": {
+        "duration": 0.0011945000005653128,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:16.878644",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671056.8796654,
+            "msecs": 879.6653747558594,
+            "relativeCreated": 6588.362693786621,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:16,879"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security_measures.py::test_password_security",
+      "lineno": 88,
+      "outcome": "passed",
+      "keywords": [
+        "test_password_security",
+        "test_security_measures.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0029249000072013587,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:16.883113",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671056.883113,
+            "msecs": 883.112907409668,
+            "relativeCreated": 6591.81022644043,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:16,883"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.00031689999741502106,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0007722000009380281,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:16.885123",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671056.8851235,
+            "msecs": 885.1234912872314,
+            "relativeCreated": 6593.820810317993,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:16,885"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security_measures.py::test_authorization",
+      "lineno": 26,
+      "outcome": "passed",
+      "keywords": [
+        "test_authorization",
+        "test_security_measures.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0018736000056378543,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:16.887123",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671056.8871238,
+            "msecs": 887.1238231658936,
+            "relativeCreated": 6595.821142196655,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:16,887"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0003071999963140115,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0007416000007651746,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:16.889128",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671056.8891287,
+            "msecs": 889.1286849975586,
+            "relativeCreated": 6597.82600402832,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:16,889"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security.py::test_security_headers",
+      "lineno": 77,
+      "outcome": "failed",
+      "keywords": [
+        "test_security_headers",
+        "security",
+        "pytestmark",
+        "test_security.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.001959100001840852,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:16.891123",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671056.8921237,
+            "msecs": 892.1236991882324,
+            "relativeCreated": 6600.821018218994,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:16,892"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.003487400012090802,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+          "lineno": 1015,
+          "message": "TypeError: AuthMiddleware() takes no arguments"
+        },
+        "traceback": [
+          {
+            "path": "tests\\security\\test_security.py",
+            "lineno": 81,
+            "message": ""
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 499,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1041,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 465,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 814,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 901,
+            "message": "in send"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 929,
+            "message": "in _send_handling_auth"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 966,
+            "message": "in _send_handling_redirects"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1002,
+            "message": "in _send_single_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 342,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 339,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 277,
+            "message": "in call"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 445,
+            "message": "in result"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 390,
+            "message": "in __get_result"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 217,
+            "message": "in _call_func"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1106,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py",
+            "lineno": 121,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1015,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "@pytest.mark.security\n    def test_security_headers():\n        \"\"\"Test security headers configuration.\"\"\"\n>       response = client.get(\"/api/v1/public\")\n\ntests\\security\\test_security.py:81: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:499: in get\n    return super().get(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1041: in get\n    return self.request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:465: in request\n    return super().request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:814: in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:901: in send\n    response = self._send_handling_auth(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:929: in _send_handling_auth\n    response = self._send_handling_redirects(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:966: in _send_handling_redirects\n    response = self._send_single_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1002: in _send_single_request\n    response = transport.handle_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:342: in handle_request\n    raise exc\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:339: in handle_request\n    portal.call(self.app, scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:277: in call\n    return cast(T_Retval, self.start_task_soon(func, *args).result())\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:445: in result\n    return self.__get_result()\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:390: in __get_result\n    raise self._exception\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:217: in _call_func\n    retval = await retval\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1106: in __call__\n    await super().__call__(scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py:121: in __call__\n    self.middleware_stack = self.build_middleware_stack()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <fastapi.applications.FastAPI object at 0x000001BD3065CBB0>\n\n    def build_middleware_stack(self) -> ASGIApp:\n        # Duplicate/override from Starlette to add AsyncExitStackMiddleware\n        # inside of ExceptionMiddleware, inside of custom user middlewares\n        debug = self.debug\n        error_handler = None\n        exception_handlers = {}\n    \n        for key, value in self.exception_handlers.items():\n            if key in (500, Exception):\n                error_handler = value\n            else:\n                exception_handlers[key] = value\n    \n        middleware = (\n            [Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug)]\n            + self.user_middleware\n            + [\n                Middleware(\n                    ExceptionMiddleware, handlers=exception_handlers, debug=debug\n                ),\n                # Add FastAPI-specific AsyncExitStackMiddleware for dependencies with\n                # contextvars.\n                # This needs to happen after user middlewares because those create a\n                # new contextvars context copy by using a new AnyIO task group.\n                # The initial part of dependencies with 'yield' is executed in the\n                # FastAPI code, inside all the middlewares. However, the teardown part\n                # (after 'yield') is executed in the AsyncExitStack in this middleware.\n                # If the AsyncExitStack lived outside of the custom middlewares and\n                # contextvars were set in a dependency with 'yield' in that internal\n                # contextvars context, the values would not be available in the\n                # outer context of the AsyncExitStack.\n                # By placing the middleware and the AsyncExitStack here, inside all\n                # user middlewares, the code before and after 'yield' in dependencies\n                # with 'yield' is executed in the same contextvars context. Thus, all values\n                # set in contextvars before 'yield' are still available after 'yield,' as\n                # expected.\n                # Additionally, by having this AsyncExitStack here, after the\n                # ExceptionMiddleware, dependencies can now catch handled exceptions,\n                # e.g. HTTPException, to customize the teardown code (e.g. DB session\n                # rollback).\n                Middleware(AsyncExitStackMiddleware),\n            ]\n        )\n    \n        app = self.router\n        for cls, options in reversed(middleware):\n>           app = cls(app=app, **options)\nE           TypeError: AuthMiddleware() takes no arguments\n\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1015: TypeError"
+      },
+      "teardown": {
+        "duration": 0.0011437000066507608,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:17.188097",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671057.1880977,
+            "msecs": 188.09771537780762,
+            "relativeCreated": 6896.795034408569,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:17,188"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security.py::test_session_management",
+      "lineno": 105,
+      "outcome": "failed",
+      "keywords": [
+        "test_session_management",
+        "security",
+        "pytestmark",
+        "test_security.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0021176000009290874,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:17.191097",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671057.191097,
+            "msecs": 191.09702110290527,
+            "relativeCreated": 6899.794340133667,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:17,191"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0035503999970387667,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+          "lineno": 1015,
+          "message": "TypeError: AuthMiddleware() takes no arguments"
+        },
+        "traceback": [
+          {
+            "path": "tests\\security\\test_security.py",
+            "lineno": 110,
+            "message": ""
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 590,
+            "message": "in post"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1132,
+            "message": "in post"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 465,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 814,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 901,
+            "message": "in send"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 929,
+            "message": "in _send_handling_auth"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 966,
+            "message": "in _send_handling_redirects"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1002,
+            "message": "in _send_single_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 342,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 339,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 277,
+            "message": "in call"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 445,
+            "message": "in result"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 390,
+            "message": "in __get_result"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 217,
+            "message": "in _call_func"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1106,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py",
+            "lineno": 121,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1015,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "@pytest.mark.security\n    def test_session_management():\n        \"\"\"Test session management and timeout.\"\"\"\n        # Login and get session token\n>       response = client.post(\n            \"/api/v1/login\",\n            json={\"username\": \"test_user\", \"password\": \"test_password\"}\n        )\n\ntests\\security\\test_security.py:110: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:590: in post\n    return super().post(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1132: in post\n    return self.request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:465: in request\n    return super().request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:814: in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:901: in send\n    response = self._send_handling_auth(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:929: in _send_handling_auth\n    response = self._send_handling_redirects(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:966: in _send_handling_redirects\n    response = self._send_single_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1002: in _send_single_request\n    response = transport.handle_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:342: in handle_request\n    raise exc\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:339: in handle_request\n    portal.call(self.app, scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:277: in call\n    return cast(T_Retval, self.start_task_soon(func, *args).result())\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:445: in result\n    return self.__get_result()\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:390: in __get_result\n    raise self._exception\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:217: in _call_func\n    retval = await retval\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1106: in __call__\n    await super().__call__(scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py:121: in __call__\n    self.middleware_stack = self.build_middleware_stack()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <fastapi.applications.FastAPI object at 0x000001BD3065CBB0>\n\n    def build_middleware_stack(self) -> ASGIApp:\n        # Duplicate/override from Starlette to add AsyncExitStackMiddleware\n        # inside of ExceptionMiddleware, inside of custom user middlewares\n        debug = self.debug\n        error_handler = None\n        exception_handlers = {}\n    \n        for key, value in self.exception_handlers.items():\n            if key in (500, Exception):\n                error_handler = value\n            else:\n                exception_handlers[key] = value\n    \n        middleware = (\n            [Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug)]\n            + self.user_middleware\n            + [\n                Middleware(\n                    ExceptionMiddleware, handlers=exception_handlers, debug=debug\n                ),\n                # Add FastAPI-specific AsyncExitStackMiddleware for dependencies with\n                # contextvars.\n                # This needs to happen after user middlewares because those create a\n                # new contextvars context copy by using a new AnyIO task group.\n                # The initial part of dependencies with 'yield' is executed in the\n                # FastAPI code, inside all the middlewares. However, the teardown part\n                # (after 'yield') is executed in the AsyncExitStack in this middleware.\n                # If the AsyncExitStack lived outside of the custom middlewares and\n                # contextvars were set in a dependency with 'yield' in that internal\n                # contextvars context, the values would not be available in the\n                # outer context of the AsyncExitStack.\n                # By placing the middleware and the AsyncExitStack here, inside all\n                # user middlewares, the code before and after 'yield' in dependencies\n                # with 'yield' is executed in the same contextvars context. Thus, all values\n                # set in contextvars before 'yield' are still available after 'yield,' as\n                # expected.\n                # Additionally, by having this AsyncExitStack here, after the\n                # ExceptionMiddleware, dependencies can now catch handled exceptions,\n                # e.g. HTTPException, to customize the teardown code (e.g. DB session\n                # rollback).\n                Middleware(AsyncExitStackMiddleware),\n            ]\n        )\n    \n        app = self.router\n        for cls, options in reversed(middleware):\n>           app = cls(app=app, **options)\nE           TypeError: AuthMiddleware() takes no arguments\n\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1015: TypeError"
+      },
+      "teardown": {
+        "duration": 0.0012332000042079017,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:17.560769",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671057.560769,
+            "msecs": 560.7690811157227,
+            "relativeCreated": 7269.466400146484,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:17,560"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security.py::test_input_validation",
+      "lineno": 90,
+      "outcome": "failed",
+      "keywords": [
+        "test_input_validation",
+        "security",
+        "pytestmark",
+        "test_security.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0024574999988544732,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:17.563770",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671057.5637705,
+            "msecs": 563.7705326080322,
+            "relativeCreated": 7272.467851638794,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:17,563"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0032804000074975193,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+          "lineno": 1015,
+          "message": "TypeError: AuthMiddleware() takes no arguments"
+        },
+        "traceback": [
+          {
+            "path": "tests\\security\\test_security.py",
+            "lineno": 95,
+            "message": ""
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 499,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1041,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 465,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 814,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 901,
+            "message": "in send"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 929,
+            "message": "in _send_handling_auth"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 966,
+            "message": "in _send_handling_redirects"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1002,
+            "message": "in _send_single_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 342,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 339,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 277,
+            "message": "in call"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 445,
+            "message": "in result"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 390,
+            "message": "in __get_result"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 217,
+            "message": "in _call_func"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1106,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py",
+            "lineno": 121,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1015,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "@pytest.mark.security\n    def test_input_validation():\n        \"\"\"Test input validation and sanitization.\"\"\"\n        # Test SQL injection attempt\n>       response = client.get(\"/api/v1/search?query=' OR '1'='1\")\n\ntests\\security\\test_security.py:95: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:499: in get\n    return super().get(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1041: in get\n    return self.request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:465: in request\n    return super().request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:814: in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:901: in send\n    response = self._send_handling_auth(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:929: in _send_handling_auth\n    response = self._send_handling_redirects(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:966: in _send_handling_redirects\n    response = self._send_single_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1002: in _send_single_request\n    response = transport.handle_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:342: in handle_request\n    raise exc\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:339: in handle_request\n    portal.call(self.app, scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:277: in call\n    return cast(T_Retval, self.start_task_soon(func, *args).result())\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:445: in result\n    return self.__get_result()\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:390: in __get_result\n    raise self._exception\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:217: in _call_func\n    retval = await retval\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1106: in __call__\n    await super().__call__(scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py:121: in __call__\n    self.middleware_stack = self.build_middleware_stack()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <fastapi.applications.FastAPI object at 0x000001BD3065CBB0>\n\n    def build_middleware_stack(self) -> ASGIApp:\n        # Duplicate/override from Starlette to add AsyncExitStackMiddleware\n        # inside of ExceptionMiddleware, inside of custom user middlewares\n        debug = self.debug\n        error_handler = None\n        exception_handlers = {}\n    \n        for key, value in self.exception_handlers.items():\n            if key in (500, Exception):\n                error_handler = value\n            else:\n                exception_handlers[key] = value\n    \n        middleware = (\n            [Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug)]\n            + self.user_middleware\n            + [\n                Middleware(\n                    ExceptionMiddleware, handlers=exception_handlers, debug=debug\n                ),\n                # Add FastAPI-specific AsyncExitStackMiddleware for dependencies with\n                # contextvars.\n                # This needs to happen after user middlewares because those create a\n                # new contextvars context copy by using a new AnyIO task group.\n                # The initial part of dependencies with 'yield' is executed in the\n                # FastAPI code, inside all the middlewares. However, the teardown part\n                # (after 'yield') is executed in the AsyncExitStack in this middleware.\n                # If the AsyncExitStack lived outside of the custom middlewares and\n                # contextvars were set in a dependency with 'yield' in that internal\n                # contextvars context, the values would not be available in the\n                # outer context of the AsyncExitStack.\n                # By placing the middleware and the AsyncExitStack here, inside all\n                # user middlewares, the code before and after 'yield' in dependencies\n                # with 'yield' is executed in the same contextvars context. Thus, all values\n                # set in contextvars before 'yield' are still available after 'yield,' as\n                # expected.\n                # Additionally, by having this AsyncExitStack here, after the\n                # ExceptionMiddleware, dependencies can now catch handled exceptions,\n                # e.g. HTTPException, to customize the teardown code (e.g. DB session\n                # rollback).\n                Middleware(AsyncExitStackMiddleware),\n            ]\n        )\n    \n        app = self.router\n        for cls, options in reversed(middleware):\n>           app = cls(app=app, **options)\nE           TypeError: AuthMiddleware() takes no arguments\n\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1015: TypeError"
+      },
+      "teardown": {
+        "duration": 0.001530499997898005,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:17.875775",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671057.8757758,
+            "msecs": 875.7758140563965,
+            "relativeCreated": 7584.473133087158,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:17,875"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security.py::test_rate_limiting",
+      "lineno": 57,
+      "outcome": "failed",
+      "keywords": [
+        "test_rate_limiting",
+        "security",
+        "pytestmark",
+        "test_security.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.004225199998472817,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:17.882335",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671057.8823354,
+            "msecs": 882.3354244232178,
+            "relativeCreated": 7591.0327434539795,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:17,882"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.005602800010819919,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+          "lineno": 1015,
+          "message": "TypeError: AuthMiddleware() takes no arguments"
+        },
+        "traceback": [
+          {
+            "path": "tests\\security\\test_security.py",
+            "lineno": 63,
+            "message": ""
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 499,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1041,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 465,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 814,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 901,
+            "message": "in send"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 929,
+            "message": "in _send_handling_auth"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 966,
+            "message": "in _send_handling_redirects"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1002,
+            "message": "in _send_single_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 342,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 339,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 277,
+            "message": "in call"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 445,
+            "message": "in result"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 390,
+            "message": "in __get_result"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 217,
+            "message": "in _call_func"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1106,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py",
+            "lineno": 121,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1015,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "@pytest.mark.security\n    def test_rate_limiting():\n        \"\"\"Test rate limiting functionality.\"\"\"\n        # Make multiple requests in quick succession\n        for _ in range(10):\n>           response = client.get(\"/api/v1/public\")\n\ntests\\security\\test_security.py:63: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:499: in get\n    return super().get(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1041: in get\n    return self.request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:465: in request\n    return super().request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:814: in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:901: in send\n    response = self._send_handling_auth(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:929: in _send_handling_auth\n    response = self._send_handling_redirects(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:966: in _send_handling_redirects\n    response = self._send_single_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1002: in _send_single_request\n    response = transport.handle_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:342: in handle_request\n    raise exc\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:339: in handle_request\n    portal.call(self.app, scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:277: in call\n    return cast(T_Retval, self.start_task_soon(func, *args).result())\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:445: in result\n    return self.__get_result()\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:390: in __get_result\n    raise self._exception\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:217: in _call_func\n    retval = await retval\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1106: in __call__\n    await super().__call__(scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py:121: in __call__\n    self.middleware_stack = self.build_middleware_stack()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <fastapi.applications.FastAPI object at 0x000001BD3065CBB0>\n\n    def build_middleware_stack(self) -> ASGIApp:\n        # Duplicate/override from Starlette to add AsyncExitStackMiddleware\n        # inside of ExceptionMiddleware, inside of custom user middlewares\n        debug = self.debug\n        error_handler = None\n        exception_handlers = {}\n    \n        for key, value in self.exception_handlers.items():\n            if key in (500, Exception):\n                error_handler = value\n            else:\n                exception_handlers[key] = value\n    \n        middleware = (\n            [Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug)]\n            + self.user_middleware\n            + [\n                Middleware(\n                    ExceptionMiddleware, handlers=exception_handlers, debug=debug\n                ),\n                # Add FastAPI-specific AsyncExitStackMiddleware for dependencies with\n                # contextvars.\n                # This needs to happen after user middlewares because those create a\n                # new contextvars context copy by using a new AnyIO task group.\n                # The initial part of dependencies with 'yield' is executed in the\n                # FastAPI code, inside all the middlewares. However, the teardown part\n                # (after 'yield') is executed in the AsyncExitStack in this middleware.\n                # If the AsyncExitStack lived outside of the custom middlewares and\n                # contextvars were set in a dependency with 'yield' in that internal\n                # contextvars context, the values would not be available in the\n                # outer context of the AsyncExitStack.\n                # By placing the middleware and the AsyncExitStack here, inside all\n                # user middlewares, the code before and after 'yield' in dependencies\n                # with 'yield' is executed in the same contextvars context. Thus, all values\n                # set in contextvars before 'yield' are still available after 'yield,' as\n                # expected.\n                # Additionally, by having this AsyncExitStack here, after the\n                # ExceptionMiddleware, dependencies can now catch handled exceptions,\n                # e.g. HTTPException, to customize the teardown code (e.g. DB session\n                # rollback).\n                Middleware(AsyncExitStackMiddleware),\n            ]\n        )\n    \n        app = self.router\n        for cls, options in reversed(middleware):\n>           app = cls(app=app, **options)\nE           TypeError: AuthMiddleware() takes no arguments\n\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1015: TypeError"
+      },
+      "teardown": {
+        "duration": 0.0034002999891526997,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:18.519429",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671058.5194297,
+            "msecs": 519.4296836853027,
+            "relativeCreated": 8228.127002716064,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:18,519"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security.py::test_jwt_token_validation",
+      "lineno": 21,
+      "outcome": "failed",
+      "keywords": [
+        "test_jwt_token_validation",
+        "security",
+        "pytestmark",
+        "test_security.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0041369999962626025,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:18.527201",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671058.527202,
+            "msecs": 527.2018909454346,
+            "relativeCreated": 8235.899209976196,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:18,527"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.005367499994463287,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+          "lineno": 1015,
+          "message": "TypeError: AuthMiddleware() takes no arguments"
+        },
+        "traceback": [
+          {
+            "path": "tests\\security\\test_security.py",
+            "lineno": 33,
+            "message": ""
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 499,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1041,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 465,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 814,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 901,
+            "message": "in send"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 929,
+            "message": "in _send_handling_auth"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 966,
+            "message": "in _send_handling_redirects"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1002,
+            "message": "in _send_single_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 342,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 339,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 277,
+            "message": "in call"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 438,
+            "message": "in result"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 390,
+            "message": "in __get_result"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 217,
+            "message": "in _call_func"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1106,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py",
+            "lineno": 121,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1015,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "@pytest.mark.security\n    def test_jwt_token_validation():\n        \"\"\"Test JWT token validation.\"\"\"\n        # Create a valid token\n        token = jwt.encode(\n            {\"sub\": \"test_user\", \"exp\": datetime.utcnow() + timedelta(minutes=30)},\n            \"test_secret_key\",\n            algorithm=\"HS256\"\n        )\n    \n        # Test with valid token\n>       response = client.get(\n            \"/api/v1/protected\",\n            headers={\"Authorization\": f\"Bearer {token}\"}\n        )\n\ntests\\security\\test_security.py:33: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:499: in get\n    return super().get(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1041: in get\n    return self.request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:465: in request\n    return super().request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:814: in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:901: in send\n    response = self._send_handling_auth(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:929: in _send_handling_auth\n    response = self._send_handling_redirects(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:966: in _send_handling_redirects\n    response = self._send_single_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1002: in _send_single_request\n    response = transport.handle_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:342: in handle_request\n    raise exc\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:339: in handle_request\n    portal.call(self.app, scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:277: in call\n    return cast(T_Retval, self.start_task_soon(func, *args).result())\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:438: in result\n    return self.__get_result()\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:390: in __get_result\n    raise self._exception\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:217: in _call_func\n    retval = await retval\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1106: in __call__\n    await super().__call__(scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py:121: in __call__\n    self.middleware_stack = self.build_middleware_stack()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <fastapi.applications.FastAPI object at 0x000001BD3065CBB0>\n\n    def build_middleware_stack(self) -> ASGIApp:\n        # Duplicate/override from Starlette to add AsyncExitStackMiddleware\n        # inside of ExceptionMiddleware, inside of custom user middlewares\n        debug = self.debug\n        error_handler = None\n        exception_handlers = {}\n    \n        for key, value in self.exception_handlers.items():\n            if key in (500, Exception):\n                error_handler = value\n            else:\n                exception_handlers[key] = value\n    \n        middleware = (\n            [Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug)]\n            + self.user_middleware\n            + [\n                Middleware(\n                    ExceptionMiddleware, handlers=exception_handlers, debug=debug\n                ),\n                # Add FastAPI-specific AsyncExitStackMiddleware for dependencies with\n                # contextvars.\n                # This needs to happen after user middlewares because those create a\n                # new contextvars context copy by using a new AnyIO task group.\n                # The initial part of dependencies with 'yield' is executed in the\n                # FastAPI code, inside all the middlewares. However, the teardown part\n                # (after 'yield') is executed in the AsyncExitStack in this middleware.\n                # If the AsyncExitStack lived outside of the custom middlewares and\n                # contextvars were set in a dependency with 'yield' in that internal\n                # contextvars context, the values would not be available in the\n                # outer context of the AsyncExitStack.\n                # By placing the middleware and the AsyncExitStack here, inside all\n                # user middlewares, the code before and after 'yield' in dependencies\n                # with 'yield' is executed in the same contextvars context. Thus, all values\n                # set in contextvars before 'yield' are still available after 'yield,' as\n                # expected.\n                # Additionally, by having this AsyncExitStack here, after the\n                # ExceptionMiddleware, dependencies can now catch handled exceptions,\n                # e.g. HTTPException, to customize the teardown code (e.g. DB session\n                # rollback).\n                Middleware(AsyncExitStackMiddleware),\n            ]\n        )\n    \n        app = self.router\n        for cls, options in reversed(middleware):\n>           app = cls(app=app, **options)\nE           TypeError: AuthMiddleware() takes no arguments\n\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1015: TypeError"
+      },
+      "teardown": {
+        "duration": 0.001750499999616295,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:19.061964",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671059.0619645,
+            "msecs": 61.96451187133789,
+            "relativeCreated": 8770.6618309021,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:19,061"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security.py::test_authentication_required",
+      "lineno": 14,
+      "outcome": "failed",
+      "keywords": [
+        "test_authentication_required",
+        "security",
+        "pytestmark",
+        "test_security.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.003482700005406514,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:19.067551",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671059.0675514,
+            "msecs": 67.5513744354248,
+            "relativeCreated": 8776.248693466187,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:19,067"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.005439100001240149,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+          "lineno": 1015,
+          "message": "TypeError: AuthMiddleware() takes no arguments"
+        },
+        "traceback": [
+          {
+            "path": "tests\\security\\test_security.py",
+            "lineno": 18,
+            "message": ""
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 499,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1041,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 465,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 814,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 901,
+            "message": "in send"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 929,
+            "message": "in _send_handling_auth"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 966,
+            "message": "in _send_handling_redirects"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1002,
+            "message": "in _send_single_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 342,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 339,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 277,
+            "message": "in call"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 445,
+            "message": "in result"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 390,
+            "message": "in __get_result"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 217,
+            "message": "in _call_func"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1106,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py",
+            "lineno": 121,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1015,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "@pytest.mark.security\n    def test_authentication_required():\n        \"\"\"Test that authentication is required for protected endpoints.\"\"\"\n>       response = client.get(\"/api/v1/protected\")\n\ntests\\security\\test_security.py:18: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:499: in get\n    return super().get(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1041: in get\n    return self.request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:465: in request\n    return super().request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:814: in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:901: in send\n    response = self._send_handling_auth(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:929: in _send_handling_auth\n    response = self._send_handling_redirects(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:966: in _send_handling_redirects\n    response = self._send_single_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1002: in _send_single_request\n    response = transport.handle_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:342: in handle_request\n    raise exc\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:339: in handle_request\n    portal.call(self.app, scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:277: in call\n    return cast(T_Retval, self.start_task_soon(func, *args).result())\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:445: in result\n    return self.__get_result()\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:390: in __get_result\n    raise self._exception\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:217: in _call_func\n    retval = await retval\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1106: in __call__\n    await super().__call__(scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py:121: in __call__\n    self.middleware_stack = self.build_middleware_stack()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <fastapi.applications.FastAPI object at 0x000001BD3065CBB0>\n\n    def build_middleware_stack(self) -> ASGIApp:\n        # Duplicate/override from Starlette to add AsyncExitStackMiddleware\n        # inside of ExceptionMiddleware, inside of custom user middlewares\n        debug = self.debug\n        error_handler = None\n        exception_handlers = {}\n    \n        for key, value in self.exception_handlers.items():\n            if key in (500, Exception):\n                error_handler = value\n            else:\n                exception_handlers[key] = value\n    \n        middleware = (\n            [Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug)]\n            + self.user_middleware\n            + [\n                Middleware(\n                    ExceptionMiddleware, handlers=exception_handlers, debug=debug\n                ),\n                # Add FastAPI-specific AsyncExitStackMiddleware for dependencies with\n                # contextvars.\n                # This needs to happen after user middlewares because those create a\n                # new contextvars context copy by using a new AnyIO task group.\n                # The initial part of dependencies with 'yield' is executed in the\n                # FastAPI code, inside all the middlewares. However, the teardown part\n                # (after 'yield') is executed in the AsyncExitStack in this middleware.\n                # If the AsyncExitStack lived outside of the custom middlewares and\n                # contextvars were set in a dependency with 'yield' in that internal\n                # contextvars context, the values would not be available in the\n                # outer context of the AsyncExitStack.\n                # By placing the middleware and the AsyncExitStack here, inside all\n                # user middlewares, the code before and after 'yield' in dependencies\n                # with 'yield' is executed in the same contextvars context. Thus, all values\n                # set in contextvars before 'yield' are still available after 'yield,' as\n                # expected.\n                # Additionally, by having this AsyncExitStack here, after the\n                # ExceptionMiddleware, dependencies can now catch handled exceptions,\n                # e.g. HTTPException, to customize the teardown code (e.g. DB session\n                # rollback).\n                Middleware(AsyncExitStackMiddleware),\n            ]\n        )\n    \n        app = self.router\n        for cls, options in reversed(middleware):\n>           app = cls(app=app, **options)\nE           TypeError: AuthMiddleware() takes no arguments\n\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1015: TypeError"
+      },
+      "teardown": {
+        "duration": 0.005731299999752082,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:19.698990",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671059.6989906,
+            "msecs": 698.9905834197998,
+            "relativeCreated": 9407.687902450562,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:19,698"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/security/test_security.py::test_cors_headers",
+      "lineno": 69,
+      "outcome": "failed",
+      "keywords": [
+        "test_cors_headers",
+        "security",
+        "pytestmark",
+        "test_security.py",
+        "tests/security/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.008039599997573532,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:19.711216",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671059.7112162,
+            "msecs": 711.2162113189697,
+            "relativeCreated": 9419.913530349731,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:19,711"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.010829499995452352,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+          "lineno": 1015,
+          "message": "TypeError: AuthMiddleware() takes no arguments"
+        },
+        "traceback": [
+          {
+            "path": "tests\\security\\test_security.py",
+            "lineno": 73,
+            "message": ""
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 499,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1041,
+            "message": "in get"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 465,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 814,
+            "message": "in request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 901,
+            "message": "in send"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 929,
+            "message": "in _send_handling_auth"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 966,
+            "message": "in _send_handling_redirects"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py",
+            "lineno": 1002,
+            "message": "in _send_single_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 342,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py",
+            "lineno": 339,
+            "message": "in handle_request"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 277,
+            "message": "in call"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 438,
+            "message": "in result"
+          },
+          {
+            "path": "C:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py",
+            "lineno": 390,
+            "message": "in __get_result"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py",
+            "lineno": 217,
+            "message": "in _call_func"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1106,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py",
+            "lineno": 121,
+            "message": "in __call__"
+          },
+          {
+            "path": "..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py",
+            "lineno": 1015,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "@pytest.mark.security\n    def test_cors_headers():\n        \"\"\"Test CORS headers configuration.\"\"\"\n>       response = client.get(\"/api/v1/public\")\n\ntests\\security\\test_security.py:73: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:499: in get\n    return super().get(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1041: in get\n    return self.request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:465: in request\n    return super().request(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:814: in request\n    return self.send(request, auth=auth, follow_redirects=follow_redirects)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:901: in send\n    response = self._send_handling_auth(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:929: in _send_handling_auth\n    response = self._send_handling_redirects(\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:966: in _send_handling_redirects\n    response = self._send_single_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\httpx\\_client.py:1002: in _send_single_request\n    response = transport.handle_request(request)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:342: in handle_request\n    raise exc\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\testclient.py:339: in handle_request\n    portal.call(self.app, scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:277: in call\n    return cast(T_Retval, self.start_task_soon(func, *args).result())\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:438: in result\n    return self.__get_result()\nC:\\Program Files\\Python310\\lib\\concurrent\\futures\\_base.py:390: in __get_result\n    raise self._exception\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\anyio\\from_thread.py:217: in _call_func\n    retval = await retval\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1106: in __call__\n    await super().__call__(scope, receive, send)\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\starlette\\applications.py:121: in __call__\n    self.middleware_stack = self.build_middleware_stack()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = <fastapi.applications.FastAPI object at 0x000001BD3065CBB0>\n\n    def build_middleware_stack(self) -> ASGIApp:\n        # Duplicate/override from Starlette to add AsyncExitStackMiddleware\n        # inside of ExceptionMiddleware, inside of custom user middlewares\n        debug = self.debug\n        error_handler = None\n        exception_handlers = {}\n    \n        for key, value in self.exception_handlers.items():\n            if key in (500, Exception):\n                error_handler = value\n            else:\n                exception_handlers[key] = value\n    \n        middleware = (\n            [Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug)]\n            + self.user_middleware\n            + [\n                Middleware(\n                    ExceptionMiddleware, handlers=exception_handlers, debug=debug\n                ),\n                # Add FastAPI-specific AsyncExitStackMiddleware for dependencies with\n                # contextvars.\n                # This needs to happen after user middlewares because those create a\n                # new contextvars context copy by using a new AnyIO task group.\n                # The initial part of dependencies with 'yield' is executed in the\n                # FastAPI code, inside all the middlewares. However, the teardown part\n                # (after 'yield') is executed in the AsyncExitStack in this middleware.\n                # If the AsyncExitStack lived outside of the custom middlewares and\n                # contextvars were set in a dependency with 'yield' in that internal\n                # contextvars context, the values would not be available in the\n                # outer context of the AsyncExitStack.\n                # By placing the middleware and the AsyncExitStack here, inside all\n                # user middlewares, the code before and after 'yield' in dependencies\n                # with 'yield' is executed in the same contextvars context. Thus, all values\n                # set in contextvars before 'yield' are still available after 'yield,' as\n                # expected.\n                # Additionally, by having this AsyncExitStack here, after the\n                # ExceptionMiddleware, dependencies can now catch handled exceptions,\n                # e.g. HTTPException, to customize the teardown code (e.g. DB session\n                # rollback).\n                Middleware(AsyncExitStackMiddleware),\n            ]\n        )\n    \n        app = self.router\n        for cls, options in reversed(middleware):\n>           app = cls(app=app, **options)\nE           TypeError: AuthMiddleware() takes no arguments\n\n..\\AppData\\Roaming\\Python\\Python310\\site-packages\\fastapi\\applications.py:1015: TypeError"
+      },
+      "teardown": {
+        "duration": 0.004501999996136874,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:20.155474",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671060.1554747,
+            "msecs": 155.47466278076172,
+            "relativeCreated": 9864.171981811523,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:20,155"
+          }
+        ]
+      }
+    }
+  ],
+  "suite_name": "security",
+  "timestamp": "20250507_192414",
+  "exit_code": 1
+}

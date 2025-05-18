@@ -1,0 +1,31 @@
+Here's the deal.
+I want to become a lawyer.
+Not only do I want to become a lawyer I want to become a lawyer without going to school
+I want to work through all of the knowledge, and practicing, and doing practice tests, and the reading, and all of the work to become a lawyer in my free time.
+This folder structure will represent that will house all of this information, all of my research, all of my notes, all of my progress, all of the systems, all of the diagrams, all of the information necessary for me to know and understand and you are going to compile all of these documents for me in such a way that it is conducive to my learning.
+Before we do that we need to figure out what all goes into this process.
+I want you to create a .research folder for this purpose with many other folders with the aim of doing research. Figuring out all of the information that must be gathered, what the requirements are to become a lawyer and then breaking everything down into their domains and then all of the resources that should be referenced within those domains to build out the modules we will build out for me to become a lawyer.
+The .research folder will house all of the raw documents we will work from to create the checklists in our .jobs folder which will work to create a checklist of items we must create in our actual project to build out the cirriculum.
+Please proceed.
+
+You should work to stem files into other files. Make broad use of linking from document to document.
+Create more detailed breakdowns for all elements.
+Develop systems of evaluation, practice materials, use cases, arguments and counter arguments.
+
+Build out assessment tools and progress tracking.
+
+Next I want you to create the following folders:
+.errors - Deposit any errors you encounter as checklist items
+.experiments - For explaining all of the jobs you complete in documentation and pseudocode
+.jobs - the core folder which will house all of the job checklists we will work through
+.completed - Where any of these files go when we have completed the checklist
+.research - Where we put any notes or documents about any of the jobs so we can further plan out before execution
+.prompts - where we house all of the prompts we should use during the process of developing out all of our jobs.
+.tests - Where we place checklists for testing purposes
+.qa - Where we put quality assurance test checklists
+I want you to start by creating jobs based on your understanding of our system.  I want you to work through creating those checklists to fully cover our system and requirements.
+
+While you are working through the elements each domain should have subdomains and so on and so forth.
+We need to work through all of these elements to work through the process and evaluate all of the elements and determine what needs to be further documented.
+If we are including any information from sources we should reference these sources.
+If a book is referenced reference the isbn.

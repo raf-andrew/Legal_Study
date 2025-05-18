@@ -1,0 +1,1089 @@
+{
+  "created": 1746721156.2442958,
+  "duration": 1.0626957416534424,
+  "exitcode": 1,
+  "root": "C:\\Users\\ajame\\Legal_Study",
+  "environment": {},
+  "summary": {
+    "passed": 12,
+    "failed": 1,
+    "total": 13,
+    "collected": 13
+  },
+  "collectors": [
+    {
+      "nodeid": "",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/unit/__init__.py",
+          "type": "Package"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/unit/test_api_documentation.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/unit/test_api_documentation.py::test_openapi_spec_exists",
+          "type": "Function",
+          "lineno": 5
+        },
+        {
+          "nodeid": "tests/unit/test_api_documentation.py::test_openapi_spec_valid",
+          "type": "Function",
+          "lineno": 10
+        },
+        {
+          "nodeid": "tests/unit/test_api_documentation.py::test_api_documentation_complete",
+          "type": "Function",
+          "lineno": 19
+        },
+        {
+          "nodeid": "tests/unit/test_api_documentation.py::test_api_versioning",
+          "type": "Function",
+          "lineno": 32
+        },
+        {
+          "nodeid": "tests/unit/test_api_documentation.py::test_api_security",
+          "type": "Function",
+          "lineno": 40
+        },
+        {
+          "nodeid": "tests/unit/test_api_documentation.py::test_api_error_handling",
+          "type": "Function",
+          "lineno": 48
+        },
+        {
+          "nodeid": "tests/unit/test_api_documentation.py::test_api_health_check",
+          "type": "Function",
+          "lineno": 56
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/unit/test_setup.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/unit/test_setup.py::test_python_version",
+          "type": "Function",
+          "lineno": 4
+        },
+        {
+          "nodeid": "tests/unit/test_setup.py::test_pytest_working",
+          "type": "Function",
+          "lineno": 8
+        },
+        {
+          "nodeid": "tests/unit/test_setup.py::test_env_configuration",
+          "type": "Function",
+          "lineno": 12
+        },
+        {
+          "nodeid": "tests/unit/test_setup.py::test_unit_marker",
+          "type": "Function",
+          "lineno": 16
+        },
+        {
+          "nodeid": "tests/unit/test_setup.py::test_integration_marker",
+          "type": "Function",
+          "lineno": 21
+        },
+        {
+          "nodeid": "tests/unit/test_setup.py::test_security_marker",
+          "type": "Function",
+          "lineno": 26
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/unit/__init__.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/unit/test_api_documentation.py",
+          "type": "Module"
+        },
+        {
+          "nodeid": "tests/unit/test_setup.py",
+          "type": "Module"
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "nodeid": "tests/unit/test_setup.py::test_python_version",
+      "lineno": 4,
+      "outcome": "passed",
+      "keywords": [
+        "test_python_version",
+        "test_setup.py",
+        "tests/unit/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.00983350002206862,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 09:19:15.495303",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.4953039,
+            "msecs": 495.3038692474365,
+            "relativeCreated": 7581.0418128967285,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,495"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0005762000218965113,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.002056299999821931,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 09:19:15.500611",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.5006113,
+            "msecs": 500.6113052368164,
+            "relativeCreated": 7586.349248886108,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,500"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/unit/test_setup.py::test_security_marker",
+      "lineno": 26,
+      "outcome": "passed",
+      "keywords": [
+        "test_security_marker",
+        "security",
+        "pytestmark",
+        "test_setup.py",
+        "tests/unit/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.004259999986970797,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 09:19:15.508740",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.5087404,
+            "msecs": 508.7404251098633,
+            "relativeCreated": 7594.478368759155,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,508"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.000596800004132092,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0016330999787896872,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 09:19:15.511136",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.5111363,
+            "msecs": 511.1362934112549,
+            "relativeCreated": 7596.874237060547,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,511"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/unit/test_setup.py::test_integration_marker",
+      "lineno": 21,
+      "outcome": "passed",
+      "keywords": [
+        "test_integration_marker",
+        "integration",
+        "pytestmark",
+        "test_setup.py",
+        "tests/unit/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0034998999908566475,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 09:19:15.515750",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.5157506,
+            "msecs": 515.7506465911865,
+            "relativeCreated": 7601.4885902404785,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,515"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0007907999970484525,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0016307999903801829,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 09:19:15.520011",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.5200112,
+            "msecs": 520.0111865997314,
+            "relativeCreated": 7605.749130249023,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,520"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/unit/test_setup.py::test_unit_marker",
+      "lineno": 16,
+      "outcome": "passed",
+      "keywords": [
+        "test_unit_marker",
+        "unit",
+        "pytestmark",
+        "test_setup.py",
+        "tests/unit/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.003133299993351102,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 09:19:15.524044",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.524044,
+            "msecs": 524.0440368652344,
+            "relativeCreated": 7609.781980514526,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,524"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0007932999869808555,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0013662000128533691,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 09:19:15.528044",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.5280445,
+            "msecs": 528.0444622039795,
+            "relativeCreated": 7613.7824058532715,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,528"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/unit/test_setup.py::test_pytest_working",
+      "lineno": 8,
+      "outcome": "passed",
+      "keywords": [
+        "test_pytest_working",
+        "test_setup.py",
+        "tests/unit/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.00371879999875091,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 09:19:15.532045",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.5320456,
+            "msecs": 532.0456027984619,
+            "relativeCreated": 7617.783546447754,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,532"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0006076999998185784,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.001703000016277656,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 09:19:15.535553",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.5355532,
+            "msecs": 535.5532169342041,
+            "relativeCreated": 7621.291160583496,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,535"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/unit/test_setup.py::test_env_configuration",
+      "lineno": 12,
+      "outcome": "passed",
+      "keywords": [
+        "test_env_configuration",
+        "test_setup.py",
+        "tests/unit/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.005284199985908344,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 09:19:15.542080",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.5420802,
+            "msecs": 542.0801639556885,
+            "relativeCreated": 7627.8181076049805,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,542"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0007542000093962997,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0018563000194262713,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 09:19:15.546817",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.5468178,
+            "msecs": 546.8177795410156,
+            "relativeCreated": 7632.555723190308,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,546"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/unit/test_api_documentation.py::test_api_error_handling",
+      "lineno": 48,
+      "outcome": "passed",
+      "keywords": [
+        "test_api_error_handling",
+        "test_api_documentation.py",
+        "tests/unit/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.003320399991935119,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 09:19:15.551050",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.55105,
+            "msecs": 551.0499477386475,
+            "relativeCreated": 7636.787891387939,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,551"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.054571300017414615,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.001731700001982972,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 09:19:15.609093",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.6090937,
+            "msecs": 609.0936660766602,
+            "relativeCreated": 7694.831609725952,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,609"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/unit/test_api_documentation.py::test_openapi_spec_exists",
+      "lineno": 5,
+      "outcome": "passed",
+      "keywords": [
+        "test_openapi_spec_exists",
+        "test_api_documentation.py",
+        "tests/unit/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.00294550001854077,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 09:19:15.613115",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.6131153,
+            "msecs": 613.1153106689453,
+            "relativeCreated": 7698.853254318237,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,613"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0007272999791894108,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.001858700008597225,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 09:19:15.616122",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.616123,
+            "msecs": 616.1229610443115,
+            "relativeCreated": 7701.8609046936035,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,616"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/unit/test_api_documentation.py::test_openapi_spec_valid",
+      "lineno": 10,
+      "outcome": "passed",
+      "keywords": [
+        "test_openapi_spec_valid",
+        "test_api_documentation.py",
+        "tests/unit/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.002826099982485175,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 09:19:15.620864",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.6208649,
+            "msecs": 620.8648681640625,
+            "relativeCreated": 7706.6028118133545,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,620"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0512901000038255,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.001552000001538545,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 09:19:15.675038",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.6750386,
+            "msecs": 675.0385761260986,
+            "relativeCreated": 7760.776519775391,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,675"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/unit/test_api_documentation.py::test_api_versioning",
+      "lineno": 32,
+      "outcome": "passed",
+      "keywords": [
+        "test_api_versioning",
+        "test_api_documentation.py",
+        "tests/unit/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.004119200020795688,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 09:19:15.680058",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.680059,
+            "msecs": 680.0589561462402,
+            "relativeCreated": 7765.796899795532,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,680"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.04766869999002665,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0015944999759085476,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 09:19:15.730151",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.7301517,
+            "msecs": 730.1516532897949,
+            "relativeCreated": 7815.889596939087,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,730"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/unit/test_api_documentation.py::test_api_documentation_complete",
+      "lineno": 19,
+      "outcome": "passed",
+      "keywords": [
+        "test_api_documentation_complete",
+        "test_api_documentation.py",
+        "tests/unit/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.003444799978751689,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 09:19:15.735118",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.7351182,
+            "msecs": 735.1181507110596,
+            "relativeCreated": 7820.856094360352,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,735"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0012614000006578863,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0010177000076510012,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 09:19:15.738594",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.7385943,
+            "msecs": 738.5942935943604,
+            "relativeCreated": 7824.332237243652,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,738"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/unit/test_api_documentation.py::test_api_health_check",
+      "lineno": 56,
+      "outcome": "passed",
+      "keywords": [
+        "test_api_health_check",
+        "test_api_documentation.py",
+        "tests/unit/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.004031299991765991,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 09:19:15.743601",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.743601,
+            "msecs": 743.6010837554932,
+            "relativeCreated": 7829.339027404785,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,743"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.038812699989648536,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0024019000120460987,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 09:19:15.785662",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.7856622,
+            "msecs": 785.6621742248535,
+            "relativeCreated": 7871.4001178741455,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,785"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/unit/test_api_documentation.py::test_api_security",
+      "lineno": 40,
+      "outcome": "failed",
+      "keywords": [
+        "test_api_security",
+        "test_api_documentation.py",
+        "tests/unit/__init__.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0030919999990146607,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 09:19:15.791049",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746721155.79105,
+            "msecs": 791.0499572753906,
+            "relativeCreated": 7876.787900924683,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:15,791"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.05237670001224615,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\unit\\test_api_documentation.py",
+          "lineno": 46,
+          "message": "AssertionError: Security schemes not specified\nassert 'securitySchemes' in {'schemas': {'Comment': {'properties': {'content': {'type': 'string'}, 'created_at': {'format': 'date-time', 'type': 'string'}, 'id': {'type': 'string'}}, 'type': 'object'}, 'Error': {'properties': {'detail': {'description': 'Error message', 'type': 'string'}}, 'type': 'object'}, 'ErrorResponse': {'properties': {'error': {'type': 'string'}, 'message': {'type': 'string'}, 'timestamp': {'format': 'date-time', 'type': 'string'}}, 'type': 'object'}, 'HealthResponse': {'properties': {'status': {'enum': ['healthy'], 'type': 'string'}, 'timestamp': {'format': 'date-time', 'type': 'string'}, 'version': {'type': 'string'}}, 'type': 'object'}, ...}}\n +  where {'schemas': {'Comment': {'properties': {'content': {'type': 'string'}, 'created_at': {'format': 'date-time', 'type': 'string'}, 'id': {'type': 'string'}}, 'type': 'object'}, 'Error': {'properties': {'detail': {'description': 'Error message', 'type': 'string'}}, 'type': 'object'}, 'ErrorResponse': {'properties': {'error': {'type': 'string'}, 'message': {'type': 'string'}, 'timestamp': {'format': 'date-time', 'type': 'string'}}, 'type': 'object'}, 'HealthResponse': {'properties': {'status': {'enum': ['healthy'], 'type': 'string'}, 'timestamp': {'format': 'date-time', 'type': 'string'}, 'version': {'type': 'string'}}, 'type': 'object'}, ...}} = <built-in method get of dict object at 0x0000028BDB0B25C0>('components', {})\n +    where <built-in method get of dict object at 0x0000028BDB0B25C0> = {'components': {'schemas': {'Comment': {'properties': {'content': {'type': 'string'}, 'created_at': {'format': 'date-time', 'type': 'string'}, 'id': {'type': 'string'}}, 'type': 'object'}, 'Error': {'properties': {'detail': {'description': 'Error message', 'type': 'string'}}, 'type': 'object'}, 'ErrorResponse': {'properties': {'error': {'type': 'string'}, 'message': {'type': 'string'}, 'timestamp': {'format': 'date-time', 'type': 'string'}}, 'type': 'object'}, 'HealthResponse': {'properties': {'status': {'enum': [...], 'type': 'string'}, 'timestamp': {'format': 'date-time', 'type': 'string'}, 'version': {'type': 'string'}}, 'type': 'object'}, ...}}, 'info': {'description': 'API for Legal Study application', 'title': 'Legal Study API', 'version': '1.0.0'}, 'openapi': '3.0.0', 'paths': {'/api/v1/comment': {'post': {'description': 'Add a comment to a document', 'requestBody': {'content': {'application/json': {...}}, 'required': True}, 'responses': {'200': {'description': 'Comment added'}, '400': {'description': 'Invalid input'}, '401': {'description': 'Unauthorized'}}, 'security': [{'BearerAuth': []}], ...}}, '/api/v1/error': {'get': {'description': 'Endpoint to test error handling', 'responses': {'500': {'content': {...}, 'description': 'Internal server error'}}, 'summary': 'Test error endpoint'}}, '/api/v1/protected': {'get': {'description': 'Endpoint that requires authentication', 'responses': {'200': {'description': 'Access granted'}, '401': {'description': 'Unauthorized'}, '403': {'description': 'Forbidden'}}, 'security': [{'BearerAuth': []}], 'summary': 'Protected endpoint'}}, '/api/v1/search': {'post': {'description': 'Search for legal documents', 'requestBody': {'content': {'application/json': {...}}, 'required': True}, 'responses': {'200': {'description': 'Search results'}, '400': {'description': 'Invalid input'}, '401': {'description': 'Unauthorized'}}, 'summary': 'Search endpoint'}}, ...}, ...}.get"
+        },
+        "traceback": [
+          {
+            "path": "tests\\unit\\test_api_documentation.py",
+            "lineno": 46,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_api_security():\n        \"\"\"Test that API security is properly documented.\"\"\"\n        api_dir = Path(__file__).parent.parent.parent / '.api'\n        with open(api_dir / 'openapi.yaml', 'r') as f:\n            spec = yaml.safe_load(f)\n>           assert 'securitySchemes' in spec.get('components', {}), \"Security schemes not specified\"\nE           AssertionError: Security schemes not specified\nE           assert 'securitySchemes' in {'schemas': {'Comment': {'properties': {'content': {'type': 'string'}, 'created_at': {'format': 'date-time', 'type': 'string'}, 'id': {'type': 'string'}}, 'type': 'object'}, 'Error': {'properties': {'detail': {'description': 'Error message', 'type': 'string'}}, 'type': 'object'}, 'ErrorResponse': {'properties': {'error': {'type': 'string'}, 'message': {'type': 'string'}, 'timestamp': {'format': 'date-time', 'type': 'string'}}, 'type': 'object'}, 'HealthResponse': {'properties': {'status': {'enum': ['healthy'], 'type': 'string'}, 'timestamp': {'format': 'date-time', 'type': 'string'}, 'version': {'type': 'string'}}, 'type': 'object'}, ...}}\nE            +  where {'schemas': {'Comment': {'properties': {'content': {'type': 'string'}, 'created_at': {'format': 'date-time', 'type': 'string'}, 'id': {'type': 'string'}}, 'type': 'object'}, 'Error': {'properties': {'detail': {'description': 'Error message', 'type': 'string'}}, 'type': 'object'}, 'ErrorResponse': {'properties': {'error': {'type': 'string'}, 'message': {'type': 'string'}, 'timestamp': {'format': 'date-time', 'type': 'string'}}, 'type': 'object'}, 'HealthResponse': {'properties': {'status': {'enum': ['healthy'], 'type': 'string'}, 'timestamp': {'format': 'date-time', 'type': 'string'}, 'version': {'type': 'string'}}, 'type': 'object'}, ...}} = <built-in method get of dict object at 0x0000028BDB0B25C0>('components', {})\nE            +    where <built-in method get of dict object at 0x0000028BDB0B25C0> = {'components': {'schemas': {'Comment': {'properties': {'content': {'type': 'string'}, 'created_at': {'format': 'date-time', 'type': 'string'}, 'id': {'type': 'string'}}, 'type': 'object'}, 'Error': {'properties': {'detail': {'description': 'Error message', 'type': 'string'}}, 'type': 'object'}, 'ErrorResponse': {'properties': {'error': {'type': 'string'}, 'message': {'type': 'string'}, 'timestamp': {'format': 'date-time', 'type': 'string'}}, 'type': 'object'}, 'HealthResponse': {'properties': {'status': {'enum': [...], 'type': 'string'}, 'timestamp': {'format': 'date-time', 'type': 'string'}, 'version': {'type': 'string'}}, 'type': 'object'}, ...}}, 'info': {'description': 'API for Legal Study application', 'title': 'Legal Study API', 'version': '1.0.0'}, 'openapi': '3.0.0', 'paths': {'/api/v1/comment': {'post': {'description': 'Add a comment to a document', 'requestBody': {'content': {'application/json': {...}}, 'required': True}, 'responses': {'200': {'description': 'Comment added'}, '400': {'description': 'Invalid input'}, '401': {'description': 'Unauthorized'}}, 'security': [{'BearerAuth': []}], ...}}, '/api/v1/error': {'get': {'description': 'Endpoint to test error handling', 'responses': {'500': {'content': {...}, 'description': 'Internal server error'}}, 'summary': 'Test error endpoint'}}, '/api/v1/protected': {'get': {'description': 'Endpoint that requires authentication', 'responses': {'200': {'description': 'Access granted'}, '401': {'description': 'Unauthorized'}, '403': {'description': 'Forbidden'}}, 'security': [{'BearerAuth': []}], 'summary': 'Protected endpoint'}}, '/api/v1/search': {'post': {'description': 'Search for legal documents', 'requestBody': {'content': {'application/json': {...}}, 'required': True}, 'responses': {'200': {'description': 'Search results'}, '400': {'description': 'Invalid input'}, '401': {'description': 'Unauthorized'}}, 'summary': 'Search endpoint'}}, ...}, ...}.get\n\ntests\\unit\\test_api_documentation.py:46: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.007215499994345009,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 09:19:16.194995",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746721156.1963904,
+            "msecs": 196.39039039611816,
+            "relativeCreated": 8282.12833404541,
+            "thread": 18384,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 17072,
+            "asctime": "2025-05-08 09:19:16,196"
+          }
+        ]
+      }
+    }
+  ],
+  "suite_name": "unit",
+  "timestamp": "20250508_091908",
+  "exit_code": 1
+}

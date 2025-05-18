@@ -1,0 +1,60 @@
+@startuml Development Workflow
+
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam activityBorderColor #666666
+skinparam activityBackgroundColor #f5f5f5
+skinparam activityDiamondBackgroundColor #f5f5f5
+
+title Development and Deployment Workflow
+
+start
+:Developer creates/updates code;
+:Commit changes to GitHub;
+
+if (Changes require review?) then (yes)
+  :Create Pull Request;
+  :Code Review;
+  if (Review approved?) then (yes)
+    :Merge to main branch;
+  else (no)
+    :Request changes;
+    backward:Update code;
+  endif
+else (no)
+  :Direct commit to main;
+endif
+
+:Trigger CI/CD Pipeline;
+
+partition "Build and Test" {
+  :Build container image;
+  :Run unit tests;
+  :Run integration tests;
+  if (Tests pass?) then (yes)
+    :Generate test reports;
+  else (no)
+    :Notify developers;
+    stop
+  endif
+}
+
+partition "Deployment" {
+  :Push to container registry;
+  :Update deployment configuration;
+  :Deploy to staging;
+  :Run smoke tests;
+  if (Smoke tests pass?) then (yes)
+    :Deploy to production;
+  else (no)
+    :Rollback deployment;
+    stop
+  endif
+}
+
+:Monitor deployment;
+:Verify system health;
+
+stop
+
+@enduml

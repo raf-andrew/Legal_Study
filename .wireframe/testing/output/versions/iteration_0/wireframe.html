@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Wireframe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: #f5f5f5;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Test Wireframe</h1>
+            <p>A simple wireframe for testing the refinement process</p>
+        </header>
+        <main class="content">
+            <div class="card">
+                <h2>Card 1</h2>
+                <p>This is the first card in our test wireframe.</p>
+            </div>
+            <div class="card">
+                <h2>Card 2</h2>
+                <p>This is the second card in our test wireframe.</p>
+            </div>
+            <div class="card">
+                <h2>Card 3</h2>
+                <p>This is the third card in our test wireframe.</p>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="8" failures="0" skipped="0" tests="8" time="1.822" timestamp="2025-05-08T12:04:58.880407" hostname="laptop-2"><testcase classname="tests.authentication.test_auth_complete" name="test_security_measures" time="0.026"><error message="failed on setup with &quot;TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given&quot;">db = &lt;sqlalchemy.orm.session.Session object at 0x0000024D6B299000&gt;
+
+    @pytest.fixture(scope="function")
+    def client(db):
+        """Create a test client for each test function"""
+        def override_get_db():
+            try:
+                yield db
+            finally:
+                db.rollback()
+    
+        app.dependency_overrides[get_db] = override_get_db
+&gt;       with TestClient(app) as test_client:
+
+tests\conftest.py:168: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:745: in __enter__
+    portal.call(self.wait_startup)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:445: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:774: in wait_startup
+    message = await receive()
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:771: in receive
+    self.task.result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:438: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:761: in lifespan
+    await self.app(scope, self.stream_receive.receive, self.stream_send.send)
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;starlette.middleware.errors.ServerErrorMiddleware object at 0x0000024D6B378190&gt;
+scope = {'app': &lt;fastapi.applications.FastAPI object at 0x0000024D6B094DF0&gt;, 'state': {}, 'type': 'lifespan'}
+receive = &lt;bound method StapledObjectStream.receive of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjec..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+send = &lt;bound method StapledObjectStream.send of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjectSt..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+
+    async def __call__(self, scope: Scope, receive: Receive, send: Send) -&gt; None:
+        if scope["type"] != "http":
+&gt;           await self.app(scope, receive, send)
+E           TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given
+
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:149: TypeError</error></testcase><testcase classname="tests.authentication.test_auth_complete" name="test_token_refresh" time="0.007"><error message="failed on setup with &quot;TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given&quot;">db = &lt;sqlalchemy.orm.session.Session object at 0x0000024D6B299000&gt;
+
+    @pytest.fixture(scope="function")
+    def client(db):
+        """Create a test client for each test function"""
+        def override_get_db():
+            try:
+                yield db
+            finally:
+                db.rollback()
+    
+        app.dependency_overrides[get_db] = override_get_db
+&gt;       with TestClient(app) as test_client:
+
+tests\conftest.py:168: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:745: in __enter__
+    portal.call(self.wait_startup)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:445: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:774: in wait_startup
+    message = await receive()
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:771: in receive
+    self.task.result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:438: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:761: in lifespan
+    await self.app(scope, self.stream_receive.receive, self.stream_send.send)
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;starlette.middleware.errors.ServerErrorMiddleware object at 0x0000024D6B378190&gt;
+scope = {'app': &lt;fastapi.applications.FastAPI object at 0x0000024D6B094DF0&gt;, 'state': {}, 'type': 'lifespan'}
+receive = &lt;bound method StapledObjectStream.receive of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjec..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+send = &lt;bound method StapledObjectStream.send of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjectSt..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+
+    async def __call__(self, scope: Scope, receive: Receive, send: Send) -&gt; None:
+        if scope["type"] != "http":
+&gt;           await self.app(scope, receive, send)
+E           TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given
+
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:149: TypeError</error></testcase><testcase classname="tests.authentication.test_auth_complete" name="test_session_management" time="0.008"><error message="failed on setup with &quot;TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given&quot;">db = &lt;sqlalchemy.orm.session.Session object at 0x0000024D6B299000&gt;
+
+    @pytest.fixture(scope="function")
+    def client(db):
+        """Create a test client for each test function"""
+        def override_get_db():
+            try:
+                yield db
+            finally:
+                db.rollback()
+    
+        app.dependency_overrides[get_db] = override_get_db
+&gt;       with TestClient(app) as test_client:
+
+tests\conftest.py:168: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:745: in __enter__
+    portal.call(self.wait_startup)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:445: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:774: in wait_startup
+    message = await receive()
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:771: in receive
+    self.task.result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:438: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:761: in lifespan
+    await self.app(scope, self.stream_receive.receive, self.stream_send.send)
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;starlette.middleware.errors.ServerErrorMiddleware object at 0x0000024D6B378190&gt;
+scope = {'app': &lt;fastapi.applications.FastAPI object at 0x0000024D6B094DF0&gt;, 'state': {}, 'type': 'lifespan'}
+receive = &lt;bound method StapledObjectStream.receive of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjec..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+send = &lt;bound method StapledObjectStream.send of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjectSt..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+
+    async def __call__(self, scope: Scope, receive: Receive, send: Send) -&gt; None:
+        if scope["type"] != "http":
+&gt;           await self.app(scope, receive, send)
+E           TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given
+
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:149: TypeError</error></testcase><testcase classname="tests.authentication.test_auth_complete" name="test_error_handling" time="0.007"><error message="failed on setup with &quot;TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given&quot;">db = &lt;sqlalchemy.orm.session.Session object at 0x0000024D6B299000&gt;
+
+    @pytest.fixture(scope="function")
+    def client(db):
+        """Create a test client for each test function"""
+        def override_get_db():
+            try:
+                yield db
+            finally:
+                db.rollback()
+    
+        app.dependency_overrides[get_db] = override_get_db
+&gt;       with TestClient(app) as test_client:
+
+tests\conftest.py:168: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:745: in __enter__
+    portal.call(self.wait_startup)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:445: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:774: in wait_startup
+    message = await receive()
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:771: in receive
+    self.task.result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:438: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:761: in lifespan
+    await self.app(scope, self.stream_receive.receive, self.stream_send.send)
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;starlette.middleware.errors.ServerErrorMiddleware object at 0x0000024D6B378190&gt;
+scope = {'app': &lt;fastapi.applications.FastAPI object at 0x0000024D6B094DF0&gt;, 'state': {}, 'type': 'lifespan'}
+receive = &lt;bound method StapledObjectStream.receive of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjec..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+send = &lt;bound method StapledObjectStream.send of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjectSt..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+
+    async def __call__(self, scope: Scope, receive: Receive, send: Send) -&gt; None:
+        if scope["type"] != "http":
+&gt;           await self.app(scope, receive, send)
+E           TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given
+
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:149: TypeError</error></testcase><testcase classname="tests.authentication.test_auth_complete" name="test_user_registration" time="0.007"><error message="failed on setup with &quot;TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given&quot;">db = &lt;sqlalchemy.orm.session.Session object at 0x0000024D6B299000&gt;
+
+    @pytest.fixture(scope="function")
+    def client(db):
+        """Create a test client for each test function"""
+        def override_get_db():
+            try:
+                yield db
+            finally:
+                db.rollback()
+    
+        app.dependency_overrides[get_db] = override_get_db
+&gt;       with TestClient(app) as test_client:
+
+tests\conftest.py:168: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:745: in __enter__
+    portal.call(self.wait_startup)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:445: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:774: in wait_startup
+    message = await receive()
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:771: in receive
+    self.task.result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:438: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:761: in lifespan
+    await self.app(scope, self.stream_receive.receive, self.stream_send.send)
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;starlette.middleware.errors.ServerErrorMiddleware object at 0x0000024D6B378190&gt;
+scope = {'app': &lt;fastapi.applications.FastAPI object at 0x0000024D6B094DF0&gt;, 'state': {}, 'type': 'lifespan'}
+receive = &lt;bound method StapledObjectStream.receive of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjec..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+send = &lt;bound method StapledObjectStream.send of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjectSt..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+
+    async def __call__(self, scope: Scope, receive: Receive, send: Send) -&gt; None:
+        if scope["type"] != "http":
+&gt;           await self.app(scope, receive, send)
+E           TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given
+
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:149: TypeError</error></testcase><testcase classname="tests.authentication.test_auth_complete" name="test_password_reset" time="0.007"><error message="failed on setup with &quot;TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given&quot;">db = &lt;sqlalchemy.orm.session.Session object at 0x0000024D6B299000&gt;
+
+    @pytest.fixture(scope="function")
+    def client(db):
+        """Create a test client for each test function"""
+        def override_get_db():
+            try:
+                yield db
+            finally:
+                db.rollback()
+    
+        app.dependency_overrides[get_db] = override_get_db
+&gt;       with TestClient(app) as test_client:
+
+tests\conftest.py:168: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:745: in __enter__
+    portal.call(self.wait_startup)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:445: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:774: in wait_startup
+    message = await receive()
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:771: in receive
+    self.task.result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:438: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:761: in lifespan
+    await self.app(scope, self.stream_receive.receive, self.stream_send.send)
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;starlette.middleware.errors.ServerErrorMiddleware object at 0x0000024D6B378190&gt;
+scope = {'app': &lt;fastapi.applications.FastAPI object at 0x0000024D6B094DF0&gt;, 'state': {}, 'type': 'lifespan'}
+receive = &lt;bound method StapledObjectStream.receive of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjec..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+send = &lt;bound method StapledObjectStream.send of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjectSt..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+
+    async def __call__(self, scope: Scope, receive: Receive, send: Send) -&gt; None:
+        if scope["type"] != "http":
+&gt;           await self.app(scope, receive, send)
+E           TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given
+
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:149: TypeError</error></testcase><testcase classname="tests.authentication.test_auth_complete" name="test_documentation" time="0.007"><error message="failed on setup with &quot;TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given&quot;">db = &lt;sqlalchemy.orm.session.Session object at 0x0000024D6B299000&gt;
+
+    @pytest.fixture(scope="function")
+    def client(db):
+        """Create a test client for each test function"""
+        def override_get_db():
+            try:
+                yield db
+            finally:
+                db.rollback()
+    
+        app.dependency_overrides[get_db] = override_get_db
+&gt;       with TestClient(app) as test_client:
+
+tests\conftest.py:168: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:745: in __enter__
+    portal.call(self.wait_startup)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:438: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:774: in wait_startup
+    message = await receive()
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:771: in receive
+    self.task.result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:438: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:761: in lifespan
+    await self.app(scope, self.stream_receive.receive, self.stream_send.send)
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;starlette.middleware.errors.ServerErrorMiddleware object at 0x0000024D6B378190&gt;
+scope = {'app': &lt;fastapi.applications.FastAPI object at 0x0000024D6B094DF0&gt;, 'state': {}, 'type': 'lifespan'}
+receive = &lt;bound method StapledObjectStream.receive of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjec..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+send = &lt;bound method StapledObjectStream.send of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjectSt..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+
+    async def __call__(self, scope: Scope, receive: Receive, send: Send) -&gt; None:
+        if scope["type"] != "http":
+&gt;           await self.app(scope, receive, send)
+E           TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given
+
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:149: TypeError</error></testcase><testcase classname="tests.authentication.test_auth_complete" name="test_user_login" time="0.008"><error message="failed on setup with &quot;TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given&quot;">db = &lt;sqlalchemy.orm.session.Session object at 0x0000024D6B299000&gt;
+
+    @pytest.fixture(scope="function")
+    def client(db):
+        """Create a test client for each test function"""
+        def override_get_db():
+            try:
+                yield db
+            finally:
+                db.rollback()
+    
+        app.dependency_overrides[get_db] = override_get_db
+&gt;       with TestClient(app) as test_client:
+
+tests\conftest.py:168: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:745: in __enter__
+    portal.call(self.wait_startup)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:445: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:774: in wait_startup
+    message = await receive()
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:771: in receive
+    self.task.result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:438: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:761: in lifespan
+    await self.app(scope, self.stream_receive.receive, self.stream_send.send)
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;starlette.middleware.errors.ServerErrorMiddleware object at 0x0000024D6B378190&gt;
+scope = {'app': &lt;fastapi.applications.FastAPI object at 0x0000024D6B094DF0&gt;, 'state': {}, 'type': 'lifespan'}
+receive = &lt;bound method StapledObjectStream.receive of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjec..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+send = &lt;bound method StapledObjectStream.send of StapledObjectStream(send_stream=MemoryObjectSendStream(_state=MemoryObjectSt..._channels=1, open_receive_channels=1, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=False))&gt;
+
+    async def __call__(self, scope: Scope, receive: Receive, send: Send) -&gt; None:
+        if scope["type"] != "http":
+&gt;           await self.app(scope, receive, send)
+E           TypeError: AuthMiddleware.__call__() takes 3 positional arguments but 4 were given
+
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:149: TypeError</error></testcase></testsuite></testsuites>

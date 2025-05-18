@@ -1,0 +1,224 @@
+{
+  "rules": {
+    "file_organization": {
+      "patterns": {
+        "prompts": {
+          "path": ".prompts/{category}/{type}-{number}.md",
+          "categories": ["templates", "research", "analysis", "qa", "study", "practice", "assessment", "management", "jobs"],
+          "types": ["SM", "JM", "QA", "RS", "AN", "ST", "PR", "AS"],
+          "number_format": "\\d{3}"
+        },
+        "jobs": {
+          "path": ".jobs/{status}/{type}-{number}.md",
+          "status": ["active", "completed", "templates", "phases", "management"],
+          "types": ["LR", "RS", "AN", "ST", "PR", "AS"],
+          "number_format": "\\d{3}"
+        },
+        "qa": {
+          "path": ".qa/{type}/{category}_qa.md",
+          "types": ["templates", "reviews", "metrics", "checklists", "reports", "management"],
+          "categories": ["prompt", "job", "research", "analysis", "study", "practice", "assessment"]
+        }
+      }
+    },
+    "content_structure": {
+      "prompts": {
+        "required_sections": [
+          "Metadata",
+          "Purpose",
+          "Context",
+          "Input Requirements",
+          "Output Specifications",
+          "Quality Assurance",
+          "Notes",
+          "Version History"
+        ],
+        "metadata_fields": [
+          "Prompt ID",
+          "Job Type",
+          "Created",
+          "Last Updated",
+          "Version"
+        ]
+      },
+      "jobs": {
+        "required_sections": [
+          "Job Information",
+          "Requirements",
+          "Deliverables",
+          "Dependencies",
+          "Status Tracking",
+          "Quality Assurance",
+          "Notes",
+          "Version History"
+        ],
+        "metadata_fields": [
+          "Job ID",
+          "Job Type",
+          "Created",
+          "Status",
+          "Priority",
+          "Version"
+        ]
+      },
+      "qa": {
+        "required_sections": [
+          "Job Information",
+          "Verification",
+          "Quality Metrics",
+          "Issues Tracking",
+          "Final Assessment",
+          "QA Sign-off"
+        ],
+        "metadata_fields": [
+          "Job ID",
+          "Job Type",
+          "Date",
+          "QA Reviewer",
+          "Status"
+        ]
+      }
+    },
+    "validation": {
+      "prompts": {
+        "id_format": "^[A-Z]{2}-\\d{3}$",
+        "version_format": "^\\d+\\.\\d+\\.\\d+$",
+        "date_format": "^\\d{4}-\\d{2}-\\d{2}$"
+      },
+      "jobs": {
+        "id_format": "^[A-Z]{2}-\\d{3}$",
+        "status_values": ["Not Started", "In Progress", "Under Review", "Completed", "On Hold", "Cancelled"],
+        "priority_values": ["Critical", "High", "Medium", "Low"]
+      },
+      "qa": {
+        "metrics_scale": 10,
+        "required_metrics": ["Completeness", "Accuracy", "Clarity", "Professionalism"],
+        "status_values": ["APPROVED", "REJECTED", "PENDING"]
+      }
+    },
+    "workflow": {
+      "job_lifecycle": {
+        "creation": {
+          "steps": [
+            "Create job file",
+            "Assign ID",
+            "Set initial status",
+            "Define requirements",
+            "Identify dependencies",
+            "Create QA checklist"
+          ]
+        },
+        "execution": {
+          "steps": [
+            "Update status to In Progress",
+            "Execute required prompts",
+            "Document progress",
+            "Update QA checklist",
+            "Move to Under Review when complete"
+          ]
+        },
+        "completion": {
+          "steps": [
+            "Final QA review",
+            "Update status to Completed",
+            "Move to completed directory",
+            "Update related documentation"
+          ]
+        }
+      },
+      "prompt_execution": {
+        "steps": [
+          "Select appropriate prompt",
+          "Verify input requirements",
+          "Execute prompt",
+          "Document output",
+          "Update QA checklist",
+          "Record version history"
+        ]
+      },
+      "qa_process": {
+        "steps": [
+          "Initial review",
+          "Technical review",
+          "Content review",
+          "Final assessment",
+          "Sign-off"
+        ]
+      }
+    },
+    "integration": {
+      "prompt_job": {
+        "rules": [
+          "Each job must have at least one associated prompt",
+          "Prompts must be properly categorized",
+          "Prompt execution must be documented",
+          "Results must be verified"
+        ]
+      },
+      "job_qa": {
+        "rules": [
+          "Each job must have a QA checklist",
+          "QA process must be followed",
+          "Issues must be tracked",
+          "Final assessment required"
+        ]
+      },
+      "documentation": {
+        "rules": [
+          "All changes must be documented",
+          "Version history must be maintained",
+          "Related files must be updated",
+          "Backup must be created"
+        ]
+      }
+    },
+    "automation": {
+      "file_creation": {
+        "templates": {
+          "prompt": ".prompts/templates/prompt_template.md",
+          "job": ".jobs/templates/job_template.md",
+          "qa": ".qa/templates/qa_template.md"
+        },
+        "validation": {
+          "check_id_format": true,
+          "verify_required_sections": true,
+          "validate_metadata": true
+        }
+      },
+      "workflow": {
+        "status_updates": {
+          "track_changes": true,
+          "update_related_files": true,
+          "notify_dependencies": true
+        },
+        "qa_process": {
+          "auto_generate_checklist": true,
+          "track_metrics": true,
+          "generate_reports": true
+        }
+      }
+    },
+    "backup": {
+      "frequency": "daily",
+      "retention": 7,
+      "locations": [".backup"],
+      "verification": {
+        "check_integrity": true,
+        "validate_structure": true,
+        "verify_content": true
+      }
+    },
+    "security": {
+      "access": {
+        "restrict_sensitive": true,
+        "audit_trail": true,
+        "version_control": true
+      },
+      "data": {
+        "encryption": true,
+        "backup": true,
+        "verification": true
+      }
+    }
+  }
+} 

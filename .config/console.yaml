@@ -1,0 +1,194 @@
+# General settings
+general:
+  version: 1.0.0
+  environment: development
+  debug: false
+  log_level: INFO
+  log_file: .logs/console.log
+  log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  log_retention: 7
+  log_rotation: daily
+  log_compression: true
+  log_max_size: 10MB
+  log_max_files: 10
+
+# Check settings
+checks:
+  enabled:
+    - directories
+    - configurations
+    - services
+    - security
+    - monitoring
+  required:
+    directories:
+      - .controls
+      - .config
+      - .logs
+      - .tests
+      - .docs
+    configurations:
+      - console.yaml
+      - security.yaml
+      - monitoring.yaml
+    services:
+      - api
+      - database
+      - cache
+      - queue
+    security:
+      - authentication
+      - authorization
+      - encryption
+      - validation
+    monitoring:
+      - metrics
+      - logs
+      - alerts
+      - dashboards
+  validation:
+    directories:
+      exists: true
+      readable: true
+      writable: true
+    configurations:
+      exists: true
+      readable: true
+      valid: true
+    services:
+      running: true
+      responsive: true
+      healthy: true
+    security:
+      enabled: true
+      configured: true
+      working: true
+    monitoring:
+      enabled: true
+      configured: true
+      working: true
+
+# Output settings
+output:
+  format: json
+  pretty: true
+  include_timestamp: true
+  include_errors: true
+  include_warnings: true
+  include_info: true
+  include_debug: false
+  include_trace: false
+  include_metadata: true
+  include_context: true
+  include_stacktrace: false
+
+# Monitoring settings
+monitoring:
+  enabled: true
+  prometheus:
+    enabled: true
+    host: localhost
+    port: 9090
+    path: /metrics
+    interval: 15
+    timeout: 5
+  grafana:
+    enabled: true
+    host: localhost
+    port: 3000
+    user: admin
+    password: admin
+    dashboard: console
+  alerting:
+    enabled: true
+    channels:
+      - email
+      - slack
+      - pagerduty
+    rules:
+      - name: high_cpu
+        condition: cpu_percent > 80
+        duration: 5m
+        severity: critical
+      - name: high_memory
+        condition: memory_percent > 80
+        duration: 5m
+        severity: warning
+      - name: high_disk
+        condition: disk_usage > 80
+        duration: 5m
+        severity: warning
+    thresholds:
+      cpu_percent: 80
+      memory_percent: 80
+      disk_usage: 80
+      response_time: 1000
+      error_rate: 1
+      queue_size: 1000
+
+# Security settings
+security:
+  enabled: true
+  authentication:
+    enabled: true
+    method: jwt
+    token_expiration: 3600
+    token_secret: secret
+    token_algorithm: HS256
+  authorization:
+    enabled: true
+    method: rbac
+    roles:
+      - admin
+      - user
+      - guest
+    permissions:
+      - read
+      - write
+      - execute
+      - delete
+  encryption:
+    enabled: true
+    algorithm: AES
+    key_size: 256
+    mode: CBC
+    padding: PKCS7
+  validation:
+    enabled: true
+    input: true
+    output: true
+    schema: true
+    format: true
+    length: true
+    range: true
+    pattern: true
+
+# Logging settings
+logging:
+  console:
+    enabled: true
+    level: INFO
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file:
+    enabled: true
+    level: INFO
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    path: .logs/console.log
+    max_size: 10MB
+    backup_count: 10
+    encoding: utf-8
+  syslog:
+    enabled: false
+    level: INFO
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    host: localhost
+    port: 514
+    facility: local0
+  elasticsearch:
+    enabled: false
+    level: INFO
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    host: localhost
+    port: 9200
+    index: console
+    doc_type: log 

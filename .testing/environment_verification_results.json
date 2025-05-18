@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-04-23T21:44:09.135078",
+  "checks": {
+    "virtual_env": {
+      "status": "pass",
+      "message": "Virtual environment active at C:\\Users\\ajame\\Legal_Study\\.venv"
+    },
+    "dependencies_requirements.txt": {
+      "status": "pass",
+      "message": "All dependencies in requirements.txt are satisfied"
+    },
+    "dependencies_requirements-dev.txt": {
+      "status": "pass",
+      "message": "All dependencies in requirements-dev.txt are satisfied"
+    },
+    "dependencies_requirements.test.txt": {
+      "status": "pass",
+      "message": "All dependencies in requirements.test.txt are satisfied"
+    },
+    "env_vars": {
+      "status": "pass",
+      "message": "All required environment variables present"
+    }
+  },
+  "errors": []
+}

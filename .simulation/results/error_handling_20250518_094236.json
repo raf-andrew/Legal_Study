@@ -1,0 +1,86 @@
+{
+  "scenario": "error_handling",
+  "start_time": "2025-05-18T09:42:35.026409",
+  "iterations": 3,
+  "results": [
+    {
+      "iteration": 1,
+      "status": "failure",
+      "steps": {
+        "initialization": {
+          "status": "success",
+          "message": "Initialization succeeded",
+          "duration": 0.1
+        },
+        "data_processing": {
+          "status": "failure",
+          "message": "Data processing error",
+          "duration": 0.2
+        },
+        "error_recovery": {
+          "status": "recovered",
+          "message": "Error recovery procedure executed",
+          "duration": 0.05
+        }
+      },
+      "error_recovery_triggered": true,
+      "error_message": "Data processing error",
+      "timestamp": 1747586555.3938994
+    },
+    {
+      "iteration": 2,
+      "status": "success",
+      "steps": {
+        "initialization": {
+          "status": "success",
+          "message": "Initialization succeeded",
+          "duration": 0.1
+        },
+        "data_processing": {
+          "status": "success",
+          "message": "Data processing completed",
+          "duration": 0.2
+        },
+        "validation": {
+          "status": "success",
+          "message": "Validation succeeded",
+          "duration": 0.15
+        },
+        "completion": {
+          "status": "success",
+          "message": "Completion completed",
+          "duration": 0.1
+        }
+      },
+      "error_recovery_triggered": false,
+      "error_message": null,
+      "timestamp": 1747586555.9982708
+    },
+    {
+      "iteration": 3,
+      "status": "failure",
+      "steps": {
+        "initialization": {
+          "status": "success",
+          "message": "Initialization succeeded",
+          "duration": 0.1
+        },
+        "data_processing": {
+          "status": "failure",
+          "message": "Data processing error",
+          "duration": 0.2
+        },
+        "error_recovery": {
+          "status": "recovered",
+          "message": "Error recovery procedure executed",
+          "duration": 0.05
+        }
+      },
+      "error_recovery_triggered": true,
+      "error_message": "Data processing error",
+      "timestamp": 1747586556.4467306
+    }
+  ],
+  "end_time": "2025-05-18T09:42:36.446730",
+  "duration": 1.446730613708496
+}

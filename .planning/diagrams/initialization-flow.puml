@@ -1,0 +1,76 @@
+@startuml Initialization Flow
+
+!define RECTANGLE class
+skinparam backgroundColor white
+skinparam classBackgroundColor white
+skinparam classBorderColor black
+skinparam arrowColor black
+
+start
+
+:User arrives at system;
+
+if (First time user?) then (yes)
+  :Show welcome screen;
+  :Display tour;
+  :Present setup wizard;
+else (no)
+  :Load user preferences;
+  :Show dashboard;
+endif
+
+:User initiates initialization;
+
+:Validate configuration;
+note right
+  - Check database connection
+  - Verify file permissions
+  - Validate environment
+end note
+
+if (Configuration valid?) then (yes)
+  :Test connections;
+  note right
+    - Database
+    - Cache
+    - Queue
+    - Storage
+  end note
+  
+  if (Connections successful?) then (yes)
+    :Initialize core services;
+    note right
+      - Load modules
+      - Setup cache
+      - Configure queue
+      - Initialize storage
+    end note
+    
+    :Monitor progress;
+    note right
+      - Show status updates
+      - Display progress bar
+      - Log activities
+    end note
+    
+    if (Initialization complete?) then (yes)
+      :Show success message;
+      :Redirect to dashboard;
+    else (no)
+      :Show error details;
+      :Provide recovery options;
+    endif
+  else (no)
+    :Show connection errors;
+    :Provide troubleshooting steps;
+  endif
+else (no)
+  :Show validation errors;
+  :Allow configuration editing;
+endif
+
+:User completes session;
+
+stop
+
+@enduml 

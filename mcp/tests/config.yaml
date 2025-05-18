@@ -1,0 +1,196 @@
+# MCP test configuration
+
+# Global settings
+global:
+  workspace_path: "./test_workspace"
+  job_path: "./test_jobs"
+  isolation_path: "./test_isolations"
+  analysis_path: "./test_analysis"
+  fix_path: "./test_fixes"
+  report_path: "./test_reports"
+  parallel_jobs: 2
+  cache_ttl: 60
+
+# Domain settings
+domains:
+  security:
+    enabled: true
+    sniffer:
+      patterns_path: "./test_patterns/security"
+      rules_path: "./test_rules/security"
+      simulations_path: "./test_simulations/security"
+    analyzer:
+      model_name: "microsoft/codebert-base"
+      confidence_threshold: 0.8
+      max_sequence_length: 512
+      batch_size: 32
+    fixer:
+      model_name: "microsoft/codebert-base"
+      confidence_threshold: 0.9
+      max_sequence_length: 512
+      batch_size: 32
+    reporter:
+      templates_path: "./test_templates/security"
+      formats:
+        - "html"
+        - "json"
+
+  browser:
+    enabled: true
+    sniffer:
+      patterns_path: "./test_patterns/browser"
+      rules_path: "./test_rules/browser"
+      simulations_path: "./test_simulations/browser"
+    analyzer:
+      model_name: "microsoft/codebert-base"
+      confidence_threshold: 0.8
+      max_sequence_length: 512
+      batch_size: 32
+    fixer:
+      model_name: "microsoft/codebert-base"
+      confidence_threshold: 0.9
+      max_sequence_length: 512
+      batch_size: 32
+    reporter:
+      templates_path: "./test_templates/browser"
+      formats:
+        - "html"
+        - "json"
+
+  functional:
+    enabled: true
+    sniffer:
+      patterns_path: "./test_patterns/functional"
+      rules_path: "./test_rules/functional"
+      simulations_path: "./test_simulations/functional"
+    analyzer:
+      model_name: "microsoft/codebert-base"
+      confidence_threshold: 0.8
+      max_sequence_length: 512
+      batch_size: 32
+    fixer:
+      model_name: "microsoft/codebert-base"
+      confidence_threshold: 0.9
+      max_sequence_length: 512
+      batch_size: 32
+    reporter:
+      templates_path: "./test_templates/functional"
+      formats:
+        - "html"
+        - "json"
+
+  unit:
+    enabled: true
+    sniffer:
+      patterns_path: "./test_patterns/unit"
+      rules_path: "./test_rules/unit"
+      simulations_path: "./test_simulations/unit"
+    analyzer:
+      model_name: "microsoft/codebert-base"
+      confidence_threshold: 0.8
+      max_sequence_length: 512
+      batch_size: 32
+    fixer:
+      model_name: "microsoft/codebert-base"
+      confidence_threshold: 0.9
+      max_sequence_length: 512
+      batch_size: 32
+    reporter:
+      templates_path: "./test_templates/unit"
+      formats:
+        - "html"
+        - "json"
+
+  documentation:
+    enabled: true
+    sniffer:
+      patterns_path: "./test_patterns/documentation"
+      rules_path: "./test_rules/documentation"
+      simulations_path: "./test_simulations/documentation"
+    analyzer:
+      model_name: "microsoft/codebert-base"
+      confidence_threshold: 0.8
+      max_sequence_length: 512
+      batch_size: 32
+    fixer:
+      model_name: "microsoft/codebert-base"
+      confidence_threshold: 0.9
+      max_sequence_length: 512
+      batch_size: 32
+    reporter:
+      templates_path: "./test_templates/documentation"
+      formats:
+        - "html"
+        - "json"
+
+# Monitoring settings
+monitoring:
+  enabled: true
+  collection_interval: 10
+  metrics_path: "./test_metrics"
+  health_check_interval: 30
+
+# Logging settings
+logging:
+  level: "DEBUG"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "./test_logs/{name}.log"
+
+# Model settings
+model:
+  name: "microsoft/codebert-base"
+  confidence_threshold: 0.8
+  max_sequence_length: 512
+  batch_size: 32
+
+# Git integration settings
+git:
+  enabled: true
+  pre_commit_hook: true
+  branch_protection: true
+  required_checks:
+    - "security-scan"
+    - "browser-scan"
+    - "functional-scan"
+    - "unit-scan"
+    - "documentation-scan"
+
+# CI/CD integration settings
+ci_cd:
+  enabled: true
+  block_on_critical: true
+  block_on_high: false
+  notification_threshold: "medium"
+  slack_webhook: "test_webhook"
+  email_notifications: ["test@example.com"]
+
+# API settings
+api:
+  enabled: true
+  host: "localhost"
+  port: 8001
+  rate_limit: 10
+  token_expiry: 300
+
+# Cache settings
+cache:
+  enabled: true
+  backend: "memory"
+  url: ""
+  ttl: 60
+
+# Performance settings
+performance:
+  max_file_size: 1048576
+  timeout: 30
+  memory_limit: 512
+  cpu_limit: 1
+
+# Test settings
+test:
+  mock_external_services: true
+  use_test_data: true
+  skip_slow_tests: false
+  coverage_threshold: 80
+  performance_threshold: 1000
+  cleanup_test_data: true

@@ -1,0 +1,60 @@
+@startuml Database Schema
+
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam classBackgroundColor white
+skinparam classBorderColor black
+
+title Codespaces Database Schema
+
+class Checklist {
+    +id: integer
+    +name: string
+    +description: text
+    +status: string
+    +created_at: datetime
+    +updated_at: datetime
+}
+
+class ChecklistItem {
+    +id: integer
+    +checklist_id: integer
+    +name: string
+    +description: text
+    +status: string
+    +verification_date: datetime
+    +created_at: datetime
+    +updated_at: datetime
+}
+
+class Report {
+    +id: integer
+    +checklist_item_id: integer
+    +type: string
+    +content: text
+    +path: string
+    +created_at: datetime
+}
+
+class Verification {
+    +id: integer
+    +checklist_item_id: integer
+    +status: string
+    +details: text
+    +created_at: datetime
+}
+
+class Log {
+    +id: integer
+    +type: string
+    +message: text
+    +level: string
+    +created_at: datetime
+}
+
+Checklist "1" -- "many" ChecklistItem
+ChecklistItem "1" -- "many" Report
+ChecklistItem "1" -- "many" Verification
+Log "1" -- "0..1" ChecklistItem
+
+@enduml

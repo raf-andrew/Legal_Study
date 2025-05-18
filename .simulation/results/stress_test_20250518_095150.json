@@ -1,0 +1,132 @@
+{
+  "scenario": "stress_test",
+  "start_time": "2025-05-18T09:51:50.518010",
+  "iterations": 3,
+  "results": [
+    {
+      "iteration": 1,
+      "status": "success",
+      "steps": {
+        "stress_condition": {
+          "status": "success",
+          "message": "Simulating extreme stress condition",
+          "duration": 0.1
+        },
+        "response_time": {
+          "status": "success",
+          "message": "Response time: 1.822s under extreme stress",
+          "duration": 1.8218572336693595
+        },
+        "resource_metrics": {
+          "status": "success",
+          "message": "Resource metrics under extreme stress",
+          "duration": 0.1,
+          "metrics": {
+            "cpu_usage": 82.871391288005,
+            "memory_usage": 88.08778657218797,
+            "disk_io": 71.3940563701157,
+            "network_usage": 87.62611227964754
+          }
+        },
+        "error_rate": {
+          "status": "success",
+          "message": "Error rate: 7.7% under extreme stress",
+          "duration": 0.1,
+          "metrics": {
+            "error_rate": 7.708873923988505
+          }
+        },
+        "recovery_time": {
+          "status": "success",
+          "message": "Recovery time: 1.425s after extreme stress",
+          "duration": 1.4253203843979425
+        }
+      },
+      "timestamp": 1747587110.519303
+    },
+    {
+      "iteration": 2,
+      "status": "success",
+      "steps": {
+        "stress_condition": {
+          "status": "success",
+          "message": "Simulating critical stress condition",
+          "duration": 0.1
+        },
+        "response_time": {
+          "status": "success",
+          "message": "Response time: 2.139s under critical stress",
+          "duration": 2.1393500767747886
+        },
+        "resource_metrics": {
+          "status": "success",
+          "message": "Resource metrics under critical stress",
+          "duration": 0.1,
+          "metrics": {
+            "cpu_usage": 94.0448168329188,
+            "memory_usage": 98.17066465794096,
+            "disk_io": 89.76122497063271,
+            "network_usage": 95.88733412672283
+          }
+        },
+        "error_rate": {
+          "status": "success",
+          "message": "Error rate: 20.9% under critical stress",
+          "duration": 0.1,
+          "metrics": {
+            "error_rate": 20.892181929704716
+          }
+        },
+        "recovery_time": {
+          "status": "success",
+          "message": "Recovery time: 2.982s after critical stress",
+          "duration": 2.9824406786986875
+        }
+      },
+      "timestamp": 1747587110.519303
+    },
+    {
+      "iteration": 3,
+      "status": "success",
+      "steps": {
+        "stress_condition": {
+          "status": "success",
+          "message": "Simulating catastrophic stress condition",
+          "duration": 0.1
+        },
+        "response_time": {
+          "status": "success",
+          "message": "Response time: 3.879s under catastrophic stress",
+          "duration": 3.878615894942604
+        },
+        "resource_metrics": {
+          "status": "success",
+          "message": "Resource metrics under catastrophic stress",
+          "duration": 0.1,
+          "metrics": {
+            "cpu_usage": 96.28678891199073,
+            "memory_usage": 98.1844558341023,
+            "disk_io": 97.7026809459622,
+            "network_usage": 99.59199114154444
+          }
+        },
+        "error_rate": {
+          "status": "success",
+          "message": "Error rate: 49.6% under catastrophic stress",
+          "duration": 0.1,
+          "metrics": {
+            "error_rate": 49.640861075133785
+          }
+        },
+        "recovery_time": {
+          "status": "success",
+          "message": "Recovery time: 3.297s after catastrophic stress",
+          "duration": 3.297499562986694
+        }
+      },
+      "timestamp": 1747587110.520304
+    }
+  ],
+  "end_time": "2025-05-18T09:51:50.520303",
+  "duration": 0.5203039646148682
+}

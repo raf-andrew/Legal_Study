@@ -1,0 +1,1025 @@
+{
+  "created": 1746712227.8777134,
+  "duration": 0.6502735614776611,
+  "exitcode": 1,
+  "root": "C:\\Users\\ajame\\Legal_Study",
+  "environment": {},
+  "summary": {
+    "failed": 11,
+    "total": 11,
+    "collected": 11
+  },
+  "collectors": [
+    {
+      "nodeid": "",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/error_handling/test_error_handling.py",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/error_handling/test_error_handling.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/error_handling/test_error_handling.py::test_error_handling_service_health",
+          "type": "Function",
+          "lineno": 15
+        },
+        {
+          "nodeid": "tests/error_handling/test_error_handling.py::test_error_logging",
+          "type": "Function",
+          "lineno": 24
+        },
+        {
+          "nodeid": "tests/error_handling/test_error_handling.py::test_error_aggregation",
+          "type": "Function",
+          "lineno": 47
+        },
+        {
+          "nodeid": "tests/error_handling/test_error_handling.py::test_error_patterns",
+          "type": "Function",
+          "lineno": 68
+        },
+        {
+          "nodeid": "tests/error_handling/test_error_handling.py::test_error_resolution",
+          "type": "Function",
+          "lineno": 89
+        },
+        {
+          "nodeid": "tests/error_handling/test_error_handling.py::test_error_notifications",
+          "type": "Function",
+          "lineno": 108
+        },
+        {
+          "nodeid": "tests/error_handling/test_error_handling.py::test_error_recovery",
+          "type": "Function",
+          "lineno": 127
+        },
+        {
+          "nodeid": "tests/error_handling/test_error_handling.py::test_error_metrics",
+          "type": "Function",
+          "lineno": 146
+        },
+        {
+          "nodeid": "tests/error_handling/test_error_handling.py::test_error_validation",
+          "type": "Function",
+          "lineno": 167
+        },
+        {
+          "nodeid": "tests/error_handling/test_error_handling.py::test_error_rate_limiting",
+          "type": "Function",
+          "lineno": 187
+        },
+        {
+          "nodeid": "tests/error_handling/test_error_handling.py::test_error_context",
+          "type": "Function",
+          "lineno": 210
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "nodeid": "tests/error_handling/test_error_handling.py::test_error_resolution",
+      "lineno": 89,
+      "outcome": "failed",
+      "keywords": [
+        "test_error_resolution",
+        "tests/error_handling/test_error_handling.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.015620899997884408,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:27.366647",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.366647,
+            "msecs": 366.64700508117676,
+            "relativeCreated": 21461.90333366394,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,366"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.01824719997239299,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\error_handling\\test_error_handling.py",
+          "lineno": 104,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\error_handling\\test_error_handling.py",
+            "lineno": 104,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_error_resolution():\n        \"\"\"Test error resolution tracking.\"\"\"\n        # Test resolving an error\n        test_resolution = {\n            \"error_id\": \"test_error_id\",\n            \"resolution\": \"Fixed by updating configuration\",\n            \"resolved_by\": \"test_user\"\n        }\n    \n        response = requests.post(\n            f\"{API_BASE_URL}/api/v1/error-handling/resolve\",\n            json=test_resolution,\n            timeout=TEST_TIMEOUT\n        )\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\error_handling\\test_error_handling.py:104: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0017846999980974942,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:27.414711",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.4147112,
+            "msecs": 414.71123695373535,
+            "relativeCreated": 21509.9675655365,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,414"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/error_handling/test_error_handling.py::test_error_patterns",
+      "lineno": 68,
+      "outcome": "failed",
+      "keywords": [
+        "test_error_patterns",
+        "tests/error_handling/test_error_handling.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.003703700000187382,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:27.420600",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.4206004,
+            "msecs": 420.60041427612305,
+            "relativeCreated": 21515.856742858887,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,420"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.008203400007914752,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\error_handling\\test_error_handling.py",
+          "lineno": 77,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\error_handling\\test_error_handling.py",
+            "lineno": 77,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_error_patterns():\n        \"\"\"Test error pattern detection.\"\"\"\n        # Test getting error patterns\n        response = requests.get(\n            f\"{API_BASE_URL}/api/v1/error-handling/patterns\",\n            params={\"timeframe\": \"24h\"},\n            timeout=TEST_TIMEOUT\n        )\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\error_handling\\test_error_handling.py:77: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0024305999977514148,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:27.447649",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.4476492,
+            "msecs": 447.6492404937744,
+            "relativeCreated": 21542.905569076538,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,447"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/error_handling/test_error_handling.py::test_error_handling_service_health",
+      "lineno": 15,
+      "outcome": "failed",
+      "keywords": [
+        "test_error_handling_service_health",
+        "tests/error_handling/test_error_handling.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0031593999883625656,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:27.453214",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.453214,
+            "msecs": 453.2139301300049,
+            "relativeCreated": 21548.47025871277,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,453"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.007913599984021857,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\error_handling\\test_error_handling.py",
+          "lineno": 19,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\error_handling\\test_error_handling.py",
+            "lineno": 19,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_error_handling_service_health():\n        \"\"\"Test error handling service health endpoint.\"\"\"\n        response = requests.get(f\"{API_BASE_URL}/api/v1/error-handling/health\", timeout=TEST_TIMEOUT)\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\error_handling\\test_error_handling.py:19: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0012567999947350472,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:27.477336",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.4773364,
+            "msecs": 477.3364067077637,
+            "relativeCreated": 21572.592735290527,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,477"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/error_handling/test_error_handling.py::test_error_recovery",
+      "lineno": 127,
+      "outcome": "failed",
+      "keywords": [
+        "test_error_recovery",
+        "tests/error_handling/test_error_handling.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.003589500003727153,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:27.482464",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.4824646,
+            "msecs": 482.4645519256592,
+            "relativeCreated": 21577.720880508423,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,482"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.023452699999324977,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\error_handling\\test_error_handling.py",
+          "lineno": 142,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\error_handling\\test_error_handling.py",
+            "lineno": 142,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_error_recovery():\n        \"\"\"Test error recovery mechanisms.\"\"\"\n        # Test automatic recovery\n        test_recovery = {\n            \"error_id\": \"test_error_id\",\n            \"action\": \"retry\",\n            \"max_attempts\": 3\n        }\n    \n        response = requests.post(\n            f\"{API_BASE_URL}/api/v1/error-handling/recover\",\n            json=test_recovery,\n            timeout=TEST_TIMEOUT\n        )\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\error_handling\\test_error_handling.py:142: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0019198999798391014,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:27.524323",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.5243237,
+            "msecs": 524.3237018585205,
+            "relativeCreated": 21619.580030441284,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,524"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/error_handling/test_error_handling.py::test_error_context",
+      "lineno": 210,
+      "outcome": "failed",
+      "keywords": [
+        "test_error_context",
+        "tests/error_handling/test_error_handling.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.005628300015814602,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:27.532636",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.532636,
+            "msecs": 532.6359272003174,
+            "relativeCreated": 21627.89225578308,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,532"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.008151499991072342,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\error_handling\\test_error_handling.py",
+          "lineno": 231,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\error_handling\\test_error_handling.py",
+            "lineno": 231,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_error_context():\n        \"\"\"Test error context preservation.\"\"\"\n        # Test error with context\n        test_error = {\n            \"level\": \"error\",\n            \"message\": \"Test error with context\",\n            \"context\": {\n                \"service\": \"test_service\",\n                \"action\": \"test_action\",\n                \"user_id\": \"test_user\",\n                \"request_id\": \"test_request\",\n                \"timestamp\": datetime.now().isoformat()\n            }\n        }\n    \n        response = requests.post(\n            f\"{API_BASE_URL}/api/v1/error-handling/log\",\n            json=test_error,\n            timeout=TEST_TIMEOUT\n        )\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\error_handling\\test_error_handling.py:231: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0017692000255919993,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:27.565218",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.5652184,
+            "msecs": 565.218448638916,
+            "relativeCreated": 21660.47477722168,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,565"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/error_handling/test_error_handling.py::test_error_validation",
+      "lineno": 167,
+      "outcome": "failed",
+      "keywords": [
+        "test_error_validation",
+        "tests/error_handling/test_error_handling.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.004720199998700991,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:27.571738",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.5717387,
+            "msecs": 571.7387199401855,
+            "relativeCreated": 21666.99504852295,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,571"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0075705999915953726,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\error_handling\\test_error_handling.py",
+          "lineno": 183,
+          "message": "assert 404 == 400\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\error_handling\\test_error_handling.py",
+            "lineno": 183,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_error_validation():\n        \"\"\"Test error validation and error handling.\"\"\"\n        invalid_errors = [\n            {},  # Empty error\n            {\"level\": \"invalid\"},  # Invalid level\n            {\"message\": \"Test\"},  # Missing level\n            {\"level\": \"error\"}  # Missing message\n        ]\n    \n        for error in invalid_errors:\n            response = requests.post(\n                f\"{API_BASE_URL}/api/v1/error-handling/log\",\n                json=error,\n                timeout=TEST_TIMEOUT\n            )\n>           assert response.status_code == 400\nE           assert 404 == 400\nE            +  where 404 = <Response [404]>.status_code\n\ntests\\error_handling\\test_error_handling.py:183: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0015659999917261302,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:27.601989",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.6019893,
+            "msecs": 601.9892692565918,
+            "relativeCreated": 21697.245597839355,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,601"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/error_handling/test_error_handling.py::test_error_metrics",
+      "lineno": 146,
+      "outcome": "failed",
+      "keywords": [
+        "test_error_metrics",
+        "tests/error_handling/test_error_handling.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.003702900023199618,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:27.605299",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.6052992,
+            "msecs": 605.2992343902588,
+            "relativeCreated": 21700.555562973022,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,605"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.008186699997168034,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\error_handling\\test_error_handling.py",
+          "lineno": 150,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\error_handling\\test_error_handling.py",
+            "lineno": 150,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_error_metrics():\n        \"\"\"Test error metrics collection.\"\"\"\n        response = requests.get(f\"{API_BASE_URL}/api/v1/error-handling/metrics\", timeout=TEST_TIMEOUT)\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\error_handling\\test_error_handling.py:150: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0016471000271849334,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:27.631828",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.6318285,
+            "msecs": 631.8285465240479,
+            "relativeCreated": 21727.08487510681,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,631"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/error_handling/test_error_handling.py::test_error_rate_limiting",
+      "lineno": 187,
+      "outcome": "failed",
+      "keywords": [
+        "test_error_rate_limiting",
+        "tests/error_handling/test_error_handling.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0032407999970018864,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:27.636169",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.6361694,
+            "msecs": 636.16943359375,
+            "relativeCreated": 21731.425762176514,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,636"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.09826579998480156,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\error_handling\\test_error_handling.py",
+          "lineno": 204,
+          "message": "AssertionError: assert 'X-RateLimit-Limit' in {'date': 'Thu, 08 May 2025 13:50:27 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'}\n +  where {'date': 'Thu, 08 May 2025 13:50:27 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'} = <Response [404]>.headers"
+        },
+        "traceback": [
+          {
+            "path": "tests\\error_handling\\test_error_handling.py",
+            "lineno": 204,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_error_rate_limiting():\n        \"\"\"Test error logging rate limiting.\"\"\"\n        # Make multiple requests quickly\n        responses = []\n        for _ in range(10):\n            response = requests.post(\n                f\"{API_BASE_URL}/api/v1/error-handling/log\",\n                json={\n                    \"level\": \"error\",\n                    \"message\": \"Test error\"\n                },\n                timeout=TEST_TIMEOUT\n            )\n            responses.append(response)\n    \n        # Check rate limit headers\n>       assert \"X-RateLimit-Limit\" in responses[-1].headers\nE       AssertionError: assert 'X-RateLimit-Limit' in {'date': 'Thu, 08 May 2025 13:50:27 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'}\nE        +  where {'date': 'Thu, 08 May 2025 13:50:27 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'} = <Response [404]>.headers\n\ntests\\error_handling\\test_error_handling.py:204: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.001518899982329458,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:27.751199",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.7511995,
+            "msecs": 751.19948387146,
+            "relativeCreated": 21846.455812454224,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,751"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/error_handling/test_error_handling.py::test_error_logging",
+      "lineno": 24,
+      "outcome": "failed",
+      "keywords": [
+        "test_error_logging",
+        "tests/error_handling/test_error_handling.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.004255000007105991,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:27.757157",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.7571576,
+            "msecs": 757.157564163208,
+            "relativeCreated": 21852.41389274597,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,757"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.008333300007507205,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\error_handling\\test_error_handling.py",
+          "lineno": 42,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\error_handling\\test_error_handling.py",
+            "lineno": 42,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_error_logging():\n        \"\"\"Test error logging functionality.\"\"\"\n        # Test error logging\n        test_error = {\n            \"level\": \"error\",\n            \"message\": \"Test error message\",\n            \"context\": {\n                \"service\": \"test_service\",\n                \"action\": \"test_action\"\n            }\n        }\n    \n        response = requests.post(\n            f\"{API_BASE_URL}/api/v1/error-handling/log\",\n            json=test_error,\n            timeout=TEST_TIMEOUT\n        )\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\error_handling\\test_error_handling.py:42: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0018783999839797616,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:27.787099",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.787099,
+            "msecs": 787.0988845825195,
+            "relativeCreated": 21882.355213165283,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,787"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/error_handling/test_error_handling.py::test_error_aggregation",
+      "lineno": 47,
+      "outcome": "failed",
+      "keywords": [
+        "test_error_aggregation",
+        "tests/error_handling/test_error_handling.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0029858000052627176,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:27.792409",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.7924097,
+            "msecs": 792.4096584320068,
+            "relativeCreated": 21887.66598701477,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,792"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.00603160000173375,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\error_handling\\test_error_handling.py",
+          "lineno": 56,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\error_handling\\test_error_handling.py",
+            "lineno": 56,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_error_aggregation():\n        \"\"\"Test error aggregation functionality.\"\"\"\n        # Test getting aggregated errors\n        response = requests.get(\n            f\"{API_BASE_URL}/api/v1/error-handling/aggregate\",\n            params={\"timeframe\": \"1h\"},\n            timeout=TEST_TIMEOUT\n        )\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\error_handling\\test_error_handling.py:56: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.002524400013498962,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:27.812896",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.812896,
+            "msecs": 812.8960132598877,
+            "relativeCreated": 21908.15234184265,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,812"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/error_handling/test_error_handling.py::test_error_notifications",
+      "lineno": 108,
+      "outcome": "failed",
+      "keywords": [
+        "test_error_notifications",
+        "tests/error_handling/test_error_handling.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0033967999916058034,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:50:27.817908",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.8179085,
+            "msecs": 817.908525466919,
+            "relativeCreated": 21913.164854049683,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,817"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.006997399992542341,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\error_handling\\test_error_handling.py",
+          "lineno": 123,
+          "message": "assert 404 == 200\n +  where 404 = <Response [404]>.status_code"
+        },
+        "traceback": [
+          {
+            "path": "tests\\error_handling\\test_error_handling.py",
+            "lineno": 123,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_error_notifications():\n        \"\"\"Test error notification functionality.\"\"\"\n        # Test error notification settings\n        test_settings = {\n            \"level\": \"error\",\n            \"channels\": [\"email\", \"slack\"],\n            \"recipients\": [\"admin@example.com\", \"#alerts\"]\n        }\n    \n        response = requests.post(\n            f\"{API_BASE_URL}/api/v1/error-handling/notifications/settings\",\n            json=test_settings,\n            timeout=TEST_TIMEOUT\n        )\n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404]>.status_code\n\ntests\\error_handling\\test_error_handling.py:123: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.005396399996243417,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:50:27.842984",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712227.8429847,
+            "msecs": 842.984676361084,
+            "relativeCreated": 21938.241004943848,
+            "thread": 9368,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 7680,
+            "asctime": "2025-05-08 06:50:27,842"
+          }
+        ]
+      }
+    }
+  ],
+  "suite_name": "error_handling",
+  "timestamp": "20250508_065026",
+  "exit_code": 1
+}

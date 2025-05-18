@@ -1,0 +1,82 @@
+@startuml System Architecture
+
+!define RECTANGLE class
+skinparam backgroundColor white
+skinparam classBackgroundColor white
+skinparam classBorderColor black
+skinparam arrowColor black
+
+package "Frontend" {
+  [Vue 3 SPA] as vue
+  [Inertia.js] as inertia
+  [Pinia Store] as pinia
+  [Tailwind CSS] as tailwind
+}
+
+package "Backend" {
+  [Laravel API] as laravel
+  [Authentication] as auth
+  [Module System] as modules
+  [Configuration] as config
+}
+
+package "Microservices" {
+  [Python Services] as python
+  [FastAPI] as fastapi
+  [SQLAlchemy] as sqlalchemy
+}
+
+package "Infrastructure" {
+  [Docker] as docker
+  [Redis Cache] as redis
+  [Database] as db
+  [File Storage] as storage
+}
+
+[User] as user
+
+user --> vue : "Interacts with"
+vue --> inertia : "Uses"
+inertia --> laravel : "API Requests"
+laravel --> auth : "Authenticates"
+laravel --> modules : "Manages"
+laravel --> config : "Configures"
+laravel --> python : "Delegates"
+python --> fastapi : "Uses"
+fastapi --> sqlalchemy : "Queries"
+sqlalchemy --> db : "Stores Data"
+
+laravel --> redis : "Caches"
+laravel --> storage : "Stores Files"
+
+docker ..> laravel : "Hosts"
+docker ..> python : "Hosts"
+docker ..> redis : "Hosts"
+docker ..> db : "Hosts"
+docker ..> storage : "Hosts"
+
+note right of vue
+  Vue 3 SPA with:
+  - Composition API
+  - TypeScript
+  - Headless UI
+  - VeeValidate
+end note
+
+note right of laravel
+  Laravel with:
+  - Sanctum Auth
+  - API Resources
+  - Queue System
+  - Event System
+end note
+
+note right of python
+  Python Services with:
+  - FastAPI
+  - SQLAlchemy
+  - Async Support
+  - WebSocket
+end note
+
+@enduml 

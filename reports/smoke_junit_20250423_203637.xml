@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="12" time="9.444" timestamp="2025-04-23T20:36:40.789183" hostname="laptop-2"><testcase classname="tests.smoke.test_basic" name="test_error_handling" time="0.668" /><testcase classname="tests.smoke.test_basic" name="test_redoc_available" time="0.672" /><testcase classname="tests.smoke.test_basic" name="test_health_check" time="0.668" /><testcase classname="tests.smoke.test_basic" name="test_invalid_endpoint" time="0.822" /><testcase classname="tests.smoke.test_basic" name="test_docs_available" time="0.706" /><testcase classname="tests.smoke.test_basic" name="test_read_root" time="0.678" /><testcase classname="tests.smoke.test_basic" name="test_api_version" time="0.712" /><testcase classname="tests.smoke.test_environment" name="test_database_url_format" time="0.624" /><testcase classname="tests.smoke.test_environment" name="test_security_settings" time="0.712"><failure message="AssertionError: ACCESS_TOKEN_EXPIRE_MINUTES must be positive&#10;assert &gt; failed. [pytest-clarity diff shown]&#10;  #x1B[0m&#10;  #x1B[0m#x1B[32mLHS#x1B[0m vs #x1B[31mRHS#x1B[0m shown below&#10;  #x1B[0m&#10;  #x1B[0m0&#10;  #x1B[0m">@pytest.mark.smoke
+    def test_security_settings():
+        """Test that security-related settings are properly configured."""
+        assert os.getenv('SECRET_KEY'), "SECRET_KEY must be set"
+        assert os.getenv('ALGORITHM') == 'HS256', "ALGORITHM must be HS256"
+&gt;       assert int(os.getenv('ACCESS_TOKEN_EXPIRE_MINUTES', 0)) &gt; 0, \
+            "ACCESS_TOKEN_EXPIRE_MINUTES must be positive"
+E       AssertionError: ACCESS_TOKEN_EXPIRE_MINUTES must be positive
+E       assert &gt; failed. [pytest-clarity diff shown]
+E         #x1B[0m
+E         #x1B[0m#x1B[32mLHS#x1B[0m vs #x1B[31mRHS#x1B[0m shown below
+E         #x1B[0m
+E         #x1B[0m0
+E         #x1B[0m
+
+tests\smoke\test_environment.py:71: AssertionError</failure></testcase><testcase classname="tests.smoke.test_environment" name="test_api_version_format" time="0.844" /><testcase classname="tests.smoke.test_environment" name="test_required_env_vars" time="1.224" /><testcase classname="tests.smoke.test_environment" name="test_cors_settings" time="0.692" /></testsuite></testsuites>

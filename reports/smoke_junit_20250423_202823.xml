@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="7" skipped="0" tests="12" time="7.436" timestamp="2025-04-23T20:28:26.587127" hostname="laptop-2"><testcase classname="tests.smoke.test_environment" name="test_cors_settings" time="0.596"><failure message="AssertionError: CORS_ORIGINS must be set&#10;assert None">@pytest.mark.smoke
+    def test_cors_settings():
+        """Test that CORS settings are properly configured."""
+        cors_origins = os.getenv('CORS_ORIGINS')
+&gt;       assert cors_origins, "CORS_ORIGINS must be set"
+E       AssertionError: CORS_ORIGINS must be set
+E       assert None
+
+tests\smoke\test_environment.py:78: AssertionError</failure></testcase><testcase classname="tests.smoke.test_environment" name="test_required_env_vars" time="0.603"><failure message="AssertionError: Missing required environment variables: APP_NAME, DEBUG, TESTING, API_VERSION, DATABASE_URL, SECRET_KEY&#10;assert not ['APP_NAME', 'DEBUG', 'TESTING', 'API_VERSION', 'DATABASE_URL', 'SECRET_KEY']">@pytest.mark.smoke
+    def test_required_env_vars():
+        """Test that all required environment variables are set."""
+        required_vars = [
+            'APP_NAME',
+            'DEBUG',
+            'TESTING',
+            'API_VERSION',
+            'DATABASE_URL',
+            'SECRET_KEY'
+        ]
+    
+        missing_vars = []
+        for var in required_vars:
+            if not os.getenv(var):
+                missing_vars.append(var)
+                logger.error(f"Missing required environment variable: {var}")
+    
+        if missing_vars:
+            with open('.errors/environment_errors.log', 'a') as f:
+                f.write(f"\n{datetime.now()} - Missing environment variables: {', '.join(missing_vars)}")
+    
+&gt;       assert not missing_vars, f"Missing required environment variables: {', '.join(missing_vars)}"
+E       AssertionError: Missing required environment variables: APP_NAME, DEBUG, TESTING, API_VERSION, DATABASE_URL, SECRET_KEY
+E       assert not ['APP_NAME', 'DEBUG', 'TESTING', 'API_VERSION', 'DATABASE_URL', 'SECRET_KEY']
+
+tests\smoke\test_environment.py:50: AssertionError</failure></testcase><testcase classname="tests.smoke.test_environment" name="test_security_settings" time="0.565"><failure message="AssertionError: SECRET_KEY must be set&#10;assert None&#10; +  where None = &lt;function getenv at 0x00000277B5BEE200&gt;('SECRET_KEY')&#10; +    where &lt;function getenv at 0x00000277B5BEE200&gt; = os.getenv">@pytest.mark.smoke
+    def test_security_settings():
+        """Test that security-related settings are properly configured."""
+&gt;       assert os.getenv('SECRET_KEY'), "SECRET_KEY must be set"
+E       AssertionError: SECRET_KEY must be set
+E       assert None
+E        +  where None = &lt;function getenv at 0x00000277B5BEE200&gt;('SECRET_KEY')
+E        +    where &lt;function getenv at 0x00000277B5BEE200&gt; = os.getenv
+
+tests\smoke\test_environment.py:69: AssertionError</failure></testcase><testcase classname="tests.smoke.test_environment" name="test_database_url_format" time="0.561"><failure message="AttributeError: 'NoneType' object has no attribute 'startswith'">@pytest.mark.smoke
+    def test_database_url_format():
+        """Test that the database URL is properly formatted."""
+        db_url = os.getenv('DATABASE_URL')
+        assert db_url.startswith(('sqlite:///', 'postgresql://', 'mysql://')), \
+&gt;           f"Invalid database URL format: {db_url}"
+E       AttributeError: 'NoneType' object has no attribute 'startswith'
+
+tests\smoke\test_environment.py:57: AttributeError</failure></testcase><testcase classname="tests.smoke.test_environment" name="test_api_version_format" time="0.526"><failure message="AttributeError: 'NoneType' object has no attribute 'startswith'">@pytest.mark.smoke
+    def test_api_version_format():
+        """Test that the API version is properly formatted."""
+        api_version = os.getenv('API_VERSION')
+        assert api_version.startswith('v'), \
+&gt;           f"API version should start with 'v', got: {api_version}"
+E       AttributeError: 'NoneType' object has no attribute 'startswith'
+
+tests\smoke\test_environment.py:64: AttributeError</failure></testcase><testcase classname="tests.smoke.test_basic" name="test_error_handling" time="0.597"><failure message="assert == failed. [pytest-clarity diff shown]&#10;  #x1B[0m&#10;  #x1B[0m#x1B[32mLHS#x1B[0m vs #x1B[31mRHS#x1B[0m shown below&#10;  #x1B[0m&#10;  #x1B[0m#x1B[32m404#x1B[0m&#10;  #x1B[0m#x1B[31m500#x1B[0m&#10;  #x1B[0m">@pytest.mark.smoke
+    def test_error_handling():
+        """Test error handling."""
+        response = client.get("/api/v1/error")
+&gt;       assert response.status_code == 500
+E       assert == failed. [pytest-clarity diff shown]
+E         #x1B[0m
+E         #x1B[0m#x1B[32mLHS#x1B[0m vs #x1B[31mRHS#x1B[0m shown below
+E         #x1B[0m
+E         #x1B[0m#x1B[32m404#x1B[0m
+E         #x1B[0m#x1B[31m500#x1B[0m
+E         #x1B[0m
+
+tests\smoke\test_basic.py:53: AssertionError</failure></testcase><testcase classname="tests.smoke.test_basic" name="test_api_version" time="0.532"><failure message="assert == failed. [pytest-clarity diff shown]&#10;  #x1B[0m&#10;  #x1B[0m#x1B[32mLHS#x1B[0m vs #x1B[31mRHS#x1B[0m shown below&#10;  #x1B[0m&#10;  #x1B[0m#x1B[32m404#x1B[0m&#10;  #x1B[0m#x1B[31m200#x1B[0m&#10;  #x1B[0m">@pytest.mark.smoke
+    def test_api_version():
+        """Test the API version endpoint."""
+        response = client.get("/api/v1/version")
+&gt;       assert response.status_code == 200
+E       assert == failed. [pytest-clarity diff shown]
+E         #x1B[0m
+E         #x1B[0m#x1B[32mLHS#x1B[0m vs #x1B[31mRHS#x1B[0m shown below
+E         #x1B[0m
+E         #x1B[0m#x1B[32m404#x1B[0m
+E         #x1B[0m#x1B[31m200#x1B[0m
+E         #x1B[0m
+
+tests\smoke\test_basic.py:25: AssertionError</failure></testcase><testcase classname="tests.smoke.test_basic" name="test_read_root" time="0.583" /><testcase classname="tests.smoke.test_basic" name="test_redoc_available" time="0.555" /><testcase classname="tests.smoke.test_basic" name="test_health_check" time="0.589" /><testcase classname="tests.smoke.test_basic" name="test_docs_available" time="0.649" /><testcase classname="tests.smoke.test_basic" name="test_invalid_endpoint" time="0.603" /></testsuite></testsuites>

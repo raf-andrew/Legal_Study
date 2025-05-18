@@ -1,0 +1,230 @@
+# Browser rules for code analysis
+
+performance:
+  type: ast
+  description: "Performance rules"
+  rules:
+    dom_manipulation:
+      pattern: "document\\.getElementById\\(\\.\\*\\)\\.innerHTML"
+      severity: medium
+      message: "Inefficient DOM manipulation"
+      fix:
+        type: replace
+        pattern: "(\\w+)\\.innerHTML\\s*=\\s*([^;]+)"
+        replacement: "$1.textContent = $2"
+      validation:
+        - check: "dom_method"
+          allowed: ["textContent", "appendChild", "removeChild"]
+        - check: "performance_impact"
+          max_ms: 100
+
+    event_handling:
+      pattern: "addEventListener\\([^)]+\\)"
+      severity: medium
+      message: "Event handling optimization needed"
+      fix:
+        type: replace
+        pattern: "(\\w+)\\.addEventListener\\([^)]+\\)"
+        replacement: "parent.addEventListener(event, handleEvent)"
+      validation:
+        - check: "event_delegation"
+          required: true
+        - check: "memory_impact"
+          max_mb: 10
+
+    animation_performance:
+      pattern: "setInterval\\([^)]+style[^)]+\\)"
+      severity: high
+      message: "Use requestAnimationFrame for animations"
+      fix:
+        type: replace
+        pattern: "setInterval\\(([^,]+),\\s*\\d+\\s*\\)"
+        replacement: "requestAnimationFrame($1)"
+      validation:
+        - check: "frame_rate"
+          min_fps: 60
+        - check: "cpu_usage"
+          max_percent: 80
+
+memory:
+  type: ast
+  description: "Memory management rules"
+  rules:
+    memory_leak:
+      pattern: "addEventListener\\([^)]+\\)(?!.*removeEventListener)"
+      severity: high
+      message: "Potential memory leak detected"
+      fix:
+        type: insert
+        position: after
+        content: "element.removeEventListener(event, handler);"
+      validation:
+        - check: "memory_leak"
+          max_mb: 5
+        - check: "event_listeners"
+          max_count: 100
+
+    dom_reference:
+      pattern: "document\\.querySelector(All)?\\([^)]+\\)"
+      severity: medium
+      message: "Cache DOM references"
+      fix:
+        type: replace
+        pattern: "document\\.querySelector(All)?\\(([^)]+)\\)"
+        replacement: "const element = document.querySelector$1($2)"
+      validation:
+        - check: "reference_caching"
+          required: true
+        - check: "performance_impact"
+          max_ms: 50
+
+compatibility:
+  type: ast
+  description: "Browser compatibility rules"
+  rules:
+    modern_apis:
+      pattern: "\\b(Promise|async|await|fetch)\\b"
+      severity: medium
+      message: "Modern API usage detected"
+      validation:
+        - check: "browser_support"
+          min_percent: 95
+        - check: "polyfill"
+          required: true
+
+    css_features:
+      pattern: "\\b(grid|flexbox|transform)\\b"
+      severity: medium
+      message: "Modern CSS feature usage detected"
+      validation:
+        - check: "browser_support"
+          min_percent: 95
+        - check: "fallback"
+          required: true
+
+accessibility:
+  type: ast
+  description: "Accessibility rules"
+  rules:
+    aria_attributes:
+      pattern: "role|aria-[a-z]+"
+      severity: high
+      message: "ARIA attribute usage"
+      validation:
+        - check: "aria_validity"
+          required: true
+        - check: "semantic_html"
+          required: true
+
+    keyboard_navigation:
+      pattern: "tabIndex|focus\\(\\)"
+      severity: high
+      message: "Keyboard navigation support"
+      validation:
+        - check: "keyboard_access"
+          required: true
+        - check: "focus_management"
+          required: true
+
+responsive:
+  type: ast
+  description: "Responsive design rules"
+  rules:
+    media_queries:
+      pattern: "@media\\s+[^{]+"
+      severity: medium
+      message: "Media query usage"
+      validation:
+        - check: "breakpoint_consistency"
+          required: true
+        - check: "mobile_first"
+          required: true
+
+    viewport_units:
+      pattern: "\\b(vw|vh|vmin|vmax)\\b"
+      severity: medium
+      message: "Viewport unit usage"
+      validation:
+        - check: "responsive_layout"
+          required: true
+        - check: "fallback_units"
+          required: true
+
+security:
+  type: ast
+  description: "Browser security rules"
+  rules:
+    xss_prevention:
+      pattern: "innerHTML|outerHTML|document\\.write"
+      severity: critical
+      message: "Potential XSS vulnerability"
+      fix:
+        type: replace
+        pattern: "(\\w+)\\.innerHTML\\s*=\\s*([^;]+)"
+        replacement: "$1.textContent = sanitize($2)"
+      validation:
+        - check: "content_sanitization"
+          required: true
+        - check: "xss_protection"
+          required: true
+
+    content_security:
+      pattern: "eval|Function|setTimeout\\(['\"]"
+      severity: critical
+      message: "Unsafe code execution"
+      fix:
+        type: delete
+        pattern: "eval\\(([^)]+)\\)"
+      validation:
+        - check: "csp_compliance"
+          required: true
+        - check: "safe_execution"
+          required: true
+
+best_practices:
+  type: ast
+  description: "Browser best practices rules"
+  rules:
+    error_handling:
+      pattern: "try|catch|throw"
+      severity: medium
+      message: "Error handling implementation"
+      validation:
+        - check: "error_recovery"
+          required: true
+        - check: "user_feedback"
+          required: true
+
+    async_operations:
+      pattern: "Promise|async|await"
+      severity: medium
+      message: "Asynchronous operation handling"
+      validation:
+        - check: "error_handling"
+          required: true
+        - check: "loading_states"
+          required: true
+
+testing:
+  type: ast
+  description: "Browser testing rules"
+  rules:
+    unit_tests:
+      pattern: "test\\(|describe\\(|it\\("
+      severity: medium
+      message: "Unit test implementation"
+      validation:
+        - check: "test_coverage"
+          min_percent: 80
+        - check: "assertion_count"
+          min_count: 1
+
+    integration_tests:
+      pattern: "browser\\.visit|page\\.goto"
+      severity: medium
+      message: "Integration test implementation"
+      validation:
+        - check: "test_coverage"
+          min_percent: 60
+        - check: "scenario_coverage"
+          min_count: 1

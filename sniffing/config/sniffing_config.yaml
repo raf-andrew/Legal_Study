@@ -1,0 +1,289 @@
+# Enhanced Sniffing Infrastructure Configuration
+
+# Global Settings
+global:
+  workspace_path: "."
+  report_path: "reports"
+  cache_ttl: 3600  # Cache time-to-live in seconds
+  parallel_jobs: 4  # Number of parallel sniffing jobs
+  log_level: "INFO"
+  metrics_enabled: true
+  health_check_interval: 60  # Health check interval in seconds
+
+# MCP Server Configuration
+mcp:
+  host: "localhost"
+  port: 8000
+  api_version: "v1"
+  debug: false
+  workers: 4
+  timeout: 30  # Request timeout in seconds
+  retry:
+    max_attempts: 3
+    backoff_factor: 2
+    max_delay: 10
+
+  # Test Orchestration
+  orchestration:
+    max_queue_size: 1000
+    batch_size: 10
+    priority_levels: 3
+    max_retries: 3
+    timeout: 300  # Test timeout in seconds
+
+  # File Watching
+  file_watcher:
+    enabled: true
+    poll_interval: 2
+    ignore_patterns:
+      - "*.pyc"
+      - "__pycache__"
+      - "*.git"
+      - "venv"
+      - "node_modules"
+
+  # Resource Management
+  resources:
+    max_memory: "2G"
+    max_cpu_percent: 80
+    disk_space_threshold: "1G"
+
+  # Monitoring
+  monitoring:
+    enabled: true
+    prometheus_port: 9090
+    metrics_path: "/metrics"
+    collection_interval: 15
+
+  # Health Checks
+  health:
+    enabled: true
+    endpoint: "/health"
+    timeout: 5
+    checks:
+      - name: "database"
+        timeout: 3
+      - name: "cache"
+        timeout: 2
+      - name: "storage"
+        timeout: 3
+
+# Domain-Specific Settings
+domains:
+  security:
+    enabled: true
+    priority: 1
+    patterns:
+      - "*.py"
+      - "*.js"
+      - "*.ts"
+      - "*.html"
+    ignore_patterns:
+      - "test_*.py"
+      - "*_test.py"
+    soc2_compliance: true
+    attack_simulation: true
+    vulnerability_scan: true
+    ai_model:
+      name: "security_bert"
+      confidence_threshold: 0.8
+      batch_size: 32
+
+  browser:
+    enabled: true
+    priority: 2
+    patterns:
+      - "*.html"
+      - "*.css"
+      - "*.js"
+      - "*.jsx"
+      - "*.tsx"
+    browsers:
+      - name: "chromium"
+        headless: true
+      - name: "firefox"
+        headless: true
+      - name: "webkit"
+        headless: true
+    viewport_sizes:
+      mobile: [375, 812]
+      tablet: [768, 1024]
+      desktop: [1920, 1080]
+    accessibility: true
+    performance: true
+    ai_model:
+      name: "browser_bert"
+      confidence_threshold: 0.8
+
+  functional:
+    enabled: true
+    priority: 2
+    patterns:
+      - "*.py"
+      - "*.js"
+      - "*.ts"
+    api_testing: true
+    integration_testing: true
+    error_handling: true
+    ai_model:
+      name: "functional_bert"
+      confidence_threshold: 0.8
+
+  unit:
+    enabled: true
+    priority: 3
+    patterns:
+      - "test_*.py"
+      - "*_test.py"
+      - "*.test.js"
+      - "*.spec.ts"
+    coverage_threshold: 0.8
+    assertion_density: 2.0
+    performance_benchmarking: true
+    ai_model:
+      name: "unit_bert"
+      confidence_threshold: 0.8
+
+  documentation:
+    enabled: true
+    priority: 4
+    patterns:
+      - "*.py"
+      - "*.js"
+      - "*.ts"
+      - "*.md"
+      - "*.rst"
+    completeness_threshold: 0.8
+    quality_checks: true
+    api_documentation: true
+    ai_model:
+      name: "doc_bert"
+      confidence_threshold: 0.8
+
+# AI Integration
+ai:
+  enabled: true
+  models:
+    - name: "codebert"
+      type: "transformer"
+      path: "models/codebert"
+      batch_size: 32
+      max_length: 512
+    - name: "security_bert"
+      type: "transformer"
+      path: "models/security_bert"
+      batch_size: 32
+      max_length: 512
+  analysis:
+    confidence_threshold: 0.8
+    max_suggestions: 5
+    priority_threshold: 0.9
+
+# Git Integration
+git:
+  enabled: true
+  hooks:
+    pre_commit:
+      enabled: true
+      timeout: 30
+    pre_push:
+      enabled: true
+      timeout: 60
+  branch_protection:
+    enabled: true
+    required_checks:
+      - security
+      - unit
+      - functional
+    required_approvals: 1
+
+# Reporting
+reporting:
+  formats:
+    - json
+    - html
+    - pdf
+  retention:
+    days: 30
+    max_reports: 1000
+  notifications:
+    enabled: true
+    channels:
+      - email
+      - slack
+    thresholds:
+      critical: 1
+      high: 5
+      medium: 10
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file:
+    enabled: true
+    path: "logs/sniffing.log"
+    max_size: "100M"
+    backup_count: 10
+  syslog:
+    enabled: false
+    host: "localhost"
+    port: 514
+
+# Metrics
+metrics:
+  enabled: true
+  storage:
+    type: "prometheus"
+    retention: "30d"
+  collection:
+    interval: 15
+    batch_size: 1000
+  export:
+    enabled: true
+    format: "prometheus"
+    endpoint: "/metrics"
+
+# Audit
+audit:
+  enabled: true
+  storage:
+    type: "file"
+    path: "audit/trail"
+    retention: "365d"
+  events:
+    - sniffing_start
+    - sniffing_complete
+    - issue_detected
+    - fix_applied
+    - health_check
+  soc2:
+    enabled: true
+    controls:
+      - CC6.1
+      - CC6.3
+      - CC6.6
+      - CC6.7
+      - CC7.2
+
+# Cache
+cache:
+  type: "redis"
+  host: "localhost"
+  port: 6379
+  db: 0
+  ttl: 3600
+  max_size: "1G"
+
+# Storage
+storage:
+  type: "file"
+  path: "storage"
+  backup:
+    enabled: true
+    interval: "1d"
+    retention: "30d"
+  cleanup:
+    enabled: true
+    interval: "1d"
+    min_age: "30d"

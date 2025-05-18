@@ -3,3 +3,54 @@ description:
 globs:
 alwaysApply: false
 ---
+# Codespaces Workflow Guide
+
+The Codespaces environment is managed through a series of PowerShell scripts that handle setup, testing, and monitoring.
+
+## Main Workflow Script
+The primary workflow is orchestrated by [full_simulation.ps1](mdc:.codespaces/scripts/full_simulation.ps1), which:
+1. Sets up the environment
+2. Starts all services
+3. Runs the full simulation
+4. Monitors the environment
+5. Performs final health checks
+6. Runs final tests
+
+## Environment Setup
+[setup_codespaces.ps1](mdc:.codespaces/scripts/setup_codespaces.ps1) handles initial environment setup:
+- Creates necessary directories
+- Sets up SQLite database
+- Initializes checklist items
+- Configures environment variables
+
+## Service Management
+[manage_codespaces.ps1](mdc:.codespaces/scripts/manage_codespaces.ps1) controls service lifecycle:
+- Start/stop/restart services
+- Verify service health
+- Handle service dependencies
+
+## Testing and Monitoring
+[simulate_build.ps1](mdc:.codespaces/scripts/simulate_build.ps1) runs the full test suite:
+- Database tests
+- Cache tests
+- Feature tests
+- Health checks
+
+[monitor_codespaces.ps1](mdc:.codespaces/scripts/monitor_codespaces.ps1) provides continuous monitoring:
+- Service status checks
+- Health check verification
+- Failed test detection
+- Automatic issue resolution
+
+## Checklist Management
+[update_checklist.ps1](mdc:.codespaces/scripts/update_checklist.ps1) tracks completion status:
+- Updates item status
+- Records completion files
+- Maintains timestamps
+
+## Docker Environment
+The environment runs in Docker containers defined in [Dockerfile](mdc:.codespaces/Dockerfile):
+- PHP 8.2 with FPM
+- Required PHP extensions
+- Redis support
+- Composer for dependencies

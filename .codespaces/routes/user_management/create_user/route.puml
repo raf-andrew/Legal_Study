@@ -1,0 +1,69 @@
+@startuml Create User Route
+
+title Create User Route Flow
+
+actor Client
+participant "API Gateway" as Gateway
+participant "User Service" as User
+participant "Auth Service" as Auth
+database "User DB" as DB
+participant "Cache" as Cache
+participant "Email Service" as Email
+
+Client -> Gateway: POST /api/users
+activate Gateway
+
+Gateway -> User: Validate Request
+activate User
+
+User -> User: Validate User Data
+note right: Check required fields
+note right: Validate email format
+note right: Check password strength
+
+User -> DB: Check Email Exists
+activate DB
+DB --> User: Email Status
+deactivate DB
+
+alt Email Exists
+    User --> Gateway: 409 Conflict
+    Gateway --> Client: 409 Conflict
+else Email Available
+    User -> User: Hash Password
+
+    User -> DB: Create User
+    activate DB
+    DB --> User: User Created
+    deactivate DB
+
+    User -> Auth: Generate Tokens
+    activate Auth
+    Auth --> User: JWT + Refresh Token
+    deactivate Auth
+
+    User -> Cache: Store Session
+    activate Cache
+    Cache --> User: Session Stored
+    deactivate Cache
+
+    User -> Email: Send Welcome Email
+    activate Email
+    Email --> User: Email Sent
+    deactivate Email
+
+    User --> Gateway: 201 Created
+    Gateway --> Client: 201 Created + User Data
+end
+
+deactivate User
+deactivate Gateway
+
+note right of Client
+  Response includes:
+  - User Data
+  - JWT Token
+  - Refresh Token
+end note
+
+@enduml

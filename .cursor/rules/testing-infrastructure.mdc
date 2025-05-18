@@ -3,3 +3,166 @@ description:
 globs:
 alwaysApply: false
 ---
+# Testing Infrastructure Guide
+
+## Overview
+The testing infrastructure provides comprehensive testing capabilities for the entire project, including unit tests, integration tests, and end-to-end tests.
+
+## Core Components
+
+### Test Framework
+The test framework is configured in [.wireframe/testing/](mdc:.wireframe/testing/README.md) and includes:
+- Test organization
+- Test execution
+- Result reporting
+- Coverage tracking
+
+### Test Results
+Test results are stored in [.wireframe/testing/results/](mdc:.wireframe/testing/results/final_report.html) providing:
+- Test summaries
+- Detailed results
+- Performance metrics
+- Error reports
+
+## Test Types
+
+### Unit Tests
+1. Service Tests
+   - Service manager tests
+   - Log management tests
+   - Configuration tests
+
+2. Integration Tests
+   - Service integration
+   - Database integration
+   - API integration
+
+3. End-to-End Tests
+   - User workflows
+   - System operations
+   - Performance tests
+
+## Test Organization
+
+### Directory Structure
+```
+.wireframe/testing/
+├── unit/           # Unit tests
+├── integration/    # Integration tests
+├── e2e/           # End-to-end tests
+├── results/       # Test results
+└── reports/       # Test reports
+```
+
+### Test Files
+1. Unit Tests
+   - `test_service_manager.py`
+   - `test_log_manager.py`
+   - `test_config.py`
+
+2. Integration Tests
+   - `test_service_integration.py`
+   - `test_database_integration.py`
+   - `test_api_integration.py`
+
+3. End-to-End Tests
+   - `test_user_workflows.py`
+   - `test_system_operations.py`
+   - `test_performance.py`
+
+## Test Execution
+
+### Running Tests
+1. Run All Tests
+   ```bash
+   python -m pytest .wireframe/testing/
+   ```
+
+2. Run Specific Tests
+   ```bash
+   python -m pytest .wireframe/testing/unit/
+   python -m pytest .wireframe/testing/integration/
+   python -m pytest .wireframe/testing/e2e/
+   ```
+
+3. Run with Coverage
+   ```bash
+   python -m pytest --cov=.wireframe/testing/
+   ```
+
+## Test Results
+
+### Result Types
+1. Summary Reports
+   - Total tests
+   - Passed tests
+   - Failed tests
+   - Error count
+
+2. Detailed Reports
+   - Test cases
+   - Error details
+   - Performance metrics
+   - Coverage data
+
+### Result Analysis
+1. Performance Analysis
+   - Test duration
+   - Resource usage
+   - Bottleneck identification
+   - Optimization opportunities
+
+2. Error Analysis
+   - Error patterns
+   - Root causes
+   - Fix recommendations
+   - Prevention strategies
+
+## Best Practices
+
+### Test Development
+1. Write clear test cases
+2. Use appropriate assertions
+3. Handle edge cases
+4. Document test scenarios
+5. Maintain test data
+
+### Test Execution
+1. Run tests regularly
+2. Monitor test results
+3. Track coverage
+4. Analyze failures
+5. Update tests
+
+### Test Maintenance
+1. Review test cases
+2. Update test data
+3. Optimize performance
+4. Document changes
+5. Version control
+
+## Continuous Integration
+
+### CI Integration
+1. Automated Testing
+   - Run on every commit
+   - Run on pull requests
+   - Run on merges
+
+2. Result Reporting
+   - Generate reports
+   - Send notifications
+   - Track trends
+   - Monitor coverage
+
+### Quality Gates
+1. Test Coverage
+   - Minimum coverage
+   - Critical path coverage
+   - Edge case coverage
+
+2. Performance Metrics
+   - Response time
+   - Resource usage
+   - Error rates
+   - Success rates

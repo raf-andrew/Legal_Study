@@ -1,0 +1,99 @@
+@startuml Microservices Architecture
+
+!define RECTANGLE class
+
+skinparam {
+    backgroundColor white
+    componentStyle uml2
+}
+
+cloud "Client Applications" {
+    [Web UI] as webui
+    [API Clients] as clients
+}
+
+node "API Gateway" {
+    [Laravel API Gateway] as gateway
+    [Authentication Service] as auth
+    [Rate Limiter] as ratelimit
+}
+
+node "Core Services" {
+    package "Initialization Service" {
+        [Initialization API] as initapi
+        [Initialization Worker] as initworker
+        database "Init DB" as initdb
+    }
+    
+    package "Service Manager" {
+        [Service API] as serviceapi
+        [Service Worker] as serviceworker
+        database "Service DB" as servicedb
+    }
+    
+    package "Configuration Service" {
+        [Config API] as configapi
+        [Config Worker] as configworker
+        database "Config DB" as configdb
+    }
+}
+
+node "Support Services" {
+    queue "RabbitMQ" as mq
+    database "Redis Cache" as cache
+    [WebSocket Server] as ws
+    [Metrics Collector] as metrics
+    database "Metrics DB" as metricsdb
+}
+
+node "Monitoring" {
+    [Prometheus] as prom
+    [Grafana] as grafana
+    [ELK Stack] as elk
+}
+
+' Client connections
+webui --> gateway
+clients --> gateway
+
+' Gateway routing
+gateway --> auth
+gateway --> ratelimit
+gateway --> initapi
+gateway --> serviceapi
+gateway --> configapi
+gateway --> ws
+
+' Service interactions
+initapi --> initworker
+initworker --> initdb
+initworker --> mq
+
+serviceapi --> serviceworker
+serviceworker --> servicedb
+serviceworker --> mq
+
+configapi --> configworker
+configworker --> configdb
+configworker --> mq
+
+' Support service interactions
+initworker ..> cache
+serviceworker ..> cache
+configworker ..> cache
+
+metrics --> metricsdb
+metrics --> prom
+
+' Monitoring
+prom --> grafana
+initworker --> elk
+serviceworker --> elk
+configworker --> elk
+
+' Real-time updates
+initworker ..> ws
+serviceworker ..> ws
+configworker ..> ws
+
+@enduml 

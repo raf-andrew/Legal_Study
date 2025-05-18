@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-04-23T22:12:52.138012",
+  "tests": {
+    "jwt_creation": {
+      "status": "pass",
+      "details": "JWT tokens created successfully"
+    },
+    "jwt_validation": {
+      "status": "pass",
+      "details": "JWT token validation successful"
+    },
+    "jwt_expiration": {
+      "status": "pass",
+      "details": "JWT token expiration handled correctly"
+    },
+    "jwt_invalid_signature": {
+      "status": "pass",
+      "details": "JWT invalid signature handled correctly"
+    },
+    "jwt_refresh_flow": {
+      "status": "pass",
+      "details": "JWT refresh flow working correctly"
+    }
+  },
+  "errors": []
+}

@@ -1,0 +1,111 @@
+{
+  "scenario": "performance_test",
+  "start_time": "2025-05-18T09:42:36.448757",
+  "iterations": 3,
+  "results": [
+    {
+      "iteration": 1,
+      "status": "success",
+      "steps": {
+        "load_condition": {
+          "status": "success",
+          "message": "Simulating high load condition",
+          "duration": 0.1
+        },
+        "response_time": {
+          "status": "success",
+          "message": "Response time: 0.845s under high load",
+          "duration": 0.8448780114161075
+        },
+        "resource_utilization": {
+          "status": "success",
+          "message": "CPU: 75.6%, Memory: 32.5%",
+          "duration": 0.1,
+          "metrics": {
+            "cpu_usage": 75.63753028986265,
+            "memory_usage": 32.47065188231481
+          }
+        },
+        "throughput": {
+          "status": "success",
+          "message": "Throughput: 9.2 requests/second",
+          "duration": 0.1,
+          "metrics": {
+            "requests_per_second": 9.191596470293828
+          }
+        }
+      },
+      "timestamp": 1747586556.4487574
+    },
+    {
+      "iteration": 2,
+      "status": "success",
+      "steps": {
+        "load_condition": {
+          "status": "success",
+          "message": "Simulating high load condition",
+          "duration": 0.1
+        },
+        "response_time": {
+          "status": "success",
+          "message": "Response time: 1.002s under high load",
+          "duration": 1.0019873335872294
+        },
+        "resource_utilization": {
+          "status": "success",
+          "message": "CPU: 72.1%, Memory: 35.8%",
+          "duration": 0.1,
+          "metrics": {
+            "cpu_usage": 72.09449861995273,
+            "memory_usage": 35.80588436543142
+          }
+        },
+        "throughput": {
+          "status": "success",
+          "message": "Throughput: 6.7 requests/second",
+          "duration": 0.1,
+          "metrics": {
+            "requests_per_second": 6.733076349179449
+          }
+        }
+      },
+      "timestamp": 1747586556.449838
+    },
+    {
+      "iteration": 3,
+      "status": "success",
+      "steps": {
+        "load_condition": {
+          "status": "success",
+          "message": "Simulating low load condition",
+          "duration": 0.1
+        },
+        "response_time": {
+          "status": "success",
+          "message": "Response time: 0.291s under low load",
+          "duration": 0.29084925279465124
+        },
+        "resource_utilization": {
+          "status": "success",
+          "message": "CPU: 33.1%, Memory: 37.6%",
+          "duration": 0.1,
+          "metrics": {
+            "cpu_usage": 33.13755513331422,
+            "memory_usage": 37.56427246084911
+          }
+        },
+        "throughput": {
+          "status": "success",
+          "message": "Throughput: 79.1 requests/second",
+          "duration": 0.1,
+          "metrics": {
+            "requests_per_second": 79.076764056448
+          }
+        }
+      },
+      "timestamp": 1747586556.449838
+    }
+  ],
+  "end_time": "2025-05-18T09:42:36.449837",
+  "duration": 0.44983792304992676
+}

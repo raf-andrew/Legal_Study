@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-05-08T09:22:52.159722",
+  "results": [
+    {
+      "suite": "unit",
+      "result": 1,
+      "report": "test_reports\\temp\\unit_20250508_091908.json"
+    },
+    {
+      "suite": "security",
+      "result": 1,
+      "report": "test_reports\\temp\\security_20250508_091916.json"
+    },
+    {
+      "suite": "acid",
+      "result": 1,
+      "report": "test_reports\\temp\\acid_20250508_091924.json"
+    },
+    {
+      "suite": "notifications",
+      "result": 1,
+      "report": "test_reports\\temp\\notifications_20250508_091926.json"
+    },
+    {
+      "suite": "monitoring",
+      "result": 1,
+      "report": "test_reports\\temp\\monitoring_20250508_092016.json"
+    },
+    {
+      "suite": "error_handling",
+      "result": 1,
+      "report": "test_reports\\temp\\error_handling_20250508_092110.json"
+    },
+    {
+      "suite": "ai",
+      "result": 1,
+      "report": "test_reports\\temp\\ai_20250508_092203.json"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "test_name": "error_handling_endpoints_test",
+  "start_time": "2025-05-12T08:51:22.860956",
+  "end_time": "2025-05-12T08:51:22.913569",
+  "verification_steps": [
+    {
+      "step": "Verify /error-handling/health endpoint",
+      "status": "in_progress",
+      "timestamp": "2025-05-12T08:51:22.860956",
+      "details": {
+        "endpoint": "/error-handling/health",
+        "method": "GET"
+      }
+    },
+    {
+      "step": "Verify /error-handling/health response structure",
+      "status": "passed",
+      "timestamp": "2025-05-12T08:51:22.904649",
+      "details": {
+        "expected": [
+          "status",
+          "timestamp",
+          "version"
+        ],
+        "actual": [
+          "status",
+          "timestamp",
+          "version"
+        ]
+      }
+    },
+    {
+      "step": "Verify /error-handling/log endpoint",
+      "status": "in_progress",
+      "timestamp": "2025-05-12T08:51:22.904649",
+      "details": {
+        "endpoint": "/error-handling/log",
+        "method": "POST",
+        "payload": {
+          "level": "error",
+          "message": "Test error message",
+          "context": {
+            "test": "context"
+          }
+        }
+      }
+    },
+    {
+      "step": "Verify /error-handling/log response structure",
+      "status": "passed",
+      "timestamp": "2025-05-12T08:51:22.913569",
+      "details": {
+        "expected": [
+          "status",
+          "error_id",
+          "logged_at"
+        ],
+        "actual": [
+          "status",
+          "error_id",
+          "logged_at"
+        ]
+      }
+    }
+  ],
+  "results": [
+    {
+      "endpoint": "/error-handling/health",
+      "method": "GET",
+      "status_code": 200,
+      "response": {
+        "status": "healthy",
+        "timestamp": "2025-05-12T08:51:22.880441",
+        "version": "1.0.0"
+      },
+      "timestamp": "2025-05-12T08:51:22.904649"
+    },
+    {
+      "endpoint": "/error-handling/log",
+      "method": "POST",
+      "status_code": 200,
+      "response": {
+        "status": "logged",
+        "error_id": "mock_error_id",
+        "logged_at": "2025-05-12T08:51:22.904649"
+      },
+      "timestamp": "2025-05-12T08:51:22.913569"
+    }
+  ],
+  "summary": {
+    "total_steps": 4,
+    "passed_steps": 2,
+    "failed_steps": 0
+  }
+}

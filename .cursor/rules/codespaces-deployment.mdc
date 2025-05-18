@@ -3,3 +3,135 @@ description:
 globs:
 alwaysApply: false
 ---
+# Codespaces Deployment Guide
+
+## Overview
+This guide covers the deployment of services in GitHub Codespaces, focusing on MySQL and Redis services without Docker dependencies.
+
+## Environment Setup
+
+### Devcontainer Configuration
+The [devcontainer.json](mdc:.devcontainer/devcontainer.json) file configures:
+- Required VS Code extensions
+- Python environment setup
+- Service installation and startup
+- Port forwarding
+- Environment variables
+
+### Service Installation
+Services are installed during Codespaces creation via `postCreateCommand`:
+```bash
+sudo apt-get update && sudo apt-get install -y mysql-server redis-server
+```
+
+### Service Startup
+Services are started automatically:
+```bash
+sudo service mysql start
+sudo service redis-server start
+```
+
+## Service Management
+
+### Individual Service Deployment
+Each service can be deployed and managed independently:
+
+1. MySQL:
+   ```bash
+   # Start MySQL
+   python .setup/scripts/service_manager.py --service mysql --action start
+
+   # Verify MySQL
+   python .setup/scripts/service_manager.py --service mysql --action verify
+   ```
+
+2. Redis:
+   ```bash
+   # Start Redis
+   python .setup/scripts/service_manager.py --service redis --action start
+
+   # Verify Redis
+   python .setup/scripts/service_manager.py --service redis --action verify
+   ```
+
+### Service Verification
+The verification process checks:
+1. Service installation
+2. Service status
+3. Connection capability
+4. Basic functionality
+
+## Monitoring and Logging
+
+### Real-time Monitoring
+Use the log tailing script to monitor services:
+```bash
+# Monitor MySQL
+python .setup/scripts/tail_logs.py --service mysql
+
+# Monitor Redis
+python .setup/scripts/tail_logs.py --service redis
+
+# Monitor all services
+python .setup/scripts/tail_logs.py --service all
+```
+
+### Log Files
+Service logs are stored in `.setup/logs/`:
+- `service_manager.log` - General service management
+- `mysql_service.log` - MySQL operations
+- `redis_service.log` - Redis operations
+
+## Environment Variables
+Required environment variables in Codespaces:
+```
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=legal_study
+DB_USERNAME=root
+DB_PASSWORD=secret
+REDIS_HOST=localhost
+REDIS_PORT=6379
+CACHE_DRIVER=redis
+SESSION_DRIVER=redis
+QUEUE_CONNECTION=redis
+```
+
+## Port Forwarding
+Required ports:
+- 8000: Application
+- 3306: MySQL
+- 6379: Redis
+
+## Troubleshooting
+
+### Service Issues
+1. Check service status:
+   ```bash
+   python .setup/scripts/service_manager.py --service <service> --action verify
+   ```
+
+2. View service logs:
+   ```bash
+   python .setup/scripts/tail_logs.py --service <service>
+   ```
+
+3. Restart service:
+   ```bash
+   python .setup/scripts/service_manager.py --service <service> --action restart
+   ```
+
+### Connection Issues
+1. Verify environment variables
+2. Check port forwarding
+3. Ensure services are running
+4. Review service logs
+
+## Best Practices
+1. Always verify services after deployment
+2. Monitor logs during operations
+3. Use individual service management
+4. Keep services updated
+5. Regular service verification
+6. Monitor resource usage

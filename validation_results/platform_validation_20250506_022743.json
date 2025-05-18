@@ -1,0 +1,65 @@
+{
+  "timestamp": "2025-05-06T02:27:43.701671",
+  "stages": {
+    "environment_setup": {
+      "status": "fail",
+      "execution_time": 0.16388940811157227,
+      "output": {
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\ajame\\Legal_Study\\scripts\\setup_dev_environment.py\", line 479, in <module>\n    main() \n  File \"C:\\Users\\ajame\\Legal_Study\\scripts\\setup_dev_environment.py\", line 469, in main\n    results = setup.run_setup()\n  File \"C:\\Users\\ajame\\Legal_Study\\scripts\\setup_dev_environment.py\", line 379, in run_setup\n    start_time = time.time()\nNameError: name 'time' is not defined\n"
+      },
+      "error": "Traceback (most recent call last):\n  File \"C:\\Users\\ajame\\Legal_Study\\scripts\\setup_dev_environment.py\", line 479, in <module>\n    main() \n  File \"C:\\Users\\ajame\\Legal_Study\\scripts\\setup_dev_environment.py\", line 469, in main\n    results = setup.run_setup()\n  File \"C:\\Users\\ajame\\Legal_Study\\scripts\\setup_dev_environment.py\", line 379, in run_setup\n    start_time = time.time()\nNameError: name 'time' is not defined\n"
+    },
+    "smoke_tests": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    },
+    "integration_tests": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    },
+    "ai_tests": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    },
+    "notification_tests": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    },
+    "error_handling": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    },
+    "performance_tests": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    },
+    "security_tests": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    },
+    "monitoring_setup": {
+      "status": "skipped",
+      "execution_time": 0,
+      "error": "Previous required stage failed"
+    }
+  },
+  "overall_status": "fail",
+  "execution_time": 0.17106389999389648,
+  "summary": {
+    "total_stages": 9,
+    "passed_stages": 0,
+    "failed_stages": 1,
+    "error_stages": 0,
+    "skipped_stages": 8,
+    "success_rate": 0.0,
+    "execution_time": 0.17106389999389648
+  }
+}

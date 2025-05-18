@@ -1,0 +1,66 @@
+{
+  "metrics": {
+    "system": {
+      "cpu_usage": {
+        "threshold": 80,
+        "interval": 60,
+        "alert_level": "warning"
+      },
+      "memory_usage": {
+        "threshold": 85,
+        "interval": 60,
+        "alert_level": "warning"
+      },
+      "disk_usage": {
+        "threshold": 90,
+        "interval": 300,
+        "alert_level": "critical"
+      }
+    },
+    "application": {
+      "response_time": {
+        "threshold": 1000,
+        "interval": 60,
+        "alert_level": "warning"
+      },
+      "error_rate": {
+        "threshold": 5,
+        "interval": 300,
+        "alert_level": "critical"
+      },
+      "concurrent_users": {
+        "threshold": 100,
+        "interval": 60,
+        "alert_level": "warning"
+      }
+    },
+    "database": {
+      "query_time": {
+        "threshold": 500,
+        "interval": 60,
+        "alert_level": "warning"
+      },
+      "connection_pool": {
+        "threshold": 80,
+        "interval": 60,
+        "alert_level": "warning"
+      }
+    }
+  },
+  "reporting": {
+    "daily": {
+      "schedule": "00:00",
+      "retention": 30
+    },
+    "weekly": {
+      "schedule": "00:00",
+      "day": "Monday",
+      "retention": 90
+    },
+    "monthly": {
+      "schedule": "00:00",
+      "day": 1,
+      "retention": 365
+    }
+  }
+} 

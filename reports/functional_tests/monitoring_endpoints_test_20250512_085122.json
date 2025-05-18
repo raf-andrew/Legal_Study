@@ -1,0 +1,90 @@
+{
+  "test_name": "monitoring_endpoints_test",
+  "start_time": "2025-05-12T08:51:22.939675",
+  "end_time": "2025-05-12T08:51:22.955304",
+  "verification_steps": [
+    {
+      "step": "Verify /monitoring/health endpoint",
+      "status": "in_progress",
+      "timestamp": "2025-05-12T08:51:22.939675",
+      "details": {
+        "endpoint": "/monitoring/health",
+        "method": "GET"
+      }
+    },
+    {
+      "step": "Verify /monitoring/health response structure",
+      "status": "passed",
+      "timestamp": "2025-05-12T08:51:22.939675",
+      "details": {
+        "expected": [
+          "status",
+          "timestamp",
+          "version"
+        ],
+        "actual": [
+          "status",
+          "timestamp",
+          "version"
+        ]
+      }
+    },
+    {
+      "step": "Verify /monitoring/system endpoint",
+      "status": "in_progress",
+      "timestamp": "2025-05-12T08:51:22.939675",
+      "details": {
+        "endpoint": "/monitoring/system",
+        "method": "GET"
+      }
+    },
+    {
+      "step": "Verify /monitoring/system response structure",
+      "status": "passed",
+      "timestamp": "2025-05-12T08:51:22.955304",
+      "details": {
+        "expected": [
+          "cpu_usage",
+          "memory_usage",
+          "disk_usage"
+        ],
+        "actual": [
+          "cpu_usage",
+          "memory_usage",
+          "disk_usage"
+        ]
+      }
+    }
+  ],
+  "results": [
+    {
+      "endpoint": "/monitoring/health",
+      "method": "GET",
+      "status_code": 200,
+      "response": {
+        "status": "healthy",
+        "timestamp": "2025-05-12T08:51:22.939675",
+        "version": "1.0.0"
+      },
+      "timestamp": "2025-05-12T08:51:22.939675"
+    },
+    {
+      "endpoint": "/monitoring/system",
+      "method": "GET",
+      "status_code": 200,
+      "response": {
+        "metrics": {
+          "cpu_usage": 45.5,
+          "memory_usage": 60.2,
+          "disk_usage": 70.8
+        }
+      },
+      "timestamp": "2025-05-12T08:51:22.955304"
+    }
+  ],
+  "summary": {
+    "total_steps": 4,
+    "passed_steps": 2,
+    "failed_steps": 0
+  }
+}

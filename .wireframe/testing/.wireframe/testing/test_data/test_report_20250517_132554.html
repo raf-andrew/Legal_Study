@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Report test_report_20250517_132554</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .option {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #eee;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .option.selected {
+            background-color: #e3f2fd;
+            border-color: #2196f3;
+        }
+        .metric-card {
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .version-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: #f8f9fa;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="version-info">Version: 1.0.0</div>
+    <h1>Test Report test_report_20250517_132554</h1>
+    <p>Generated test report for wireframe refinement testing</p>
+
+    
+            <div class="section" id="section_1">
+                <h2>Section 1</h2>
+                <p>This is test content for section 1</p>
+            </div>
+            <div class="section" id="section_2">
+                <h2>Section 2</h2>
+                <p>This is test content for section 2</p>
+            </div>
+            <div class="section" id="section_3">
+                <h2>Section 3</h2>
+                <p>This is test content for section 3</p>
+            </div>
+    
+        <div class="options">
+            <h2>Options</h2>
+            <div class="option" data-option-id="option_1" role="button" tabindex="0">
+                <h3>Option 1</h3>
+                <p>Description for option 1</p>
+            </div>
+            <div class="option" data-option-id="option_2" role="button" tabindex="0">
+                <h3>Option 2</h3>
+                <p>Description for option 2</p>
+            </div>
+            <div class="option" data-option-id="option_3" role="button" tabindex="0">
+                <h3>Option 3</h3>
+                <p>Description for option 3</p>
+            </div></div>
+    
+        <div class="metrics">
+            <h2>Metrics</h2>
+            <div class="metric-card">
+                <h3>Performance</h3>
+                <p>Load Time: 0.63s</p>
+                <p>Render Time: 0.72s</p>
+                <p>Interaction Time: 0.18s</p>
+            </div>
+            <div class="metric-card">
+                <h3>Accessibility</h3>
+                <p>Score: 93/100</p>
+                <p>Issues: 0</p>
+            </div>
+            <div class="metric-card">
+                <h3>Responsiveness</h3>
+                <p>Desktop: 99%</p>
+                <p>Tablet: 99%</p>
+                <p>Mobile: 91%</p>
+            </div></div>
+
+    <script>
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options
+                document.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                // Add selected class to clicked option
+                this.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>

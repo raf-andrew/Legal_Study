@@ -1,0 +1,128 @@
+{
+  "templates": {
+    "prompt": {
+      "metadata": {
+        "prompt_id": "XX-000",
+        "job_type": "System Management",
+        "created": "YYYY-MM-DD",
+        "last_updated": "YYYY-MM-DD",
+        "version": "1.0.0"
+      },
+      "purpose": "Brief description of the prompt's purpose",
+      "context": "Detailed explanation of when and how this prompt should be used",
+      "input_requirements": {
+        "required_fields": [
+          "field1",
+          "field2"
+        ],
+        "optional_fields": [
+          "field3",
+          "field4"
+        ]
+      },
+      "output_specifications": {
+        "format": "Markdown",
+        "required_sections": [
+          "Section 1",
+          "Section 2"
+        ],
+        "quality_criteria": [
+          "Criterion 1",
+          "Criterion 2"
+        ]
+      },
+      "quality_assurance": [
+        "QA Item 1",
+        "QA Item 2"
+      ],
+      "notes": [
+        "Note 1",
+        "Note 2"
+      ],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "YYYY-MM-DD",
+          "changes": "Initial version"
+        }
+      ]
+    },
+    "job": {
+      "job_information": {
+        "job_id": "XX-000",
+        "job_type": "Legal Research",
+        "created": "YYYY-MM-DD",
+        "status": "Not Started",
+        "priority": "Medium",
+        "version": "1.0.0"
+      },
+      "requirements": [
+        "Requirement 1",
+        "Requirement 2"
+      ],
+      "deliverables": [
+        "Deliverable 1",
+        "Deliverable 2"
+      ],
+      "dependencies": [
+        "Dependency 1",
+        "Dependency 2"
+      ],
+      "status_tracking": [
+        {
+          "date": "YYYY-MM-DD",
+          "status": "Not Started",
+          "notes": "Initial status"
+        }
+      ],
+      "quality_assurance": [
+        "QA Item 1",
+        "QA Item 2"
+      ],
+      "notes": [
+        "Note 1",
+        "Note 2"
+      ],
+      "version_history": [
+        {
+          "version": "1.0.0",
+          "date": "YYYY-MM-DD",
+          "changes": "Initial version"
+        }
+      ]
+    },
+    "qa": {
+      "job_information": {
+        "job_id": "XX-000",
+        "job_type": "Legal Research",
+        "date": "YYYY-MM-DD",
+        "qa_reviewer": "Reviewer Name",
+        "status": "PENDING"
+      },
+      "verification": [
+        "Verification Item 1",
+        "Verification Item 2"
+      ],
+      "quality_metrics": {
+        "completeness": 0,
+        "accuracy": 0,
+        "clarity": 0,
+        "professionalism": 0
+      },
+      "issues_tracking": [
+        "Issue 1",
+        "Issue 2"
+      ],
+      "final_assessment": [
+        "Assessment Item 1",
+        "Assessment Item 2"
+      ],
+      "qa_sign_off": {
+        "qa_reviewer": "Reviewer Name",
+        "date": "YYYY-MM-DD",
+        "status": "PENDING",
+        "comments": "QA review comments"
+      }
+    }
+  }
+} 

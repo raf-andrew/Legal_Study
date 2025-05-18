@@ -12,3 +12,219 @@ alwaysApply: false
 - The [CodespacesHealthCheck](mdc:app/Services/CodespacesHealthCheck.php) handles health checks and status.
 - The [CodespacesLifecycleManager](mdc:app/Services/CodespacesLifecycleManager.php) manages service creation, teardown, and healing.
 - The [ManageCodespaces](mdc:app/Console/Commands/ManageCodespaces.php) command provides CLI access to all service management features.
+
+# Service Management in Codespaces
+
+## Overview
+The service management infrastructure provides tools for deploying, managing, and monitoring MySQL and Redis services in GitHub Codespaces. All services are deployed directly in Codespaces without Docker.
+
+## Key Components
+
+### Service Manager
+The service manager ([service_manager.py](mdc:.setup/scripts/service_manager.py)) provides commands for:
+- Starting/stopping services
+- Checking service status
+- Verifying service functionality
+- Managing services individually or all at once
+
+Usage:
+```bash
+# Verify MySQL service
+python .setup/scripts/service_manager.py --service mysql --action verify
+
+# Start Redis service
+python .setup/scripts/service_manager.py --service redis --action start
+
+# Restart all services
+python .setup/scripts/service_manager.py --action restart
+```
+
+### Log Management
+The log tailing script ([tail_logs.py](mdc:.setup/scripts/tail_logs.py)) provides real-time monitoring of service logs:
+- View logs for specific services
+- Monitor all services simultaneously
+- Configure initial line count
+- Follow log updates in real-time
+
+Usage:
+```bash
+# Tail MySQL logs
+python .setup/scripts/tail_logs.py --service mysql
+
+# View last 20 lines of Redis logs without following
+python .setup/scripts/tail_logs.py --service redis --lines 20 --no-follow
+
+# Monitor all service logs
+python .setup/scripts/tail_logs.py --service all
+```
+
+### Environment Configuration
+The Codespaces environment is configured in [devcontainer.json](mdc:.devcontainer/devcontainer.json):
+- Services are installed and started automatically
+- Ports are forwarded (MySQL: 3306, Redis: 6379)
+- Environment variables are set for service connections
+
+## Service Verification
+Each service is verified through:
+1. Installation check
+2. Service status check
+3. Connection test
+4. Basic functionality test
+
+## Logging
+All service operations are logged to:
+- `.setup/logs/service_manager.log` - General service management logs
+- `.setup/logs/mysql_service.log` - MySQL-specific logs
+- `.setup/logs/redis_service.log` - Redis-specific logs
+
+## Troubleshooting
+1. Check service status:
+   ```bash
+   python .setup/scripts/service_manager.py --service <service> --action verify
+   ```
+
+2. View service logs:
+   ```bash
+   python .setup/scripts/tail_logs.py --service <service>
+   ```
+
+3. Restart service:
+   ```bash
+   python .setup/scripts/service_manager.py --service <service> --action restart
+   ```
+
+## Best Practices
+1. Always verify services after deployment
+2. Monitor logs during service operations
+3. Use individual service management for targeted actions
+4. Check service status before critical operations
+
+# Service Management Guide
+
+## Overview
+The service management infrastructure handles MySQL and Redis services in GitHub Codespaces, providing tools for deployment, monitoring, and maintenance.
+
+## Core Components
+
+### Service Manager
+The service manager is implemented in [.setup/scripts/service_manager.py](mdc:.setup/scripts/service_manager.py) and provides:
+- Service status checking
+- Service control (start/stop/restart)
+- Service verification
+- Log management
+
+### Log Management
+Log management is handled by [.setup/scripts/tail_logs.py](mdc:.setup/scripts/tail_logs.py) offering:
+- Real-time log monitoring
+- Log file management
+- Error tracking
+- Performance monitoring
+
+## Environment Configuration
+
+### Codespaces Setup
+The Codespaces environment is configured in [.devcontainer/devcontainer.json](mdc:.devcontainer/devcontainer.json) with:
+- Service installation
+- Port forwarding
+- Environment variables
+- VS Code extensions
+
+### Service Configuration
+1. MySQL Configuration
+   - Host: localhost
+   - Port: 3306
+   - User: root
+   - Password: root
+
+2. Redis Configuration
+   - Host: localhost
+   - Port: 6379
+   - No authentication required
+
+## Usage Guide
+
+### Service Management
+1. Check Service Status
+   ```bash
+   python .setup/scripts/service_manager.py --service mysql --action check
+   python .setup/scripts/service_manager.py --service redis --action check
+   ```
+
+2. Control Services
+   ```bash
+   python .setup/scripts/service_manager.py --service mysql --action start
+   python .setup/scripts/service_manager.py --service redis --action stop
+   ```
+
+3. Verify Services
+   ```bash
+   python .setup/scripts/service_manager.py --service mysql --action verify
+   python .setup/scripts/service_manager.py --service redis --action verify
+   ```
+
+### Log Management
+1. Monitor Logs
+   ```bash
+   python .setup/scripts/tail_logs.py --service mysql
+   python .setup/scripts/tail_logs.py --service redis
+   ```
+
+2. View All Logs
+   ```bash
+   python .setup/scripts/tail_logs.py --service all
+   ```
+
+## Best Practices
+
+### Service Management
+1. Always verify service status before operations
+2. Monitor logs for errors
+3. Use appropriate service controls
+4. Handle errors gracefully
+5. Document service changes
+
+### Log Management
+1. Regular log monitoring
+2. Error tracking
+3. Performance analysis
+4. Log rotation
+5. Backup important logs
+
+## Troubleshooting
+
+### Common Issues
+1. Service Not Starting
+   - Check service status
+   - Review error logs
+   - Verify configuration
+   - Check port availability
+
+2. Connection Issues
+   - Verify host/port
+   - Check credentials
+   - Test connectivity
+   - Review firewall rules
+
+3. Performance Problems
+   - Monitor resource usage
+   - Check log patterns
+   - Analyze bottlenecks
+   - Optimize configuration
+
+## Maintenance
+
+### Regular Tasks
+1. Service Health Checks
+   - Daily status verification
+   - Weekly performance review
+   - Monthly configuration audit
+
+2. Log Management
+   - Daily log review
+   - Weekly log rotation
+   - Monthly log analysis
+
+3. Security Updates
+   - Regular security patches
+   - Configuration updates
+   - Access control review

@@ -1,0 +1,134 @@
+# MCP configuration
+
+# Global settings
+global:
+  workspace_path: "./workspace"
+  job_path: "./jobs"
+  isolation_path: "./isolations"
+  analysis_path: "./analysis"
+  fix_path: "./fixes"
+  report_path: "./reports"
+  parallel_jobs: 4
+  cache_ttl: 3600
+
+# Domain settings
+domains:
+  security:
+    enabled: true
+    sniffer:
+      patterns_path: "./patterns/security"
+      rules_path: "./rules/security"
+      simulations_path: "./simulations/security"
+    analyzer:
+      model_name: "microsoft/codebert-base"
+      confidence_threshold: 0.8
+      max_sequence_length: 512
+      batch_size: 32
+    fixer:
+      model_name: "microsoft/codebert-base"
+      confidence_threshold: 0.9
+      max_sequence_length: 512
+      batch_size: 32
+    reporter:
+      templates_path: "./templates/security"
+      formats:
+        - "html"
+        - "pdf"
+        - "csv"
+
+  browser:
+    enabled: false
+
+  functional:
+    enabled: false
+
+  unit:
+    enabled: false
+
+  documentation:
+    enabled: false
+
+# Monitoring settings
+monitoring:
+  enabled: true
+  prometheus_port: 9090
+  metrics_path: "/metrics"
+  collection_interval: 60
+  health_check_interval: 300
+
+# Logging settings
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "./logs/{name}.log"
+
+# Model settings
+model:
+  name: "microsoft/codebert-base"
+  confidence_threshold: 0.8
+  max_sequence_length: 512
+  batch_size: 32
+
+# Git integration settings
+git:
+  enabled: true
+  pre_commit_hook: true
+  branch_protection: true
+  required_checks:
+    - "security-scan"
+    - "browser-scan"
+    - "functional-scan"
+    - "unit-scan"
+    - "documentation-scan"
+
+# CI/CD integration settings
+ci_cd:
+  enabled: true
+  block_on_critical: true
+  block_on_high: false
+  notification_threshold: "medium"
+  slack_webhook: ""
+  email_notifications: []
+
+# API settings
+api:
+  enabled: true
+  host: "localhost"
+  port: 8000
+  rate_limit: 100
+  token_expiry: 3600
+
+# Cache settings
+cache:
+  enabled: true
+  backend: "redis"
+  url: "redis://localhost:6379/0"
+  ttl: 3600
+
+# Performance settings
+performance:
+  max_file_size: 1048576
+  timeout: 300
+  memory_limit: 1024
+  cpu_limit: 2
+
+# MCP server settings
+mcp:
+  host: "localhost"
+  port: 8000
+  api_version: "v1"
+  workers: 4
+  log_level: "INFO"
+  cors_origins: ["*"]
+  metrics_enabled: true
+  metrics_path: "/metrics"
+  health_check_path: "/health"
+  timeout: 60
+  graceful_shutdown: true
+  queues:
+    analysis:
+      max_size: 1000
+      timeout: 300
+    results:
+      max_size: 1000
+      timeout: 300

@@ -1,0 +1,97 @@
+@startuml Minimalist User Flow
+
+skinparam {
+    BackgroundColor white
+    ArrowColor black
+    BorderColor black
+}
+
+' Define states
+state "Dashboard" as dashboard {
+    state "Overview" as overview
+    state "Services" as services
+    state "Configuration" as config
+    state "Monitoring" as monitor
+}
+
+state "Service Control" as service {
+    state "Start" as start
+    state "Stop" as stop
+    state "Restart" as restart
+    state "Configure" as configure
+}
+
+state "Configuration" as settings {
+    state "Basic" as basic
+    state "Advanced" as advanced
+    state "Import/Export" as io
+}
+
+state "Monitoring" as metrics {
+    state "Real-time" as realtime
+    state "History" as history
+    state "Alerts" as alerts
+}
+
+' Define actors
+actor "User" as user
+actor "Admin" as admin
+
+' Define flows
+[*] --> dashboard
+
+' User flows
+user --> dashboard : View Status
+dashboard --> overview
+dashboard --> services
+dashboard --> config
+dashboard --> monitor
+
+services --> service
+service --> start
+service --> stop
+service --> restart
+service --> configure
+
+config --> settings
+settings --> basic
+settings --> advanced
+settings --> io
+
+monitor --> metrics
+metrics --> realtime
+metrics --> history
+metrics --> alerts
+
+' Admin flows
+admin --> dashboard : Access System
+
+' Quick action flows
+dashboard --> overview : Access Overview
+dashboard --> services : Access Services
+dashboard --> config : Access Configuration
+dashboard --> monitor : Access Monitoring
+
+' State transitions
+overview --> services : View Services
+services --> service : Select Service
+service --> start : Start Service
+service --> stop : Stop Service
+service --> restart : Restart Service
+service --> configure : Configure Service
+
+' Validation flows
+settings --> basic : Set Basic Settings
+settings --> advanced : Set Advanced Settings
+settings --> io : Import/Export Configuration
+
+' Monitoring flows
+metrics --> alerts : Check Issues
+alerts --> overview : Return to Overview
+
+' Layout hints
+dashboard -[hidden]right-> services
+services -[hidden]right-> config
+config -[hidden]right-> monitor
+
+@enduml 

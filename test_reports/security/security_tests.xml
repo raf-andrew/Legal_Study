@@ -1,0 +1,1339 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="12" skipped="0" tests="17" time="4.055" timestamp="2025-05-08T12:00:02.886208" hostname="laptop-2"><testcase classname="tests.security.test_security_measures" name="test_password_security" time="0.007" /><testcase classname="tests.security.test_security_measures" name="test_audit_logging" time="0.004" /><testcase classname="tests.security.test_security_measures" name="test_security_headers" time="0.019"><failure message="fastapi.exceptions.HTTPException">def test_security_headers():
+        """Test security headers"""
+&gt;       response = client.get("/")
+
+tests\security\test_security_measures.py:79: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:499: in get
+    return super().get(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1041: in get
+    return self.request(
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:465: in request
+    return super().request(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:814: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:901: in send
+    response = self._send_handling_auth(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:929: in _send_handling_auth
+    response = self._send_handling_redirects(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:966: in _send_handling_redirects
+    response = self._send_single_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1002: in _send_single_request
+    response = transport.handle_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:342: in handle_request
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:339: in handle_request
+    portal.call(self.app, scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:445: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:184: in __call__
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:162: in __call__
+    await self.app(scope, receive, _send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\base.py:108: in __call__
+    response = await self.dispatch_func(request, call_next)
+app\middleware\auth.py:73: in __call__
+    raise e
+app\middleware\auth.py:61: in __call__
+    auth = await security(request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;fastapi.security.http.HTTPBearer object at 0x0000021FAFBE5900&gt;
+request = &lt;starlette.requests.Request object at 0x0000021FAFEAC5E0&gt;
+
+    async def __call__(
+        self, request: Request
+    ) -&gt; Optional[HTTPAuthorizationCredentials]:
+        authorization = request.headers.get("Authorization")
+        scheme, credentials = get_authorization_scheme_param(authorization)
+        if not (authorization and scheme and credentials):
+            if self.auto_error:
+&gt;               raise HTTPException(
+                    status_code=HTTP_403_FORBIDDEN, detail="Not authenticated"
+                )
+E               fastapi.exceptions.HTTPException
+
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\security\http.py:308: HTTPException</failure></testcase><testcase classname="tests.security.test_security_measures" name="test_authentication" time="0.012"><failure message="fastapi.exceptions.HTTPException">signing_input = b'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0X3VzZXIiLCJleHAiOjE3NDY3MzI2MDN9'
+header = {'alg': 'HS256', 'typ': 'JWT'}
+signature = b'b"\'\xe9\xcc\xafS\x06\xf9\xf3\x0f\x10a\x15A\xc4\x00\xd8\xef\x01\xf1\xda\xedG\xc3{\xbc\n[\x1c\xb0c'
+key = 'XXywXa3WNd_S_BNeX9MhZV3fc6RqYokTPB95wOGq5xc', algorithms = ['HS256']
+
+    def _verify_signature(signing_input, header, signature, key="", algorithms=None):
+    
+        alg = header.get("alg")
+        if not alg:
+            raise JWSError("No algorithm was specified in the JWS header.")
+    
+        if algorithms is not None and alg not in algorithms:
+            raise JWSError("The specified alg value is not allowed")
+    
+        keys = _get_keys(key)
+        try:
+            if not _sig_matches_keys(keys, signing_input, signature, alg):
+&gt;               raise JWSSignatureError()
+E               jose.exceptions.JWSSignatureError
+
+..\AppData\Roaming\Python\Python310\site-packages\jose\jws.py:262: JWSSignatureError
+
+During handling of the above exception, another exception occurred:
+
+token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0X3VzZXIiLCJleHAiOjE3NDY3MzI2MDN9.YiIn6cyvUwb58w8QYRVBxADY7wHx2u1Hw3u8ClscsGM'
+key = 'XXywXa3WNd_S_BNeX9MhZV3fc6RqYokTPB95wOGq5xc', algorithms = ['HS256'], options = None, audience = None
+issuer = None, subject = None, access_token = None
+
+    def decode(token, key, algorithms=None, options=None, audience=None, issuer=None, subject=None, access_token=None):
+        """Verifies a JWT string's signature and validates reserved claims.
+    
+        Args:
+            token (str): A signed JWS to be verified.
+            key (str or dict): A key to attempt to verify the payload with. Can be
+                individual JWK or JWK set.
+            algorithms (str or list): Valid algorithms that should be used to verify the JWS.
+            audience (str): The intended audience of the token.  If the "aud" claim is
+                included in the claim set, then the audience must be included and must equal
+                the provided claim.
+            issuer (str or iterable): Acceptable value(s) for the issuer of the token.
+                If the "iss" claim is included in the claim set, then the issuer must be
+                given and the claim in the token must be among the acceptable values.
+            subject (str): The subject of the token.  If the "sub" claim is
+                included in the claim set, then the subject must be included and must equal
+                the provided claim.
+            access_token (str): An access token string. If the "at_hash" claim is included in the
+                claim set, then the access_token must be included, and it must match
+                the "at_hash" claim.
+            options (dict): A dictionary of options for skipping validation steps.
+    
+                defaults = {
+                    'verify_signature': True,
+                    'verify_aud': True,
+                    'verify_iat': True,
+                    'verify_exp': True,
+                    'verify_nbf': True,
+                    'verify_iss': True,
+                    'verify_sub': True,
+                    'verify_jti': True,
+                    'verify_at_hash': True,
+                    'require_aud': False,
+                    'require_iat': False,
+                    'require_exp': False,
+                    'require_nbf': False,
+                    'require_iss': False,
+                    'require_sub': False,
+                    'require_jti': False,
+                    'require_at_hash': False,
+                    'leeway': 0,
+                }
+    
+        Returns:
+            dict: The dict representation of the claims set, assuming the signature is valid
+                and all requested data validation passes.
+    
+        Raises:
+            JWTError: If the signature is invalid in any way.
+            ExpiredSignatureError: If the signature has expired.
+            JWTClaimsError: If any claim is invalid in any way.
+    
+        Examples:
+    
+            &gt;&gt;&gt; payload = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoiYiJ9.jiMyrsmD8AoHWeQgmxZ5yq8z0lXS67_QGs52AzC8Ru8'
+            &gt;&gt;&gt; jwt.decode(payload, 'secret', algorithms='HS256')
+    
+        """
+    
+        defaults = {
+            "verify_signature": True,
+            "verify_aud": True,
+            "verify_iat": True,
+            "verify_exp": True,
+            "verify_nbf": True,
+            "verify_iss": True,
+            "verify_sub": True,
+            "verify_jti": True,
+            "verify_at_hash": True,
+            "require_aud": False,
+            "require_iat": False,
+            "require_exp": False,
+            "require_nbf": False,
+            "require_iss": False,
+            "require_sub": False,
+            "require_jti": False,
+            "require_at_hash": False,
+            "leeway": 0,
+        }
+    
+        if options:
+            defaults.update(options)
+    
+        verify_signature = defaults.get("verify_signature", True)
+    
+        try:
+&gt;           payload = jws.verify(token, key, algorithms, verify=verify_signature)
+
+..\AppData\Roaming\Python\Python310\site-packages\jose\jwt.py:142: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\jose\jws.py:73: in verify
+    _verify_signature(signing_input, header, signature, key, algorithms)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+signing_input = b'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0X3VzZXIiLCJleHAiOjE3NDY3MzI2MDN9'
+header = {'alg': 'HS256', 'typ': 'JWT'}
+signature = b'b"\'\xe9\xcc\xafS\x06\xf9\xf3\x0f\x10a\x15A\xc4\x00\xd8\xef\x01\xf1\xda\xedG\xc3{\xbc\n[\x1c\xb0c'
+key = 'XXywXa3WNd_S_BNeX9MhZV3fc6RqYokTPB95wOGq5xc', algorithms = ['HS256']
+
+    def _verify_signature(signing_input, header, signature, key="", algorithms=None):
+    
+        alg = header.get("alg")
+        if not alg:
+            raise JWSError("No algorithm was specified in the JWS header.")
+    
+        if algorithms is not None and alg not in algorithms:
+            raise JWSError("The specified alg value is not allowed")
+    
+        keys = _get_keys(key)
+        try:
+            if not _sig_matches_keys(keys, signing_input, signature, alg):
+                raise JWSSignatureError()
+        except JWSSignatureError:
+&gt;           raise JWSError("Signature verification failed.")
+E           jose.exceptions.JWSError: Signature verification failed.
+
+..\AppData\Roaming\Python\Python310\site-packages\jose\jws.py:264: JWSError
+
+During handling of the above exception, another exception occurred:
+
+token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0X3VzZXIiLCJleHAiOjE3NDY3MzI2MDN9.YiIn6cyvUwb58w8QYRVBxADY7wHx2u1Hw3u8ClscsGM'
+
+    def verify_token(token: str) -&gt; Dict[str, str]:
+        """Verify JWT token."""
+        try:
+&gt;           payload = jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])
+
+app\middleware\auth.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0X3VzZXIiLCJleHAiOjE3NDY3MzI2MDN9.YiIn6cyvUwb58w8QYRVBxADY7wHx2u1Hw3u8ClscsGM'
+key = 'XXywXa3WNd_S_BNeX9MhZV3fc6RqYokTPB95wOGq5xc', algorithms = ['HS256'], options = None, audience = None
+issuer = None, subject = None, access_token = None
+
+    def decode(token, key, algorithms=None, options=None, audience=None, issuer=None, subject=None, access_token=None):
+        """Verifies a JWT string's signature and validates reserved claims.
+    
+        Args:
+            token (str): A signed JWS to be verified.
+            key (str or dict): A key to attempt to verify the payload with. Can be
+                individual JWK or JWK set.
+            algorithms (str or list): Valid algorithms that should be used to verify the JWS.
+            audience (str): The intended audience of the token.  If the "aud" claim is
+                included in the claim set, then the audience must be included and must equal
+                the provided claim.
+            issuer (str or iterable): Acceptable value(s) for the issuer of the token.
+                If the "iss" claim is included in the claim set, then the issuer must be
+                given and the claim in the token must be among the acceptable values.
+            subject (str): The subject of the token.  If the "sub" claim is
+                included in the claim set, then the subject must be included and must equal
+                the provided claim.
+            access_token (str): An access token string. If the "at_hash" claim is included in the
+                claim set, then the access_token must be included, and it must match
+                the "at_hash" claim.
+            options (dict): A dictionary of options for skipping validation steps.
+    
+                defaults = {
+                    'verify_signature': True,
+                    'verify_aud': True,
+                    'verify_iat': True,
+                    'verify_exp': True,
+                    'verify_nbf': True,
+                    'verify_iss': True,
+                    'verify_sub': True,
+                    'verify_jti': True,
+                    'verify_at_hash': True,
+                    'require_aud': False,
+                    'require_iat': False,
+                    'require_exp': False,
+                    'require_nbf': False,
+                    'require_iss': False,
+                    'require_sub': False,
+                    'require_jti': False,
+                    'require_at_hash': False,
+                    'leeway': 0,
+                }
+    
+        Returns:
+            dict: The dict representation of the claims set, assuming the signature is valid
+                and all requested data validation passes.
+    
+        Raises:
+            JWTError: If the signature is invalid in any way.
+            ExpiredSignatureError: If the signature has expired.
+            JWTClaimsError: If any claim is invalid in any way.
+    
+        Examples:
+    
+            &gt;&gt;&gt; payload = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoiYiJ9.jiMyrsmD8AoHWeQgmxZ5yq8z0lXS67_QGs52AzC8Ru8'
+            &gt;&gt;&gt; jwt.decode(payload, 'secret', algorithms='HS256')
+    
+        """
+    
+        defaults = {
+            "verify_signature": True,
+            "verify_aud": True,
+            "verify_iat": True,
+            "verify_exp": True,
+            "verify_nbf": True,
+            "verify_iss": True,
+            "verify_sub": True,
+            "verify_jti": True,
+            "verify_at_hash": True,
+            "require_aud": False,
+            "require_iat": False,
+            "require_exp": False,
+            "require_nbf": False,
+            "require_iss": False,
+            "require_sub": False,
+            "require_jti": False,
+            "require_at_hash": False,
+            "leeway": 0,
+        }
+    
+        if options:
+            defaults.update(options)
+    
+        verify_signature = defaults.get("verify_signature", True)
+    
+        try:
+            payload = jws.verify(token, key, algorithms, verify=verify_signature)
+        except JWSError as e:
+&gt;           raise JWTError(e)
+E           jose.exceptions.JWTError: Signature verification failed.
+
+..\AppData\Roaming\Python\Python310\site-packages\jose\jwt.py:144: JWTError
+
+During handling of the above exception, another exception occurred:
+
+    def test_authentication():
+        """Test authentication mechanisms"""
+        # Test JWT token generation
+        payload = {
+            "sub": "test_user",
+            "exp": datetime.utcnow() + timedelta(minutes=30)
+        }
+        token = jwt.encode(payload, os.getenv("JWT_SECRET"), algorithm=os.getenv("JWT_ALGORITHM"))
+    
+        # Test token validation
+&gt;       response = client.get(
+            "/api/v1/protected",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+tests\security\test_security_measures.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:499: in get
+    return super().get(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1041: in get
+    return self.request(
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:465: in request
+    return super().request(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:814: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:901: in send
+    response = self._send_handling_auth(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:929: in _send_handling_auth
+    response = self._send_handling_redirects(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:966: in _send_handling_redirects
+    response = self._send_single_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1002: in _send_single_request
+    response = transport.handle_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:342: in handle_request
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:339: in handle_request
+    portal.call(self.app, scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:445: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:184: in __call__
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:162: in __call__
+    await self.app(scope, receive, _send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\base.py:108: in __call__
+    response = await self.dispatch_func(request, call_next)
+app\middleware\auth.py:73: in __call__
+    raise e
+app\middleware\auth.py:65: in __call__
+    payload = verify_token(token)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0X3VzZXIiLCJleHAiOjE3NDY3MzI2MDN9.YiIn6cyvUwb58w8QYRVBxADY7wHx2u1Hw3u8ClscsGM'
+
+    def verify_token(token: str) -&gt; Dict[str, str]:
+        """Verify JWT token."""
+        try:
+            payload = jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])
+            return payload
+        except JWTError:
+&gt;           raise HTTPException(
+                status_code=401,
+                detail="Could not validate credentials",
+                headers={"WWW-Authenticate": "Bearer"},
+            )
+E           fastapi.exceptions.HTTPException
+
+app\middleware\auth.py:29: HTTPException</failure></testcase><testcase classname="tests.security.test_security_measures" name="test_error_handling" time="0.009"><failure message="fastapi.exceptions.HTTPException">def test_error_handling():
+        """Test security error handling"""
+        # Test error message security
+&gt;       response = client.get("/api/v1/error")
+
+tests\security\test_security_measures.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:499: in get
+    return super().get(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1041: in get
+    return self.request(
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:465: in request
+    return super().request(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:814: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:901: in send
+    response = self._send_handling_auth(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:929: in _send_handling_auth
+    response = self._send_handling_redirects(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:966: in _send_handling_redirects
+    response = self._send_single_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1002: in _send_single_request
+    response = transport.handle_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:342: in handle_request
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:339: in handle_request
+    portal.call(self.app, scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:445: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:184: in __call__
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:162: in __call__
+    await self.app(scope, receive, _send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\base.py:108: in __call__
+    response = await self.dispatch_func(request, call_next)
+app\middleware\auth.py:73: in __call__
+    raise e
+app\middleware\auth.py:61: in __call__
+    auth = await security(request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;fastapi.security.http.HTTPBearer object at 0x0000021FAFBE5900&gt;
+request = &lt;starlette.requests.Request object at 0x0000021FB047E020&gt;
+
+    async def __call__(
+        self, request: Request
+    ) -&gt; Optional[HTTPAuthorizationCredentials]:
+        authorization = request.headers.get("Authorization")
+        scheme, credentials = get_authorization_scheme_param(authorization)
+        if not (authorization and scheme and credentials):
+            if self.auto_error:
+&gt;               raise HTTPException(
+                    status_code=HTTP_403_FORBIDDEN, detail="Not authenticated"
+                )
+E               fastapi.exceptions.HTTPException
+
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\security\http.py:308: HTTPException</failure></testcase><testcase classname="tests.security.test_security_measures" name="test_api_security" time="0.006"><failure message="fastapi.exceptions.HTTPException">def test_api_security():
+        """Test API security measures"""
+        # Test rate limiting
+        for _ in range(5):
+&gt;           response = client.get("/api/v1/public")
+
+tests\security\test_security_measures.py:61: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:499: in get
+    return super().get(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1041: in get
+    return self.request(
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:465: in request
+    return super().request(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:814: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:901: in send
+    response = self._send_handling_auth(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:929: in _send_handling_auth
+    response = self._send_handling_redirects(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:966: in _send_handling_redirects
+    response = self._send_single_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1002: in _send_single_request
+    response = transport.handle_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:342: in handle_request
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:339: in handle_request
+    portal.call(self.app, scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:445: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:184: in __call__
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:162: in __call__
+    await self.app(scope, receive, _send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\base.py:108: in __call__
+    response = await self.dispatch_func(request, call_next)
+app\middleware\auth.py:73: in __call__
+    raise e
+app\middleware\auth.py:61: in __call__
+    auth = await security(request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;fastapi.security.http.HTTPBearer object at 0x0000021FAFBE5900&gt;
+request = &lt;starlette.requests.Request object at 0x0000021FB04E25F0&gt;
+
+    async def __call__(
+        self, request: Request
+    ) -&gt; Optional[HTTPAuthorizationCredentials]:
+        authorization = request.headers.get("Authorization")
+        scheme, credentials = get_authorization_scheme_param(authorization)
+        if not (authorization and scheme and credentials):
+            if self.auto_error:
+&gt;               raise HTTPException(
+                    status_code=HTTP_403_FORBIDDEN, detail="Not authenticated"
+                )
+E               fastapi.exceptions.HTTPException
+
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\security\http.py:308: HTTPException</failure></testcase><testcase classname="tests.security.test_security_measures" name="test_authorization" time="0.003" /><testcase classname="tests.security.test_security_measures" name="test_data_protection" time="0.003" /><testcase classname="tests.security.test_security_measures" name="test_session_management" time="0.003" /><testcase classname="tests.security.test_security_measures" name="test_input_validation" time="0.007"><failure message="fastapi.exceptions.HTTPException">def test_input_validation():
+        """Test input validation"""
+        # Test SQL injection prevention
+        malicious_input = "'; DROP TABLE users; --"
+&gt;       response = client.post(
+            "/api/v1/search",
+            json={"query": malicious_input}
+        )
+
+tests\security\test_security_measures.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:590: in post
+    return super().post(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1132: in post
+    return self.request(
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:465: in request
+    return super().request(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:814: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:901: in send
+    response = self._send_handling_auth(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:929: in _send_handling_auth
+    response = self._send_handling_redirects(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:966: in _send_handling_redirects
+    response = self._send_single_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1002: in _send_single_request
+    response = transport.handle_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:342: in handle_request
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:339: in handle_request
+    portal.call(self.app, scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:438: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:184: in __call__
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:162: in __call__
+    await self.app(scope, receive, _send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\base.py:108: in __call__
+    response = await self.dispatch_func(request, call_next)
+app\middleware\auth.py:73: in __call__
+    raise e
+app\middleware\auth.py:61: in __call__
+    auth = await security(request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;fastapi.security.http.HTTPBearer object at 0x0000021FAFBE5900&gt;
+request = &lt;starlette.requests.Request object at 0x0000021FB045FD30&gt;
+
+    async def __call__(
+        self, request: Request
+    ) -&gt; Optional[HTTPAuthorizationCredentials]:
+        authorization = request.headers.get("Authorization")
+        scheme, credentials = get_authorization_scheme_param(authorization)
+        if not (authorization and scheme and credentials):
+            if self.auto_error:
+&gt;               raise HTTPException(
+                    status_code=HTTP_403_FORBIDDEN, detail="Not authenticated"
+                )
+E               fastapi.exceptions.HTTPException
+
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\security\http.py:308: HTTPException</failure></testcase><testcase classname="tests.security.test_security" name="test_rate_limiting" time="0.007"><failure message="fastapi.exceptions.HTTPException">@pytest.mark.security
+    def test_rate_limiting():
+        """Test rate limiting functionality."""
+        # Make multiple requests in quick succession
+        for _ in range(10):
+&gt;           response = client.get("/api/v1/public")
+
+tests\security\test_security.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:499: in get
+    return super().get(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1041: in get
+    return self.request(
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:465: in request
+    return super().request(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:814: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:901: in send
+    response = self._send_handling_auth(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:929: in _send_handling_auth
+    response = self._send_handling_redirects(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:966: in _send_handling_redirects
+    response = self._send_single_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1002: in _send_single_request
+    response = transport.handle_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:342: in handle_request
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:339: in handle_request
+    portal.call(self.app, scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:445: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:184: in __call__
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:162: in __call__
+    await self.app(scope, receive, _send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\base.py:108: in __call__
+    response = await self.dispatch_func(request, call_next)
+app\middleware\auth.py:73: in __call__
+    raise e
+app\middleware\auth.py:61: in __call__
+    auth = await security(request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;fastapi.security.http.HTTPBearer object at 0x0000021FAFBE5900&gt;
+request = &lt;starlette.requests.Request object at 0x0000021FB0056710&gt;
+
+    async def __call__(
+        self, request: Request
+    ) -&gt; Optional[HTTPAuthorizationCredentials]:
+        authorization = request.headers.get("Authorization")
+        scheme, credentials = get_authorization_scheme_param(authorization)
+        if not (authorization and scheme and credentials):
+            if self.auto_error:
+&gt;               raise HTTPException(
+                    status_code=HTTP_403_FORBIDDEN, detail="Not authenticated"
+                )
+E               fastapi.exceptions.HTTPException
+
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\security\http.py:308: HTTPException</failure></testcase><testcase classname="tests.security.test_security" name="test_input_validation" time="0.007"><failure message="fastapi.exceptions.HTTPException">@pytest.mark.security
+    def test_input_validation():
+        """Test input validation and sanitization."""
+        # Test SQL injection attempt
+&gt;       response = client.get("/api/v1/search?query=' OR '1'='1")
+
+tests\security\test_security.py:95: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:499: in get
+    return super().get(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1041: in get
+    return self.request(
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:465: in request
+    return super().request(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:814: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:901: in send
+    response = self._send_handling_auth(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:929: in _send_handling_auth
+    response = self._send_handling_redirects(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:966: in _send_handling_redirects
+    response = self._send_single_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1002: in _send_single_request
+    response = transport.handle_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:342: in handle_request
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:339: in handle_request
+    portal.call(self.app, scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:438: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:184: in __call__
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:162: in __call__
+    await self.app(scope, receive, _send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\base.py:108: in __call__
+    response = await self.dispatch_func(request, call_next)
+app\middleware\auth.py:73: in __call__
+    raise e
+app\middleware\auth.py:61: in __call__
+    auth = await security(request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;fastapi.security.http.HTTPBearer object at 0x0000021FAFBE5900&gt;
+request = &lt;starlette.requests.Request object at 0x0000021FB0333B80&gt;
+
+    async def __call__(
+        self, request: Request
+    ) -&gt; Optional[HTTPAuthorizationCredentials]:
+        authorization = request.headers.get("Authorization")
+        scheme, credentials = get_authorization_scheme_param(authorization)
+        if not (authorization and scheme and credentials):
+            if self.auto_error:
+&gt;               raise HTTPException(
+                    status_code=HTTP_403_FORBIDDEN, detail="Not authenticated"
+                )
+E               fastapi.exceptions.HTTPException
+
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\security\http.py:308: HTTPException</failure></testcase><testcase classname="tests.security.test_security" name="test_cors_headers" time="0.007"><failure message="fastapi.exceptions.HTTPException">@pytest.mark.security
+    def test_cors_headers():
+        """Test CORS headers configuration."""
+&gt;       response = client.get("/api/v1/public")
+
+tests\security\test_security.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:499: in get
+    return super().get(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1041: in get
+    return self.request(
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:465: in request
+    return super().request(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:814: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:901: in send
+    response = self._send_handling_auth(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:929: in _send_handling_auth
+    response = self._send_handling_redirects(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:966: in _send_handling_redirects
+    response = self._send_single_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1002: in _send_single_request
+    response = transport.handle_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:342: in handle_request
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:339: in handle_request
+    portal.call(self.app, scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:438: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:184: in __call__
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:162: in __call__
+    await self.app(scope, receive, _send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\base.py:108: in __call__
+    response = await self.dispatch_func(request, call_next)
+app\middleware\auth.py:73: in __call__
+    raise e
+app\middleware\auth.py:61: in __call__
+    auth = await security(request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;fastapi.security.http.HTTPBearer object at 0x0000021FAFBE5900&gt;
+request = &lt;starlette.requests.Request object at 0x0000021FB0548100&gt;
+
+    async def __call__(
+        self, request: Request
+    ) -&gt; Optional[HTTPAuthorizationCredentials]:
+        authorization = request.headers.get("Authorization")
+        scheme, credentials = get_authorization_scheme_param(authorization)
+        if not (authorization and scheme and credentials):
+            if self.auto_error:
+&gt;               raise HTTPException(
+                    status_code=HTTP_403_FORBIDDEN, detail="Not authenticated"
+                )
+E               fastapi.exceptions.HTTPException
+
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\security\http.py:308: HTTPException</failure></testcase><testcase classname="tests.security.test_security" name="test_authentication_required" time="0.008"><failure message="fastapi.exceptions.HTTPException">@pytest.mark.security
+    def test_authentication_required():
+        """Test that authentication is required for protected endpoints."""
+&gt;       response = client.get("/api/v1/protected")
+
+tests\security\test_security.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:499: in get
+    return super().get(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1041: in get
+    return self.request(
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:465: in request
+    return super().request(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:814: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:901: in send
+    response = self._send_handling_auth(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:929: in _send_handling_auth
+    response = self._send_handling_redirects(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:966: in _send_handling_redirects
+    response = self._send_single_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1002: in _send_single_request
+    response = transport.handle_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:342: in handle_request
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:339: in handle_request
+    portal.call(self.app, scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:438: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:184: in __call__
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:162: in __call__
+    await self.app(scope, receive, _send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\base.py:108: in __call__
+    response = await self.dispatch_func(request, call_next)
+app\middleware\auth.py:73: in __call__
+    raise e
+app\middleware\auth.py:61: in __call__
+    auth = await security(request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;fastapi.security.http.HTTPBearer object at 0x0000021FAFBE5900&gt;
+request = &lt;starlette.requests.Request object at 0x0000021FB04CF6A0&gt;
+
+    async def __call__(
+        self, request: Request
+    ) -&gt; Optional[HTTPAuthorizationCredentials]:
+        authorization = request.headers.get("Authorization")
+        scheme, credentials = get_authorization_scheme_param(authorization)
+        if not (authorization and scheme and credentials):
+            if self.auto_error:
+&gt;               raise HTTPException(
+                    status_code=HTTP_403_FORBIDDEN, detail="Not authenticated"
+                )
+E               fastapi.exceptions.HTTPException
+
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\security\http.py:308: HTTPException</failure></testcase><testcase classname="tests.security.test_security" name="test_session_management" time="0.006"><failure message="fastapi.exceptions.HTTPException">@pytest.mark.security
+    def test_session_management():
+        """Test session management and timeout."""
+        # Login and get session token
+&gt;       response = client.post(
+            "/api/v1/login",
+            json={"username": "test_user", "password": "test_password"}
+        )
+
+tests\security\test_security.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:590: in post
+    return super().post(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1132: in post
+    return self.request(
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:465: in request
+    return super().request(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:814: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:901: in send
+    response = self._send_handling_auth(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:929: in _send_handling_auth
+    response = self._send_handling_redirects(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:966: in _send_handling_redirects
+    response = self._send_single_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1002: in _send_single_request
+    response = transport.handle_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:342: in handle_request
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:339: in handle_request
+    portal.call(self.app, scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:445: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:184: in __call__
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:162: in __call__
+    await self.app(scope, receive, _send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\base.py:108: in __call__
+    response = await self.dispatch_func(request, call_next)
+app\middleware\auth.py:73: in __call__
+    raise e
+app\middleware\auth.py:61: in __call__
+    auth = await security(request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;fastapi.security.http.HTTPBearer object at 0x0000021FAFBE5900&gt;
+request = &lt;starlette.requests.Request object at 0x0000021FB0192620&gt;
+
+    async def __call__(
+        self, request: Request
+    ) -&gt; Optional[HTTPAuthorizationCredentials]:
+        authorization = request.headers.get("Authorization")
+        scheme, credentials = get_authorization_scheme_param(authorization)
+        if not (authorization and scheme and credentials):
+            if self.auto_error:
+&gt;               raise HTTPException(
+                    status_code=HTTP_403_FORBIDDEN, detail="Not authenticated"
+                )
+E               fastapi.exceptions.HTTPException
+
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\security\http.py:308: HTTPException</failure></testcase><testcase classname="tests.security.test_security" name="test_security_headers" time="0.006"><failure message="fastapi.exceptions.HTTPException">@pytest.mark.security
+    def test_security_headers():
+        """Test security headers configuration."""
+&gt;       response = client.get("/api/v1/public")
+
+tests\security\test_security.py:81: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:499: in get
+    return super().get(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1041: in get
+    return self.request(
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:465: in request
+    return super().request(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:814: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:901: in send
+    response = self._send_handling_auth(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:929: in _send_handling_auth
+    response = self._send_handling_redirects(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:966: in _send_handling_redirects
+    response = self._send_single_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1002: in _send_single_request
+    response = transport.handle_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:342: in handle_request
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:339: in handle_request
+    portal.call(self.app, scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:445: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:184: in __call__
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:162: in __call__
+    await self.app(scope, receive, _send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\base.py:108: in __call__
+    response = await self.dispatch_func(request, call_next)
+app\middleware\auth.py:73: in __call__
+    raise e
+app\middleware\auth.py:61: in __call__
+    auth = await security(request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;fastapi.security.http.HTTPBearer object at 0x0000021FAFBE5900&gt;
+request = &lt;starlette.requests.Request object at 0x0000021FB044D720&gt;
+
+    async def __call__(
+        self, request: Request
+    ) -&gt; Optional[HTTPAuthorizationCredentials]:
+        authorization = request.headers.get("Authorization")
+        scheme, credentials = get_authorization_scheme_param(authorization)
+        if not (authorization and scheme and credentials):
+            if self.auto_error:
+&gt;               raise HTTPException(
+                    status_code=HTTP_403_FORBIDDEN, detail="Not authenticated"
+                )
+E               fastapi.exceptions.HTTPException
+
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\security\http.py:308: HTTPException</failure></testcase><testcase classname="tests.security.test_security" name="test_jwt_token_validation" time="0.010"><failure message="fastapi.exceptions.HTTPException">signing_input = b'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0X3VzZXIiLCJleHAiOjE3NDY3MzI2MDZ9'
+header = {'alg': 'HS256', 'typ': 'JWT'}
+signature = b"#\xbc\xd8\xc5(_\xe0\xe2\xc0\xfeq\xebr$&amp;\xb0g'`\xf1\\\x1f\xe9fH\x95\x02\xc4D\x17\x06\xfb"
+key = 'XXywXa3WNd_S_BNeX9MhZV3fc6RqYokTPB95wOGq5xc', algorithms = ['HS256']
+
+    def _verify_signature(signing_input, header, signature, key="", algorithms=None):
+    
+        alg = header.get("alg")
+        if not alg:
+            raise JWSError("No algorithm was specified in the JWS header.")
+    
+        if algorithms is not None and alg not in algorithms:
+            raise JWSError("The specified alg value is not allowed")
+    
+        keys = _get_keys(key)
+        try:
+            if not _sig_matches_keys(keys, signing_input, signature, alg):
+&gt;               raise JWSSignatureError()
+E               jose.exceptions.JWSSignatureError
+
+..\AppData\Roaming\Python\Python310\site-packages\jose\jws.py:262: JWSSignatureError
+
+During handling of the above exception, another exception occurred:
+
+token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0X3VzZXIiLCJleHAiOjE3NDY3MzI2MDZ9.I7zYxShf4OLA_nHrciQmsGcnYPFcH-lmSJUCxEQXBvs'
+key = 'XXywXa3WNd_S_BNeX9MhZV3fc6RqYokTPB95wOGq5xc', algorithms = ['HS256'], options = None, audience = None
+issuer = None, subject = None, access_token = None
+
+    def decode(token, key, algorithms=None, options=None, audience=None, issuer=None, subject=None, access_token=None):
+        """Verifies a JWT string's signature and validates reserved claims.
+    
+        Args:
+            token (str): A signed JWS to be verified.
+            key (str or dict): A key to attempt to verify the payload with. Can be
+                individual JWK or JWK set.
+            algorithms (str or list): Valid algorithms that should be used to verify the JWS.
+            audience (str): The intended audience of the token.  If the "aud" claim is
+                included in the claim set, then the audience must be included and must equal
+                the provided claim.
+            issuer (str or iterable): Acceptable value(s) for the issuer of the token.
+                If the "iss" claim is included in the claim set, then the issuer must be
+                given and the claim in the token must be among the acceptable values.
+            subject (str): The subject of the token.  If the "sub" claim is
+                included in the claim set, then the subject must be included and must equal
+                the provided claim.
+            access_token (str): An access token string. If the "at_hash" claim is included in the
+                claim set, then the access_token must be included, and it must match
+                the "at_hash" claim.
+            options (dict): A dictionary of options for skipping validation steps.
+    
+                defaults = {
+                    'verify_signature': True,
+                    'verify_aud': True,
+                    'verify_iat': True,
+                    'verify_exp': True,
+                    'verify_nbf': True,
+                    'verify_iss': True,
+                    'verify_sub': True,
+                    'verify_jti': True,
+                    'verify_at_hash': True,
+                    'require_aud': False,
+                    'require_iat': False,
+                    'require_exp': False,
+                    'require_nbf': False,
+                    'require_iss': False,
+                    'require_sub': False,
+                    'require_jti': False,
+                    'require_at_hash': False,
+                    'leeway': 0,
+                }
+    
+        Returns:
+            dict: The dict representation of the claims set, assuming the signature is valid
+                and all requested data validation passes.
+    
+        Raises:
+            JWTError: If the signature is invalid in any way.
+            ExpiredSignatureError: If the signature has expired.
+            JWTClaimsError: If any claim is invalid in any way.
+    
+        Examples:
+    
+            &gt;&gt;&gt; payload = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoiYiJ9.jiMyrsmD8AoHWeQgmxZ5yq8z0lXS67_QGs52AzC8Ru8'
+            &gt;&gt;&gt; jwt.decode(payload, 'secret', algorithms='HS256')
+    
+        """
+    
+        defaults = {
+            "verify_signature": True,
+            "verify_aud": True,
+            "verify_iat": True,
+            "verify_exp": True,
+            "verify_nbf": True,
+            "verify_iss": True,
+            "verify_sub": True,
+            "verify_jti": True,
+            "verify_at_hash": True,
+            "require_aud": False,
+            "require_iat": False,
+            "require_exp": False,
+            "require_nbf": False,
+            "require_iss": False,
+            "require_sub": False,
+            "require_jti": False,
+            "require_at_hash": False,
+            "leeway": 0,
+        }
+    
+        if options:
+            defaults.update(options)
+    
+        verify_signature = defaults.get("verify_signature", True)
+    
+        try:
+&gt;           payload = jws.verify(token, key, algorithms, verify=verify_signature)
+
+..\AppData\Roaming\Python\Python310\site-packages\jose\jwt.py:142: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\jose\jws.py:73: in verify
+    _verify_signature(signing_input, header, signature, key, algorithms)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+signing_input = b'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0X3VzZXIiLCJleHAiOjE3NDY3MzI2MDZ9'
+header = {'alg': 'HS256', 'typ': 'JWT'}
+signature = b"#\xbc\xd8\xc5(_\xe0\xe2\xc0\xfeq\xebr$&amp;\xb0g'`\xf1\\\x1f\xe9fH\x95\x02\xc4D\x17\x06\xfb"
+key = 'XXywXa3WNd_S_BNeX9MhZV3fc6RqYokTPB95wOGq5xc', algorithms = ['HS256']
+
+    def _verify_signature(signing_input, header, signature, key="", algorithms=None):
+    
+        alg = header.get("alg")
+        if not alg:
+            raise JWSError("No algorithm was specified in the JWS header.")
+    
+        if algorithms is not None and alg not in algorithms:
+            raise JWSError("The specified alg value is not allowed")
+    
+        keys = _get_keys(key)
+        try:
+            if not _sig_matches_keys(keys, signing_input, signature, alg):
+                raise JWSSignatureError()
+        except JWSSignatureError:
+&gt;           raise JWSError("Signature verification failed.")
+E           jose.exceptions.JWSError: Signature verification failed.
+
+..\AppData\Roaming\Python\Python310\site-packages\jose\jws.py:264: JWSError
+
+During handling of the above exception, another exception occurred:
+
+token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0X3VzZXIiLCJleHAiOjE3NDY3MzI2MDZ9.I7zYxShf4OLA_nHrciQmsGcnYPFcH-lmSJUCxEQXBvs'
+
+    def verify_token(token: str) -&gt; Dict[str, str]:
+        """Verify JWT token."""
+        try:
+&gt;           payload = jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])
+
+app\middleware\auth.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0X3VzZXIiLCJleHAiOjE3NDY3MzI2MDZ9.I7zYxShf4OLA_nHrciQmsGcnYPFcH-lmSJUCxEQXBvs'
+key = 'XXywXa3WNd_S_BNeX9MhZV3fc6RqYokTPB95wOGq5xc', algorithms = ['HS256'], options = None, audience = None
+issuer = None, subject = None, access_token = None
+
+    def decode(token, key, algorithms=None, options=None, audience=None, issuer=None, subject=None, access_token=None):
+        """Verifies a JWT string's signature and validates reserved claims.
+    
+        Args:
+            token (str): A signed JWS to be verified.
+            key (str or dict): A key to attempt to verify the payload with. Can be
+                individual JWK or JWK set.
+            algorithms (str or list): Valid algorithms that should be used to verify the JWS.
+            audience (str): The intended audience of the token.  If the "aud" claim is
+                included in the claim set, then the audience must be included and must equal
+                the provided claim.
+            issuer (str or iterable): Acceptable value(s) for the issuer of the token.
+                If the "iss" claim is included in the claim set, then the issuer must be
+                given and the claim in the token must be among the acceptable values.
+            subject (str): The subject of the token.  If the "sub" claim is
+                included in the claim set, then the subject must be included and must equal
+                the provided claim.
+            access_token (str): An access token string. If the "at_hash" claim is included in the
+                claim set, then the access_token must be included, and it must match
+                the "at_hash" claim.
+            options (dict): A dictionary of options for skipping validation steps.
+    
+                defaults = {
+                    'verify_signature': True,
+                    'verify_aud': True,
+                    'verify_iat': True,
+                    'verify_exp': True,
+                    'verify_nbf': True,
+                    'verify_iss': True,
+                    'verify_sub': True,
+                    'verify_jti': True,
+                    'verify_at_hash': True,
+                    'require_aud': False,
+                    'require_iat': False,
+                    'require_exp': False,
+                    'require_nbf': False,
+                    'require_iss': False,
+                    'require_sub': False,
+                    'require_jti': False,
+                    'require_at_hash': False,
+                    'leeway': 0,
+                }
+    
+        Returns:
+            dict: The dict representation of the claims set, assuming the signature is valid
+                and all requested data validation passes.
+    
+        Raises:
+            JWTError: If the signature is invalid in any way.
+            ExpiredSignatureError: If the signature has expired.
+            JWTClaimsError: If any claim is invalid in any way.
+    
+        Examples:
+    
+            &gt;&gt;&gt; payload = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoiYiJ9.jiMyrsmD8AoHWeQgmxZ5yq8z0lXS67_QGs52AzC8Ru8'
+            &gt;&gt;&gt; jwt.decode(payload, 'secret', algorithms='HS256')
+    
+        """
+    
+        defaults = {
+            "verify_signature": True,
+            "verify_aud": True,
+            "verify_iat": True,
+            "verify_exp": True,
+            "verify_nbf": True,
+            "verify_iss": True,
+            "verify_sub": True,
+            "verify_jti": True,
+            "verify_at_hash": True,
+            "require_aud": False,
+            "require_iat": False,
+            "require_exp": False,
+            "require_nbf": False,
+            "require_iss": False,
+            "require_sub": False,
+            "require_jti": False,
+            "require_at_hash": False,
+            "leeway": 0,
+        }
+    
+        if options:
+            defaults.update(options)
+    
+        verify_signature = defaults.get("verify_signature", True)
+    
+        try:
+            payload = jws.verify(token, key, algorithms, verify=verify_signature)
+        except JWSError as e:
+&gt;           raise JWTError(e)
+E           jose.exceptions.JWTError: Signature verification failed.
+
+..\AppData\Roaming\Python\Python310\site-packages\jose\jwt.py:144: JWTError
+
+During handling of the above exception, another exception occurred:
+
+    @pytest.mark.security
+    def test_jwt_token_validation():
+        """Test JWT token validation."""
+        # Create a valid token
+        token = jwt.encode(
+            {"sub": "test_user", "exp": datetime.utcnow() + timedelta(minutes=30)},
+            "test_secret_key",
+            algorithm="HS256"
+        )
+    
+        # Test with valid token
+&gt;       response = client.get(
+            "/api/v1/protected",
+            headers={"Authorization": f"Bearer {token}"}
+        )
+
+tests\security\test_security.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:499: in get
+    return super().get(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1041: in get
+    return self.request(
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:465: in request
+    return super().request(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:814: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:901: in send
+    response = self._send_handling_auth(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:929: in _send_handling_auth
+    response = self._send_handling_redirects(
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:966: in _send_handling_redirects
+    response = self._send_single_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\httpx\_client.py:1002: in _send_single_request
+    response = transport.handle_request(request)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:342: in handle_request
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\testclient.py:339: in handle_request
+    portal.call(self.app, scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:277: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:445: in result
+    return self.__get_result()
+C:\Program Files\Python310\lib\concurrent\futures\_base.py:390: in __get_result
+    raise self._exception
+..\AppData\Roaming\Python\Python310\site-packages\anyio\from_thread.py:217: in _call_func
+    retval = await retval
+..\AppData\Roaming\Python\Python310\site-packages\fastapi\applications.py:1106: in __call__
+    await super().__call__(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\applications.py:122: in __call__
+    await self.middleware_stack(scope, receive, send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:184: in __call__
+    raise exc
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\errors.py:162: in __call__
+    await self.app(scope, receive, _send)
+..\AppData\Roaming\Python\Python310\site-packages\starlette\middleware\base.py:108: in __call__
+    response = await self.dispatch_func(request, call_next)
+app\middleware\auth.py:73: in __call__
+    raise e
+app\middleware\auth.py:65: in __call__
+    payload = verify_token(token)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0X3VzZXIiLCJleHAiOjE3NDY3MzI2MDZ9.I7zYxShf4OLA_nHrciQmsGcnYPFcH-lmSJUCxEQXBvs'
+
+    def verify_token(token: str) -&gt; Dict[str, str]:
+        """Verify JWT token."""
+        try:
+            payload = jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])
+            return payload
+        except JWTError:
+&gt;           raise HTTPException(
+                status_code=401,
+                detail="Could not validate credentials",
+                headers={"WWW-Authenticate": "Bearer"},
+            )
+E           fastapi.exceptions.HTTPException
+
+app\middleware\auth.py:29: HTTPException</failure></testcase></testsuite></testsuites>

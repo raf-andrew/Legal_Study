@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ../..
+      dockerfile: Dockerfile.api
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=test
+      - DATABASE_URL=postgresql://test:test@db:5432/test_db
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=test_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6
+    ports:
+      - "6379:6379"
+
+  test-runner:
+    build:
+      context: ../..
+      dockerfile: Dockerfile.test
+    volumes:
+      - ../..:/app
+      - ./reports:/app/tests/functional/reports
+      - ./evidence:/app/tests/functional/evidence
+    environment:
+      - ENVIRONMENT=test
+      - API_URL=http://api:8000
+      - DATABASE_URL=postgresql://test:test@db:5432/test_db
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - api
+      - db
+      - redis
+    command: >
+      sh -c "python -m pytest tests/functional -v --cov=app --cov-report=term-missing --cov-report=html:reports/coverage"
+
+volumes:
+  postgres_data:

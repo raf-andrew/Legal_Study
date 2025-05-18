@@ -1,5 +1,208 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
+# Deployment Infrastructure Guide
+
+## Overview
+The deployment infrastructure manages the deployment of services and applications in GitHub Codespaces, providing tools for configuration, monitoring, and maintenance.
+
+## Core Components
+
+### Service Deployment
+Service deployment is managed in [.setup/scripts/service_manager.py](mdc:.setup/scripts/service_manager.py) with:
+- Service installation
+- Service configuration
+- Service control
+- Health monitoring
+
+### Environment Configuration
+Environment setup is configured in [.devcontainer/devcontainer.json](mdc:.devcontainer/devcontainer.json) providing:
+- Development environment
+- Service configuration
+- Port forwarding
+- VS Code settings
+
+### Log Management
+Log handling is implemented in [.setup/scripts/tail_logs.py](mdc:.setup/scripts/tail_logs.py) including:
+- Log monitoring
+- Log rotation
+- Error tracking
+- Performance analysis
+
+## Deployment Features
+
+### Service Management
+1. Installation
+   - Package installation
+   - Configuration setup
+   - Service registration
+   - Health verification
+
+2. Configuration
+   - Environment variables
+   - Service settings
+   - Network configuration
+   - Security settings
+
+3. Control
+   - Start/stop services
+   - Restart services
+   - Status checking
+   - Health monitoring
+
+### Environment Setup
+1. Development Environment
+   - VS Code configuration
+   - Extension installation
+   - Workspace setup
+   - Git configuration
+
+2. Service Environment
+   - MySQL setup
+   - Redis setup
+   - Port configuration
+   - Security settings
+
+## Deployment Workflows
+
+### Service Deployment
+```yaml
+# .github/workflows/service-deployment.yml
+name: Service Deployment
+on: [push, pull_request]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy Services
+        run: |
+          python .setup/scripts/service_manager.py --service mysql --action start
+          python .setup/scripts/service_manager.py --service redis --action start
+```
+
+### Environment Setup
+```yaml
+# .devcontainer/devcontainer.json
+{
+  "name": "Development Environment",
+  "dockerFile": "Dockerfile",
+  "forwardPorts": [3306, 6379],
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-azuretools.vscode-docker"
+  ]
+}
+```
+
+## Best Practices
+
+### Service Management
+1. Version control
+2. Configuration management
+3. Health monitoring
+4. Error handling
+5. Documentation
+
+### Environment Management
+1. Consistent setup
+2. Security first
+3. Performance optimization
+4. Regular updates
+5. Backup procedures
+
+### Log Management
+1. Regular monitoring
+2. Log rotation
+3. Error tracking
+4. Performance analysis
+5. Security auditing
+
+## Monitoring
+
+### Service Monitoring
+1. Health Checks
+   - Service status
+   - Resource usage
+   - Error rates
+   - Performance metrics
+
+2. Log Analysis
+   - Error patterns
+   - Performance issues
+   - Security events
+   - Usage patterns
+
+3. Resource Monitoring
+   - CPU usage
+   - Memory usage
+   - Disk usage
+   - Network traffic
+
+## Maintenance
+
+### Regular Tasks
+1. Service Updates
+   - Version updates
+   - Security patches
+   - Configuration updates
+   - Performance optimization
+
+2. Environment Updates
+   - VS Code updates
+   - Extension updates
+   - Configuration updates
+   - Security updates
+
+3. Log Management
+   - Log rotation
+   - Archive management
+   - Cleanup procedures
+   - Backup verification
+
+## Troubleshooting
+
+### Common Issues
+1. Service Issues
+   - Service not starting
+   - Configuration errors
+   - Resource constraints
+   - Network issues
+
+2. Environment Issues
+   - Setup failures
+   - Extension problems
+   - Configuration errors
+   - Performance issues
+
+3. Log Issues
+   - Missing logs
+   - Log rotation failures
+   - Storage issues
+   - Access problems
+
+## Security
+
+### Security Measures
+1. Access Control
+   - User authentication
+   - Role-based access
+   - Permission management
+   - Audit logging
+
+2. Data Protection
+   - Encryption
+   - Secure storage
+   - Secure transmission
+   - Backup security
+
+3. Monitoring
+   - Security events
+   - Access logs
+   - Configuration changes
+   - System health

@@ -1,0 +1,186 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Security Infrastructure Guide
+
+## Overview
+The security infrastructure provides comprehensive protection for the project through code scanning, secret management, and security policies.
+
+## Core Components
+
+### Code Scanning
+Code scanning is configured in [.github/security/code-scanning.yml](mdc:.github/security/code-scanning.yml) with:
+- Static analysis
+- Vulnerability detection
+- Code quality checks
+- Security best practices
+
+### Secret Management
+Secret scanning is managed in [.github/security/secret-scanning.yml](mdc:.github/security/secret-scanning.yml) providing:
+- Secret detection
+- Credential protection
+- Access control
+- Audit logging
+
+### Security Policies
+Security policies are defined in [.github/security/policies/](mdc:.github/security/policies) including:
+- Access control
+- Data protection
+- Incident response
+- Compliance requirements
+
+## Security Features
+
+### Code Protection
+1. Static Analysis
+   - Code quality
+   - Security vulnerabilities
+   - Best practices
+   - Performance issues
+
+2. Dynamic Analysis
+   - Runtime security
+   - API security
+   - Authentication
+   - Authorization
+
+### Secret Protection
+1. Secret Detection
+   - API keys
+   - Credentials
+   - Tokens
+   - Certificates
+
+2. Access Control
+   - Role-based access
+   - Permission management
+   - Audit trails
+   - Session control
+
+## Security Workflows
+
+### Scanning Workflows
+1. Code Scanning
+   ```yaml
+   # .github/workflows/code-scanning.yml
+   name: Code Scanning
+   on: [push, pull_request]
+   jobs:
+     scan:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v2
+         - name: Run CodeQL Analysis
+           uses: github/codeql-action/analyze@v2
+   ```
+
+2. Secret Scanning
+   ```yaml
+   # .github/workflows/secret-scanning.yml
+   name: Secret Scanning
+   on: [push, pull_request]
+   jobs:
+     scan:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v2
+         - name: Run Secret Scanner
+           uses: github/secret-scanning-action@v1
+   ```
+
+## Best Practices
+
+### Code Security
+1. Regular scanning
+2. Vulnerability patching
+3. Code review
+4. Security testing
+5. Documentation
+
+### Secret Management
+1. Use environment variables
+2. Rotate secrets regularly
+3. Limit access
+4. Monitor usage
+5. Audit logs
+
+### Access Control
+1. Principle of least privilege
+2. Regular access review
+3. Strong authentication
+4. Session management
+5. Audit logging
+
+## Incident Response
+
+### Response Plan
+1. Detection
+   - Monitor alerts
+   - Analyze logs
+   - Identify threats
+   - Assess impact
+
+2. Containment
+   - Isolate affected systems
+   - Block threats
+   - Preserve evidence
+   - Document actions
+
+3. Recovery
+   - Patch vulnerabilities
+   - Restore systems
+   - Verify security
+   - Update policies
+
+4. Prevention
+   - Update security measures
+   - Train team
+   - Review procedures
+   - Document lessons
+
+## Compliance
+
+### Security Standards
+1. Code Standards
+   - Secure coding
+   - Code review
+   - Testing requirements
+   - Documentation
+
+2. Access Standards
+   - Authentication
+   - Authorization
+   - Session management
+   - Audit requirements
+
+3. Data Standards
+   - Data protection
+   - Privacy requirements
+   - Storage security
+   - Transmission security
+
+## Monitoring
+
+### Security Monitoring
+1. Alert Management
+   - Configure alerts
+   - Set thresholds
+   - Define responses
+   - Track incidents
+
+2. Log Analysis
+   - Collect logs
+   - Analyze patterns
+   - Detect anomalies
+   - Generate reports
+
+3. Performance Monitoring
+   - Track metrics
+   - Identify issues
+   - Optimize security
+   - Report status
+
+
+

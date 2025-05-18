@@ -1,0 +1,79 @@
+@startuml Component Interactions
+
+!define RECTANGLE class
+
+skinparam {
+    backgroundColor white
+    class {
+        BackgroundColor white
+        BorderColor black
+        ArrowColor black
+    }
+    component {
+        BackgroundColor white
+        BorderColor black
+        ArrowColor black
+    }
+}
+
+package "Web Application" {
+    [Dashboard] as dashboard
+    [Service Manager] as serviceManager
+    [Configuration Manager] as configManager
+    [Monitor] as monitor
+}
+
+package "API Layer" {
+    [Initialization API] as initApi
+    [Service API] as serviceApi
+    [Config API] as configApi
+    [Metrics API] as metricsApi
+}
+
+package "Service Layer" {
+    [Initialization Service] as initService
+    [Service Manager] as serviceManagerService
+    [Config Service] as configService
+    [Metrics Service] as metricsService
+}
+
+package "Data Layer" {
+    [Database] as db
+    [Cache] as cache
+    [Queue] as queue
+}
+
+' User interactions
+actor User
+User --> dashboard : View system status
+User --> serviceManager : Control services
+User --> configManager : Update configuration
+User --> monitor : View metrics
+
+' Component interactions
+dashboard --> initApi : Get initialization status
+dashboard --> metricsApi : Get system metrics
+serviceManager --> serviceApi : Control services
+configManager --> configApi : Update configuration
+monitor --> metricsApi : Get real-time metrics
+
+' API to Service interactions
+initApi --> initService : Process requests
+serviceApi --> serviceManagerService : Process requests
+configApi --> configService : Process requests
+metricsApi --> metricsService : Process requests
+
+' Service to Data interactions
+initService --> db : Store status
+initService --> cache : Cache status
+serviceManagerService --> queue : Queue actions
+configService --> db : Store config
+metricsService --> db : Store metrics
+metricsService --> cache : Cache metrics
+
+' WebSocket connections
+initService ..> dashboard : Push status updates
+metricsService ..> monitor : Push metric updates
+serviceManagerService ..> serviceManager : Push service updates
+
+@enduml 

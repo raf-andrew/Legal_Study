@@ -1,0 +1,81 @@
+categories:
+  api:
+    name: API Endpoints
+    description: Functional testing of all API endpoints
+    checklist_items:
+      - api_health
+      - api_security
+      - api_performance
+      - api_error_handling
+    required_steps:
+      - Health check
+      - Authentication
+      - Authorization
+      - Rate limiting
+      - Error handling
+      - Response validation
+    min_coverage: 95.0
+    required_evidence:
+      - coverage_report
+      - response_logs
+      - error_logs
+
+  core:
+    name: Core Services
+    description: Testing of core service functionality
+    checklist_items:
+      - core_health
+      - core_security
+      - core_performance
+    required_steps:
+      - Service initialization
+      - Configuration loading
+      - Dependency checks
+      - Resource management
+    min_coverage: 90.0
+    required_evidence:
+      - service_logs
+      - resource_usage
+      - dependency_graph
+
+  security:
+    name: Security Features
+    description: Testing of security features and controls
+    checklist_items:
+      - security_auth
+      - security_encryption
+      - security_audit
+    required_steps:
+      - Authentication
+      - Authorization
+      - Encryption
+      - Audit logging
+      - Vulnerability scan
+    min_coverage: 100.0
+    required_evidence:
+      - security_logs
+      - audit_trail
+      - vulnerability_report
+
+verification:
+  required_coverage: 95.0
+  required_categories:
+    - api
+    - core
+    - security
+  required_evidence:
+    - coverage_report
+    - test_logs
+    - verification_steps
+
+reporting:
+  formats:
+    - json
+    - html
+    - pdf
+  required_sections:
+    - test_summary
+    - coverage_analysis
+    - verification_steps
+    - evidence_collection
+    - certification_status

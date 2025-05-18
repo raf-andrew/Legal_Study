@@ -1,0 +1,1624 @@
+{
+  "created": 1746671061.9512045,
+  "duration": 1.4406015872955322,
+  "exitcode": 1,
+  "root": "C:\\Users\\ajame\\Legal_Study",
+  "environment": {},
+  "summary": {
+    "passed": 17,
+    "failed": 1,
+    "total": 18,
+    "collected": 18
+  },
+  "collectors": [
+    {
+      "nodeid": "",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/acid/test_database.py",
+          "type": "Module"
+        },
+        {
+          "nodeid": "tests/acid/test_database_transactions.py",
+          "type": "Module"
+        },
+        {
+          "nodeid": "tests/acid/test_transactions.py",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/acid/test_database.py::TestClient",
+      "outcome": "passed",
+      "result": []
+    },
+    {
+      "nodeid": "tests/acid/test_database.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/acid/test_database.py::TestClient",
+          "type": "Class"
+        },
+        {
+          "nodeid": "tests/acid/test_database.py::test_atomicity",
+          "type": "Function",
+          "lineno": 18
+        },
+        {
+          "nodeid": "tests/acid/test_database.py::test_consistency",
+          "type": "Function",
+          "lineno": 47
+        },
+        {
+          "nodeid": "tests/acid/test_database.py::test_isolation",
+          "type": "Function",
+          "lineno": 70
+        },
+        {
+          "nodeid": "tests/acid/test_database.py::test_durability",
+          "type": "Function",
+          "lineno": 104
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/acid/test_database_transactions.py::TestClient",
+      "outcome": "passed",
+      "result": []
+    },
+    {
+      "nodeid": "tests/acid/test_database_transactions.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/acid/test_database_transactions.py::TestClient",
+          "type": "Class"
+        },
+        {
+          "nodeid": "tests/acid/test_database_transactions.py::test_atomicity",
+          "type": "Function",
+          "lineno": 20
+        },
+        {
+          "nodeid": "tests/acid/test_database_transactions.py::test_consistency",
+          "type": "Function",
+          "lineno": 40
+        },
+        {
+          "nodeid": "tests/acid/test_database_transactions.py::test_isolation",
+          "type": "Function",
+          "lineno": 46
+        },
+        {
+          "nodeid": "tests/acid/test_database_transactions.py::test_durability",
+          "type": "Function",
+          "lineno": 52
+        },
+        {
+          "nodeid": "tests/acid/test_database_transactions.py::test_concurrent_transactions",
+          "type": "Function",
+          "lineno": 58
+        },
+        {
+          "nodeid": "tests/acid/test_database_transactions.py::test_rollback_scenarios",
+          "type": "Function",
+          "lineno": 64
+        },
+        {
+          "nodeid": "tests/acid/test_database_transactions.py::test_transaction_timeouts",
+          "type": "Function",
+          "lineno": 70
+        },
+        {
+          "nodeid": "tests/acid/test_database_transactions.py::test_deadlock_handling",
+          "type": "Function",
+          "lineno": 76
+        },
+        {
+          "nodeid": "tests/acid/test_database_transactions.py::test_nested_transactions",
+          "type": "Function",
+          "lineno": 82
+        },
+        {
+          "nodeid": "tests/acid/test_database_transactions.py::test_transaction_isolation_levels",
+          "type": "Function",
+          "lineno": 88
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/acid/test_transactions.py::TestDatabaseAcid",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/acid/test_transactions.py::TestDatabaseAcid::test_atomicity",
+          "type": "Function",
+          "lineno": 47
+        },
+        {
+          "nodeid": "tests/acid/test_transactions.py::TestDatabaseAcid::test_consistency",
+          "type": "Function",
+          "lineno": 62
+        },
+        {
+          "nodeid": "tests/acid/test_transactions.py::TestDatabaseAcid::test_isolation",
+          "type": "Function",
+          "lineno": 84
+        },
+        {
+          "nodeid": "tests/acid/test_transactions.py::TestDatabaseAcid::test_durability",
+          "type": "Function",
+          "lineno": 115
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/acid/test_transactions.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/acid/test_transactions.py::TestDatabaseAcid",
+          "type": "Class"
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "nodeid": "tests/acid/test_transactions.py::TestDatabaseAcid::test_isolation",
+      "lineno": 84,
+      "outcome": "passed",
+      "keywords": [
+        "test_isolation",
+        "acid",
+        "pytestmark",
+        "TestDatabaseAcid",
+        "tests/acid/test_transactions.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.007714799998211674,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "test_transactions",
+            "msg": "Starting ACID transaction tests at 2025-05-07 19:24:20.579542",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\acid\\test_transactions.py",
+            "filename": "test_transactions.py",
+            "module": "test_transactions",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 23,
+            "funcName": "setup_module",
+            "created": 1746671060.5795426,
+            "msecs": 579.5426368713379,
+            "relativeCreated": 10288.2399559021,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:20,579"
+          },
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:20.582543",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671060.5825434,
+            "msecs": 582.5433731079102,
+            "relativeCreated": 10291.240692138672,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:20,582"
+          }
+        ]
+      },
+      "call": {
+        "duration": 1.0030824999994365,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "test_transactions",
+            "msg": "Expected isolation error: no such table: test",
+            "args": null,
+            "levelname": "ERROR",
+            "levelno": 40,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\acid\\test_transactions.py",
+            "filename": "test_transactions.py",
+            "module": "test_transactions",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 104,
+            "funcName": "transaction2",
+            "created": 1746671060.5856605,
+            "msecs": 585.660457611084,
+            "relativeCreated": 10294.357776641846,
+            "thread": 20452,
+            "threadName": "ThreadPoolExecutor-12_1",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:20,585"
+          }
+        ]
+      },
+      "teardown": {
+        "duration": 0.001620300012291409,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.587825",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.5878258,
+            "msecs": 587.8257751464844,
+            "relativeCreated": 11296.523094177246,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,587"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_transactions.py::TestDatabaseAcid::test_durability",
+      "lineno": 115,
+      "outcome": "passed",
+      "keywords": [
+        "test_durability",
+        "acid",
+        "pytestmark",
+        "TestDatabaseAcid",
+        "tests/acid/test_transactions.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0030550999945262447,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.592300",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.592301,
+            "msecs": 592.3008918762207,
+            "relativeCreated": 11300.998210906982,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,592"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.050139600003603846,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0009122000046772882,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.637291",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.637291,
+            "msecs": 637.2909545898438,
+            "relativeCreated": 11345.988273620605,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,637"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_transactions.py::TestDatabaseAcid::test_consistency",
+      "lineno": 62,
+      "outcome": "passed",
+      "keywords": [
+        "test_consistency",
+        "acid",
+        "pytestmark",
+        "TestDatabaseAcid",
+        "tests/acid/test_transactions.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0032543999986955896,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.647672",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.6476724,
+            "msecs": 647.6724147796631,
+            "relativeCreated": 11356.369733810425,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,647"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0009695999906398356,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "test_transactions",
+            "msg": "Expected constraint violation: CHECK constraint failed: balance >= 0",
+            "args": null,
+            "levelname": "ERROR",
+            "levelno": 40,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\acid\\test_transactions.py",
+            "filename": "test_transactions.py",
+            "module": "test_transactions",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 79,
+            "funcName": "test_consistency",
+            "created": 1746671061.6496758,
+            "msecs": 649.6758460998535,
+            "relativeCreated": 11358.373165130615,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,649"
+          }
+        ]
+      },
+      "teardown": {
+        "duration": 0.0010670999909052625,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.650692",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.650692,
+            "msecs": 650.6919860839844,
+            "relativeCreated": 11359.389305114746,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,650"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_transactions.py::TestDatabaseAcid::test_atomicity",
+      "lineno": 47,
+      "outcome": "passed",
+      "keywords": [
+        "test_atomicity",
+        "acid",
+        "pytestmark",
+        "TestDatabaseAcid",
+        "tests/acid/test_transactions.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.002860100008547306,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.653705",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.6537054,
+            "msecs": 653.705358505249,
+            "relativeCreated": 11362.40267753601,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,653"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.000661700003547594,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "test_transactions",
+            "msg": "Expected error in atomicity test: no such table: nonexistent_table",
+            "args": null,
+            "levelname": "ERROR",
+            "levelno": 40,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\acid\\test_transactions.py",
+            "filename": "test_transactions.py",
+            "module": "test_transactions",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 57,
+            "funcName": "test_atomicity",
+            "created": 1746671061.6557078,
+            "msecs": 655.707836151123,
+            "relativeCreated": 11364.405155181885,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,655"
+          }
+        ]
+      },
+      "teardown": {
+        "duration": 0.00125790000311099,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.656706",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.6567063,
+            "msecs": 656.7063331604004,
+            "relativeCreated": 11365.403652191162,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,656"
+          },
+          {
+            "name": "test_transactions",
+            "msg": "Completed ACID transaction tests at 2025-05-07 19:24:21.656706",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\acid\\test_transactions.py",
+            "filename": "test_transactions.py",
+            "module": "test_transactions",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 27,
+            "funcName": "teardown_module",
+            "created": 1746671061.6567063,
+            "msecs": 656.7063331604004,
+            "relativeCreated": 11365.403652191162,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,656"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_database.py::test_isolation",
+      "lineno": 70,
+      "outcome": "failed",
+      "keywords": [
+        "test_isolation",
+        "acid",
+        "pytestmark",
+        "tests/acid/test_database.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.002557799991336651,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.660018",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.6600187,
+            "msecs": 660.0186824798584,
+            "relativeCreated": 11368.71600151062,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,660"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.04486920000636019,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\acid\\test_database.py",
+          "lineno": 87,
+          "message": "sqlite3.OperationalError: cannot start a transaction within a transaction"
+        },
+        "traceback": [
+          {
+            "path": "tests\\acid\\test_database.py",
+            "lineno": 87,
+            "message": "OperationalError"
+          }
+        ],
+        "longrepr": "test_db = <sqlite3.Connection object at 0x000001BD30C78940>\n\n    @pytest.mark.acid\n    def test_isolation(test_db):\n        \"\"\"Test isolation of concurrent transactions.\"\"\"\n        cursor1 = test_db.cursor()\n        cursor2 = test_db.cursor()\n    \n        # Create test table\n        cursor1.execute(\"CREATE TABLE test (id INTEGER PRIMARY KEY, value TEXT)\")\n        cursor1.execute(\"INSERT INTO test (value) VALUES (?)\", (\"initial\",))\n        test_db.commit()\n    \n        # Start transaction 1\n        cursor1.execute(\"BEGIN\")\n        cursor1.execute(\"UPDATE test SET value = ? WHERE id = ?\", (\"updated1\", 1))\n    \n        # Start transaction 2\n>       cursor2.execute(\"BEGIN\")\nE       sqlite3.OperationalError: cannot start a transaction within a transaction\n\ntests\\acid\\test_database.py:87: OperationalError"
+      },
+      "teardown": {
+        "duration": 0.0018156000005546957,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.725539",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.7255394,
+            "msecs": 725.5394458770752,
+            "relativeCreated": 11434.236764907837,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,725"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_database.py::test_consistency",
+      "lineno": 47,
+      "outcome": "passed",
+      "keywords": [
+        "test_consistency",
+        "acid",
+        "pytestmark",
+        "tests/acid/test_database.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0023427999985869974,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.725539",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.7255394,
+            "msecs": 725.5394458770752,
+            "relativeCreated": 11434.236764907837,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,725"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.04729019998922013,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0014651999954367056,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.779704",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.779704,
+            "msecs": 779.7040939331055,
+            "relativeCreated": 11488.401412963867,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,779"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_database.py::test_durability",
+      "lineno": 104,
+      "outcome": "passed",
+      "keywords": [
+        "test_durability",
+        "acid",
+        "pytestmark",
+        "tests/acid/test_database.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.002371900001890026,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.781703",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.781703,
+            "msecs": 781.702995300293,
+            "relativeCreated": 11490.400314331055,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,781"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.04505149999749847,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0013629999884869903,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.829104",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.8291042,
+            "msecs": 829.1041851043701,
+            "relativeCreated": 11537.801504135132,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,829"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_database.py::test_atomicity",
+      "lineno": 18,
+      "outcome": "passed",
+      "keywords": [
+        "test_atomicity",
+        "acid",
+        "pytestmark",
+        "tests/acid/test_database.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.002374000003328547,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.832103",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.832104,
+            "msecs": 832.103967666626,
+            "relativeCreated": 11540.801286697388,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,832"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.030703800002811477,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.001983099995413795,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.865390",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.86539,
+            "msecs": 865.3900623321533,
+            "relativeCreated": 11574.087381362915,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,865"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_database_transactions.py::test_transaction_isolation_levels",
+      "lineno": 88,
+      "outcome": "passed",
+      "keywords": [
+        "test_transaction_isolation_levels",
+        "tests/acid/test_database_transactions.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.003296700000646524,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.869459",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.8694596,
+            "msecs": 869.4596290588379,
+            "relativeCreated": 11578.1569480896,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,869"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0003112999984296039,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0010385000059613958,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.872110",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.8721108,
+            "msecs": 872.1108436584473,
+            "relativeCreated": 11580.808162689209,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,872"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_database_transactions.py::test_deadlock_handling",
+      "lineno": 76,
+      "outcome": "passed",
+      "keywords": [
+        "test_deadlock_handling",
+        "tests/acid/test_database_transactions.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0024895999958971515,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.875693",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.8756933,
+            "msecs": 875.6933212280273,
+            "relativeCreated": 11584.390640258789,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,875"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.00036019999242853373,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0009868000051937997,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.876695",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.8766952,
+            "msecs": 876.6951560974121,
+            "relativeCreated": 11585.392475128174,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,876"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_database_transactions.py::test_consistency",
+      "lineno": 40,
+      "outcome": "passed",
+      "keywords": [
+        "test_consistency",
+        "tests/acid/test_database_transactions.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0026815000019269064,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.880598",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.8805985,
+            "msecs": 880.5985450744629,
+            "relativeCreated": 11589.295864105225,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,880"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0003021999873453751,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0009723999974085018,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.882002",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.8820028,
+            "msecs": 882.0028305053711,
+            "relativeCreated": 11590.700149536133,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,882"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_database_transactions.py::test_transaction_timeouts",
+      "lineno": 70,
+      "outcome": "passed",
+      "keywords": [
+        "test_transaction_timeouts",
+        "tests/acid/test_database_transactions.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.002442700002575293,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.885300",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.8853002,
+            "msecs": 885.3001594543457,
+            "relativeCreated": 11593.997478485107,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,885"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.00028339998971205205,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0007805000059306622,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.887302",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.8873026,
+            "msecs": 887.3026371002197,
+            "relativeCreated": 11595.999956130981,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,887"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_database_transactions.py::test_isolation",
+      "lineno": 46,
+      "outcome": "passed",
+      "keywords": [
+        "test_isolation",
+        "tests/acid/test_database_transactions.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.002590899995993823,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.888977",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.888978,
+            "msecs": 888.9780044555664,
+            "relativeCreated": 11597.675323486328,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,888"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.00033459998667240143,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0007315999973798171,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.888977",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.888978,
+            "msecs": 888.9780044555664,
+            "relativeCreated": 11597.675323486328,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,888"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_database_transactions.py::test_atomicity",
+      "lineno": 20,
+      "outcome": "passed",
+      "keywords": [
+        "test_atomicity",
+        "tests/acid/test_database_transactions.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0019979000062448904,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.888977",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.888978,
+            "msecs": 888.9780044555664,
+            "relativeCreated": 11597.675323486328,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,888"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0004844999930355698,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0016007999947760254,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.897351",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.897352,
+            "msecs": 897.3519802093506,
+            "relativeCreated": 11606.049299240112,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,897"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_database_transactions.py::test_rollback_scenarios",
+      "lineno": 64,
+      "outcome": "passed",
+      "keywords": [
+        "test_rollback_scenarios",
+        "tests/acid/test_database_transactions.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0025800000003073364,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.900347",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.9003472,
+            "msecs": 900.3472328186035,
+            "relativeCreated": 11609.044551849365,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,900"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.00035009998828172684,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.000966899999184534,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.902352",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.902352,
+            "msecs": 902.3520946502686,
+            "relativeCreated": 11611.04941368103,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,902"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_database_transactions.py::test_durability",
+      "lineno": 52,
+      "outcome": "passed",
+      "keywords": [
+        "test_durability",
+        "tests/acid/test_database_transactions.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0022834999981569126,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.905348",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.9053483,
+            "msecs": 905.3483009338379,
+            "relativeCreated": 11614.0456199646,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,905"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0002860999957192689,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0010971000010613352,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.907350",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.9073508,
+            "msecs": 907.3507785797119,
+            "relativeCreated": 11616.048097610474,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,907"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_database_transactions.py::test_nested_transactions",
+      "lineno": 82,
+      "outcome": "passed",
+      "keywords": [
+        "test_nested_transactions",
+        "tests/acid/test_database_transactions.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0024987999931909144,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.910526",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.9105263,
+            "msecs": 910.5262756347656,
+            "relativeCreated": 11619.223594665527,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,910"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0003453999961493537,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0011882999970111996,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.912914",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.9129143,
+            "msecs": 912.9142761230469,
+            "relativeCreated": 11621.611595153809,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,912"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/acid/test_database_transactions.py::test_concurrent_transactions",
+      "lineno": 58,
+      "outcome": "passed",
+      "keywords": [
+        "test_concurrent_transactions",
+        "tests/acid/test_database_transactions.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.002678300006664358,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-07 19:24:21.916074",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.9160745,
+            "msecs": 916.0745143890381,
+            "relativeCreated": 11624.7718334198,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,916"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0005068000027677044,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.006763099998352118,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-07 19:24:21.919072",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746671061.9190722,
+            "msecs": 919.072151184082,
+            "relativeCreated": 11627.769470214844,
+            "thread": 8480,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 12536,
+            "asctime": "2025-05-07 19:24:21,919"
+          }
+        ]
+      }
+    }
+  ],
+  "suite_name": "acid",
+  "timestamp": "20250507_192420",
+  "exit_code": 1
+}

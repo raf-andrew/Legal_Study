@@ -1,0 +1,61 @@
+@startuml Monitoring Architecture
+
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam componentStyle rectangle
+
+title Codespaces Monitoring Architecture
+
+package "Health Checks" {
+    [Service Health] as service
+    [System Health] as system
+    [Resource Health] as resource
+}
+
+package "Metrics Collection" {
+    [Performance Metrics] as perf
+    [Resource Metrics] as res
+    [Custom Metrics] as custom
+}
+
+package "Alerting" {
+    [Alert Manager] as alert
+    [Notification Service] as notify
+    [Escalation Rules] as escalate
+}
+
+package "Self-Healing" {
+    [Issue Detection] as detect
+    [Auto-Recovery] as recover
+    [State Management] as state
+}
+
+package "Reporting" {
+    [Metrics Storage] as store
+    [Report Generator] as report
+    [Dashboard] as dash
+}
+
+service --> perf
+system --> res
+resource --> custom
+
+perf --> alert
+res --> alert
+custom --> alert
+
+alert --> notify
+notify --> escalate
+
+detect --> recover
+recover --> state
+state --> detect
+
+perf --> store
+res --> store
+custom --> store
+
+store --> report
+report --> dash
+
+@enduml

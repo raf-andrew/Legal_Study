@@ -1,0 +1,1025 @@
+{
+  "created": 1746712395.3360226,
+  "duration": 0.6215319633483887,
+  "exitcode": 1,
+  "root": "C:\\Users\\ajame\\Legal_Study",
+  "environment": {},
+  "summary": {
+    "failed": 11,
+    "total": 11,
+    "collected": 11
+  },
+  "collectors": [
+    {
+      "nodeid": "",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/monitoring/test_monitoring.py",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/monitoring/test_monitoring.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/monitoring/test_monitoring.py::test_monitoring_service_health",
+          "type": "Function",
+          "lineno": 15
+        },
+        {
+          "nodeid": "tests/monitoring/test_monitoring.py::test_system_metrics",
+          "type": "Function",
+          "lineno": 24
+        },
+        {
+          "nodeid": "tests/monitoring/test_monitoring.py::test_application_metrics",
+          "type": "Function",
+          "lineno": 45
+        },
+        {
+          "nodeid": "tests/monitoring/test_monitoring.py::test_performance_metrics",
+          "type": "Function",
+          "lineno": 66
+        },
+        {
+          "nodeid": "tests/monitoring/test_monitoring.py::test_resource_metrics",
+          "type": "Function",
+          "lineno": 87
+        },
+        {
+          "nodeid": "tests/monitoring/test_monitoring.py::test_alert_configuration",
+          "type": "Function",
+          "lineno": 108
+        },
+        {
+          "nodeid": "tests/monitoring/test_monitoring.py::test_alert_history",
+          "type": "Function",
+          "lineno": 130
+        },
+        {
+          "nodeid": "tests/monitoring/test_monitoring.py::test_metric_aggregation",
+          "type": "Function",
+          "lineno": 151
+        },
+        {
+          "nodeid": "tests/monitoring/test_monitoring.py::test_metric_validation",
+          "type": "Function",
+          "lineno": 174
+        },
+        {
+          "nodeid": "tests/monitoring/test_monitoring.py::test_metric_rate_limiting",
+          "type": "Function",
+          "lineno": 194
+        },
+        {
+          "nodeid": "tests/monitoring/test_monitoring.py::test_metric_retention",
+          "type": "Function",
+          "lineno": 217
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "nodeid": "tests/monitoring/test_monitoring.py::test_alert_history",
+      "lineno": 130,
+      "outcome": "failed",
+      "keywords": [
+        "test_alert_history",
+        "tests/monitoring/test_monitoring.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.00935629999730736,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:14.790016",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712394.7900167,
+            "msecs": 790.0166511535645,
+            "relativeCreated": 18743.18504333496,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:14,790"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.014859899994917214,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\monitoring\\test_monitoring.py",
+          "lineno": 148,
+          "message": "AssertionError: assert 'threshold' in {'id': 'mock_alert_1', 'metric': 'cpu_usage', 'timestamp': '2025-05-07T00:00:00Z', 'value': 90.5}"
+        },
+        "traceback": [
+          {
+            "path": "tests\\monitoring\\test_monitoring.py",
+            "lineno": 148,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_alert_history():\n        \"\"\"Test alert history functionality.\"\"\"\n        response = requests.get(\n            f\"{API_BASE_URL}/api/v1/monitoring/alerts/history\",\n            params={\"timeframe\": \"24h\"},\n            timeout=TEST_TIMEOUT\n        )\n        assert response.status_code == 200\n        data = response.json()\n        assert \"alerts\" in data\n        assert isinstance(data[\"alerts\"], list)\n    \n        # Check alert details\n        if len(data[\"alerts\"]) > 0:\n            alert = data[\"alerts\"][0]\n            assert \"id\" in alert\n            assert \"metric\" in alert\n>           assert \"threshold\" in alert\nE           AssertionError: assert 'threshold' in {'id': 'mock_alert_1', 'metric': 'cpu_usage', 'timestamp': '2025-05-07T00:00:00Z', 'value': 90.5}\n\ntests\\monitoring\\test_monitoring.py:148: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0021015999955125153,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:14.838632",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712394.8386319,
+            "msecs": 838.6318683624268,
+            "relativeCreated": 18791.800260543823,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:14,838"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/monitoring/test_monitoring.py::test_metric_aggregation",
+      "lineno": 151,
+      "outcome": "failed",
+      "keywords": [
+        "test_metric_aggregation",
+        "tests/monitoring/test_monitoring.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.003652899991720915,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:14.842144",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712394.8421445,
+            "msecs": 842.1444892883301,
+            "relativeCreated": 18795.312881469727,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:14,842"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.007145199982915074,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\monitoring\\test_monitoring.py",
+          "lineno": 165,
+          "message": "AssertionError: assert 'aggregated_metrics' in {'average_latency': 0.15, 'error_rate': 0.01, 'total_requests': 10000}"
+        },
+        "traceback": [
+          {
+            "path": "tests\\monitoring\\test_monitoring.py",
+            "lineno": 165,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_metric_aggregation():\n        \"\"\"Test metric aggregation functionality.\"\"\"\n        response = requests.get(\n            f\"{API_BASE_URL}/api/v1/monitoring/aggregate\",\n            params={\n                \"metric\": \"cpu_usage\",\n                \"interval\": \"5m\",\n                \"timeframe\": \"1h\"\n            },\n            timeout=TEST_TIMEOUT\n        )\n        assert response.status_code == 200\n        data = response.json()\n>       assert \"aggregated_metrics\" in data\nE       AssertionError: assert 'aggregated_metrics' in {'average_latency': 0.15, 'error_rate': 0.01, 'total_requests': 10000}\n\ntests\\monitoring\\test_monitoring.py:165: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0020397999905981123,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:14.869935",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712394.8699353,
+            "msecs": 869.9352741241455,
+            "relativeCreated": 18823.103666305542,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:14,869"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/monitoring/test_monitoring.py::test_system_metrics",
+      "lineno": 24,
+      "outcome": "failed",
+      "keywords": [
+        "test_system_metrics",
+        "tests/monitoring/test_monitoring.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0032164000149350613,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:14.875204",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712394.8752048,
+            "msecs": 875.2048015594482,
+            "relativeCreated": 18828.373193740845,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:14,875"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.025081800005864352,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\monitoring\\test_monitoring.py",
+          "lineno": 31,
+          "message": "AssertionError: assert 'metrics' in {'cpu_usage': 45.5, 'disk_usage': 70.8, 'memory_usage': 60.2}"
+        },
+        "traceback": [
+          {
+            "path": "tests\\monitoring\\test_monitoring.py",
+            "lineno": 31,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_system_metrics():\n        \"\"\"Test system metrics collection.\"\"\"\n        response = requests.get(f\"{API_BASE_URL}/api/v1/monitoring/system\", timeout=TEST_TIMEOUT)\n        assert response.status_code == 200\n        data = response.json()\n    \n>       assert \"metrics\" in data\nE       AssertionError: assert 'metrics' in {'cpu_usage': 45.5, 'disk_usage': 70.8, 'memory_usage': 60.2}\n\ntests\\monitoring\\test_monitoring.py:31: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0015549999952781945,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:14.917652",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712394.9176521,
+            "msecs": 917.6521301269531,
+            "relativeCreated": 18870.82052230835,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:14,917"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/monitoring/test_monitoring.py::test_metric_retention",
+      "lineno": 217,
+      "outcome": "failed",
+      "keywords": [
+        "test_metric_retention",
+        "tests/monitoring/test_monitoring.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.002805099997203797,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:14.921772",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712394.9217727,
+            "msecs": 921.7727184295654,
+            "relativeCreated": 18874.941110610962,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:14,921"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.007535799988545477,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\monitoring\\test_monitoring.py",
+          "lineno": 227,
+          "message": "AssertionError: assert 'retention_policies' in {'compression_ratio': 0.5, 'retention_period': '30d', 'storage_size': 1024}"
+        },
+        "traceback": [
+          {
+            "path": "tests\\monitoring\\test_monitoring.py",
+            "lineno": 227,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_metric_retention():\n        \"\"\"Test metric data retention.\"\"\"\n        response = requests.get(\n            f\"{API_BASE_URL}/api/v1/monitoring/retention\",\n            timeout=TEST_TIMEOUT\n        )\n        assert response.status_code == 200\n        data = response.json()\n    \n>       assert \"retention_policies\" in data\nE       AssertionError: assert 'retention_policies' in {'compression_ratio': 0.5, 'retention_period': '30d', 'storage_size': 1024}\n\ntests\\monitoring\\test_monitoring.py:227: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0014843999815639108,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:14.948039",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712394.9480395,
+            "msecs": 948.0395317077637,
+            "relativeCreated": 18901.20792388916,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:14,948"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/monitoring/test_monitoring.py::test_metric_rate_limiting",
+      "lineno": 194,
+      "outcome": "failed",
+      "keywords": [
+        "test_metric_rate_limiting",
+        "tests/monitoring/test_monitoring.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0032552000193390995,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:14.952039",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712394.9520397,
+            "msecs": 952.0397186279297,
+            "relativeCreated": 18905.208110809326,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:14,952"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.10374969997792505,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\monitoring\\test_monitoring.py",
+          "lineno": 211,
+          "message": "AssertionError: assert 'X-RateLimit-Limit' in {'date': 'Thu, 08 May 2025 13:53:15 GMT', 'server': 'uvicorn', 'content-length': '21', 'content-type': 'application/json'}\n +  where {'date': 'Thu, 08 May 2025 13:53:15 GMT', 'server': 'uvicorn', 'content-length': '21', 'content-type': 'application/json'} = <Response [200]>.headers"
+        },
+        "traceback": [
+          {
+            "path": "tests\\monitoring\\test_monitoring.py",
+            "lineno": 211,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_metric_rate_limiting():\n        \"\"\"Test metric collection rate limiting.\"\"\"\n        # Make multiple requests quickly\n        responses = []\n        for _ in range(10):\n            response = requests.post(\n                f\"{API_BASE_URL}/api/v1/monitoring/metrics\",\n                json={\n                    \"name\": \"test_metric\",\n                    \"value\": 100\n                },\n                timeout=TEST_TIMEOUT\n            )\n            responses.append(response)\n    \n        # Check rate limit headers\n>       assert \"X-RateLimit-Limit\" in responses[-1].headers\nE       AssertionError: assert 'X-RateLimit-Limit' in {'date': 'Thu, 08 May 2025 13:53:15 GMT', 'server': 'uvicorn', 'content-length': '21', 'content-type': 'application/json'}\nE        +  where {'date': 'Thu, 08 May 2025 13:53:15 GMT', 'server': 'uvicorn', 'content-length': '21', 'content-type': 'application/json'} = <Response [200]>.headers\n\ntests\\monitoring\\test_monitoring.py:211: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0017228999931830913,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:15.079893",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712395.0798936,
+            "msecs": 79.89358901977539,
+            "relativeCreated": 19033.061981201172,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:15,079"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/monitoring/test_monitoring.py::test_alert_configuration",
+      "lineno": 108,
+      "outcome": "failed",
+      "keywords": [
+        "test_alert_configuration",
+        "tests/monitoring/test_monitoring.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0037462000036612153,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:15.083954",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712395.0839543,
+            "msecs": 83.9543342590332,
+            "relativeCreated": 19037.12272644043,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:15,083"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.009503800014499575,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\monitoring\\test_monitoring.py",
+          "lineno": 128,
+          "message": "AssertionError: assert 'configured' == 'created'\n  - created\n  + configured"
+        },
+        "traceback": [
+          {
+            "path": "tests\\monitoring\\test_monitoring.py",
+            "lineno": 128,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_alert_configuration():\n        \"\"\"Test alert configuration functionality.\"\"\"\n        # Test alert settings\n        test_alert = {\n            \"metric\": \"cpu_usage\",\n            \"threshold\": 80,\n            \"condition\": \">\",\n            \"duration\": \"5m\",\n            \"severity\": \"warning\",\n            \"channels\": [\"email\", \"slack\"]\n        }\n    \n        response = requests.post(\n            f\"{API_BASE_URL}/api/v1/monitoring/alerts\",\n            json=test_alert,\n            timeout=TEST_TIMEOUT\n        )\n        assert response.status_code == 200\n        data = response.json()\n>       assert data[\"status\"] == \"created\"\nE       AssertionError: assert 'configured' == 'created'\nE         - created\nE         + configured\n\ntests\\monitoring\\test_monitoring.py:128: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0019647000008262694,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:15.114863",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712395.1148636,
+            "msecs": 114.86363410949707,
+            "relativeCreated": 19068.032026290894,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:15,114"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/monitoring/test_monitoring.py::test_monitoring_service_health",
+      "lineno": 15,
+      "outcome": "failed",
+      "keywords": [
+        "test_monitoring_service_health",
+        "tests/monitoring/test_monitoring.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0026910000015050173,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:15.119864",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712395.1198645,
+            "msecs": 119.86446380615234,
+            "relativeCreated": 19073.03285598755,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:15,119"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.007682199997361749,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\monitoring\\test_monitoring.py",
+          "lineno": 22,
+          "message": "AssertionError: assert 'version' in {'status': 'healthy', 'timestamp': '2025-05-08T06:53:15.126863'}"
+        },
+        "traceback": [
+          {
+            "path": "tests\\monitoring\\test_monitoring.py",
+            "lineno": 22,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_monitoring_service_health():\n        \"\"\"Test monitoring service health endpoint.\"\"\"\n        response = requests.get(f\"{API_BASE_URL}/api/v1/monitoring/health\", timeout=TEST_TIMEOUT)\n        assert response.status_code == 200\n        data = response.json()\n        assert data[\"status\"] == \"healthy\"\n>       assert \"version\" in data\nE       AssertionError: assert 'version' in {'status': 'healthy', 'timestamp': '2025-05-08T06:53:15.126863'}\n\ntests\\monitoring\\test_monitoring.py:22: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0016426999936811626,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:15.144550",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712395.1445503,
+            "msecs": 144.55032348632812,
+            "relativeCreated": 19097.718715667725,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:15,144"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/monitoring/test_monitoring.py::test_metric_validation",
+      "lineno": 174,
+      "outcome": "failed",
+      "keywords": [
+        "test_metric_validation",
+        "tests/monitoring/test_monitoring.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.004291799996281043,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:15.150187",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712395.1501873,
+            "msecs": 150.18725395202637,
+            "relativeCreated": 19103.355646133423,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:15,150"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.009538099984638393,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\monitoring\\test_monitoring.py",
+          "lineno": 192,
+          "message": "AssertionError: assert 'error' in {'detail': 'Empty metrics'}"
+        },
+        "traceback": [
+          {
+            "path": "tests\\monitoring\\test_monitoring.py",
+            "lineno": 192,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_metric_validation():\n        \"\"\"Test metric validation and error handling.\"\"\"\n        invalid_metrics = [\n            {},  # Empty metric\n            {\"name\": \"invalid\"},  # Invalid metric name\n            {\"value\": 100},  # Missing metric name\n            {\"name\": \"cpu_usage\", \"value\": \"invalid\"}  # Invalid value type\n        ]\n    \n        for metric in invalid_metrics:\n            response = requests.post(\n                f\"{API_BASE_URL}/api/v1/monitoring/metrics\",\n                json=metric,\n                timeout=TEST_TIMEOUT\n            )\n            assert response.status_code == 400\n            data = response.json()\n>           assert \"error\" in data\nE           AssertionError: assert 'error' in {'detail': 'Empty metrics'}\n\ntests\\monitoring\\test_monitoring.py:192: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0019967000116594136,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:15.180465",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712395.180466,
+            "msecs": 180.4659366607666,
+            "relativeCreated": 19133.634328842163,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:15,180"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/monitoring/test_monitoring.py::test_resource_metrics",
+      "lineno": 87,
+      "outcome": "failed",
+      "keywords": [
+        "test_resource_metrics",
+        "tests/monitoring/test_monitoring.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0034439000010024756,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:15.185775",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712395.1857758,
+            "msecs": 185.7757568359375,
+            "relativeCreated": 19138.944149017334,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:15,185"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.0230435999983456,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\monitoring\\test_monitoring.py",
+          "lineno": 94,
+          "message": "AssertionError: assert 'metrics' in {'available_memory': 8192, 'cpu_cores': 8, 'total_memory': 16384}"
+        },
+        "traceback": [
+          {
+            "path": "tests\\monitoring\\test_monitoring.py",
+            "lineno": 94,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_resource_metrics():\n        \"\"\"Test resource usage metrics.\"\"\"\n        response = requests.get(f\"{API_BASE_URL}/api/v1/monitoring/resources\", timeout=TEST_TIMEOUT)\n        assert response.status_code == 200\n        data = response.json()\n    \n>       assert \"metrics\" in data\nE       AssertionError: assert 'metrics' in {'available_memory': 8192, 'cpu_cores': 8, 'total_memory': 16384}\n\ntests\\monitoring\\test_monitoring.py:94: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0017382000223733485,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:15.229313",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712395.2293134,
+            "msecs": 229.31337356567383,
+            "relativeCreated": 19182.48176574707,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:15,229"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/monitoring/test_monitoring.py::test_application_metrics",
+      "lineno": 45,
+      "outcome": "failed",
+      "keywords": [
+        "test_application_metrics",
+        "tests/monitoring/test_monitoring.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0031159000063780695,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:15.233920",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712395.233921,
+            "msecs": 233.92105102539062,
+            "relativeCreated": 19187.089443206787,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:15,233"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.00857400000677444,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\monitoring\\test_monitoring.py",
+          "lineno": 52,
+          "message": "AssertionError: assert 'metrics' in {'average_response_time': 0.2, 'error_rate': 0.01, 'requests_per_second': 100}"
+        },
+        "traceback": [
+          {
+            "path": "tests\\monitoring\\test_monitoring.py",
+            "lineno": 52,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_application_metrics():\n        \"\"\"Test application metrics collection.\"\"\"\n        response = requests.get(f\"{API_BASE_URL}/api/v1/monitoring/application\", timeout=TEST_TIMEOUT)\n        assert response.status_code == 200\n        data = response.json()\n    \n>       assert \"metrics\" in data\nE       AssertionError: assert 'metrics' in {'average_response_time': 0.2, 'error_rate': 0.01, 'requests_per_second': 100}\n\ntests\\monitoring\\test_monitoring.py:52: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0013799000007566065,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:15.259641",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712395.2596414,
+            "msecs": 259.6414089202881,
+            "relativeCreated": 19212.809801101685,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:15,259"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "tests/monitoring/test_monitoring.py::test_performance_metrics",
+      "lineno": 66,
+      "outcome": "failed",
+      "keywords": [
+        "test_performance_metrics",
+        "tests/monitoring/test_monitoring.py",
+        "Legal_Study"
+      ],
+      "setup": {
+        "duration": 0.0028448000084608793,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Starting test session at 2025-05-08 06:53:15.264005",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 101,
+            "funcName": "setup_test_environment",
+            "created": 1746712395.2640057,
+            "msecs": 264.0056610107422,
+            "relativeCreated": 19217.17405319214,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:15,264"
+          }
+        ]
+      },
+      "call": {
+        "duration": 0.02293819998158142,
+        "outcome": "failed",
+        "crash": {
+          "path": "C:\\Users\\ajame\\Legal_Study\\tests\\monitoring\\test_monitoring.py",
+          "lineno": 73,
+          "message": "AssertionError: assert 'metrics' in {'concurrency': 50, 'latency': 0.1, 'throughput': 1000}"
+        },
+        "traceback": [
+          {
+            "path": "tests\\monitoring\\test_monitoring.py",
+            "lineno": 73,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "def test_performance_metrics():\n        \"\"\"Test performance metrics collection.\"\"\"\n        response = requests.get(f\"{API_BASE_URL}/api/v1/monitoring/performance\", timeout=TEST_TIMEOUT)\n        assert response.status_code == 200\n        data = response.json()\n    \n>       assert \"metrics\" in data\nE       AssertionError: assert 'metrics' in {'concurrency': 50, 'latency': 0.1, 'throughput': 1000}\n\ntests\\monitoring\\test_monitoring.py:73: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.004036500002257526,
+        "outcome": "passed",
+        "log": [
+          {
+            "name": "tests.conftest",
+            "msg": "Ending test session at 2025-05-08 06:53:15.300791",
+            "args": null,
+            "levelname": "INFO",
+            "levelno": 20,
+            "pathname": "C:\\Users\\ajame\\Legal_Study\\tests\\conftest.py",
+            "filename": "conftest.py",
+            "module": "conftest",
+            "exc_info": null,
+            "exc_text": null,
+            "stack_info": null,
+            "lineno": 106,
+            "funcName": "setup_test_environment",
+            "created": 1746712395.3007915,
+            "msecs": 300.79150199890137,
+            "relativeCreated": 19253.959894180298,
+            "thread": 19692,
+            "threadName": "MainThread",
+            "processName": "MainProcess",
+            "process": 13668,
+            "asctime": "2025-05-08 06:53:15,300"
+          }
+        ]
+      }
+    }
+  ],
+  "suite_name": "monitoring",
+  "timestamp": "20250508_065314",
+  "exit_code": 1
+}

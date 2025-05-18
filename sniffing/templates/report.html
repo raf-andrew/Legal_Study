@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sniffing Report</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: #2c3e50;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        .summary {
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .summary-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .summary-item h4 {
+            margin-top: 0;
+            color: #6c757d;
+        }
+
+        .summary-item .value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .domain-section {
+            margin-bottom: 40px;
+        }
+
+        .file-section {
+            background-color: white;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .issue-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .issue-item {
+            background-color: #f8f9fa;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .issue-item.severity-high {
+            border-left-color: #dc3545;
+        }
+
+        .issue-item.severity-medium {
+            border-left-color: #ffc107;
+        }
+
+        .issue-item.severity-low {
+            border-left-color: #28a745;
+        }
+
+        .issue-item .title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .issue-item .description {
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+
+        .issue-item .fix {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .metric-item {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .metric-item .label {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .metric-item .value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .timestamp {
+            color: #6c757d;
+            font-size: 14px;
+            text-align: right;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sniffing Report</h1>
+
+    <div class="summary">
+        <h2>Summary</h2>
+        <div class="summary-grid">
+            <div class="summary-item">
+                <h4>Total Files</h4>
+                <div class="value">{{ results.summary.total_files }}</div>
+            </div>
+            <div class="summary-item">
+                <h4>Total Issues</h4>
+                <div class="value">{{ results.summary.total_issues }}</div>
+            </div>
+            <div class="summary-item">
+                <h4>Total Fixes</h4>
+                <div class="value">{{ results.summary.total_fixes }}</div>
+            </div>
+        </div>
+    </div>
+
+    {% for domain, domain_data in results.domains.items() %}
+    <div class="domain-section">
+        <h2>{{ domain|title }}</h2>
+
+        <div class="metrics">
+            {% for metric_name, metric_value in domain_data.metrics.items() %}
+            <div class="metric-item">
+                <div class="label">{{ metric_name|replace('_', ' ')|title }}</div>
+                <div class="value">{{ metric_value }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% for file in domain_data.files %}
+        <div class="file-section">
+            <h3>{{ file.path }}</h3>
+
+            {% if file.issues %}
+            <h4>Issues</h4>
+            <ul class="issue-list">
+                {% for issue in file.issues %}
+                <li class="issue-item severity-{{ issue.severity }}">
+                    <div class="title">{{ issue.title }}</div>
+                    <div class="description">{{ issue.description }}</div>
+                    {% if issue.fix %}
+                    <div class="fix">{{ issue.fix }}</div>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if file.metrics %}
+            <h4>Metrics</h4>
+            <div class="metrics">
+                {% for metric_name, metric_value in file.metrics.items() %}
+                <div class="metric-item">
+                    <div class="label">{{ metric_name|replace('_', ' ')|title }}</div>
+                    <div class="value">{{ metric_value }}</div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+    <div class="timestamp">
+        Generated at: {{ generated_at }}
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+[
+    {
+        "service": "database",
+        "status": "healthy",
+        "message": "SQLite database is accessible",
+        "timestamp": "2025-05-16T09:13:25+00:00"
+    },
+    {
+        "service": "cache",
+        "status": "healthy",
+        "message": "File-based cache is working",
+        "timestamp": "2025-05-16T09:13:25+00:00"
+    },
+    {
+        "service": "api",
+        "status": "healthy",
+        "message": "API endpoints are accessible",
+        "timestamp": "2025-05-16T09:13:25+00:00"
+    }
+]

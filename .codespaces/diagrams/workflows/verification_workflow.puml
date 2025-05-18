@@ -1,0 +1,52 @@
+@startuml Verification Workflow
+
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam activityBorderColor black
+skinparam activityBackgroundColor white
+skinparam activityDiamondBackgroundColor white
+
+title Codespaces Verification Workflow
+
+start
+
+:Initialize Environment;
+if (Environment Ready?) then (yes)
+  :Run Security Checks;
+  if (Security Passed?) then (yes)
+    :Execute Health Checks;
+    if (Health Checks Passed?) then (yes)
+      :Run Tests;
+      if (Tests Passed?) then (yes)
+        :Generate Reports;
+        if (Reports Generated?) then (yes)
+          :Update Checklist;
+          if (Checklist Updated?) then (yes)
+            :Move to Complete;
+            stop
+          else (no)
+            :Log Error;
+            stop
+          endif
+        else (no)
+          :Log Error;
+          stop
+        endif
+      else (no)
+        :Log Test Failures;
+        stop
+      endif
+    else (no)
+      :Log Health Check Failures;
+      stop
+    endif
+  else (no)
+    :Log Security Failures;
+    stop
+  endif
+else (no)
+  :Log Environment Issues;
+  stop
+endif
+
+@enduml

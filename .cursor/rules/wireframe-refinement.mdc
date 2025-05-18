@@ -3,98 +3,146 @@ description:
 globs:
 alwaysApply: false
 ---
-# Wireframe Refinement Process
+# Wireframe Refinement System Guide
 
 ## Overview
-The wireframe refinement process is a systematic approach to improving wireframes through iterative testing and analysis. The process is implemented in [wireframe_refinement.py](mdc:.wireframe/testing/wireframe_refinement.py).
+The wireframe refinement system provides a structured approach to developing and testing UI/UX components through iterative improvements and comprehensive testing.
 
-## Key Components
+## System Components
 
-### Version Tracking
-- Each iteration creates a new version with unique ID
-- Versions maintain parent-child relationships
-- All assets (HTML, screenshots, metadata) are stored in version directories
-- Version metadata includes:
-  - Timestamp
-  - Parent version
-  - Applied improvements
-  - Rejected improvements
-  - Screenshots
-  - Analysis results
+### Wireframe Structure
+Located in [.wireframe/](mdc:.wireframe/), including:
+- UI components
+- Layout templates
+- Style definitions
+- Interaction patterns
 
-### Refinement Loop
-The refinement loop follows these steps in order:
-1. Create new version
-2. Run Cursor analysis
-3. Generate improvements
-4. Apply changes
-5. Capture screenshots
-6. Run feature tests
-7. Generate report
-8. Present options to user
-9. Apply selected option
-10. Create next version
+### Testing Framework
+Located in [.wireframe/testing/](mdc:.wireframe/testing/), including:
+- Test scenarios
+- Result reports
+- Performance metrics
+- Coverage analysis
 
-### Browser Testing
-- Tests run at multiple viewport sizes:
-  - Desktop (1920x1080)
-  - Tablet (768x1024)
-  - Mobile (375x667)
-- Screenshots captured for each viewport
-- Responsive design validation
-- HTML validation
-- Feature testing
+## Development Process
 
-### Analysis
-- Content density analysis
-- Line length validation
-- Color count optimization
-- Accessibility checks
-- Usability assessment
+### Iteration Workflow
+1. Initial wireframe creation
+2. Component testing
+3. Performance analysis
+4. Refinement implementation
+5. Regression testing
 
-### Report Generation
-- Before/after comparisons
-- Screenshot comparisons
-- Diff view of changes
-- Feature test results
-- Improvement suggestions
-- Accept/revert options
+### Version Control
+- Track changes per iteration
+- Document improvements
+- Maintain version history
+- Link to test results
 
-## Usage
+## Testing Process
 
-### Command Line Interface
+### Test Execution
 ```bash
-# Run with user interaction
-python wireframe_refinement.py path/to/wireframe.html --max-iterations 10
+# Run wireframe tests
+python .wireframe/testing/run_tests.py
 
-# Run in automated mode
-python wireframe_refinement.py path/to/wireframe.html --skip-user-interaction
+# Generate test report
+python .wireframe/testing/generate_report.py
 ```
 
-### Configuration
-Configuration is stored in [config.json](mdc:.wireframe/testing/config.json) and includes:
-- Maximum iterations
-- Viewport sizes
-- Security settings
-- Analysis thresholds
+### Test Results
+Results are stored in [.wireframe/testing/results/](mdc:.wireframe/testing/results/) with:
+- HTML reports for visualization
+- JSON data for analysis
+- Performance metrics
+- Coverage reports
 
-## Testing
-Feature tests are implemented in [test_feature_tests.py](mdc:.wireframe/testing/tests/test_feature_tests.py) and cover:
-- Wireframe loading
-- HTML validation
-- Responsive design
-- Screenshot capture
-- Report generation
-- Option picker interface
+## Component Development
+
+### UI Components
+1. Layout Structure
+   - Grid systems
+   - Responsive design
+   - Component hierarchy
+   - Spacing rules
+
+2. Interactive Elements
+   - Button states
+   - Form controls
+   - Navigation patterns
+   - Feedback mechanisms
+
+3. Visual Design
+   - Color schemes
+   - Typography
+   - Iconography
+   - Animation
 
 ## Best Practices
-1. Focus on one wireframe at a time
-2. Keep iterations small and focused
-3. Document all changes and decisions
-4. Maintain version history
-5. Run all tests for each iteration
-6. Review before/after comparisons
-7. Validate responsive design
-8. Check accessibility
-9. Verify usability
-10. Document improvements
+
+### Development Guidelines
+1. Follow component hierarchy
+2. Maintain consistent spacing
+3. Use responsive design
+4. Implement accessibility
+5. Document changes
+
+### Testing Requirements
+1. Test all interactions
+2. Verify responsiveness
+3. Check accessibility
+4. Measure performance
+5. Document results
+
+## Monitoring
+
+### Performance Metrics
+1. Load times
+2. Interaction speed
+3. Resource usage
+4. Error rates
+5. User feedback
+
+### Quality Metrics
+1. Code coverage
+2. Test pass rates
+3. Accessibility score
+4. Performance score
+5. User satisfaction
+
+## Troubleshooting
+
+### Common Issues
+1. Layout problems
+   - Check responsive breakpoints
+   - Verify component hierarchy
+   - Test different screen sizes
+   - Review CSS rules
+
+2. Performance issues
+   - Analyze load times
+   - Check resource usage
+   - Optimize assets
+   - Review code efficiency
+
+3. Testing failures
+   - Review test cases
+   - Check component changes
+   - Verify test environment
+   - Update test scenarios
+
+## Documentation
+
+### Required Documentation
+1. Component specifications
+2. Test scenarios
+3. Performance metrics
+4. Change history
+5. User feedback
+
+### Report Generation
+1. Test results
+2. Performance analysis
+3. Coverage reports
+4. Issue tracking
+5. Improvement suggestions

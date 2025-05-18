@@ -3,3 +3,62 @@ description:
 globs:
 alwaysApply: false
 ---
+# Laravel API Testing Guide
+
+## Test Structure
+The main test files are organized in the following structure:
+- [User Profile Tests](mdc:.codespaces/routes/tests/checklists/user_profile_checklist.md)
+- [Health Check Tests](mdc:.codespaces/routes/tests/checklists/health_check_checklist.md)
+- [Test Implementation Guide](mdc:.codespaces/routes/tests/checklists/test_implementation_guide.md)
+
+## Key Endpoints
+1. User Profile (`/api/user`)
+   - GET request
+   - Requires Sanctum authentication
+   - Rate limited to 60 requests/minute
+   - Returns user profile data
+
+2. Health Check (`/health`)
+   - GET request
+   - No authentication required
+   - Rate limited to 60 requests/minute
+   - Returns service health status
+
+## Test Implementation
+All tests should follow the structure in [test_implementation_guide.md](mdc:.codespaces/routes/tests/checklists/test_implementation_guide.md), which includes:
+- Test environment setup
+- Authentication configuration
+- Test data factories
+- Performance testing
+- Error handling
+- Test reporting
+
+## Best Practices
+1. Test Isolation
+   - Use database transactions
+   - Reset state between tests
+   - Mock external services
+   - Clear cache between tests
+
+2. Performance Standards
+   - Response time < 0.5 seconds
+   - Memory usage within limits
+   - CPU usage within limits
+   - No resource leaks
+
+3. Security Requirements
+   - Proper authentication
+   - Rate limiting
+   - Input validation
+   - Error handling
+
+## Medical-Grade Certification
+All tests must meet the following requirements:
+1. 100% code coverage
+2. All edge cases covered
+3. All error cases covered
+4. All security cases covered
+5. Complete documentation
+6. Clear test reports
+7. Traceable test cases
+8. Maintained test history

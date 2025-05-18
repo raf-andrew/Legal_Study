@@ -1,0 +1,294 @@
+# Security rules for code analysis
+
+authentication:
+  type: ast
+  description: "Authentication security rules"
+  rules:
+    password_hash:
+      pattern: "password.*=.*hash\\("
+      severity: critical
+      message: "Use secure password hashing"
+      fix:
+        type: replace
+        pattern: "hash\\(([^)]+)\\)"
+        replacement: "bcrypt.hash($1, 10)"
+      validation:
+        - check: "function_call"
+          allowed: ["bcrypt.hash", "argon2.hash"]
+        - check: "salt_rounds"
+          min: 10
+
+    password_compare:
+      pattern: "password.*===.*"
+      severity: critical
+      message: "Use secure password comparison"
+      fix:
+        type: replace
+        pattern: "([^.]+)\\s*===\\s*([^;]+)"
+        replacement: "await bcrypt.compare($1, $2)"
+      validation:
+        - check: "timing_safe"
+          required: true
+
+    session_config:
+      pattern: "session\\(.*\\)"
+      severity: high
+      message: "Use secure session configuration"
+      fix:
+        type: replace
+        pattern: "session\\(([^)]+)\\)"
+        replacement: |
+          session({
+            secret: process.env.SESSION_SECRET,
+            cookie: { secure: true, httpOnly: true, sameSite: 'strict' },
+            resave: false,
+            saveUninitialized: false
+          })
+      validation:
+        - check: "session_options"
+          required: ["secret", "cookie.secure", "cookie.httpOnly"]
+
+authorization:
+  type: ast
+  description: "Authorization security rules"
+  rules:
+    rbac_check:
+      pattern: "req\\.user\\.role"
+      severity: high
+      message: "Use RBAC middleware"
+      fix:
+        type: insert
+        position: before
+        content: "await checkPermission(req.user, resource, action)"
+      validation:
+        - check: "middleware"
+          required: ["authentication", "authorization"]
+
+    jwt_verify:
+      pattern: "jwt\\.verify\\("
+      severity: critical
+      message: "Use secure JWT verification"
+      fix:
+        type: replace
+        pattern: "verify\\(([^,]+),\\s*([^)]+)\\)"
+        replacement: "verify($1, process.env.JWT_SECRET, { algorithms: ['RS256'] })"
+      validation:
+        - check: "jwt_options"
+          required: ["algorithms", "expiresIn"]
+
+input_validation:
+  type: regex
+  description: "Input validation security rules"
+  rules:
+    sanitize_html:
+      pattern: "innerHTML|outerHTML"
+      severity: high
+      message: "Sanitize HTML input"
+      fix:
+        type: replace
+        pattern: "(\\w+)\\.(innerHTML|outerHTML)\\s*=\\s*([^;]+)"
+        replacement: "$1.innerHTML = DOMPurify.sanitize($3)"
+      validation:
+        - check: "sanitizer"
+          required: ["DOMPurify", "sanitize-html"]
+
+    validate_url:
+      pattern: "url\\s*=|href\\s*="
+      severity: medium
+      message: "Validate URLs"
+      fix:
+        type: replace
+        pattern: "(url|href)\\s*=\\s*([^;]+)"
+        replacement: "$1 = validateUrl($2)"
+      validation:
+        - check: "url_validation"
+          required: true
+
+    escape_regex:
+      pattern: "new RegExp\\("
+      severity: medium
+      message: "Escape regex patterns"
+      fix:
+        type: replace
+        pattern: "RegExp\\(([^)]+)\\)"
+        replacement: "RegExp(escapeRegExp($1))"
+      validation:
+        - check: "regex_safety"
+          required: true
+
+api_security:
+  type: ast
+  description: "API security rules"
+  rules:
+    rate_limit:
+      pattern: "app\\.(get|post|put|delete)\\("
+      severity: high
+      message: "Add rate limiting"
+      fix:
+        type: insert
+        position: before
+        content: "rateLimiter({ windowMs: 15 * 60 * 1000, max: 100 })"
+      validation:
+        - check: "middleware"
+          required: ["rateLimiter"]
+
+    cors_config:
+      pattern: "cors\\(.*\\)"
+      severity: high
+      message: "Use secure CORS configuration"
+      fix:
+        type: replace
+        pattern: "cors\\(([^)]+)\\)"
+        replacement: |
+          cors({
+            origin: process.env.ALLOWED_ORIGINS.split(','),
+            methods: ['GET', 'POST'],
+            credentials: true,
+            maxAge: 86400
+          })
+      validation:
+        - check: "cors_options"
+          required: ["origin", "methods", "credentials"]
+
+    helmet_config:
+      pattern: "helmet\\(.*\\)"
+      severity: high
+      message: "Use secure Helmet configuration"
+      fix:
+        type: replace
+        pattern: "helmet\\(([^)]+)\\)"
+        replacement: |
+          helmet({
+            contentSecurityPolicy: true,
+            crossOriginEmbedderPolicy: true,
+            crossOriginOpenerPolicy: true,
+            crossOriginResourcePolicy: true,
+            dnsPrefetchControl: true,
+            frameguard: true,
+            hidePoweredBy: true,
+            hsts: true,
+            ieNoOpen: true,
+            noSniff: true,
+            permittedCrossDomainPolicies: true,
+            referrerPolicy: true,
+            xssFilter: true
+          })
+      validation:
+        - check: "security_headers"
+          required: ["Content-Security-Policy", "X-Frame-Options"]
+
+error_handling:
+  type: ast
+  description: "Error handling security rules"
+  rules:
+    catch_blocks:
+      pattern: "catch\\s*\\(.*\\)\\s*{"
+      severity: medium
+      message: "Use secure error handling"
+      fix:
+        type: replace
+        pattern: "catch\\s*\\((\\w+)\\)\\s*{([^}]+)}"
+        replacement: |
+          catch ($1) {
+            logger.error($1);
+            throw new AppError('Internal server error', 500);
+          }
+      validation:
+        - check: "error_logging"
+          required: true
+        - check: "error_sanitization"
+          required: true
+
+    error_response:
+      pattern: "res\\.status\\(.*\\)\\.send\\("
+      severity: medium
+      message: "Use secure error responses"
+      fix:
+        type: replace
+        pattern: "status\\((\\d+)\\)\\.send\\(([^)]+)\\)"
+        replacement: "status($1).json({ error: sanitizeError($2) })"
+      validation:
+        - check: "error_format"
+          required: ["status", "message"]
+
+logging:
+  type: ast
+  description: "Logging security rules"
+  rules:
+    sensitive_data:
+      pattern: "log\\.(info|error|debug)\\("
+      severity: high
+      message: "Avoid logging sensitive data"
+      fix:
+        type: replace
+        pattern: "log\\.(\\w+)\\(([^)]+)\\)"
+        replacement: "log.$1(sanitizeLog($2))"
+      validation:
+        - check: "log_content"
+          not_allowed: ["password", "token", "key", "secret"]
+
+    structured_logging:
+      pattern: "console\\.(log|error|debug)\\("
+      severity: medium
+      message: "Use structured logging"
+      fix:
+        type: replace
+        pattern: "console\\.(\\w+)\\(([^)]+)\\)"
+        replacement: "logger.$1({ event: 'app_log', data: $2 })"
+      validation:
+        - check: "log_format"
+          required: ["timestamp", "level", "message"]
+
+dependency_security:
+  type: custom
+  description: "Dependency security rules"
+  rules:
+    package_audit:
+      pattern: "package\\.json"
+      severity: critical
+      message: "Check for vulnerable dependencies"
+      validation:
+        - check: "npm_audit"
+          max_vulnerabilities:
+            critical: 0
+            high: 0
+        - check: "snyk_test"
+          threshold: "high"
+
+    lockfile_exists:
+      pattern: "package-lock\\.json|yarn\\.lock"
+      severity: high
+      message: "Use lockfiles for dependencies"
+      validation:
+        - check: "file_exists"
+          required: true
+        - check: "file_content"
+          not_empty: true
+
+crypto_config:
+  type: ast
+  description: "Cryptography configuration rules"
+  rules:
+    key_size:
+      pattern: "crypto\\.generateKey(Sync)?\\("
+      severity: critical
+      message: "Use secure key sizes"
+      fix:
+        type: replace
+        pattern: "generateKey(Sync)?\\(([^)]+)\\)"
+        replacement: "generateKey($1, { length: 256 })"
+      validation:
+        - check: "key_length"
+          min: 256
+
+    random_values:
+      pattern: "Math\\.random\\(\\)"
+      severity: high
+      message: "Use cryptographically secure random values"
+      fix:
+        type: replace
+        pattern: "Math\\.random\\(\\)"
+        replacement: "crypto.randomBytes(32).toString('hex')"
+      validation:
+        - check: "random_source"
+          required: ["crypto.randomBytes", "crypto.randomInt"]

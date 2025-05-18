@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="12" time="10.808" timestamp="2025-04-23T20:34:55.359576" hostname="laptop-2"><testcase classname="tests.smoke.test_environment" name="test_security_settings" time="0.684"><failure message="AssertionError: ALGORITHM must be HS256&#10;assert == failed. [pytest-clarity diff shown]&#10;  #x1B[0m&#10;  #x1B[0m#x1B[32mLHS#x1B[0m vs #x1B[31mRHS#x1B[0m shown below&#10;  #x1B[0m&#10;  #x1B[0m#x1B[32mNone#x1B[0m&#10;  #x1B[0m#x1B[31mHS256#x1B[0m&#10;  #x1B[0m">@pytest.mark.smoke
+    def test_security_settings():
+        """Test that security-related settings are properly configured."""
+        assert os.getenv('SECRET_KEY'), "SECRET_KEY must be set"
+&gt;       assert os.getenv('ALGORITHM') == 'HS256', "ALGORITHM must be HS256"
+E       AssertionError: ALGORITHM must be HS256
+E       assert == failed. [pytest-clarity diff shown]
+E         #x1B[0m
+E         #x1B[0m#x1B[32mLHS#x1B[0m vs #x1B[31mRHS#x1B[0m shown below
+E         #x1B[0m
+E         #x1B[0m#x1B[32mNone#x1B[0m
+E         #x1B[0m#x1B[31mHS256#x1B[0m
+E         #x1B[0m
+
+tests\smoke\test_environment.py:70: AssertionError</failure></testcase><testcase classname="tests.smoke.test_environment" name="test_database_url_format" time="0.821" /><testcase classname="tests.smoke.test_environment" name="test_api_version_format" time="1.162" /><testcase classname="tests.smoke.test_environment" name="test_required_env_vars" time="0.764" /><testcase classname="tests.smoke.test_environment" name="test_cors_settings" time="0.818" /><testcase classname="tests.smoke.test_basic" name="test_error_handling" time="0.727"><failure message="assert == failed. [pytest-clarity diff shown]&#10;  #x1B[0m&#10;  #x1B[0m#x1B[32mLHS#x1B[0m vs #x1B[31mRHS#x1B[0m shown below&#10;  #x1B[0m&#10;  #x1B[0m#x1B[32m404#x1B[0m&#10;  #x1B[0m#x1B[31m500#x1B[0m&#10;  #x1B[0m">@pytest.mark.smoke
+    def test_error_handling():
+        """Test error handling."""
+        response = client.get("/api/v1/error")
+&gt;       assert response.status_code == 500
+E       assert == failed. [pytest-clarity diff shown]
+E         #x1B[0m
+E         #x1B[0m#x1B[32mLHS#x1B[0m vs #x1B[31mRHS#x1B[0m shown below
+E         #x1B[0m
+E         #x1B[0m#x1B[32m404#x1B[0m
+E         #x1B[0m#x1B[31m500#x1B[0m
+E         #x1B[0m
+
+tests\smoke\test_basic.py:53: AssertionError</failure></testcase><testcase classname="tests.smoke.test_basic" name="test_invalid_endpoint" time="0.758" /><testcase classname="tests.smoke.test_basic" name="test_redoc_available" time="0.758" /><testcase classname="tests.smoke.test_basic" name="test_docs_available" time="1.305" /><testcase classname="tests.smoke.test_basic" name="test_read_root" time="0.893" /><testcase classname="tests.smoke.test_basic" name="test_api_version" time="0.731"><failure message="assert == failed. [pytest-clarity diff shown]&#10;  #x1B[0m&#10;  #x1B[0m#x1B[32mLHS#x1B[0m vs #x1B[31mRHS#x1B[0m shown below&#10;  #x1B[0m&#10;  #x1B[0m#x1B[32m404#x1B[0m&#10;  #x1B[0m#x1B[31m200#x1B[0m&#10;  #x1B[0m">@pytest.mark.smoke
+    def test_api_version():
+        """Test the API version endpoint."""
+        response = client.get("/api/v1/version")
+&gt;       assert response.status_code == 200
+E       assert == failed. [pytest-clarity diff shown]
+E         #x1B[0m
+E         #x1B[0m#x1B[32mLHS#x1B[0m vs #x1B[31mRHS#x1B[0m shown below
+E         #x1B[0m
+E         #x1B[0m#x1B[32m404#x1B[0m
+E         #x1B[0m#x1B[31m200#x1B[0m
+E         #x1B[0m
+
+tests\smoke\test_basic.py:25: AssertionError</failure></testcase><testcase classname="tests.smoke.test_basic" name="test_health_check" time="0.911" /></testsuite></testsuites>

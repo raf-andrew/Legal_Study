@@ -1,0 +1,42 @@
+{
+  "timestamp": "2025-04-23T21:44:15.532147",
+  "checks": {
+    "database_connection": {
+      "status": "pass",
+      "message": "Successfully connected to database"
+    },
+    "tables_exist": {
+      "status": "pass",
+      "message": "All expected tables exist"
+    },
+    "row_count_users": {
+      "status": "pass",
+      "message": "Table users has sufficient rows (1)"
+    },
+    "row_count_documents": {
+      "status": "pass",
+      "message": "Table documents has sufficient rows (0)"
+    },
+    "row_count_comments": {
+      "status": "pass",
+      "message": "Table comments has sufficient rows (0)"
+    },
+    "row_count_tags": {
+      "status": "pass",
+      "message": "Table tags has sufficient rows (0)"
+    },
+    "row_count_document_tags": {
+      "status": "pass",
+      "message": "Table document_tags has sufficient rows (0)"
+    },
+    "row_count_alembic_version": {
+      "status": "pass",
+      "message": "Table alembic_version has sufficient rows (1)"
+    },
+    "migration_version": {
+      "status": "pass",
+      "message": "Database is at migration version: initial"
+    }
+  },
+  "errors": []
+}

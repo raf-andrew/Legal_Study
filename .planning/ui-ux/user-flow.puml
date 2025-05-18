@@ -1,0 +1,81 @@
+@startuml User Flow
+
+skinparam {
+    BackgroundColor white
+    ArrowColor black
+    ActorBorderColor black
+    UsecaseBorderColor black
+}
+
+actor User
+actor Admin
+actor Developer
+
+rectangle "Authentication" {
+    usecase "Login" as login
+    usecase "Logout" as logout
+    usecase "Reset Password" as reset
+}
+
+rectangle "Dashboard" {
+    usecase "View System Status" as status
+    usecase "Monitor Services" as monitor
+    usecase "View Metrics" as metrics
+    usecase "View Alerts" as alerts
+}
+
+rectangle "Service Management" {
+    usecase "Control Services" as control
+    usecase "View Service Logs" as logs
+    usecase "Configure Services" as configure
+    usecase "View Dependencies" as deps
+}
+
+rectangle "Configuration" {
+    usecase "Edit Config" as edit
+    usecase "Import/Export" as import
+    usecase "Validate Config" as validate
+    usecase "View History" as history
+}
+
+rectangle "Monitoring" {
+    usecase "View Performance" as perf
+    usecase "View Logs" as viewLogs
+    usecase "Set Alerts" as setAlerts
+    usecase "Generate Reports" as reports
+}
+
+' User flows
+User --> login
+User --> status
+User --> monitor
+User --> alerts
+User --> viewLogs
+
+' Admin flows
+Admin --> login
+Admin --> control
+Admin --> configure
+Admin --> edit
+Admin --> import
+Admin --> validate
+Admin --> setAlerts
+
+' Developer flows
+Developer --> login
+Developer --> logs
+Developer --> deps
+Developer --> history
+Developer --> perf
+Developer --> reports
+
+' Relationships
+login ..> status : includes
+status ..> monitor : includes
+monitor ..> metrics : includes
+control ..> logs : includes
+configure ..> validate : includes
+edit ..> history : includes
+perf ..> reports : includes
+
+@enduml 

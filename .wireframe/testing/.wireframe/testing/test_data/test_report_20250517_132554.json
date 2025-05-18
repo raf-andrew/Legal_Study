@@ -1,0 +1,75 @@
+{
+  "report_id": "test_report_20250517_132554",
+  "timestamp": "2025-05-17T13:25:54.361384",
+  "version": "1.0.0",
+  "metadata": {
+    "title": "Test Report test_report_20250517_132554",
+    "description": "Generated test report for wireframe refinement testing",
+    "author": "Test System",
+    "generated_at": "2025-05-17T13:25:54.361384"
+  },
+  "content": {
+    "sections": [
+      {
+        "id": "section_1",
+        "title": "Section 1",
+        "content": "This is test content for section 1",
+        "order": 0,
+        "type": "image"
+      },
+      {
+        "id": "section_2",
+        "title": "Section 2",
+        "content": "This is test content for section 2",
+        "order": 1,
+        "type": "image"
+      },
+      {
+        "id": "section_3",
+        "title": "Section 3",
+        "content": "This is test content for section 3",
+        "order": 2,
+        "type": "image"
+      }
+    ],
+    "options": [
+      {
+        "id": "option_1",
+        "title": "Option 1",
+        "description": "Description for option 1",
+        "selected": false,
+        "order": 0
+      },
+      {
+        "id": "option_2",
+        "title": "Option 2",
+        "description": "Description for option 2",
+        "selected": false,
+        "order": 1
+      },
+      {
+        "id": "option_3",
+        "title": "Option 3",
+        "description": "Description for option 3",
+        "selected": false,
+        "order": 2
+      }
+    ],
+    "metrics": {
+      "performance": {
+        "load_time": 0.6259395370982921,
+        "render_time": 0.7226043736989052,
+        "interaction_time": 0.18381952632722298
+      },
+      "accessibility": {
+        "score": 93,
+        "issues": 0
+      },
+      "responsiveness": {
+        "desktop": 99,
+        "tablet": 99,
+        "mobile": 91
+      }
+    }
+  }
+}

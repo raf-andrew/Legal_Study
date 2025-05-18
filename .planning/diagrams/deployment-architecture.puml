@@ -1,0 +1,73 @@
+@startuml Deployment Architecture
+
+!define RECTANGLE class
+skinparam backgroundColor white
+skinparam classBackgroundColor white
+skinparam classBorderColor black
+skinparam arrowColor black
+
+package "Kubernetes Cluster" {
+    package "Frontend Services" {
+        RECTANGLE "Vue SPA" as VueSPA
+        RECTANGLE "Nginx" as Nginx
+        RECTANGLE "CDN Edge" as CDN
+    }
+
+    package "Backend Services" {
+        RECTANGLE "Laravel API" as LaravelAPI
+        RECTANGLE "Python Microservices" as PythonServices
+        RECTANGLE "Redis Cache" as Redis
+    }
+
+    package "Data Services" {
+        RECTANGLE "PostgreSQL" as PostgreSQL
+        RECTANGLE "Backup Storage" as Backup
+    }
+}
+
+package "Infrastructure" {
+    RECTANGLE "Load Balancer" as LoadBalancer
+    RECTANGLE "Kubernetes Master" as K8sMaster
+    RECTANGLE "Monitoring" as Monitoring
+    RECTANGLE "CI/CD Pipeline" as CICD
+}
+
+' User Access
+actor User
+User --> LoadBalancer : HTTPS
+LoadBalancer --> CDN : Cache/Proxy
+CDN --> Nginx : Static Content
+Nginx --> VueSPA : SPA Delivery
+
+' Service Communication
+VueSPA --> LaravelAPI : API Requests
+LaravelAPI --> PythonServices : gRPC
+LaravelAPI --> Redis : Cache
+LaravelAPI --> PostgreSQL : Data
+PythonServices --> PostgreSQL : Data
+
+' Infrastructure Management
+K8sMaster ..> VueSPA : Orchestration
+K8sMaster ..> Nginx : Orchestration
+K8sMaster ..> LaravelAPI : Orchestration
+K8sMaster ..> PythonServices : Orchestration
+K8sMaster ..> Redis : Orchestration
+K8sMaster ..> PostgreSQL : Orchestration
+
+' Monitoring
+Monitoring --> VueSPA : Metrics
+Monitoring --> Nginx : Metrics
+Monitoring --> LaravelAPI : Metrics
+Monitoring --> PythonServices : Metrics
+Monitoring --> Redis : Metrics
+Monitoring --> PostgreSQL : Metrics
+
+' CI/CD
+CICD --> K8sMaster : Deployment
+CICD --> Monitoring : Integration
+
+' Backup
+PostgreSQL --> Backup : Automated Backup
+Redis --> Backup : Snapshot
+
+@enduml 

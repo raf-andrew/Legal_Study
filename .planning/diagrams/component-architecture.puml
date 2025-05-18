@@ -1,0 +1,114 @@
+@startuml Component Architecture
+
+!define RECTANGLE class
+skinparam backgroundColor white
+skinparam classBackgroundColor white
+skinparam classBorderColor black
+skinparam arrowColor black
+
+package "Core Components" {
+    RECTANGLE "App.vue" as App
+    RECTANGLE "Layout.vue" as Layout
+    RECTANGLE "Navigation.vue" as Navigation
+    RECTANGLE "Footer.vue" as Footer
+}
+
+package "Layout Components" {
+    RECTANGLE "Sidebar.vue" as Sidebar
+    RECTANGLE "Header.vue" as Header
+    RECTANGLE "MainContent.vue" as MainContent
+    RECTANGLE "Breadcrumb.vue" as Breadcrumb
+}
+
+package "Feature Components" {
+    package "Dashboard" {
+        RECTANGLE "Dashboard.vue" as Dashboard
+        RECTANGLE "StatusCard.vue" as StatusCard
+        RECTANGLE "ActivityFeed.vue" as ActivityFeed
+        RECTANGLE "QuickActions.vue" as QuickActions
+    }
+
+    package "Configuration" {
+        RECTANGLE "ConfigWizard.vue" as ConfigWizard
+        RECTANGLE "ConfigForm.vue" as ConfigForm
+        RECTANGLE "ProfileManager.vue" as ProfileManager
+        RECTANGLE "ValidationFeedback.vue" as ValidationFeedback
+    }
+
+    package "Module Management" {
+        RECTANGLE "ModuleList.vue" as ModuleList
+        RECTANGLE "ModuleCard.vue" as ModuleCard
+        RECTANGLE "InstallWizard.vue" as InstallWizard
+        RECTANGLE "ModuleConfig.vue" as ModuleConfig
+    }
+}
+
+package "Shared Components" {
+    package "Forms" {
+        RECTANGLE "FormInput.vue" as FormInput
+        RECTANGLE "FormSelect.vue" as FormSelect
+        RECTANGLE "FormCheckbox.vue" as FormCheckbox
+        RECTANGLE "FormValidation.vue" as FormValidation
+    }
+
+    package "Feedback" {
+        RECTANGLE "Toast.vue" as Toast
+        RECTANGLE "Alert.vue" as Alert
+        RECTANGLE "ProgressBar.vue" as ProgressBar
+        RECTANGLE "LoadingSpinner.vue" as LoadingSpinner
+    }
+
+    package "Navigation" {
+        RECTANGLE "NavItem.vue" as NavItem
+        RECTANGLE "NavGroup.vue" as NavGroup
+        RECTANGLE "SearchBar.vue" as SearchBar
+        RECTANGLE "BreadcrumbItem.vue" as BreadcrumbItem
+    }
+}
+
+' Component Relationships
+App --> Layout : contains
+Layout --> Navigation : contains
+Layout --> Footer : contains
+Layout --> MainContent : contains
+
+Navigation --> Sidebar : contains
+Navigation --> Header : contains
+Header --> Breadcrumb : contains
+
+MainContent --> Dashboard : routes to
+MainContent --> ConfigWizard : routes to
+MainContent --> ModuleList : routes to
+
+Dashboard --> StatusCard : contains
+Dashboard --> ActivityFeed : contains
+Dashboard --> QuickActions : contains
+
+ConfigWizard --> ConfigForm : contains
+ConfigForm --> FormInput : uses
+ConfigForm --> FormSelect : uses
+ConfigForm --> FormCheckbox : uses
+ConfigForm --> FormValidation : uses
+
+ModuleList --> ModuleCard : contains
+ModuleCard --> InstallWizard : triggers
+ModuleCard --> ModuleConfig : triggers
+
+' Shared Component Usage
+ConfigWizard --> Toast : uses
+ConfigWizard --> Alert : uses
+ConfigWizard --> ProgressBar : uses
+ConfigWizard --> LoadingSpinner : uses
+
+ModuleList --> Toast : uses
+ModuleList --> Alert : uses
+ModuleList --> ProgressBar : uses
+ModuleList --> LoadingSpinner : uses
+
+' Navigation Structure
+Sidebar --> NavItem : contains
+Sidebar --> NavGroup : contains
+Header --> SearchBar : contains
+Breadcrumb --> BreadcrumbItem : contains
+
+@enduml 

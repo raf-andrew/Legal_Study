@@ -1,0 +1,54 @@
+@startuml System Architecture
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_WITH_LEGEND()
+
+title System Architecture Diagram
+
+Person(admin, "System Administrator", "Manages and monitors the system")
+Person(developer, "Developer", "Integrates and extends the system")
+Person(user, "Application User", "Uses the system")
+
+System_Boundary(c1, "Initialization System") {
+    Container(web_app, "Web Application", "Vue 3 + Inertia.js", "Provides the user interface")
+    
+    Container(api_gateway, "API Gateway", "Laravel 10", "Routes and manages API requests")
+    
+    Container(init_service, "Initialization Service", "Python + FastAPI", "Manages system initialization")
+    Container(monitor_service, "Monitoring Service", "Python + FastAPI", "Handles system monitoring")
+    Container(config_service, "Configuration Service", "Python + FastAPI", "Manages configurations")
+    
+    ContainerDb(postgres_db, "PostgreSQL", "Database", "Stores system data")
+    ContainerDb(redis_cache, "Redis", "Cache", "Handles caching and queues")
+    ContainerDb(mongo_db, "MongoDB", "Log Store", "Stores system logs")
+    
+    Container(queue_service, "Message Queue", "RabbitMQ", "Handles async operations")
+    Container(notification_service, "Notification Service", "Python + FastAPI", "Manages notifications")
+}
+
+System_Ext(email_system, "Email System", "Sends email notifications")
+System_Ext(sms_system, "SMS System", "Sends SMS notifications")
+System_Ext(monitoring_tools, "Monitoring Tools", "External monitoring (Prometheus/Grafana)")
+
+Rel(admin, web_app, "Uses", "HTTPS")
+Rel(developer, api_gateway, "Integrates with", "HTTPS")
+Rel(user, web_app, "Uses", "HTTPS")
+
+Rel(web_app, api_gateway, "Makes API calls to", "HTTPS")
+Rel(api_gateway, init_service, "Routes initialization requests to", "gRPC")
+Rel(api_gateway, monitor_service, "Routes monitoring requests to", "gRPC")
+Rel(api_gateway, config_service, "Routes configuration requests to", "gRPC")
+
+Rel(init_service, postgres_db, "Reads/Writes", "SQL")
+Rel(init_service, redis_cache, "Caches data in", "Redis Protocol")
+Rel(init_service, queue_service, "Publishes events to", "AMQP")
+
+Rel(monitor_service, mongo_db, "Stores logs in", "MongoDB Protocol")
+Rel(monitor_service, monitoring_tools, "Sends metrics to", "Custom Protocol")
+
+Rel(notification_service, email_system, "Sends emails via", "SMTP")
+Rel(notification_service, sms_system, "Sends SMS via", "HTTP")
+Rel(notification_service, queue_service, "Consumes events from", "AMQP")
+
+@enduml 

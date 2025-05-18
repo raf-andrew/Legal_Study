@@ -1,0 +1,48 @@
+@startuml Login Route
+
+title Login Route Flow
+
+actor Client
+participant "API Gateway" as Gateway
+participant "Auth Service" as Auth
+participant "User Service" as User
+database "User DB" as DB
+participant "Cache" as Cache
+
+Client -> Gateway: POST /api/auth/login
+activate Gateway
+
+Gateway -> Auth: Validate Request
+activate Auth
+
+Auth -> User: Get User Credentials
+activate User
+User -> DB: Query User
+activate DB
+DB --> User: User Data
+deactivate DB
+User --> Auth: User Found
+deactivate User
+
+Auth -> Auth: Validate Password
+Auth -> Auth: Generate JWT Token
+
+Auth -> Cache: Store Session
+activate Cache
+Cache --> Auth: Session Stored
+deactivate Cache
+
+Auth --> Gateway: Auth Response
+deactivate Auth
+
+Gateway --> Client: 200 OK + JWT Token
+deactivate Gateway
+
+note right of Client
+  Response includes:
+  - JWT Token
+  - Refresh Token
+  - User Info
+end note
+
+@enduml

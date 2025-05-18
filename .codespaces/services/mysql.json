@@ -1,0 +1,8 @@
+{
+    "port":  3306,
+    "host":  "localhost",
+    "username":  "root",
+    "password":  "",
+    "database":  "codespaces",
+    "enabled":  true
+}

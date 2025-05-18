@@ -1,0 +1,182 @@
+version: '3.8'
+
+services:
+  # API Gateway
+  api-gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    environment:
+      - APP_ENV=production
+      - DB_CONNECTION=mysql
+      - REDIS_HOST=redis
+      - QUEUE_CONNECTION=rabbitmq
+    depends_on:
+      - mysql
+      - redis
+      - rabbitmq
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://api-gateway
+      - VITE_WS_URL=ws://websocket
+    depends_on:
+      - api-gateway
+      - websocket
+
+  # Initialization Service
+  init-service:
+    build:
+      context: ./services/initialization
+      dockerfile: Dockerfile
+    environment:
+      - DB_HOST=mysql
+      - REDIS_HOST=redis
+      - RABBITMQ_HOST=rabbitmq
+    depends_on:
+      - mysql
+      - redis
+      - rabbitmq
+
+  # Service Manager
+  service-manager:
+    build:
+      context: ./services/service-manager
+      dockerfile: Dockerfile
+    environment:
+      - DB_HOST=mysql
+      - REDIS_HOST=redis
+      - RABBITMQ_HOST=rabbitmq
+    depends_on:
+      - mysql
+      - redis
+      - rabbitmq
+
+  # Configuration Service
+  config-service:
+    build:
+      context: ./services/configuration
+      dockerfile: Dockerfile
+    environment:
+      - DB_HOST=mysql
+      - REDIS_HOST=redis
+      - RABBITMQ_HOST=rabbitmq
+    depends_on:
+      - mysql
+      - redis
+      - rabbitmq
+
+  # WebSocket Server
+  websocket:
+    build:
+      context: ./services/websocket
+      dockerfile: Dockerfile
+    ports:
+      - "6001:6001"
+    environment:
+      - REDIS_HOST=redis
+    depends_on:
+      - redis
+
+  # Metrics Collector
+  metrics:
+    build:
+      context: ./services/metrics
+      dockerfile: Dockerfile
+    environment:
+      - DB_HOST=mysql
+      - REDIS_HOST=redis
+    depends_on:
+      - mysql
+      - redis
+      - prometheus
+
+  # Databases
+  mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=app
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  # Cache
+  redis:
+    image: redis:7.0
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+  # Message Queue
+  rabbitmq:
+    image: rabbitmq:3.9-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+
+  # Monitoring
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=secret
+    volumes:
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - prometheus
+
+  # Logging
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.0.0
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.0.0
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.0.0
+    ports:
+      - "5044:5044"
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+    depends_on:
+      - elasticsearch
+
+volumes:
+  mysql-data:
+  redis-data:
+  rabbitmq-data:
+  prometheus-data:
+  grafana-data:
+  elasticsearch-data: 

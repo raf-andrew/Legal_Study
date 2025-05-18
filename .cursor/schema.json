@@ -1,0 +1,315 @@
+{
+  "schemas": {
+    "prompt": {
+      "type": "object",
+      "required": ["metadata", "purpose", "context", "input_requirements", "output_specifications", "quality_assurance", "notes", "version_history"],
+      "properties": {
+        "metadata": {
+          "type": "object",
+          "required": ["prompt_id", "job_type", "created", "last_updated", "version"],
+          "properties": {
+            "prompt_id": {
+              "type": "string",
+              "pattern": "^[A-Z]{2}-\\d{3}$"
+            },
+            "job_type": {
+              "type": "string",
+              "enum": ["System Management", "Job Management", "Quality Assurance", "Research", "Analysis", "Study", "Practice", "Assessment"]
+            },
+            "created": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "last_updated": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "version": {
+              "type": "string",
+              "pattern": "^\\d+\\.\\d+\\.\\d+$"
+            }
+          }
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        },
+        "context": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input_requirements": {
+          "type": "object",
+          "required": ["required_fields", "optional_fields"],
+          "properties": {
+            "required_fields": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "optional_fields": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "output_specifications": {
+          "type": "object",
+          "required": ["format", "required_sections", "quality_criteria"],
+          "properties": {
+            "format": {
+              "type": "string"
+            },
+            "required_sections": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "quality_criteria": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "quality_assurance": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "version_history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["version", "date", "changes"],
+            "properties": {
+              "version": {
+                "type": "string",
+                "pattern": "^\\d+\\.\\d+\\.\\d+$"
+              },
+              "date": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              },
+              "changes": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "job": {
+      "type": "object",
+      "required": ["job_information", "requirements", "deliverables", "dependencies", "status_tracking", "quality_assurance", "notes", "version_history"],
+      "properties": {
+        "job_information": {
+          "type": "object",
+          "required": ["job_id", "job_type", "created", "status", "priority", "version"],
+          "properties": {
+            "job_id": {
+              "type": "string",
+              "pattern": "^[A-Z]{2}-\\d{3}$"
+            },
+            "job_type": {
+              "type": "string",
+              "enum": ["Legal Research", "Research", "Analysis", "Study", "Practice", "Assessment"]
+            },
+            "created": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "status": {
+              "type": "string",
+              "enum": ["Not Started", "In Progress", "Under Review", "Completed", "On Hold", "Cancelled"]
+            },
+            "priority": {
+              "type": "string",
+              "enum": ["Critical", "High", "Medium", "Low"]
+            },
+            "version": {
+              "type": "string",
+              "pattern": "^\\d+\\.\\d+\\.\\d+$"
+            }
+          }
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deliverables": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status_tracking": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["date", "status", "notes"],
+            "properties": {
+              "date": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              },
+              "status": {
+                "type": "string",
+                "enum": ["Not Started", "In Progress", "Under Review", "Completed", "On Hold", "Cancelled"]
+              },
+              "notes": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "quality_assurance": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "version_history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["version", "date", "changes"],
+            "properties": {
+              "version": {
+                "type": "string",
+                "pattern": "^\\d+\\.\\d+\\.\\d+$"
+              },
+              "date": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              },
+              "changes": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "qa": {
+      "type": "object",
+      "required": ["job_information", "verification", "quality_metrics", "issues_tracking", "final_assessment", "qa_sign_off"],
+      "properties": {
+        "job_information": {
+          "type": "object",
+          "required": ["job_id", "job_type", "date", "qa_reviewer", "status"],
+          "properties": {
+            "job_id": {
+              "type": "string",
+              "pattern": "^[A-Z]{2}-\\d{3}$"
+            },
+            "job_type": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "qa_reviewer": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": ["APPROVED", "REJECTED", "PENDING"]
+            }
+          }
+        },
+        "verification": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "quality_metrics": {
+          "type": "object",
+          "required": ["completeness", "accuracy", "clarity", "professionalism"],
+          "properties": {
+            "completeness": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "accuracy": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "clarity": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "professionalism": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10
+            }
+          }
+        },
+        "issues_tracking": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "final_assessment": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qa_sign_off": {
+          "type": "object",
+          "required": ["qa_reviewer", "date", "status", "comments"],
+          "properties": {
+            "qa_reviewer": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "status": {
+              "type": "string",
+              "enum": ["APPROVED", "REJECTED", "PENDING"]
+            },
+            "comments": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+} 

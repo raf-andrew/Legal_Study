@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="18" time="1.523" timestamp="2025-05-08T12:06:11.193153" hostname="laptop-2"><testcase classname="tests.acid.test_database_transactions" name="test_durability" time="0.007" /><testcase classname="tests.acid.test_database_transactions" name="test_consistency" time="0.003" /><testcase classname="tests.acid.test_database_transactions" name="test_isolation" time="0.003" /><testcase classname="tests.acid.test_database_transactions" name="test_deadlock_handling" time="0.003" /><testcase classname="tests.acid.test_database_transactions" name="test_nested_transactions" time="0.003" /><testcase classname="tests.acid.test_database_transactions" name="test_rollback_scenarios" time="0.003" /><testcase classname="tests.acid.test_database_transactions" name="test_atomicity" time="0.003" /><testcase classname="tests.acid.test_database_transactions" name="test_transaction_timeouts" time="0.003" /><testcase classname="tests.acid.test_database_transactions" name="test_concurrent_transactions" time="0.003" /><testcase classname="tests.acid.test_database_transactions" name="test_transaction_isolation_levels" time="0.003" /><testcase classname="tests.acid.test_transactions.TestDatabaseAcid" name="test_atomicity" time="0.004" /><testcase classname="tests.acid.test_transactions.TestDatabaseAcid" name="test_isolation" time="1.009" /><testcase classname="tests.acid.test_transactions.TestDatabaseAcid" name="test_durability" time="0.023" /><testcase classname="tests.acid.test_transactions.TestDatabaseAcid" name="test_consistency" time="0.004" /><testcase classname="tests.acid.test_database" name="test_consistency" time="0.034" /><testcase classname="tests.acid.test_database" name="test_atomicity" time="0.035" /><testcase classname="tests.acid.test_database" name="test_isolation" time="0.056"><failure message="sqlite3.OperationalError: cannot start a transaction within a transaction">test_db = &lt;sqlite3.Connection object at 0x0000019283906D40&gt;
+
+    @pytest.mark.acid
+    def test_isolation(test_db):
+        """Test isolation of concurrent transactions."""
+        cursor1 = test_db.cursor()
+        cursor2 = test_db.cursor()
+    
+        # Create test table
+        cursor1.execute("CREATE TABLE test (id INTEGER PRIMARY KEY, value TEXT)")
+        cursor1.execute("INSERT INTO test (value) VALUES (?)", ("initial",))
+        test_db.commit()
+    
+        # Start transaction 1
+        cursor1.execute("BEGIN")
+        cursor1.execute("UPDATE test SET value = ? WHERE id = ?", ("updated1", 1))
+    
+        # Start transaction 2
+&gt;       cursor2.execute("BEGIN")
+E       sqlite3.OperationalError: cannot start a transaction within a transaction
+
+tests\acid\test_database.py:87: OperationalError</failure></testcase><testcase classname="tests.acid.test_database" name="test_durability" time="0.057" /></testsuite></testsuites>

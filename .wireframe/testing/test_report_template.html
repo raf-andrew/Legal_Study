@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .summary {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .test-section {
+            margin-bottom: 30px;
+        }
+
+        .test-case {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            padding: 15px;
+        }
+
+        .test-case.passed {
+            border-left: 5px solid #28a745;
+        }
+
+        .test-case.failed {
+            border-left: 5px solid #dc3545;
+        }
+
+        .test-case.error {
+            border-left: 5px solid #ffc107;
+        }
+
+        .test-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .test-details {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+
+        .test-error {
+            color: #dc3545;
+            background-color: #f8d7da;
+            padding: 10px;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+
+        .version-info {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        .improvement-suggestions {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .screenshot-comparison {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .screenshot {
+            flex: 1;
+            text-align: center;
+        }
+
+        .screenshot img {
+            max-width: 100%;
+            border: 1px solid #dee2e6;
+            border-radius: 3px;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .screenshot-comparison {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Wireframe Refinement Test Report</h1>
+            <div class="version-info">
+                <p>Version: <span id="version">1.0.0</span></p>
+                <p>Timestamp: <span id="timestamp">2024-03-21 10:00:00</span></p>
+            </div>
+        </div>
+
+        <div class="summary">
+            <h2>Test Summary</h2>
+            <p>Total Tests: <span id="total-tests">0</span></p>
+            <p>Passed: <span id="passed-tests">0</span></p>
+            <p>Failed: <span id="failed-tests">0</span></p>
+            <p>Errors: <span id="error-tests">0</span></p>
+        </div>
+
+        <div class="improvement-suggestions">
+            <h2>Improvement Suggestions</h2>
+            <div id="suggestions">
+                <!-- Suggestions will be dynamically added here -->
+            </div>
+        </div>
+
+        <div class="screenshot-comparison">
+            <div class="screenshot">
+                <h3>Before</h3>
+                <img id="before-screenshot" src="" alt="Before screenshot">
+            </div>
+            <div class="screenshot">
+                <h3>After</h3>
+                <img id="after-screenshot" src="" alt="After screenshot">
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test Results</h2>
+            <div id="test-results">
+                <!-- Test results will be dynamically added here -->
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="button" onclick="applyImprovements()">Apply Improvements</button>
+            <button class="button" onclick="generateNewVersion()">Generate New Version</button>
+            <button class="button" onclick="exportReport()">Export Report</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to update test results
+        function updateTestResults(results) {
+            const testResultsContainer = document.getElementById('test-results');
+            testResultsContainer.innerHTML = '';
+
+            results.forEach(test => {
+                const testCase = document.createElement('div');
+                testCase.className = `test-case ${test.passed ? 'passed' : test.error ? 'error' : 'failed'}`;
+
+                const testName = document.createElement('div');
+                testName.className = 'test-name';
+                testName.textContent = test.name;
+
+                const testDetails = document.createElement('div');
+                testDetails.className = 'test-details';
+                testDetails.textContent = test.details;
+
+                testCase.appendChild(testName);
+                testCase.appendChild(testDetails);
+
+                if (test.error) {
+                    const testError = document.createElement('div');
+                    testError.className = 'test-error';
+                    testError.textContent = test.error;
+                    testCase.appendChild(testError);
+                }
+
+                testResultsContainer.appendChild(testCase);
+            });
+        }
+
+        // Function to update summary
+        function updateSummary(summary) {
+            document.getElementById('total-tests').textContent = summary.total_tests;
+            document.getElementById('passed-tests').textContent = summary.passed_tests;
+            document.getElementById('failed-tests').textContent = summary.failed_tests;
+            document.getElementById('error-tests').textContent = summary.errors;
+        }
+
+        // Function to update version info
+        function updateVersionInfo(version, timestamp) {
+            document.getElementById('version').textContent = version;
+            document.getElementById('timestamp').textContent = timestamp;
+        }
+
+        // Function to update screenshots
+        function updateScreenshots(beforeSrc, afterSrc) {
+            document.getElementById('before-screenshot').src = beforeSrc;
+            document.getElementById('after-screenshot').src = afterSrc;
+        }
+
+        // Function to update improvement suggestions
+        function updateSuggestions(suggestions) {
+            const suggestionsContainer = document.getElementById('suggestions');
+            suggestionsContainer.innerHTML = '';
+
+            suggestions.forEach(suggestion => {
+                const suggestionElement = document.createElement('div');
+                suggestionElement.className = 'suggestion';
+                suggestionElement.textContent = suggestion;
+                suggestionsContainer.appendChild(suggestionElement);
+            });
+        }
+
+        // Function to apply improvements
+        function applyImprovements() {
+            // Implementation will be added
+            console.log('Applying improvements...');
+        }
+
+        // Function to generate new version
+        function generateNewVersion() {
+            // Implementation will be added
+            console.log('Generating new version...');
+        }
+
+        // Function to export report
+        function exportReport() {
+            // Implementation will be added
+            console.log('Exporting report...');
+        }
+
+        // Initialize report with test data
+        function initializeReport(data) {
+            updateTestResults(data.test_results);
+            updateSummary(data.summary);
+            updateVersionInfo(data.version, data.timestamp);
+            updateScreenshots(data.before_screenshot, data.after_screenshot);
+            updateSuggestions(data.suggestions);
+        }
+    </script>
+</body>
+
+</html>

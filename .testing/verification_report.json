@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-04-23T21:44:08.978564",
+  "checks": {},
+  "errors": [
+    {
+      "script": "verify_env.py",
+      "error": "Results file not found: C:\\Users\\ajame\\Legal_Study\\.testing\\verify_env_results.json"
+    },
+    {
+      "script": "verify_database.py",
+      "error": "Results file not found: C:\\Users\\ajame\\Legal_Study\\.testing\\verify_database_results.json"
+    },
+    {
+      "script": "verify_security.py",
+      "error": "Results file not found: C:\\Users\\ajame\\Legal_Study\\.testing\\verify_security_results.json"
+    }
+  ],
+  "summary": {
+    "timestamp": "2025-04-23T21:44:08.978564",
+    "total_checks": 0,
+    "passed_checks": 0,
+    "failed_checks": 0,
+    "error_checks": 3,
+    "status": "fail"
+  }
+}

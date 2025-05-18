@@ -1,0 +1,90 @@
+@startuml Data Model
+
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam classBackgroundColor #f5f5f5
+skinparam classBorderColor #666666
+
+title Database Schema
+
+' Entities
+class User {
+  +id: UUID
+  +username: String
+  +email: String
+  +created_at: DateTime
+  +updated_at: DateTime
+  +status: Enum
+}
+
+class Project {
+  +id: UUID
+  +name: String
+  +description: Text
+  +created_at: DateTime
+  +updated_at: DateTime
+  +status: Enum
+}
+
+class Workspace {
+  +id: UUID
+  +name: String
+  +config: JSON
+  +created_at: DateTime
+  +updated_at: DateTime
+  +status: Enum
+}
+
+class Deployment {
+  +id: UUID
+  +version: String
+  +config: JSON
+  +created_at: DateTime
+  +status: Enum
+}
+
+class MonitoringData {
+  +id: UUID
+  +metric_name: String
+  +value: Float
+  +timestamp: DateTime
+  +tags: JSON
+}
+
+class SecurityLog {
+  +id: UUID
+  +event_type: String
+  +details: JSON
+  +timestamp: DateTime
+  +severity: Enum
+}
+
+' Relationships
+User "1" -- "n" Project : owns >
+User "1" -- "n" Workspace : manages >
+Project "1" -- "n" Workspace : contains >
+Workspace "1" -- "n" Deployment : has >
+Deployment "1" -- "n" MonitoringData : generates >
+Workspace "1" -- "n" SecurityLog : produces >
+
+note right of User
+  Core user entity with
+  authentication details
+end note
+
+note right of Project
+  Project configuration
+  and metadata
+end note
+
+note right of Workspace
+  Development environment
+  configuration
+end note
+
+note right of MonitoringData
+  System metrics and
+  performance data
+end note
+
+@enduml

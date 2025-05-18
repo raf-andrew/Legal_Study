@@ -1,0 +1,160 @@
+# Security patterns for vulnerability detection
+
+sql_injection:
+  regex: "(SELECT|INSERT|UPDATE|DELETE|DROP).*\\bFROM\\b.*\\bWHERE\\b.*\\b(=|LIKE)\\b.*\\?|'.*\\+"
+  severity: critical
+  description: "Potential SQL injection vulnerability detected"
+  category: injection
+  fix:
+    type: replace
+    pattern: "(\\w+)\\s*=\\s*'.*\\+"
+    replacement: "$1 = ?"
+  recommendation:
+    title: "Use parameterized queries"
+    description: "Replace string concatenation with parameterized queries to prevent SQL injection"
+    examples:
+      - before: "query = 'SELECT * FROM users WHERE id = ' + userId"
+        after: "query = 'SELECT * FROM users WHERE id = ?'"
+
+xss:
+  regex: "\\b(innerHTML|outerHTML|document\\.write)\\b.*\\+"
+  severity: critical
+  description: "Potential XSS vulnerability detected"
+  category: xss
+  fix:
+    type: replace
+    pattern: "(\\w+)\\.(innerHTML|outerHTML)\\s*=\\s*.*\\+"
+    replacement: "$1.textContent = "
+  recommendation:
+    title: "Use safe DOM manipulation"
+    description: "Use textContent or safe DOM manipulation methods to prevent XSS"
+    examples:
+      - before: "element.innerHTML = '<div>' + userInput + '</div>'"
+        after: "element.textContent = userInput"
+
+csrf:
+  regex: "\\b(fetch|XMLHttpRequest)\\b.*\\bPOST\\b"
+  severity: high
+  description: "Potential CSRF vulnerability detected"
+  category: csrf
+  fix:
+    type: insert
+    position: before
+    content: "headers['X-CSRF-Token'] = getCsrfToken();"
+  recommendation:
+    title: "Add CSRF protection"
+    description: "Include CSRF tokens in all POST requests"
+    examples:
+      - before: "fetch('/api/data', { method: 'POST' })"
+        after: "fetch('/api/data', { method: 'POST', headers: { 'X-CSRF-Token': token } })"
+
+hardcoded_secrets:
+  regex: "\\b(password|secret|key|token)\\s*=\\s*['\"][^'\"]+['\"]"
+  severity: critical
+  description: "Hardcoded secret detected"
+  category: secrets
+  fix:
+    type: replace
+    pattern: "(\\w+)\\s*=\\s*['\"][^'\"]+['\"]"
+    replacement: "$1 = process.env.$1"
+  recommendation:
+    title: "Use environment variables"
+    description: "Store secrets in environment variables instead of hardcoding"
+    examples:
+      - before: "const apiKey = 'abc123'"
+        after: "const apiKey = process.env.API_KEY"
+
+insecure_cookie:
+  regex: "\\bsetCookie\\b.*\\b(httpOnly|secure)\\s*:\\s*false"
+  severity: high
+  description: "Insecure cookie settings detected"
+  category: cookies
+  fix:
+    type: replace
+    pattern: "(httpOnly|secure)\\s*:\\s*false"
+    replacement: "$1: true"
+  recommendation:
+    title: "Secure cookie settings"
+    description: "Enable httpOnly and secure flags for cookies"
+    examples:
+      - before: "setCookie('session', token, { httpOnly: false })"
+        after: "setCookie('session', token, { httpOnly: true, secure: true })"
+
+eval_usage:
+  regex: "\\b(eval|Function|setTimeout|setInterval)\\('[^']*\\$\\{.*\\}"
+  severity: critical
+  description: "Dangerous eval usage detected"
+  category: code_injection
+  fix:
+    type: delete
+    pattern: "\\b(eval|Function|setTimeout|setInterval)\\('[^']*\\$\\{.*\\}"
+  recommendation:
+    title: "Avoid eval"
+    description: "Never use eval with untrusted input"
+    examples:
+      - before: "eval('console.log(' + userInput + ')')"
+        after: "console.log(userInput)"
+
+path_traversal:
+  regex: "\\b(readFile|writeFile|readFileSync|writeFileSync)\\b.*\\.\\./"
+  severity: critical
+  description: "Path traversal vulnerability detected"
+  category: file_access
+  fix:
+    type: replace
+    pattern: "\\.\\./.*"
+    replacement: "path.join(__dirname, 'safe_path')"
+  recommendation:
+    title: "Use safe path resolution"
+    description: "Use path.join and validate file paths"
+    examples:
+      - before: "readFile('../' + userInput)"
+        after: "readFile(path.join(__dirname, 'safe_path', userInput))"
+
+regex_dos:
+  regex: "\\b(\\*|\\+)\\?"
+  severity: high
+  description: "Potential ReDoS vulnerability detected"
+  category: dos
+  fix:
+    type: replace
+    pattern: "(\\*|\\+)\\?"
+    replacement: "{0,1000}"
+  recommendation:
+    title: "Use safe regex patterns"
+    description: "Avoid catastrophic backtracking in regex patterns"
+    examples:
+      - before: "const pattern = /a*?b+?/"
+        after: "const pattern = /a{0,1000}b{0,1000}/"
+
+prototype_pollution:
+  regex: "Object\\.assign\\(.*\\)"
+  severity: high
+  description: "Potential prototype pollution vulnerability detected"
+  category: object_manipulation
+  fix:
+    type: replace
+    pattern: "Object\\.assign\\((.*?)\\)"
+    replacement: "Object.assign({}, $1)"
+  recommendation:
+    title: "Use safe object operations"
+    description: "Always create new objects when merging"
+    examples:
+      - before: "Object.assign(target, source)"
+        after: "Object.assign({}, target, source)"
+
+command_injection:
+  regex: "\\b(exec|spawn|execSync)\\b.*\\$\\{.*\\}"
+  severity: critical
+  description: "Command injection vulnerability detected"
+  category: injection
+  fix:
+    type: replace
+    pattern: "(exec|spawn|execSync)\\([^)]*\\$\\{.*\\}"
+    replacement: "execFile(command, args)"
+  recommendation:
+    title: "Use safe command execution"
+    description: "Use execFile instead of exec/spawn with template literals"
+    examples:
+      - before: "exec(`rm ${userInput}`)"
+        after: "execFile('rm', [userInput])"

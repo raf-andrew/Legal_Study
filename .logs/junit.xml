@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Tests\MCP\Agent\AgentHealthMonitoringTest" file="C:\Users\ajame\Legal_Study\tests\MCP\Agent\AgentHealthMonitoringTest.php" tests="8" assertions="14" errors="0" failures="1" skipped="0" time="1.097819">
+    <testcase name="testInitialHealthStatus" file="C:\Users\ajame\Legal_Study\tests\MCP\Agent\AgentHealthMonitoringTest.php" line="56" class="Tests\MCP\Agent\AgentHealthMonitoringTest" classname="Tests.MCP.Agent.AgentHealthMonitoringTest" assertions="2" time="0.058146"/>
+    <testcase name="testHealthStatusUpdates" file="C:\Users\ajame\Legal_Study\tests\MCP\Agent\AgentHealthMonitoringTest.php" line="66" class="Tests\MCP\Agent\AgentHealthMonitoringTest" classname="Tests.MCP.Agent.AgentHealthMonitoringTest" assertions="2" time="0.002179"/>
+    <testcase name="testResourceUsageMonitoring" file="C:\Users\ajame\Legal_Study\tests\MCP\Agent\AgentHealthMonitoringTest.php" line="82" class="Tests\MCP\Agent\AgentHealthMonitoringTest" classname="Tests.MCP.Agent.AgentHealthMonitoringTest" assertions="2" time="0.001780"/>
+    <testcase name="testErrorTracking" file="C:\Users\ajame\Legal_Study\tests\MCP\Agent\AgentHealthMonitoringTest.php" line="94" class="Tests\MCP\Agent\AgentHealthMonitoringTest" classname="Tests.MCP.Agent.AgentHealthMonitoringTest" assertions="2" time="0.001542"/>
+    <testcase name="testHeartbeatMonitoring" file="C:\Users\ajame\Legal_Study\tests\MCP\Agent\AgentHealthMonitoringTest.php" line="106" class="Tests\MCP\Agent\AgentHealthMonitoringTest" classname="Tests.MCP.Agent.AgentHealthMonitoringTest" assertions="1" time="1.012955"/>
+    <testcase name="testHealthThresholds" file="C:\Users\ajame\Legal_Study\tests\MCP\Agent\AgentHealthMonitoringTest.php" line="121" class="Tests\MCP\Agent\AgentHealthMonitoringTest" classname="Tests.MCP.Agent.AgentHealthMonitoringTest" assertions="2" time="0.001835"/>
+    <testcase name="testHealthRecovery" file="C:\Users\ajame\Legal_Study\tests\MCP\Agent\AgentHealthMonitoringTest.php" line="137" class="Tests\MCP\Agent\AgentHealthMonitoringTest" classname="Tests.MCP.Agent.AgentHealthMonitoringTest" assertions="2" time="0.001227"/>
+    <testcase name="testHealthPersistence" file="C:\Users\ajame\Legal_Study\tests\MCP\Agent\AgentHealthMonitoringTest.php" line="153" class="Tests\MCP\Agent\AgentHealthMonitoringTest" classname="Tests.MCP.Agent.AgentHealthMonitoringTest" assertions="1" time="0.018154">
+      <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\MCP\Agent\AgentHealthMonitoringTest::testHealthPersistence&#13;
+Failed asserting that null is not null.
+&#13;
+C:\Users\ajame\Legal_Study\tests\MCP\Agent\AgentHealthMonitoringTest.php:166</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

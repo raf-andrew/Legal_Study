@@ -1,0 +1,200 @@
+openapi: 3.0.0
+info:
+  title: Legal Study API
+  version: 1.0.0
+  description: API for Legal Study application
+
+servers:
+  - url: http://localhost:8000
+    description: Development server
+
+paths:
+  /health:
+    get:
+      summary: Health check endpoint
+      description: Check if the API is healthy
+      responses:
+        '200':
+          description: API is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "healthy"
+
+  /api/v1/version:
+    get:
+      summary: Get API version
+      description: Get the current API version
+      responses:
+        '200':
+          description: API version
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+                    example: "v1"
+
+  /api/v1/error:
+    get:
+      summary: Test error endpoint
+      description: Endpoint to test error handling
+      responses:
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    example: "Test error endpoint"
+
+  /api/v1/protected:
+    get:
+      summary: Protected endpoint
+      description: Endpoint that requires authentication
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Access granted
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+
+  /api/v1/search:
+    post:
+      summary: Search endpoint
+      description: Search for legal documents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: Search query
+      responses:
+        '200':
+          description: Search results
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthorized
+
+  /api/v1/comment:
+    post:
+      summary: Add comment
+      description: Add a comment to a document
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  description: Comment content
+      responses:
+        '200':
+          description: Comment added
+        '400':
+          description: Invalid input
+        '401':
+          description: Unauthorized
+
+securitySchemes:
+  BearerAuth:
+    type: http
+    scheme: bearer
+    bearerFormat: JWT
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
+          description: Error message
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        content:
+          type: string
+    Comment:
+      type: object
+      properties:
+        id:
+          type: string
+        content:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+
+    HealthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [healthy]
+        version:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+
+    StatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [ok]
+        environment:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+
+    MetricsResponse:
+      type: object
+      properties:
+        cpu_percent:
+          type: number
+        memory_percent:
+          type: number
+        disk_usage:
+          type: number
+        timestamp:
+          type: string
+          format: date-time
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        timestamp:
+          type: string
+          format: date-time 

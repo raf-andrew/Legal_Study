@@ -1,0 +1,115 @@
+@startuml Component Patterns
+
+!define RECTANGLE class
+skinparam backgroundColor white
+skinparam classBackgroundColor white
+skinparam classBorderColor black
+skinparam arrowColor black
+
+package "Layout Components" {
+  [App.vue] as app
+  [Layout.vue] as layout
+  [Navigation.vue] as nav
+  [Footer.vue] as footer
+}
+
+package "Dashboard Components" {
+  [StatusCard.vue] as status
+  [ActivityFeed.vue] as activity
+  [QuickActions.vue] as actions
+  [SystemMetrics.vue] as metrics
+}
+
+package "Configuration Components" {
+  [SettingsPanel.vue] as settings
+  [ProfileManager.vue] as profile
+  [ImportExport.vue] as import
+  [ConfigEditor.vue] as editor
+}
+
+package "Module Components" {
+  [ModuleList.vue] as modules
+  [ModuleCard.vue] as card
+  [InstallationWizard.vue] as wizard
+  [DependencyGraph.vue] as graph
+}
+
+package "Shared Components" {
+  [InputField.vue] as input
+  [SelectField.vue] as select
+  [ToastNotification.vue] as toast
+  [ProgressIndicator.vue] as progress
+}
+
+package "State Management" {
+  [User Store] as userStore
+  [System Store] as systemStore
+  [UI Store] as uiStore
+}
+
+app --> layout
+layout --> nav
+layout --> footer
+layout --> status
+layout --> activity
+layout --> actions
+layout --> metrics
+
+nav --> settings
+nav --> modules
+
+settings --> profile
+settings --> import
+settings --> editor
+
+modules --> card
+modules --> wizard
+modules --> graph
+
+settings --> input
+settings --> select
+settings --> toast
+settings --> progress
+
+modules --> input
+modules --> select
+modules --> toast
+modules --> progress
+
+status --> systemStore
+activity --> systemStore
+actions --> systemStore
+metrics --> systemStore
+
+settings --> userStore
+profile --> userStore
+import --> userStore
+editor --> userStore
+
+modules --> systemStore
+card --> systemStore
+wizard --> systemStore
+graph --> systemStore
+
+toast --> uiStore
+progress --> uiStore
+
+note right of app
+  Root component
+  Manages routing
+  Handles auth
+end note
+
+note right of layout
+  Main layout
+  Contains nav
+  Shows content
+end note
+
+note right of systemStore
+  System state
+  Module state
+  Config state
+end note
+
+@enduml 

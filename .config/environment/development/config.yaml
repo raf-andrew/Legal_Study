@@ -1,0 +1,69 @@
+# Development Environment Configuration
+
+security:
+  level: development
+  encryption_key: "dev_encryption_key_placeholder"
+  jwt_secret: "dev_jwt_secret_placeholder"
+  api_key: "dev_api_key_placeholder"
+
+database:
+  host: localhost
+  port: 5432
+  name: legal_study_dev
+  user: dev_user
+  password: "dev_password_placeholder"
+
+application:
+  debug: true
+  log_level: DEBUG
+  environment: development
+  allowed_hosts:
+    - localhost
+    - 127.0.0.1
+
+rate_limiting:
+  requests: 100
+  period: 60
+
+resource_limits:
+  max_memory_usage: 512
+  max_cpu_percent: 50
+  max_file_size: 10
+
+testing:
+  database_url: "postgresql://test_user:test_password@localhost:5432/legal_study_test"
+  timeout: 30
+  retry_attempts: 3
+
+documentation:
+  enabled: true
+  api_docs_path: "/api/docs"
+  user_docs_path: "/docs"
+
+monitoring:
+  enabled: true
+  log_file_path: ".logs/app.log"
+  error_log_path: ".errors/error.log"
+
+development_tools:
+  code_quality_enabled: true
+  linting_enabled: true
+  test_coverage_enabled: true
+
+security_headers:
+  cors_origins:
+    - "http://localhost:3000"
+    - "http://127.0.0.1:3000"
+  csp_enabled: true
+  hsts_enabled: true
+  xss_protection: true
+
+backup:
+  enabled: true
+  path: ".backups"
+  frequency: "daily"
+
+cache:
+  enabled: true
+  ttl: 300
+  max_size: 1000 

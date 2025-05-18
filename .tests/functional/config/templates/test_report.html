@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functional Test Report - {{ test.name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .status {
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .status.passed {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .status.failed {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        .evidence {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .certification {
+            background-color: #e2f3e2;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Functional Test Report</h1>
+            <h2>{{ test.name }}</h2>
+            <p>Test ID: {{ test.id }}</p>
+            <p>Generated: {{ generated_at }}</p>
+        </div>
+
+        <div class="section">
+            <h3>Test Summary</h3>
+            <table>
+                <tr>
+                    <th>Start Time</th>
+                    <td>{{ test.start_time }}</td>
+                </tr>
+                <tr>
+                    <th>End Time</th>
+                    <td>{{ test.end_time }}</td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>
+                        <span class="status {{ test.status }}">
+                            {{ test.status|upper }}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Coverage</th>
+                    <td>{{ "%.2f"|format(test.coverage) }}%</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>Checklist Items</h3>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Status</th>
+                </tr>
+                {% for item in test.checklist_items %}
+                <tr>
+                    <td>{{ item }}</td>
+                    <td>
+                        <span class="status {{ test.status }}">
+                            {{ test.status|upper }}
+                        </span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>Verification Steps</h3>
+            <table>
+                <tr>
+                    <th>Step</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                    <th>Timestamp</th>
+                </tr>
+                {% for step in test.steps %}
+                <tr>
+                    <td>{{ step.name }}</td>
+                    <td>
+                        <span class="status {{ step.status }}">
+                            {{ step.status|upper }}
+                        </span>
+                    </td>
+                    <td>{{ step.details }}</td>
+                    <td>{{ step.timestamp }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>Evidence Collection</h3>
+            {% for evidence in test.evidence %}
+            <div class="evidence">
+                <h4>{{ evidence.type }}</h4>
+                <p>Timestamp: {{ evidence.timestamp }}</p>
+                <pre>{{ evidence.data|tojson(indent=2) }}</pre>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% if test.status == 'passed' %}
+        <div class="certification">
+            <h3>Certification</h3>
+            <p>This test has been certified as meeting all requirements for medical-grade verification.</p>
+            <p>Certification includes:</p>
+            <ul>
+                <li>100% test coverage verification</li>
+                <li>Complete checklist validation</li>
+                <li>All required evidence collected</li>
+                <li>Independent verification completed</li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

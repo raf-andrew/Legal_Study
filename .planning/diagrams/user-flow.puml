@@ -1,0 +1,74 @@
+@startuml User Flow
+
+!define RECTANGLE class
+skinparam backgroundColor white
+skinparam classBackgroundColor white
+skinparam classBorderColor black
+skinparam arrowColor black
+
+start
+
+:User accesses system;
+
+if (First time user?) then (yes)
+  :Show welcome tour;
+  :Present quick setup wizard;
+  :Guide through initial configuration;
+else (no)
+  :Load user preferences;
+  :Show dashboard;
+endif
+
+:User lands on dashboard;
+
+fork
+  :View system status;
+  :Check recent activities;
+fork again
+  :Access configuration;
+  if (Configuration valid?) then (yes)
+    :Save changes;
+  else (no)
+    :Show validation errors;
+    :Allow correction;
+  endif
+fork again
+  :Manage modules;
+  if (New module?) then (yes)
+    :Show installation wizard;
+    :Configure module settings;
+    :Test integration;
+  else (no)
+    :Show module list;
+    :Allow configuration;
+  endif
+end fork
+
+:User initiates process;
+
+fork
+  :Show progress indicator;
+  :Update status in real-time;
+fork again
+  :Log activities;
+  :Store results;
+end fork
+
+if (Process successful?) then (yes)
+  :Show success message;
+  :Present next steps;
+else (no)
+  :Show error details;
+  :Offer recovery options;
+  if (User wants to retry?) then (yes)
+    :Restart process;
+  else (no)
+    :Return to dashboard;
+  endif
+endif
+
+:User completes session;
+
+stop
+
+@enduml 

@@ -1,0 +1,50 @@
+@startuml Testing Architecture
+
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam componentStyle rectangle
+
+title Codespaces Testing Architecture
+
+package "Test Types" {
+    [Unit Tests] as unit
+    [Integration Tests] as integration
+    [System Tests] as system
+    [Security Tests] as security
+}
+
+package "Test Execution" {
+    [Test Runner] as runner
+    [Test Orchestrator] as orchestrator
+    [Test Reporter] as reporter
+}
+
+package "Test Data" {
+    [Test Fixtures] as fixtures
+    [Test Data Generator] as generator
+    [Test Data Store] as store
+}
+
+package "Verification" {
+    [Result Validator] as validator
+    [Coverage Analyzer] as coverage
+    [Report Generator] as reports
+}
+
+unit --> runner
+integration --> runner
+system --> runner
+security --> runner
+
+runner --> orchestrator
+orchestrator --> reporter
+
+fixtures --> generator
+generator --> store
+store --> runner
+
+reporter --> validator
+validator --> coverage
+coverage --> reports
+
+@enduml

@@ -1,0 +1,30 @@
+# Core dependencies
+aiohttp>=3.8.0
+pyyaml>=6.0.0
+prometheus-client>=0.16.0
+
+# AI/ML dependencies
+torch>=2.0.0
+transformers>=4.30.0
+tokenizers>=0.13.0
+
+# Report generation
+jinja2>=3.0.0
+weasyprint>=59.0
+pandas>=2.0.0
+
+# Security tools
+bandit>=1.7.0
+safety>=2.3.0
+semgrep>=1.20.0
+
+# Testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.0.0
+
+# Development
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0
+isort>=5.0.0

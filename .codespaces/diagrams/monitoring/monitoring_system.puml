@@ -1,0 +1,76 @@
+@startuml Monitoring System
+
+skinparam backgroundColor white
+skinparam handwritten false
+skinparam componentStyle rectangle
+
+title Monitoring and Alerting System
+
+package "Data Collection" {
+    [Metrics Collector] as MC
+    [Log Aggregator] as LA
+    [Health Checker] as HC
+    [Performance Monitor] as PM
+}
+
+package "Analysis" {
+    [Metrics Processor] as MP
+    [Log Analyzer] as LPA
+    [Anomaly Detection] as AD
+    [Trend Analysis] as TA
+}
+
+package "Alerting" {
+    [Alert Manager] as AM
+    [Notification Service] as NS
+    [Escalation Engine] as EE
+    [Alert Rules] as AR
+}
+
+package "Visualization" {
+    [Dashboard Engine] as DE
+    [Report Generator] as RG
+    [Metrics Explorer] as ME
+    [Log Viewer] as LV
+}
+
+MC --> MP : Raw Metrics
+LA --> LPA : Log Streams
+HC --> MP : Health Status
+PM --> MP : Performance Data
+
+MP --> AD : Processed Metrics
+LPA --> AD : Analyzed Logs
+AD --> TA : Anomalies
+TA --> AR : Trends
+
+AR --> AM : Alert Conditions
+AM --> NS : Notifications
+NS --> EE : Escalation Rules
+
+MP --> DE : Processed Data
+LPA --> LV : Analyzed Logs
+DE --> RG : Dashboard Data
+TA --> ME : Trend Data
+
+note right of MC
+  Collects system metrics,
+  logs, and performance data
+end note
+
+note right of AD
+  Detects anomalies and
+  potential issues
+end note
+
+note right of AM
+  Manages alert rules and
+  notification delivery
+end note
+
+note right of DE
+  Provides real-time
+  system visualization
+end note
+
+@enduml

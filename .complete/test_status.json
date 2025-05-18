@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-04-23T20:46:41.767489",
+  "test_results": [
+    {
+      "test_type": "smoke",
+      "success": true
+    },
+    {
+      "test_type": "acid",
+      "success": false
+    },
+    {
+      "test_type": "chaos",
+      "success": true
+    }
+  ]
+}
