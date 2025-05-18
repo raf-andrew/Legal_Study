@@ -1,0 +1,24 @@
+{
+    "tests": [
+        {
+            "name": "API Health Check",
+            "url": "http://localhost:8000/api/health",
+            "expected_status": 200
+        },
+        {
+            "name": "Database Health Check",
+            "url": "http://localhost:8000/api/database/health",
+            "expected_status": 200
+        },
+        {
+            "name": "Cache Health Check",
+            "url": "http://localhost:8000/api/cache/health",
+            "expected_status": 200
+        },
+        {
+            "name": "Frontend Health Check",
+            "url": "http://localhost:3000/health",
+            "expected_status": 200
+        }
+    ]
+}
