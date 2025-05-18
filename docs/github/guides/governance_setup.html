@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Governance Setup Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #24292e;
+        }
+
+        .step {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+        }
+
+        .step-number {
+            background: #0366d6;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
+        .screenshot {
+            max-width: 100%;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .note {
+            background: #f6f8fa;
+            padding: 15px;
+            border-left: 4px solid #0366d6;
+            margin: 20px 0;
+        }
+
+        .warning {
+            background: #fff8c5;
+            padding: 15px;
+            border-left: 4px solid #f9c513;
+            margin: 20px 0;
+        }
+
+        code {
+            background: #f6f8fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        }
+
+        pre {
+            background: #f6f8fa;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GitHub Governance Setup Guide</h1>
+
+    <div class="note">
+        <strong>Note:</strong> This guide requires organization admin access and appropriate permissions.
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">1</span>Define Governance Policies</h2>
+        <ol>
+            <li>Create policy documents:
+                <ul>
+                    <li>Code of Conduct</li>
+                    <li>Contributing Guidelines</li>
+                    <li>Security Policy</li>
+                    <li>License Information</li>
+                </ul>
+            </li>
+            <li>Configure policy enforcement</li>
+        </ol>
+        <img src="../images/governance/policies.png" alt="Define Policies" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">2</span>Set Up Role Definitions</h2>
+        <ol>
+            <li>Define team roles:
+                <ul>
+                    <li>Maintainers</li>
+                    <li>Contributors</li>
+                    <li>Reviewers</li>
+                    <li>Security Team</li>
+                </ul>
+            </li>
+            <li>Configure role permissions</li>
+        </ol>
+        <img src="../images/governance/roles.png" alt="Set Up Roles" class="screenshot">
+        <div class="warning">
+            <strong>Warning:</strong> Carefully consider permissions for each role to maintain security.
+        </div>
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">3</span>Configure Process Documentation</h2>
+        <ol>
+            <li>Create process guides:
+                <ul>
+                    <li>Decision making</li>
+                    <li>Release process</li>
+                    <li>Security response</li>
+                    <li>Code review</li>
+                </ul>
+            </li>
+            <li>Set up documentation templates</li>
+        </ol>
+        <img src="../images/governance/processes.png" alt="Configure Processes" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">4</span>Set Up Compliance Checks</h2>
+        <ol>
+            <li>Configure compliance rules:
+                <ul>
+                    <li>License compliance</li>
+                    <li>Security compliance</li>
+                    <li>Code quality</li>
+                    <li>Documentation requirements</li>
+                </ul>
+            </li>
+            <li>Set up automated checks</li>
+        </ol>
+        <img src="../images/governance/compliance.png" alt="Set Up Compliance" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">5</span>Configure Access Control</h2>
+        <ol>
+            <li>Set up access policies:
+                <ul>
+                    <li>Repository access</li>
+                    <li>Branch protection</li>
+                    <li>Environment access</li>
+                    <li>Secret management</li>
+                </ul>
+            </li>
+            <li>Configure team permissions</li>
+        </ol>
+        <img src="../images/governance/access.png" alt="Configure Access" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">6</span>Set Up Monitoring</h2>
+        <ol>
+            <li>Configure monitoring tools:
+                <ul>
+                    <li>Activity monitoring</li>
+                    <li>Security monitoring</li>
+                    <li>Compliance monitoring</li>
+                    <li>Performance monitoring</li>
+                </ul>
+            </li>
+            <li>Set up alerting</li>
+        </ol>
+        <img src="../images/governance/monitoring.png" alt="Set Up Monitoring" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">7</span>Verify Setup</h2>
+        <ol>
+            <li>Test policy enforcement</li>
+            <li>Verify role permissions</li>
+            <li>Check compliance rules</li>
+            <li>Validate monitoring</li>
+        </ol>
+        <div class="note">
+            <strong>Note:</strong> Regular audits should be performed to ensure governance effectiveness.
+        </div>
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">8</span>Maintenance Tasks</h2>
+        <ul>
+            <li>Regular policy reviews</li>
+            <li>Role permission audits</li>
+            <li>Process documentation updates</li>
+            <li>Compliance monitoring</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <strong>Need Help?</strong>
+        <ul>
+            <li><a href="https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions">Community
+                    Health Guide</a></li>
+            <li><a
+                    href="https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories">Access
+                    Management Guide</a></li>
+            <li><a href="https://docs.github.com/en/communities/maintaining-your-safety-on-github">Safety Guide</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

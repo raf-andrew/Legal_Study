@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Analytics Setup Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #24292e;
+        }
+
+        .step {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+        }
+
+        .step-number {
+            background: #0366d6;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
+        .screenshot {
+            max-width: 100%;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .note {
+            background: #f6f8fa;
+            padding: 15px;
+            border-left: 4px solid #0366d6;
+            margin: 20px 0;
+        }
+
+        .warning {
+            background: #fff8c5;
+            padding: 15px;
+            border-left: 4px solid #f9c513;
+            margin: 20px 0;
+        }
+
+        code {
+            background: #f6f8fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        }
+
+        pre {
+            background: #f6f8fa;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GitHub Analytics Setup Guide</h1>
+
+    <div class="note">
+        <strong>Note:</strong> This guide requires repository admin access and GitHub Insights enabled.
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">1</span>Enable GitHub Insights</h2>
+        <ol>
+            <li>Go to repository Settings > General</li>
+            <li>Scroll to "Features" section</li>
+            <li>Enable "GitHub Insights"</li>
+            <li>Configure data collection settings</li>
+        </ol>
+        <img src="../images/analytics/insights.png" alt="Enable Insights" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">2</span>Configure Metrics Collection</h2>
+        <ol>
+            <li>Go to repository Insights > Pulse</li>
+            <li>Configure metrics to track:
+                <ul>
+                    <li>Pull requests</li>
+                    <li>Issues</li>
+                    <li>Commits</li>
+                    <li>Contributors</li>
+                </ul>
+            </li>
+            <li>Set up data retention policies</li>
+        </ol>
+        <img src="../images/analytics/metrics.png" alt="Configure Metrics" class="screenshot">
+        <div class="warning">
+            <strong>Warning:</strong> Consider data privacy and retention policies when configuring metrics collection.
+        </div>
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">3</span>Set Up Dashboards</h2>
+        <ol>
+            <li>Go to repository Insights > Graphs</li>
+            <li>Create custom dashboards:
+                <ul>
+                    <li>Contributor activity</li>
+                    <li>Code frequency</li>
+                    <li>Commit activity</li>
+                    <li>Issue tracking</li>
+                </ul>
+            </li>
+            <li>Configure dashboard sharing</li>
+        </ol>
+        <img src="../images/analytics/dashboards.png" alt="Set Up Dashboards" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">4</span>Configure Automated Reports</h2>
+        <ol>
+            <li>Set up report generation:
+                <ul>
+                    <li>Daily activity reports</li>
+                    <li>Weekly summaries</li>
+                    <li>Monthly analytics</li>
+                </ul>
+            </li>
+            <li>Configure report distribution</li>
+            <li>Set up report archiving</li>
+        </ol>
+        <img src="../images/analytics/reports.png" alt="Configure Reports" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">5</span>Set Up Alerts</h2>
+        <ol>
+            <li>Configure alert thresholds:
+                <ul>
+                    <li>Activity levels</li>
+                    <li>Performance metrics</li>
+                    <li>Security metrics</li>
+                </ul>
+            </li>
+            <li>Set up notification channels</li>
+            <li>Configure alert routing</li>
+        </ol>
+        <img src="../images/analytics/alerts.png" alt="Set Up Alerts" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">6</span>Verify Setup</h2>
+        <ol>
+            <li>Check data collection</li>
+            <li>Verify dashboard functionality</li>
+            <li>Test report generation</li>
+            <li>Validate alert system</li>
+        </ol>
+        <div class="note">
+            <strong>Note:</strong> It may take up to 24 hours for initial data collection.
+        </div>
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">7</span>Maintenance Tasks</h2>
+        <ul>
+            <li>Regularly review metrics</li>
+            <li>Update dashboard configurations</li>
+            <li>Adjust alert thresholds</li>
+            <li>Archive old reports</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <strong>Need Help?</strong>
+        <ul>
+            <li><a href="https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository">GitHub
+                    Insights Documentation</a></li>
+            <li><a
+                    href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-github-connect">GitHub
+                    Connect Guide</a></li>
+            <li><a
+                    href="https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-github-connect/enabling-github-connect">Enable
+                    GitHub Connect</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

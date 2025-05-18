@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dependabot Setup Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #24292e;
+        }
+
+        .step {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+        }
+
+        .step-number {
+            background: #0366d6;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
+        .screenshot {
+            max-width: 100%;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .note {
+            background: #f6f8fa;
+            padding: 15px;
+            border-left: 4px solid #0366d6;
+            margin: 20px 0;
+        }
+
+        .warning {
+            background: #fff8c5;
+            padding: 15px;
+            border-left: 4px solid #f9c513;
+            margin: 20px 0;
+        }
+
+        code {
+            background: #f6f8fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        }
+
+        pre {
+            background: #f6f8fa;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Dependabot Setup Guide</h1>
+
+    <div class="note">
+        <strong>Note:</strong> This guide requires repository admin access and GitHub Advanced Security (for security
+        updates).
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">1</span>Enable Dependabot</h2>
+        <ol>
+            <li>Go to repository Settings > Security & analysis</li>
+            <li>Enable "Dependency graph"</li>
+            <li>Enable "Dependabot alerts"</li>
+            <li>Enable "Dependabot security updates"</li>
+        </ol>
+        <img src="../images/dependabot/dependabot_alerts.png" alt="Enable Dependabot" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">2</span>Configure Version Updates</h2>
+        <ol>
+            <li>Create `.github/dependabot.yml`:
+                ```yaml
+                version: 2
+                updates:
+                - package-ecosystem: "npm"
+                directory: "/"
+                schedule:
+                interval: "weekly"
+                open-pull-requests-limit: 10
+                labels:
+                - "dependencies"
+                - "npm"
+                ```
+            </li>
+            <li>Configure for each package manager:
+                <ul>
+                    <li>npm/yarn</li>
+                    <li>pip</li>
+                    <li>Maven/Gradle</li>
+                    <li>Docker</li>
+                </ul>
+            </li>
+        </ol>
+        <img src="../images/dependabot/version_updates.png" alt="Version Updates" class="screenshot">
+        <div class="warning">
+            <strong>Warning:</strong> Consider your project's stability requirements when configuring update frequency.
+        </div>
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">3</span>Set Up Security Updates</h2>
+        <ol>
+            <li>Configure security update settings:
+                <ul>
+                    <li>Update frequency</li>
+                    <li>Target branches</li>
+                    <li>Pull request labels</li>
+                    <li>Review requirements</li>
+                </ul>
+            </li>
+            <li>Set up security alerts</li>
+        </ol>
+        <img src="../images/dependabot/security_updates.png" alt="Security Updates" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">4</span>Configure Grouping</h2>
+        <ol>
+            <li>Set up update grouping:
+                <ul>
+                    <li>Group size limits</li>
+                    <li>Group patterns</li>
+                    <li>Update strategies</li>
+                </ul>
+            </li>
+            <li>Configure ignore patterns</li>
+        </ol>
+        <img src="../images/dependabot/grouping.png" alt="Configure Grouping" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">5</span>Set Up Notifications</h2>
+        <ol>
+            <li>Configure alert notifications:
+                <ul>
+                    <li>Email notifications</li>
+                    <li>Slack integration</li>
+                    <li>Team notifications</li>
+                </ul>
+            </li>
+            <li>Set up notification preferences</li>
+        </ol>
+        <img src="../images/dependabot/notifications.png" alt="Set Up Notifications" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">6</span>Verify Setup</h2>
+        <ol>
+            <li>Check dependency graph</li>
+            <li>Verify update configuration</li>
+            <li>Test security alerts</li>
+            <li>Validate notifications</li>
+        </ol>
+        <div class="note">
+            <strong>Note:</strong> Initial dependency scanning may take several minutes.
+        </div>
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">7</span>Maintenance Tasks</h2>
+        <ul>
+            <li>Regularly review update patterns</li>
+            <li>Adjust grouping rules</li>
+            <li>Update ignore patterns</li>
+            <li>Monitor security alerts</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <strong>Need Help?</strong>
+        <ul>
+            <li><a href="https://docs.github.com/en/code-security/dependabot">Dependabot Documentation</a></li>
+            <li><a href="https://docs.github.com/en/code-security/dependabot/dependabot-security-updates">Security
+                    Updates Guide</a></li>
+            <li><a
+                    href="https://docs.github.com/en/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates">Managing
+                    Updates Guide</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

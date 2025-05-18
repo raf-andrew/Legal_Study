@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Projects Setup Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #24292e;
+        }
+
+        .step {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+        }
+
+        .step-number {
+            background: #0366d6;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
+        .screenshot {
+            max-width: 100%;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .note {
+            background: #f6f8fa;
+            padding: 15px;
+            border-left: 4px solid #0366d6;
+            margin: 20px 0;
+        }
+
+        .warning {
+            background: #fff8c5;
+            padding: 15px;
+            border-left: 4px solid #f9c513;
+            margin: 20px 0;
+        }
+
+        code {
+            background: #f6f8fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        }
+
+        pre {
+            background: #f6f8fa;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GitHub Projects Setup Guide</h1>
+
+    <div class="note">
+        <strong>Note:</strong> This guide requires repository admin access and GitHub Projects enabled.
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">1</span>Create Project Board</h2>
+        <ol>
+            <li>Go to repository Projects tab</li>
+            <li>Click "New project"</li>
+            <li>Choose board type:
+                <ul>
+                    <li>Table</li>
+                    <li>Board</li>
+                    <li>Roadmap</li>
+                </ul>
+            </li>
+            <li>Configure basic settings</li>
+        </ol>
+        <img src="../images/projects/project_board.png" alt="Create Project Board" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">2</span>Configure Workflows</h2>
+        <ol>
+            <li>Set up workflow automation:
+                <ul>
+                    <li>Status transitions</li>
+                    <li>Field updates</li>
+                    <li>Item assignments</li>
+                </ul>
+            </li>
+            <li>Configure workflow rules</li>
+        </ol>
+        <img src="../images/projects/automation.png" alt="Configure Workflows" class="screenshot">
+        <div class="warning">
+            <strong>Warning:</strong> Complex automation rules may impact performance.
+        </div>
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">3</span>Set Up Templates</h2>
+        <ol>
+            <li>Create project templates:
+                <ul>
+                    <li>Task templates</li>
+                    <li>Issue templates</li>
+                    <li>PR templates</li>
+                </ul>
+            </li>
+            <li>Configure template fields</li>
+        </ol>
+        <img src="../images/projects/templates.png" alt="Set Up Templates" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">4</span>Configure Views</h2>
+        <ol>
+            <li>Set up project views:
+                <ul>
+                    <li>Table view</li>
+                    <li>Board view</li>
+                    <li>Roadmap view</li>
+                    <li>Calendar view</li>
+                </ul>
+            </li>
+            <li>Configure view settings</li>
+        </ol>
+        <img src="../images/projects/views.png" alt="Configure Views" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">5</span>Set Up Fields</h2>
+        <ol>
+            <li>Configure custom fields:
+                <ul>
+                    <li>Text fields</li>
+                    <li>Number fields</li>
+                    <li>Date fields</li>
+                    <li>Single select</li>
+                    <li>Multi select</li>
+                </ul>
+            </li>
+            <li>Set up field validation</li>
+        </ol>
+        <img src="../images/projects/fields.png" alt="Set Up Fields" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">6</span>Configure Access</h2>
+        <ol>
+            <li>Set up project access:
+                <ul>
+                    <li>Team access</li>
+                    <li>Role permissions</li>
+                    <li>Visibility settings</li>
+                </ul>
+            </li>
+            <li>Configure notification settings</li>
+        </ol>
+        <img src="../images/projects/access.png" alt="Configure Access" class="screenshot">
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">7</span>Verify Setup</h2>
+        <ol>
+            <li>Test workflow automation</li>
+            <li>Verify template usage</li>
+            <li>Check view functionality</li>
+            <li>Validate field behavior</li>
+        </ol>
+        <div class="note">
+            <strong>Note:</strong> Test automation rules with sample items before full deployment.
+        </div>
+    </div>
+
+    <div class="step">
+        <h2><span class="step-number">8</span>Maintenance Tasks</h2>
+        <ul>
+            <li>Regularly review automation rules</li>
+            <li>Update templates as needed</li>
+            <li>Clean up old items</li>
+            <li>Monitor performance</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <strong>Need Help?</strong>
+        <ul>
+            <li><a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects">Projects
+                    Documentation</a></li>
+            <li><a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project">Automation
+                    Guide</a></li>
+            <li><a
+                    href="https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project">Customizing
+                    Views Guide</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
