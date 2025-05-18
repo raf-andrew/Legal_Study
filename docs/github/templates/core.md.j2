@@ -1,0 +1,109 @@
+# Core Infrastructure Setup Guide
+
+## Repository Setup
+
+### Prerequisites
+- GitHub account with appropriate permissions
+- Git installed on your local machine
+- SSH key configured for GitHub
+
+### Step 1: Create a New Repository
+1. Go to GitHub.com and click the "+" button in the top right
+2. Select "New repository"
+3. Fill in the repository details:
+   - Name: {{ config.repository.name }}
+   - Description: {{ config.repository.description }}
+   - Visibility: {{ config.repository.visibility }}
+   - Initialize with: {{ config.repository.initialize_with }}
+
+![Create Repository]({{ config.images.create_repository }})
+
+### Step 2: Configure Local Repository
+```bash
+# Clone the repository
+git clone {{ config.repository.url }}
+
+# Navigate to the repository directory
+cd {{ config.repository.name }}
+
+# Configure git user
+git config user.name "{{ config.git.user.name }}"
+git config user.email "{{ config.git.user.email }}"
+```
+
+### Step 3: Set Up Branch Protection
+1. Go to repository Settings > Branches
+2. Under "Branch protection rules", click "Add rule"
+3. Configure the following settings:
+   - Branch name pattern: `main`
+   - Require pull request reviews before merging
+   - Require status checks to pass before merging
+   - Require branches to be up to date before merging
+   - Include administrators
+
+![Branch Protection]({{ config.images.branch_protection }})
+
+### Step 4: Configure Access Control
+1. Go to repository Settings > Collaborators and teams
+2. Add team members with appropriate roles:
+   - Admin: Full access
+   - Maintain: Push access
+   - Write: Push access
+   - Triage: Issue management
+   - Read: View access
+
+![Access Control]({{ config.images.access_control }})
+
+## Verification Steps
+
+### Repository Setup Verification
+1. Verify repository exists on GitHub
+2. Confirm all required files are present
+3. Check repository settings match requirements
+
+### Branch Protection Verification
+1. Attempt to push directly to protected branch
+2. Verify pull request requirements
+3. Confirm status check requirements
+
+### Access Control Verification
+1. Test access levels for different roles
+2. Verify team permissions
+3. Confirm collaborator access
+
+## Troubleshooting
+
+### Common Issues
+1. **Permission Denied**
+   - Check SSH key configuration
+   - Verify GitHub access token
+   - Confirm repository permissions
+
+2. **Branch Protection Issues**
+   - Verify branch name pattern
+   - Check status check configuration
+   - Confirm review requirements
+
+3. **Access Control Problems**
+   - Verify team membership
+   - Check role assignments
+   - Confirm repository settings
+
+## Maintenance
+
+### Regular Tasks
+1. Review and update branch protection rules
+2. Audit team and collaborator access
+3. Update repository settings as needed
+
+### Security Updates
+1. Review security alerts
+2. Update access controls
+3. Monitor repository activity
+
+## Additional Resources
+- [GitHub Documentation](https://docs.github.com)
+- [Repository Management Guide]({{ config.links.repository_guide }})
+- [Security Best Practices]({{ config.links.security_guide }})
+
+Last Updated: {{ last_updated }}
