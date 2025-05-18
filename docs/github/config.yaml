@@ -11,13 +11,88 @@ git:
     email: "actions@github.com"
 
 images:
+  # Core Infrastructure
   create_repository: "images/create_repository.png"
   branch_protection: "images/branch_protection.png"
   access_control: "images/access_control.png"
 
+  # Workflow Infrastructure
+  actions_settings: "images/actions_settings.png"
+  ci_cd_workflow: "images/ci_cd_workflow.png"
+  test_automation: "images/test_automation.png"
+  deployment_workflow: "images/deployment_workflow.png"
+
+  # Security Infrastructure
+  code_scanning: "images/code_scanning.png"
+  dependency_graph: "images/dependency_graph.png"
+  secret_scanning: "images/secret_scanning.png"
+
+  # Environment Infrastructure
+  environments: "images/environments.png"
+  deployment_rules: "images/deployment_rules.png"
+  environment_protection: "images/environment_protection.png"
+
+  # Analytics Infrastructure
+  insights: "images/insights.png"
+  metrics: "images/metrics.png"
+  dashboards: "images/dashboards.png"
+
+  # Community Infrastructure
+  discussions: "images/discussions.png"
+  wiki: "images/wiki.png"
+  documentation: "images/documentation.png"
+
+  # Dependabot Infrastructure
+  dependabot_alerts: "images/dependabot_alerts.png"
+  security_updates: "images/security_updates.png"
+  version_updates: "images/version_updates.png"
+
+  # Projects Infrastructure
+  project_board: "images/project_board.png"
+  automation: "images/automation.png"
+  templates: "images/templates.png"
+
+  # Governance Infrastructure
+  policies: "images/policies.png"
+  roles: "images/roles.png"
+  processes: "images/processes.png"
+
 links:
+  # Core Infrastructure
   repository_guide: "https://docs.github.com/en/repositories"
   security_guide: "https://docs.github.com/en/security"
+
+  # Workflow Infrastructure
+  ci_cd_guide: "https://docs.github.com/en/actions/guides"
+  test_guide: "https://docs.github.com/en/actions/guides/testing"
+
+  # Security Infrastructure
+  code_scanning_guide: "https://docs.github.com/en/code-security/code-scanning"
+  dependency_guide: "https://docs.github.com/en/code-security/dependabot"
+
+  # Environment Infrastructure
+  environments_guide: "https://docs.github.com/en/actions/deployment/targeting-different-environments"
+  deployment_guide: "https://docs.github.com/en/actions/deployment"
+
+  # Analytics Infrastructure
+  insights_guide: "https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository"
+  metrics_guide: "https://docs.github.com/en/enterprise-server@3.0/admin/configuration/configuring-github-connect"
+
+  # Community Infrastructure
+  discussions_guide: "https://docs.github.com/en/discussions"
+  wiki_guide: "https://docs.github.com/en/communities/documenting-your-project-with-wikis"
+
+  # Dependabot Infrastructure
+  dependabot_guide: "https://docs.github.com/en/code-security/dependabot"
+  security_updates_guide: "https://docs.github.com/en/code-security/dependabot/dependabot-security-updates"
+
+  # Projects Infrastructure
+  projects_guide: "https://docs.github.com/en/issues/planning-and-tracking-with-projects"
+  automation_guide: "https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project"
+
+  # Governance Infrastructure
+  policies_guide: "https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions"
+  roles_guide: "https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories"
 
 core:
   status: "partially_complete"
